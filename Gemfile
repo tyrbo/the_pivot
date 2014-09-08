@@ -11,6 +11,8 @@ group :development, :test do
 	gem 'aasm', '~> 3.3.3'
 end
 
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 gem "paperclip", "~> 4.1"
 gem "aws-sdk"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
