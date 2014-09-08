@@ -5,6 +5,7 @@ group :development, :test do
 	gem 'capybara'
 	gem 'sqlite3'
 	gem 'spring'
+  gem 'spring-commands-rspec'
 	gem 'pry'
   gem 'launchy'
 	gem 'aasm', '~> 3.3.3'
