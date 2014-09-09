@@ -22,12 +22,12 @@ Rails.application.routes.draw do
   post    '/cart/items'       => 'cart_items#create',       as: :cart_items
   delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
 
-  put     '/admin/retire/item'      => 'admin/retire_item#update'
+  put     '/supplier/retire/item'      => 'supplier/retire_item#update'
 
   get     '/about_us'          => 'about_us#index' 
 
-  namespace :admin do
-    resources :admin
+  namespace :supplier do
+    resources :supplier
     resources :items
     resources :categories
     resources :orders do
@@ -38,5 +38,5 @@ Rails.application.routes.draw do
     end
   end
 
-  match '/admin_dashboard',  to: 'admin/admin#show',  via: 'get'
+  match '/supplier_dashboard',  to: 'supplier/supplier#show',  via: 'get'
 end
