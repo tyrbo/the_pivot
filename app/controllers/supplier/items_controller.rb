@@ -1,7 +1,5 @@
-class Supplier::ItemsController < ApplicationController
-	before_action	:set_item, only: [:show, :edit, :update, :destroy, :retire]
-	before_action :authorize?, only: [:show, :create, :edit, :update, :destroy, :retire]
-
+class Supplier::ItemsController < SupplierController
+  before_action	:set_item, only: [:show, :edit, :update, :destroy, :retire]
 
   def new
     @item = Item.new
@@ -25,23 +23,23 @@ class Supplier::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.categories = Category.where(id: params[:item][:categories])
 
-		if @item.save
-			flash.notice = 'Item was successfully created.'
-			redirect_to supplier_item_path(@item)
-		else
-			render :new
-		end
-	end
+    if @item.save
+      flash.notice = 'Item was successfully created.'
+      redirect_to supplier_item_path(@item)
+    else
+      render :new
+    end
+  end
 
   def show
   end
 
 
-	def destroy
-		if @item.destroy
-			redirect_to supplier_items_path, notice: 'Item was successfully deleted.'
-		end
-	end
+  def destroy
+    if @item.destroy
+      redirect_to supplier_items_path, notice: 'Item was successfully deleted.'
+    end
+  end
 
 
   private
@@ -50,16 +48,11 @@ class Supplier::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-		def item_params
-			params.require(:item).permit(:title,
-																	:description,
-																	:price_pie,
-																	:picture,
-																	)
-		end
-
-		def authorize?
-			redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "supplier"
-		end
-
+  def item_params
+    params.require(:item).permit(:title,
+                                 :description,
+                                 :price_pie,
+                                 :picture,
+                                )
+  end
 end

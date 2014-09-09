@@ -1,6 +1,4 @@
-class Supplier::OrderItemsController < ApplicationController
-  #before_action :authorize?
-
+class Supplier::OrderItemsController < SupplierController
   def increment
     order_item = OrderItem.find(params[:id])
     @order     = Order.find(params[:order_id])

@@ -1,8 +1,8 @@
-class Supplier::RetireItemController < ApplicationController
-
+class Supplier::RetireItemController < SupplierController
   def update
     @item = Item.find(params[:id])
-    @item.update(retire: true)
-    redirect_to supplier_items_path(@item)
+    @item.retire ^= true
+    @item.save
+    redirect_to supplier_items_path
   end
 end

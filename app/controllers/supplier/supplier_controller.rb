@@ -1,12 +1,4 @@
-class Supplier::SupplierController < ApplicationController
-  before_action :authorize?
-
+class Supplier::SupplierController < SupplierController
   def show
   end
-
-  private
-
-    def authorize?
-      redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "supplier"
-    end
 end
