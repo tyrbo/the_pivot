@@ -30,6 +30,31 @@ describe 'a supplier viewing the category page', type: :feature do
     expect(page).to have_content('Cats')
   end
 
+  it 'shows how many items are associated with a category' do
+    login
+    category = Category.create(name:'Cats')
+    category.items.create(title:'items', description:'hihih')
+
+    page.click_link('Menu Category Managment')
+    within('.table') do
+      expect(page).to have_content('1')
+    end
+  end
+
+  it 'can view categories with items' do
+    login
+    category = Category.create(name:'Cats')
+    category.items.create(title:'items', description:'hihih')
+
+    page.click_link('Menu Category Managment')
+    within('.table') do
+      page.click_link('Cats')
+    end
+    expect(page.current_path).to eq('/categories/1')
+    expect(page).to have_content('items')
+    expect(page).to have_content('hihih')
+  end
+
   def create_category
     login
     page.click_link('Menu Category Managment')
@@ -58,17 +83,4 @@ describe 'a supplier viewing the category page', type: :feature do
     expect(page).to_not have_content('Cats')
   end
 
-  it 'can view categories with items' do
-    login
-    category = Category.create(name:'Cats')
-    category.items.create(title:'items', description:'hihih')
-
-    page.click_link('Menu Category Managment')
-    within('.table') do
-      page.click_link('Cats')
-    end
-    expect(page.current_path).to eq('/categories/1')
-    expect(page).to have_content('items')
-    expect(page).to have_content('hihih')
-  end
 end
