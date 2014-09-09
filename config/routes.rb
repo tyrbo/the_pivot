@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
-  resource :cart, only: [:show, :edit, :update]
+  resource :cart, only: [:show]
 
   namespace :supplier do
     resources :supplier

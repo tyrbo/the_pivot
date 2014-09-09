@@ -1,5 +1,5 @@
 class Supplier::ItemsController < SupplierController
-  before_action	:set_item, only: [:show, :edit, :update, :destroy, :retire]
+  before_action	:set_item, only: [:show, :edit, :update, :destroy]
 
   def new
     @item = Item.new
@@ -12,8 +12,7 @@ class Supplier::ItemsController < SupplierController
   def update
     if @item.update(item_params)
       @item.categories = Category.where(id: params[:item][:categories])
-      flash.notice = 'Item was successfully updated.'
-      redirect_to supplier_item_path(@item)
+      redirect_to supplier_item_path(@item), notice: 'Item was successfully updated.'
     else
       render :edit
     end
@@ -24,16 +23,11 @@ class Supplier::ItemsController < SupplierController
     @item.categories = Category.where(id: params[:item][:categories])
 
     if @item.save
-      flash.notice = 'Item was successfully created.'
-      redirect_to supplier_item_path(@item)
+      redirect_to supplier_item_path(@item), notice: 'Item was successfully created.'
     else
       render :new
     end
   end
-
-  def show
-  end
-
 
   def destroy
     if @item.destroy

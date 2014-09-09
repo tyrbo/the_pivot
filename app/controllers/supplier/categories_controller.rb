@@ -9,37 +9,26 @@ class Supplier::CategoriesController < SupplierController
     @category = Category.all
   end
 
-  def show
-  end
-
-  def edit
-  end
-
   def create
     @category = Category.new(category_params)
 
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to supplier_category_path(category), notice: 'Category was succesfully created.'}
-      else
-        format.html { render :new }
-      end
+    if @category.save
+      redirect_to supplier_category_path(category), notice: 'Category was succesfully created.'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to supplier_category_path(@category), notice: 'Category was successfully updated.'}
-      else
-        format.html { render :edit }
-      end
+    if @category.update(category_params)
+      redirect_to supplier_category_path(@category), notice: 'Category was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @category.destroy
-
     redirect_to supplier_category_path
   end
 

@@ -1,17 +1,14 @@
 class Supplier::OrdersController < SupplierController
-  before_action	:set_order,   only: [:show, :edit, :update, :destroy, :cancel, :pay, :complete]
+  before_action	:set_order, only: [:show, :edit, :update, :destroy, :cancel, :pay, :complete]
 
   def index
     @status_counts = Order.status_counts
-    @all_count     = Order.all.count
+    @all_count     = Order.count
     if params[:filter]
       @orders = Order.where(order_status: params[:filter])
     else
       @orders = Order.all
     end
-  end
-
-  def show
   end
 
   def cancel
