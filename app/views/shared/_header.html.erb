@@ -41,7 +41,7 @@
                 <li><%= link_to 'Your Order History', current_user %></li>
                 <% if current_user != nil && current_user.role == 'admin' %>
                   <li>
-                    <%= link_to 'Admin Dashboard', admin_dashboard_path %>
+                    <%= link_to 'Admin Dashboard', supplier_dashboard_path %>
                   </li>
                 <% end %>
                 <% if signed_in? %>

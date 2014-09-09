@@ -17,7 +17,6 @@ describe 'a supplier viewing the items page', type: :feature do
       page.fill_in('session[email]',    with: user.email)
       page.fill_in('session[password]', with: 'password')
       page.click_button('Sign in')
-      save_and_open_page
       expect(page.current_path).to eq(supplier_dashboard_path)
     end
 
