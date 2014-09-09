@@ -12,16 +12,20 @@ class Supplier::ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      @item.categories = Category.where(id: params[:item][:categories])
+      flash.notice = 'Item was successfully updated.'
+      redirect_to supplier_item_path(@item)
+    else
+      render :edit
+    end
   end
-
-
 
   def create
     @item = Item.new(item_params)
+    @item.categories = Category.where(id: params[:item][:categories])
 
 		if @item.save
-			@item.categories_list(params['item']['categories'])
 			flash.notice = 'Item was successfully created.'
 			redirect_to supplier_item_path(@item)
 		else
@@ -51,7 +55,6 @@ class Supplier::ItemsController < ApplicationController
 																	:description,
 																	:price_pie,
 																	:picture,
-																	:retire
 																	)
 		end
 

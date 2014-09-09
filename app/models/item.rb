@@ -24,15 +24,7 @@ class Item < ActiveRecord::Base
 
   def categories_list(category_list)
     if category_list
-      valid_categories = category_list.reject do |cat|
-        cat.empty?
-      end
-
-      new_or_found_categories = valid_categories.map do |name|
-        Category.find_or_create_by(name: name)
-      end
-
-      self.categories = new_or_found_categories
+      self.categories = category_list
     end
   end
 

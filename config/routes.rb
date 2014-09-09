@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post    '/cart/items'       => 'cart_items#create',       as: :cart_items
   delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
 
-  put     '/supplier/retire/item'      => 'supplier/retire_item#update'
+  put     '/supplier/retire/:id' => 'supplier/retire_item#update', as: :supplier_retire_item
 
   get     '/about_us'          => 'about_us#index' 
 
