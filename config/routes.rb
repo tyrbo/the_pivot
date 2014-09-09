@@ -4,27 +4,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :orders, only: [:create, :show]
-  resource :cart, only: [:show, :edit, :update]
-
-  patch 'supplier/order/:id/cancel' => 'supplier/orders#cancel',   as: :cancel_order
-  patch 'supplier/pay/:id/pay'      => 'supplier/orders#pay',      as: :pay_order
-  patch 'supplier/pay/:id/complete' => 'supplier/orders#complete', as: :complete_order
-
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: 'users#new',        via: 'get'
-  match '/signin',  to: 'sessions#new',     via: 'get'
-  match '/signout', to: 'sessions#destroy', via: 'delete'
-
-  get     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
-
-  post    '/cart/items'       => 'cart_items#create',       as: :cart_items
-  delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
-
-  put     '/supplier/retire/:id' => 'supplier/retire_item#update', as: :supplier_retire_item
-
-  get     '/about_us'          => 'about_us#index' 
+  resource :cart, only: [:show, :edit, :update]
 
   namespace :supplier do
     resources :supplier
@@ -36,7 +19,21 @@ Rails.application.routes.draw do
         get :decrement, on: :member
       end
     end
+
+    patch 'order/:id/cancel' => 'orders#cancel',   as: :cancel_order
+    patch 'pay/:id/pay'      => 'orders#pay',      as: :pay_order
+    patch 'pay/:id/complete' => 'orders#complete', as: :complete_order
+    put 'retire/:id' => 'retire_item#update', as: :retire_item
   end
 
+  match '/signup',  to: 'users#new',        via: 'get'
+  match '/signin',  to: 'sessions#new',     via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/supplier_dashboard',  to: 'supplier/supplier#show',  via: 'get'
+
+  get     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
+  get     '/about_us'          => 'about_us#index' 
+
+  post    '/cart/items'       => 'cart_items#create',       as: :cart_items
+  delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
 end
