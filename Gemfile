@@ -5,10 +5,13 @@ group :development, :test do
 	gem 'capybara'
 	gem 'sqlite3'
 	gem 'spring'
+  gem 'spring-commands-rspec'
 	gem 'pry'
   gem 'launchy'
 	gem 'aasm', '~> 3.3.3'
 end
+
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 gem "paperclip", "~> 4.1"
 gem "aws-sdk"

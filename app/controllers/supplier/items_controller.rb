@@ -2,22 +2,23 @@ class Supplier::ItemsController < ApplicationController
 	before_action	:set_item, only: [:show, :edit, :update, :destroy, :retire]
 	before_action :authorize?, only: [:show, :create, :edit, :update, :destroy, :retire]
 
-	def new
-		@item = Item.new
-	end
 
-	def index
-		@items = Item.all
-	end
+  def new
+    @item = Item.new
+  end
 
- def update
-		@item = Item.find(params[:id])
- end
+  def index
+    @items = Item.all
+  end
+
+  def update
+    @item = Item.find(params[:id])
+  end
 
 
 
-	def create
-		@item = Item.new(item_params)
+  def create
+    @item = Item.new(item_params)
 
 		if @item.save
 			@item.categories_list(params['item']['categories'])
@@ -28,8 +29,8 @@ class Supplier::ItemsController < ApplicationController
 		end
 	end
 
-	def show
-	end
+  def show
+  end
 
 
 	def destroy
@@ -38,11 +39,12 @@ class Supplier::ItemsController < ApplicationController
 		end
 	end
 
-	private
 
-		def set_item
-			@item = Item.find(params[:id])
-		end
+  private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
 		def item_params
 			params.require(:item).permit(:title,
@@ -56,4 +58,5 @@ class Supplier::ItemsController < ApplicationController
 		def authorize?
 			redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "supplier"
 		end
+
 end

@@ -21,7 +21,7 @@ class Supplier::CategoriesController < ApplicationController
 
 		respond_to do |format|
 			if @category.save
-				format.html { redirect_to admin_category_path(category), notice: 'Category was succesfully created.'}
+				format.html { redirect_to supplier_category_path(category), notice: 'Category was succesfully created.'}
 			else
 				format.html { render :new }
 			end
@@ -31,7 +31,7 @@ class Supplier::CategoriesController < ApplicationController
 	def update
 		respond_to do |format|
 			if @category.update(category_params)
-				format.html { redirect_to admin_category_path(@category), notice: 'Category was successfully updated.'}
+				format.html { redirect_to supplier_category_path(@category), notice: 'Category was successfully updated.'}
 			else
 				format.html { render :edit }
 			end
@@ -41,7 +41,7 @@ class Supplier::CategoriesController < ApplicationController
 	def destroy
 		@category.destroy
 
-		redirect_to admin_categories_path
+		redirect_to supplier_category_path
 	end
 
 	private

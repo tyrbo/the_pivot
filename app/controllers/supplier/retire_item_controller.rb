@@ -1,4 +1,5 @@
 class Supplier::RetireItemController < ApplicationController
+
   def update
     @item = Item.find(params[:format])
     @item.update(retire: true)
