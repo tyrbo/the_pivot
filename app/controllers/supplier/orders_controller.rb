@@ -18,19 +18,19 @@ class Supplier::OrdersController < ApplicationController
   def cancel
     @order.order_status = "cancelled"
     @order.save
-    redirect_to admin_order_path(@order)
+    redirect_to supplier_order_path(@order)
   end
 
   def pay
     @order.order_status = "paid"
     @order.save
-    redirect_to admin_order_path(@order)
+    redirect_to supplier_order_path(@order)
   end
 
   def complete
     @order.order_status = 'completed'
     @order.save
-    redirect_to admin_order_path(@order)
+    redirect_to supplier_order_path(@order)
   end
 
   private

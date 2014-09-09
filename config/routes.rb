@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :show]
   resource :cart, only: [:show, :edit, :update]
 
-  patch 'admin/order/:id/cancel' => 'admin/orders#cancel',   as: :cancel_order
-  patch 'admin/pay/:id/pay'      => 'admin/orders#pay',      as: :pay_order
-  patch 'admin/pay/:id/complete' => 'admin/orders#complete', as: :complete_order
+  patch 'supplier/order/:id/cancel' => 'supplier/orders#cancel',   as: :cancel_order
+  patch 'supplier/pay/:id/pay'      => 'supplier/orders#pay',      as: :pay_order
+  patch 'supplier/pay/:id/complete' => 'supplier/orders#complete', as: :complete_order
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
