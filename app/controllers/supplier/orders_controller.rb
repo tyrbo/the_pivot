@@ -1,4 +1,4 @@
-class Admin::OrdersController < ApplicationController
+class Supplier::OrdersController < ApplicationController
   before_action	:set_order,   only: [:show, :edit, :update, :destroy, :cancel, :pay, :complete]
   before_action :authorize?,  only: [:index, :edit, :update, :destroy, :cancel, :pay, :complete]
 
@@ -48,6 +48,6 @@ class Admin::OrdersController < ApplicationController
     end
 
     def authorize?
-      redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "admin"
+      redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "supplier"
     end
 end

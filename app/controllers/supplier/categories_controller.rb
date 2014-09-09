@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Supplier::CategoriesController < ApplicationController
 	before_action	:set_category, 	only: [:show, :edit, :update, :destroy]
 	before_action :authorize?, 		only: [:show, :create, :edit, :update, :destroy]
 
@@ -55,6 +55,6 @@ class Admin::CategoriesController < ApplicationController
 		end
 
 		def authorize?
-			redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "admin"
+			redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "supplier"
 		end
 end

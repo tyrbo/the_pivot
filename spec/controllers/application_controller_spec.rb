@@ -9,16 +9,13 @@ RSpec.describe ApplicationController, type: :controller do
 
   describe 'carts' do
     it 'creates me a cart if I don\'t have one' do
-      # no cart
       expect(session[:cart_id]).to be_nil
 
-      # give me a cart
       get :index
       expected_id = Cart.count
       expect(session[:cart_id]).to eq expected_id
       expect(Cart.find expected_id).to be_a_kind_of Cart
 
-      # don't swap out my cart, yo!
       get :index
       expect(session[:cart_id]).to eq expected_id
       expect(Cart.count).to eq expected_id

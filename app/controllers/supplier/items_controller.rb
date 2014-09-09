@@ -1,4 +1,4 @@
-class Admin::ItemsController < ApplicationController
+class Supplier::ItemsController < ApplicationController
 	before_action	:set_item, only: [:show, :edit, :update, :destroy, :retire]
 	before_action :authorize?, only: [:show, :create, :edit, :update, :destroy, :retire]
 
@@ -22,7 +22,7 @@ class Admin::ItemsController < ApplicationController
 		if @item.save
 			@item.categories_list(params['item']['categories'])
 			flash.notice = 'Item was successfully created.'
-			redirect_to admin_item_path(@item)
+			redirect_to supplier_item_path(@item)
 		else
 			render :new
 		end
@@ -34,7 +34,7 @@ class Admin::ItemsController < ApplicationController
 
 	def destroy
 		if @item.destroy
-			redirect_to admin_items_path, notice: 'Item was successfully deleted.'
+			redirect_to supplier_items_path, notice: 'Item was successfully deleted.'
 		end
 	end
 
@@ -54,6 +54,6 @@ class Admin::ItemsController < ApplicationController
 		end
 
 		def authorize?
-			redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "admin"
+			redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "supplier"
 		end
 end
