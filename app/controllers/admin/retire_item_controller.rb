@@ -1,4 +1,4 @@
-class Admin::RetireItemController < ApplicationController
+class Admin::RetireItemController < AdminController
   def update
     @item = Item.find(params[:format])
     @item.update(retire: true)
