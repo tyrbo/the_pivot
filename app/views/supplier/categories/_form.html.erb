@@ -1,7 +1,7 @@
-<%= form_for(@category) do |f| %>
+<%= form_for([:supplier, @category], :html => { :class => "form-horizontal"}) do |f| %>
   <%= render partial: "shared/error_messages", locals: { obj: @category } %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
