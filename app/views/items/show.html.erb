@@ -1,56 +1,36 @@
 <div class="modal-header">
-  <h4 class="modal-title"><%= @item.title %></h4>
+<h4 class="modal-title"><%= @item.title %></h4>
 </div>
 <div class="modal-body">
-  <p><%= @item.price_pie %></p>
-  <p><%= @item.description %>&hellip;</p>
-  <p><%= image_tag("#{@item.title}.png") %></p>
-  <p>
-    <% if @item.picture_file_name != nil %>
-      <%= image_tag @item.picture.url %>
-    <% end %>
-  </p>
-</div>
-<% if @item.retire == false || @item.retire == 'f'  %>
-  <div class="modal-footer">
-    <a href="<%= add_to_cart_path(item_id: @item.id) %>"%>ADD TO CART</a>
-  </div>
-<% else %>
-  <div class="modal-footer">
-    <h4>SORRY This item is really old and has retired!</h4>
-  <div>
-<% end %>
+<p><%= @item.price_pie %></p>
+<p><%= @item.description %>&hellip;</p>
+<p><%= image_tag("#{@item.title}.png") %></p>
+<p>
+<% if @item.picture_file_name != nil %>
+       <%= image_tag @item.picture.url %>
+     <% end %>
+     </p>
+     </div>
+     <% if @item.retire == false || @item.retire == 'f'  %>
+            <div class="modal-footer">
+          </div>
+        <% else %>
+          <div class="modal-footer">
+            <h4>SORRY This item is really old and has retired!</h4>
+            <div>
+            <% end %>
 
-<!-- <%= render :partial => "shared/header" %>
+            <%= form_tag(add_to_cart_path) do %>
+              <input type="hidden" name="item_id" value="<%= @item.id %>">
+              <div class="col-md-6">
+                <div class="input-group">
+                  <span class="input-group-addon">Qty</span>
+                  <input type="text" class="form-control" name="quantity" value="1">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <%= button_tag 'Add To Cart', class: 'btn btn-primary' %>
+              </div>
+            <% end %>
 
-<h1 class='pie_title'><%= @item.title %></h1>
-
-
-<a class="btn btn-primary" href="<%= add_to_cart_path(item_id: @item.id) %>"%>ADD TO CART</a>
-<table class="table">
-	<thead>
-		<tr>
-			<th>Pie Name:</th>
-			<th>Description:</th>
-			<th>Price/Pie:</th>
-			<th>Categories:</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-			<td class='pie_title'><%= @item.title %></td>
-			<td class='pie_description'><%= @item.description %></td>
-			<td class='pie_price'><%= @item.price_pie %></td>
-			<td class='pie_category'>|
-				<% @item.categories.each do |category| %>
-					<%= link_to category.name, category_path(category) %> |
-				<% end %>
-			</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<%= link_to 'Back to Menu', items_path %> -->
+            <%= link_to 'Back to Menu', items_path %> -->

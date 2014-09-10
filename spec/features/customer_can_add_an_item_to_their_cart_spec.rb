@@ -11,7 +11,7 @@ describe 'a user viewing the items page', type: :feature do
   context 'Unauthenticated Customer' do
     it 'adds item' do
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       visit cart_path
       expect(page).to have_content(1)
       expect(page).to have_content(item_name)
@@ -20,9 +20,9 @@ describe 'a user viewing the items page', type: :feature do
 
     it 'adds two of the same item' do
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       visit cart_path
       expect(page).to have_content(item_name)
       expect(page).to have_content(68)
@@ -31,18 +31,18 @@ describe 'a user viewing the items page', type: :feature do
 
     it 'has two of the same item and item name only appears once' do
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit cart_path
       expect(page).to_not have_css('.pie_title:nth-of-type(2)')
     end
 
     it 'displays correct price for many items' do
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit item_path(apple)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       visit cart_path
       expect(page).to have_content(item_name)
       expect(page).to have_content(34)
@@ -52,19 +52,19 @@ describe 'a user viewing the items page', type: :feature do
 
     it 'has the correct count for each item' do
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit item_path(apple)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit item_path(apple)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit cart_path
     end
 
     it 'can find the total price of an order' do
       page.visit item_path(keylime)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       page.visit item_path(apple)
-      page.click_on('ADD TO CART')
+      page.click_on('Add To Cart')
       visit cart_path
       expect(page).to have_content(63)
     end

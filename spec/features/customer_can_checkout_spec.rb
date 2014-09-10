@@ -17,7 +17,7 @@ describe 'A user with a cart & items', type: :feature do
 
   def add_to_cart
     page.visit item_path(keylime)
-    page.click_on('ADD TO CART')
+    page.click_on('Add To Cart')
     visit cart_path
   end
 
