@@ -1,57 +1,42 @@
-  <div class='container-fluid'>
-	  <div class='row'>
-			<div class='menu_spacing'>
-				<% @items.each do |item| %>
-			  	<div class='pie_picture'>
+<% @categories.each do |category| %>
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= category.name %></h1>
+    </div>
+  </div>
+  <% category.items.each_slice(4) do |slice| %>
+    <div class="row">
+      <% slice.each do |item| %>
+        <div class="col-md-3">
+          <div class="thumbnail">
             <% if item.picture_file_name != nil %>
               <%= image_tag item.picture.url, :class => "img-circle" %>
             <% else %>
               <%= image_tag("#{item.title}.png", :class => "img-circle") %>
             <% end %>
-						<div class='pie_title'>
-							<a data-toggle="modal" data-target=<%= "##{item.id}" %>>
-                <div class= 'titlePriceStyle'><%= item.title %>  |  <%= item.price_pie %></div>
-              </a>
-						</div>
-					</div>
-				<% end %>
-			</div>
-		</div>
-	</div>
 
-
-	<% @items.each do |item| %>
-		<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" id=<%= "#{item.id}" %>>
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title"><%= item.title %></h4>
-						<h5>$<%= item.price_pie %></h5>
-					</div>
-					<div class="modal-body">
-						<p>
-							Description:
-							<%= item.description %>&hellip;
-						</p>
-						<p>
-							Categories:
-              <%= item.categories.map(&:name).join(" | ") %>
-						</p>
-
-            <p>
-              <% if item.picture_file_name != nil %>
-                <%= image_tag item.picture.url %>
-              <% else %>
-                <%= image_tag("#{item.title}.png") %>
-              <% end %>
-            </p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<a href="<%= add_to_cart_path(item_id: item.id) %>">ADD TO CART</a>
-					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-	<% end %>
+            <div class="caption">
+              <h3><%= link_to item.title, item_path(item) %></h3>
+              <p><%= item.description %></p>
+              <p><%= item.price_pie %></p>
+              <div class="row">
+                <%= form_tag(add_to_cart_path) do %>
+                  <input type="hidden" name="item_id" value="<%= item.id %>">
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-addon">Qty</span>
+                      <input type="text" class="form-control" name="quantity" value="1">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <%= button_tag 'Add To Cart', class: 'btn btn-primary' %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
