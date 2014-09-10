@@ -1,5 +1,11 @@
 <% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name %>
+  <% if current_user && current_user.role == 'provider' %>
+    <div id='provider-thanks'>
+      <%= content_tag :div, msg, class: name %>
+    </div>
+  <% else %>
+    <%= content_tag :div, msg, class: name %>
+  <% end %>
 <% end -%>
 <div class="navbar-wrapper">
   <div class="container">

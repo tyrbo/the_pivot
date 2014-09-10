@@ -16,6 +16,8 @@ class UsersController < ApplicationController
       sign_in @user
       if @user.role == 'supplier'
         flash[:success] = 'Thanks, your request is pending!'
+      elsif @user.role == 'provider'
+        flash[:success] = 'Thanks, for registering!'
       end
       redirect_to root_path
     else
