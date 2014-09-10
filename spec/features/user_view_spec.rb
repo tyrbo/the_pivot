@@ -9,7 +9,7 @@ describe 'user view', type: :feature do
 
   context 'unregistered user' do
     it 'unregistered user can register as supplier' do
-      click_link_or_button('Register')
+      click_link_or_button('Sign Up')
       fill_in("Full name", with: "John Doe")
       fill_in("Email", with: "redcross@example.com")
       fill_in("Display name", with: "redcross@example.com")
