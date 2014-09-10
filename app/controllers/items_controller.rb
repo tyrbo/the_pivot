@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 	def index
-		@items = (Item.not_retired_too + Item.not_retired)
+    @categories = Category.eager_load(:items).all
 	end
 
   def show
