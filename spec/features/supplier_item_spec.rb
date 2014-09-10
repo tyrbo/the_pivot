@@ -17,7 +17,7 @@ describe 'a supplier viewing the items page', type: :feature do
       page.fill_in('session[email]',    with: user.email)
       page.fill_in('session[password]', with: 'password')
       page.click_button('Sign in')
-      expect(page.current_path).to eq(supplier_dashboard_path)
+      expect(page.current_path).to eq(supplier_path)
     end
 
     def login
@@ -28,7 +28,7 @@ describe 'a supplier viewing the items page', type: :feature do
     end
 
     it 'can show an item' do
-      item = Item.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
+      item = user.items.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
                           description: "yummy")
       login
       page.click_link('Menu Item Management')
@@ -36,8 +36,15 @@ describe 'a supplier viewing the items page', type: :feature do
       expect(page.current_path).to eq('/supplier/items/1')
     end
 
+    it 'can only see items that belongs to self' do
+      item = Item.create(title: 'Bandages', inventory: 6, price_pie: 10, description: 'To stop bleeding')
+      login
+      visit supplier_items_path
+      expect(page).to_not have_content item.title
+    end
+
     it 'can destroy an item' do
-      item = Item.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
+      item = user.items.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
                           description: "yummy")
 
       login
@@ -58,10 +65,11 @@ describe 'a supplier viewing the items page', type: :feature do
       click_on('Save Changes')
       expect(page).to have_content('Pie Name')
       expect(page).to have_content('Item')
+      expect(Item.last.user_id).to eq user.id
     end
 
     it 'can edit an item' do
-      item = Item.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
+      item = user.items.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
                           description: "yummy")
       login
       page.click_link('Menu Item Management')
@@ -74,7 +82,7 @@ describe 'a supplier viewing the items page', type: :feature do
     end
 
     it 'can retire an item' do
-      item = Item.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
+      item = user.items.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
                           description: "yummy")
       login
       page.click_link('Menu Item Management')
@@ -84,7 +92,7 @@ describe 'a supplier viewing the items page', type: :feature do
     end
 
     it 'can unretire an item' do
-      item = Item.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
+      item = user.items.create!(title: "Cami's", inventory: 12, price_pie: 30.99,
                           description: "yummy")
       login
       page.click_link('Menu Item Management')

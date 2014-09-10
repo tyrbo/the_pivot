@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :orders
+  has_many :items
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

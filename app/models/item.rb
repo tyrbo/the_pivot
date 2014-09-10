@@ -4,8 +4,6 @@ class Item < ActiveRecord::Base
   validates :title,       presence: true, uniqueness: true
   validates :description, presence: true
 
-
-
   has_many  :categorizations
   has_many  :categories, through: :categorizations
 
@@ -13,6 +11,8 @@ class Item < ActiveRecord::Base
   has_many  :orders, through: :order_items
   has_many  :cart_items
   has_many  :carts, through: :cart_items
+
+  belongs_to :user
 
   scope :not_retired, -> { where(retire: 'false') }
   scope :not_retired_too, -> { where(retire: 'f') }

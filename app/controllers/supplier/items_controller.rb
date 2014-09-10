@@ -6,7 +6,7 @@ class Supplier::ItemsController < SupplierController
   end
 
   def index
-    @items = Item.all
+    @items = current_user.items.all
   end
 
   def update
@@ -19,7 +19,7 @@ class Supplier::ItemsController < SupplierController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = current_user.items.new(item_params)
     @item.categories = Category.where(id: params[:item][:categories])
 
     if @item.save
@@ -39,7 +39,10 @@ class Supplier::ItemsController < SupplierController
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
+    unless @item
+      redirect_to root_path, notice: 'You can\'t access that resource.'
+    end
   end
 
   def item_params

@@ -62,7 +62,7 @@ describe 'a supplier viewing the category page', type: :feature do
     expect(page).to have_field('category_name')
     fill_in('category[name]', with: 'Cats')
     page.click_on('Save Changes')
-    visit '/supplier_dashboard'
+    visit supplier_path
   end
 
   it 'can edit a category' do
