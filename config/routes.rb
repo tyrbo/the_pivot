@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   namespace :supplier do
     resources :supplier
     resources :items
-    resources :categories
     resources :orders do
       resources :order_items do
         get :increment, on: :member

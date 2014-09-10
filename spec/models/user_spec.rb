@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
+  it { should have_many(:items) }
+
   let(:user) do
     User.create(:full_name => "George Brett",
                 :email => "brett@example.com",

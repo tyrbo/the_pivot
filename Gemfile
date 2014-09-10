@@ -11,6 +11,10 @@ group :development, :test do
 	gem 'aasm', '~> 3.3.3'
 end
 
+group :test do
+  gem 'shoulda-matchers', require: false
+end
+
 gem "codeclimate-test-reporter", group: :test, require: nil
 
 gem "paperclip", "~> 4.1"
