@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       if user.role == 'supplier'
         redirect_to supplier_dashboard_path
       else
-        redirect_to user
+        redirect_to items_path
       end
     else
       flash.now[:error] = 'Invalid email/password combination'
