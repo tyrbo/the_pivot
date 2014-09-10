@@ -29,6 +29,11 @@ class Supplier::OrdersController < SupplierController
     redirect_to supplier_order_path(@order)
   end
 
+  def destroy
+    @order.destroy
+    redirect_to supplier_orders_path
+  end
+
   private
 
   def set_order
