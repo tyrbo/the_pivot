@@ -14,7 +14,9 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      flash[:sucess] = 'Welcome!'
+      if params[:user][:role] == 'supplier'
+        flash[:success] = 'Thanks, your request is pending!'
+      end
       redirect_to @user
     else
       render 'new'
