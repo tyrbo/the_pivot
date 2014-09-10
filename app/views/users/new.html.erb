@@ -26,6 +26,10 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
+      <%= f.label :supplier %>
+      <%= f.radio_button :role, :supplier %>
+      <%= f.label :provider %>
+      <%= f.radio_button :role, :provider %>
     <div class="actions">
       <%= f.submit value="Create Account", class: "btn btn-primary" %>
     </div>
