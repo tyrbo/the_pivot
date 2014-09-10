@@ -13,7 +13,7 @@ class Supplier::CategoriesController < SupplierController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to supplier_category_path(category), notice: 'Category was succesfully created.'
+      redirect_to supplier_category_path(@category), notice: 'Category was succesfully created.'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Supplier::CategoriesController < SupplierController
 
   def destroy
     @category.destroy
-    redirect_to supplier_category_path
+    redirect_to supplier_categories_path
   end
 
   private

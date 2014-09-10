@@ -54,4 +54,41 @@ RSpec.describe Order, :type => :model do
     expect(Order.all_count).to eq(3)
   end
 
+  it 'knows if its delivery' do
+    order = Order.create(order_status: Order::Status::PAID, user_id: 1, order_total: 23, order_type: "delivery")
+    expect(order.delivery?).to eq(true)
+  end
+
+  it 'knows if its cancelled' do
+    order = Order.create(order_status: Order::Status::CANCELLED, user_id: 1, order_total: 23, order_type: "delivery")
+    expect(order.cancelled?).to eq(true)
+  end
+
+  it 'knows if its ordered' do
+    order = Order.create(order_status: Order::Status::ORDERED, user_id: 1, order_total: 23, order_type: "delivery")
+    expect(order.ordered?).to eq(true)
+  end
+
+  it 'knows if its paid' do
+    order = Order.create(order_status: Order::Status::PAID, user_id: 1, order_total: 23, order_type: "delivery")
+    expect(order.paid?).to eq(true)
+  end
+
+  it 'knows if its complete' do
+    order = Order.create(order_status: Order::Status::COMPLETED, user_id: 1, order_total: 23, order_type: "delivery")
+    expect(order.complete?).to eq(true)
+  end
+
+  it 'has item quantity' do
+    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price_pie: 28.00)
+
+    expect(order.item_quantity(140)).to eq(1)
+  end
+
+  it 'calculates a subtotal' do
+    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price_pie: 28.00)
+
+    expect(order.subtotal(140)).to eq(28.0)
+  end
+
 end
