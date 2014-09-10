@@ -19,14 +19,18 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def user_has_a_cart
-      return if session[:cart_id]
-      reset_session
-      cart = Cart.create!
-      session[:cart_id] = cart.id
-    end
+  def user_has_a_cart
+    return if session[:cart_id]
+    reset_session
+    cart = Cart.create!
+    session[:cart_id] = cart.id
+  end
 
-    def cart_count
-      @cart_count = cart.items.count
-    end
+  def cart_count
+    @cart_count = cart.items.count
+  end
+
+  def must_be_user!
+    redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user
+  end
 end

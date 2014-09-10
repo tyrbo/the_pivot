@@ -16,13 +16,13 @@
 					<td><%= link_to category.name, category %></td>
 					<td><%= category.items.count %></td>
 					<td>
-						<%= link_to 'Edit', edit_admin_category_path(category) %><br/>
-						<%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
+						<%= link_to 'Edit', edit_supplier_category_path(category) %><br/>
+						<%= link_to 'Destroy', supplier_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
 					</td>
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
 
-	<%= link_to 'Create a New Category', new_admin_category_path %>
+	<%= link_to 'Create a New Category', new_supplier_category_path %>
 </div>

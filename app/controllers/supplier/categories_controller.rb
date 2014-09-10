@@ -1,60 +1,44 @@
-class Supplier::CategoriesController < ApplicationController
-	before_action	:set_category, 	only: [:show, :edit, :update, :destroy]
-	before_action :authorize?, 		only: [:show, :create, :edit, :update, :destroy]
+class Supplier::CategoriesController < SupplierController
+  before_action	:set_category, 	only: [:show, :edit, :update, :destroy]
 
-	def new
-		@category = Category.new
-	end
+  def new
+    @category = Category.new
+  end
 
-	def index
-		@category = Category.all
-	end
+  def index
+    @category = Category.all
+  end
 
-	def show
-	end
+  def create
+    @category = Category.new(category_params)
 
-	def edit
-	end
+    if @category.save
+      redirect_to supplier_category_path(@category), notice: 'Category was succesfully created.'
+    else
+      render :new
+    end
+  end
 
-	def create
-		@category = Category.new(category_params)
+  def update
+    if @category.update(category_params)
+      redirect_to supplier_category_path(@category), notice: 'Category was successfully updated.'
+    else
+      render :edit
+    end
+  end
 
-		respond_to do |format|
-			if @category.save
-				format.html { redirect_to supplier_category_path(category), notice: 'Category was succesfully created.'}
-			else
-				format.html { render :new }
-			end
-		end
-	end
+  def destroy
+    @category.destroy
+    redirect_to supplier_categories_path
+  end
 
-	def update
-		respond_to do |format|
-			if @category.update(category_params)
-				format.html { redirect_to supplier_category_path(@category), notice: 'Category was successfully updated.'}
-			else
-				format.html { render :edit }
-			end
-		end
-	end
+  private
 
-	def destroy
-		@category.destroy
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
-		redirect_to supplier_category_path
-	end
-
-	private
-
-		def set_category
-			@category = Category.find(params[:id])
-		end
-
-		def category_params
-			params.require(:category).permit(:name)
-		end
-
-		def authorize?
-			redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.role == "supplier"
-		end
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end

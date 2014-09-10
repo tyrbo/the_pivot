@@ -68,4 +68,18 @@ RSpec.describe Item, :type => :model do
     result = item.orders
     expect(result.count).to eq(2)
   end
+
+  it 'lists its categories' do
+    item.categories.create(
+    id: 10,
+    name: "Savory"
+    )
+    item.categories.create(
+      id: 12,
+      name: "Gluten-free"
+    )
+
+    expect(item.category_names).to eq('Savory, Gluten-free')
+  end
+
 end

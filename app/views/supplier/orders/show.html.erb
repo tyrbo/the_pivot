@@ -62,8 +62,8 @@
           <% item_id = order_item.item_id %>
           <td>
             <%= quantity = @order.order_items.select { |order_item| order_item.item_id == item_id }.count%>
-            <%= link_to "+", increment_admin_order_order_item_path(@order, order_item) %>
-            <%= link_to "-", decrement_admin_order_order_item_path(@order, order_item) %>
+            <%= link_to "+", increment_supplier_order_order_item_path(@order, order_item) %>
+            <%= link_to "-", decrement_supplier_order_order_item_path(@order, order_item) %>
           </td>
           <td><%= quantity * order_item.item.price_pie %></td>
         </tr>
@@ -73,19 +73,14 @@
   </table>
 
   <div>
-  <% if @order.ordered? %>
-    <%= link_to 'Cancel Order', cancel_order_path(@order), method: :patch %> |
-  <% end %>
-  <% if @order.ordered? %>
-    <%= link_to 'Mark As Paid', pay_order_path(@order), method: :patch %> |
-  <% end %>
-  <% if @order.paid? %>
-    <%= link_to 'Cancel Order', cancel_order_path(@order), method: :patch %> |
-  <% end %>
-  <% if @order.paid? %>
-    <%= link_to 'Mark As Completed', complete_order_path(@order), method: :patch %> |
-  <% end %>
+    <%= link_to 'Cancel Order', supplier_cancel_order_path(@order), method: :patch %> |
 
-  <%= link_to 'Back to Orders Index', admin_orders_path %>
+    <% if @order.ordered? %>
+      <%= link_to 'Mark As Paid', supplier_pay_order_path(@order), method: :patch %> |
+    <% elsif @order.paid? %>
+      <%= link_to 'Mark As Completed', supplier_complete_order_path(@order), method: :patch %> |
+    <% end %>
+
+    <%= link_to 'Back to Orders Index', supplier_orders_path %>
   </div>
 </div>

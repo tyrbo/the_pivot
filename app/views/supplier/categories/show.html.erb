@@ -11,7 +11,7 @@
 					<td><%= @category.name %></td>
 					<td>
 						<% @category.items.each do |item| %>|
-							<%= link_to item.title, admin_item_path(item) %> |
+							<%= link_to item.title, supplier_item_path(item) %> |
 						<% end %>
 					</td>
 				</tr>
@@ -19,5 +19,5 @@
 		</thead>
 	</table>
 
-	<%= link_to 'All Categories', admin_categories_path %>
+	<%= link_to 'All Categories', supplier_categories_path %>
 </div>

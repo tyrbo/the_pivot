@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user,   only: [:show]
-  before_action :authorize?, only: [:show]
-
   def show
+    must_be_user!
+    @user = User.find(current_user.id)
   end
 
   def new
@@ -26,10 +25,6 @@ class UsersController < ApplicationController
 
   private
 
-  def authorize?
-    redirect_to "https://www.youtube.com/watch?v=Jvk7faxsxkQ" unless current_user.id == @user.id
-  end
-
   def set_user
     @user = User.find(params[:id])
   end
@@ -41,6 +36,6 @@ class UsersController < ApplicationController
                                  :role,
                                  :password,
                                  :password_confirmation
-                                 )
+                                )
   end
 end

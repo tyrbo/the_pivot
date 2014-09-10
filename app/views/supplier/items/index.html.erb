@@ -21,7 +21,7 @@
 						<%= link_to 'Show', supplier_item_path(item) %> |
 						<%= link_to 'Edit', edit_supplier_item_path(item) %> |
 	      		<%= link_to 'Destroy', supplier_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %> |
-						<%= link_to 'Retire', supplier_retire_item_path(item), method: :put, data: { confirm: 'Are you sure?' } %>
+						<%= link_to (item.retire ? 'Unretire' : 'Retire'), supplier_retire_item_path(item), method: :put, data: { confirm: 'Are you sure?' } %>
 					</td>
 	      </tr>
 	    <% end %>

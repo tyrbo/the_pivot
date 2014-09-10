@@ -1,6 +1,6 @@
 <div class="form-group">
 	<div class="span6 offset3">
-		<%= form_for(@item, :html => { :class => "form-horizontal"}) do |f| %>
+		<%= form_for([:supplier, @item], :html => { :class => "form-horizontal"}) do |f| %>
 
     <%= render partial: 'shared/error_messages', locals: { obj: @item } %>
 
@@ -29,8 +29,7 @@
 			<div class="form-group">
 				<%= f.label :categories, :class => "col-sm-1 control-label" %>
 				<div class="col-sm-10">
-					<%= f.select(:categories, options_from_collection_for_select(Category.all, "name", "name", @item.categories.pluck(:name)),
-							{}, {multiple: true, size: Category.all.count}) %>
+          <%= f.select(:categories, options_from_collection_for_select(Category.all, :id, :name), {}, { multiple: true, size: Category.all.count }) %>
 				</div>
 			</div>
 
