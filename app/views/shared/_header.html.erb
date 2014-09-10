@@ -1,3 +1,6 @@
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
 <div class="navbar-wrapper">
   <div class="container">
 
@@ -28,6 +31,7 @@
             </li>
             <li><%= link_to 'Who We Are', about_us_path %></li>
             <li><%= link_to 'Cart', cart_path %></li>
+            <li><%= link_to 'Register', new_user_path %></li>
             <li>
               <% if @cart_count != 0 %>
                 <%= link_to "(#{@cart_count})", cart_path %>

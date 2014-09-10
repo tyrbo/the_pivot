@@ -12,6 +12,7 @@ describe 'A unregistered User', type: :feature do
     fill_in('user[password]', with: 'password')
     fill_in('user[password_confirmation]', with: 'password')
     click_on('Create Account')
+    visit user_path(User.last)
     expect(page).to have_content('Previous Orders')
     expect(page).to have_content('Tommy')
   end
@@ -39,6 +40,7 @@ describe 'A registered User', type: :feature do
 
   it 'can logout after logging in' do
     signup
+    visit user_path(User.last)
     expect(page).to have_content('Previous Orders')
     click_on('Sign Out')
     expect(page).to_not have_content('Sign Out')
@@ -52,6 +54,7 @@ describe 'A registered User', type: :feature do
     fill_in('session[email]', with: 'tom@example.com')
     fill_in('session[password]', with: 'password')
     click_button('Sign in')
+    visit user_path(User.last)
     expect(page).to have_content('Previous Orders')
   end
 

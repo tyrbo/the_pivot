@@ -14,7 +14,7 @@ class Supplier::OrderItemsController < SupplierController
   private
 
   def find_order_item
-    @order     = Order.find(params[:order_id])
+    @order = Order.find(params[:order_id])
     @order_item = @order.order_items.find(params[:id])
   end
 end
