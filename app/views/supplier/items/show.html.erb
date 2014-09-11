@@ -1,13 +1,9 @@
 <div class="row">
   <div class="col-md-4">
     <div class="thumbnail">
-      <% if @item.picture_file_name != nil %>
-        <%= image_tag @item.picture.url, :class => "img-circle" %>
-      <% else %>
-        <%= image_tag("#{@item.title}.png", :class => "img-circle") %>
-      <% end %>
+      <%= image_tag @item.picture.url(:medium), :class => "img-rounded" %>
       <div class="caption">
-        <p><%= @item.price_pie %></p>
+        <p><%= @item.price %></p>
         <div class="row">
           <%= form_tag(add_to_cart_path) do %>
             <input type="hidden" name="item_id" value="<%= @item.id %>">

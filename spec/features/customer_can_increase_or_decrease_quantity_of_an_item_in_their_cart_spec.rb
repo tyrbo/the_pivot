@@ -6,7 +6,7 @@ require 'capybara/rspec'
 describe 'a user viewing the cart page', type: :feature do
 
   let(:category) { Category.create!(name: 'Something') }
-  let(:keylime) { Item.create!(title: 'Key Lime', description: 'Yummy',  price_pie: 30.00, categories: [category]) }
+  let(:keylime) { Item.create!(title: 'Key Lime', description: 'Yummy',  price: 30.00, categories: [category]) }
 
   it 'can increase the quantity of an item by one' do
     keylime

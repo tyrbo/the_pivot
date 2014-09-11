@@ -20,13 +20,13 @@ RSpec.describe Category, :type => :model do
     	id: 140,
     	title: 'Key Lime',
     	description: 'Yum',
-    	price_pie: 28.00
+    	price: 28.00
     	)
     category.items.create(
     	id: 125,
     	title: 'Apple',
     	description: 'Yum',
-    	price_pie: 28.00
+    	price: 28.00
     	)
 
     results = category.items
@@ -39,13 +39,13 @@ RSpec.describe Category, :type => :model do
       id: 140,
       title: 'Key Lime',
       description: 'Yum',
-      price_pie: 28.00
+      price: 28.00
       )
     category.items.create(
       id: 125,
       title: 'Apple',
       description: 'Yum',
-      price_pie: 28.00
+      price: 28.00
       )
 
     expect(category.item_titles).to eq('Key Lime, Apple')

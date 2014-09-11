@@ -48,7 +48,7 @@ class Supplier::ItemsController < SupplierController
   def item_params
     params.require(:item).permit(:title,
                                  :description,
-                                 :price_pie,
+                                 :price,
                                  :picture,
                                 )
   end
