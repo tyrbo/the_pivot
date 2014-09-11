@@ -1,0 +1,7 @@
+<div class="col-md-1">
+  <div class="btn-group-vertical">
+    <% categories.each do |category| %>
+        <button type="button" class="btn btn-default"><%= link_to category, category_path(category) %></button>
+    <% end %>
+  </div>
+</div>
