@@ -6,7 +6,7 @@
 				<div class='pie_picture'><%= image_tag("#{item.title}.png") %>
 					<div class='pie_title'>
 						<a data-toggle="modal" data-target=<%= "##{item.id}" %>>
-							<div class= 'titlePriceStyle'><%= item.title %>  |  <%= item.price_pie %></div>
+							<div class= 'titlePriceStyle'><%= item.title %>  |  <%= item.price %></div>
 						</button>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 				<div class="modal-header">
 					<button type="button"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 					<h4 class="modal-title"><%= item.title %></h4>
-					<h5>$<%= item.price_pie %></h5>
+					<h5>$<%= item.price %></h5>
 				</div>
 				<div class="modal-body">
 					<p>

@@ -13,7 +13,7 @@ describe 'A user with a cart & items', type: :feature do
     click_on('Create Account')
   end
 
-  let(:keylime)  { Item.create! title: 'key lime', description: "yum", price_pie: 34 }
+  let(:keylime)  { Item.create! title: 'key lime', description: "yum", price: 34 }
 
   def add_to_cart
     page.visit item_path(keylime)

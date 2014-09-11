@@ -58,14 +58,14 @@
       <% unique_order_items.each do |order_item| %>
         <tr>
           <td><strong><%= link_to "#{order_item.item.title}", item_path(order_item.item) %></strong></td>
-          <td><%= order_item.item.price_pie %></td>
+          <td><%= order_item.item.price %></td>
           <% item_id = order_item.item_id %>
           <td>
             <%= quantity = @order.order_items.select { |order_item| order_item.item_id == item_id }.count%>
             <%= link_to "+", increment_supplier_order_order_item_path(@order, order_item) %>
             <%= link_to "-", decrement_supplier_order_order_item_path(@order, order_item) %>
           </td>
-          <td><%= quantity * order_item.item.price_pie %></td>
+          <td><%= quantity * order_item.item.price %></td>
         </tr>
       <% end %>
       </tr>

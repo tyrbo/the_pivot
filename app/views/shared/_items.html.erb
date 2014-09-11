@@ -13,7 +13,7 @@
             <div class="caption">
               <h3><%= link_to item.title, item_path(item) %></h3>
               <p><%= item.description %></p>
-              <p><%= item.price_pie %></p>
+              <p><%= item.price %></p>
               <div class="row">
                 <%= form_tag(add_to_cart_path) do %>
                   <input type="hidden" name="item_id" value="<%= item.id %>">

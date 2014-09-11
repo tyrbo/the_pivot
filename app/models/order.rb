@@ -54,7 +54,7 @@ class Order < ActiveRecord::Base
   end
 
   def subtotal(item_id)
-    self.item_quantity(item_id) * self.items.find(item_id).price_pie
+    self.item_quantity(item_id) * self.items.find(item_id).price
   end
 
 end

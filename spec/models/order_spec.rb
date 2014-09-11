@@ -30,8 +30,8 @@ RSpec.describe Order, :type => :model do
   end
 
   it 'has items' do
-    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price_pie: 28.00)
-    order.items.create(id: 125, title: 'Apple', description: 'Yum',  price_pie: 28.00)
+    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price: 28.00)
+    order.items.create(id: 125, title: 'Apple', description: 'Yum',  price: 28.00)
     results = order.items
     expect(results.count).to eq(2)
   end
@@ -80,13 +80,13 @@ RSpec.describe Order, :type => :model do
   end
 
   it 'has item quantity' do
-    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price_pie: 28.00)
+    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price: 28.00)
 
     expect(order.item_quantity(140)).to eq(1)
   end
 
   it 'calculates a subtotal' do
-    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price_pie: 28.00)
+    order.items.create(id: 140, title: 'Key Lime', description: 'Yum',  price: 28.00)
 
     expect(order.subtotal(140)).to eq(28.0)
   end

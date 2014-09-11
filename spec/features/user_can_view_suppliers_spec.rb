@@ -4,7 +4,7 @@ describe 'A user', type: :feature do
   before(:each) do
     @user = User.create(full_name: "Supplier Name", display_name: "A Supplier", email: 'a@a.com', password: 'password', password_confirmation: 'password', role: 'supplier')
     category = Category.create(name: 'A Category')
-    @user.items.create(title: 'An Item', description: 'This is a useful item.', price_pie: 12.50, categories: [category])
+    @user.items.create(title: 'An Item', description: 'This is a useful item.', price: 12.50, categories: [category])
   end
 
   it 'can view all the suppliers' do

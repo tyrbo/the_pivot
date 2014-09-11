@@ -4,8 +4,8 @@ require 'capybara/rspec'
 
 describe 'a user viewing the items page', type: :feature do
   let(:item_name) { 'Key Lime' }
-  let!(:keylime)  { Item.create! title: item_name, description: "yum", price_pie: 34 }
-  let!(:apple)    { Item.create! title: 'Apple', description: "delicious",  price_pie: 29 }
+  let!(:keylime)  { Item.create! title: item_name, description: "yum", price: 34 }
+  let!(:apple)    { Item.create! title: 'Apple', description: "delicious",  price: 29 }
   let!(:category) { Category.create! name: "cool kids"}
 
   context 'Unauthenticated Customer' do
@@ -15,7 +15,7 @@ describe 'a user viewing the items page', type: :feature do
       visit cart_path
       expect(page).to have_content(1)
       expect(page).to have_content(item_name)
-      expect(page).to have_content(keylime.price_pie)
+      expect(page).to have_content(keylime.price)
     end
 
     it 'adds two of the same item' do
