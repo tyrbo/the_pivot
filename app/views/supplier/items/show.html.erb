@@ -1,29 +1,37 @@
-<div class="content-wrapper formStyle">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Pie Name:</th>
-				<th>Description:</th>
-				<th>Price/Pie:</th>
-				<th>Categories:</th>
-				<th colspan="3"></th>
-			</tr>
-		</thead>
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <% if @item.picture_file_name != nil %>
+        <%= image_tag @item.picture.url, :class => "img-circle" %>
+      <% else %>
+        <%= image_tag("#{@item.title}.png", :class => "img-circle") %>
+      <% end %>
+      <div class="caption">
+        <p><%= @item.price_pie %></p>
+        <div class="row">
+          <%= form_tag(add_to_cart_path) do %>
+            <input type="hidden" name="item_id" value="<%= @item.id %>">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Qty</span>
+                <input type="text" class="form-control" name="quantity" value="1">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <%= button_tag 'Add To Cart', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h3><%= @item.title %></h3>
+    <p>
+      <%= @item.description %>
+    </p>
 
-		<tbody>
-			<tr>
-				<td class='pie_title'><%= @item.title %></td>
-				<td class='pie_description'><%= @item.description %></td>
-				<td class='pie_price'><%= @item.price_pie %></td>
-				<td class='pie_category'>|
-					<% @item.categories.each do |category| %>
-						<%= link_to category.name, supplier_category_path(category) %> |
-					<% end %>
-				</td>
-	    </tr>
-	  </tbody>
-	</table>
-
-	<%= link_to 'Edit', edit_supplier_item_path(@item) %> |
-	<%= link_to 'Back to All Items', supplier_items_path %>
+    <%= link_to 'Edit', edit_supplier_item_path(@item) %> |
+    <%= link_to 'Back to All Items', supplier_items_path %>
+  </div>
 </div>

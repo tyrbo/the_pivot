@@ -63,7 +63,6 @@ describe 'a supplier viewing the items page', type: :feature do
       fill_in('item[description]', with: 'Description')
       fill_in('item[price_pie]', with: '100')
       click_on('Save Changes')
-      expect(page).to have_content('Pie Name')
       expect(page).to have_content('Item')
       expect(Item.last.user_id).to eq user.id
     end
