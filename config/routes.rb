@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show]
 
+  namespace :dashboard do
+    root to: 'dashboard#index'
+  end
+
   namespace :supplier do
     resources :supplier
     resources :items

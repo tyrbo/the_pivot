@@ -9,6 +9,7 @@ group :development, :test do
 	gem 'pry'
   gem 'launchy'
 	gem 'aasm', '~> 3.3.3'
+  gem 'factory_girl_rails'
 end
 
 group :test do
