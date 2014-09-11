@@ -13,51 +13,51 @@ User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", pas
 
 Item.create(title: "Bandage", description: "Waterproof Standard Size",
  inventory: 10, price_pie: 12.99, category_ids: [1])
-Item.create(title: "Ibprofin", description: "200ml, 200 per bottle",
+@josh.items.create(title: "Ibprofin", description: "200ml, 200 per bottle",
  inventory:12, price_pie: 17.99, category_ids:[1])
-Item.create(title: "Gauze", description: "Cloth",
+@josh.items.create(title: "Gauze", description: "Cloth",
  inventory:3, price_pie: 23.99, category_ids:[1])
-Item.create(title: "Neosporin", description: "Fix your cuts",
+@josh.items.create(title: "Neosporin", description: "Fix your cuts",
  inventory:5, price_pie: 23.99, category_ids:[1])
-Item.create(title: "Antacids", description: "Fix your stomach",
+@josh.items.create(title: "Antacids", description: "Fix your stomach",
  inventory: 4, price_pie: 29.99, category_ids: [1])
-Item.create(title: "Water Bottles", description: "32 pack",
+@josh.items.create(title: "Water Bottles", description: "32 pack",
  inventory: 5, price_pie: 35.99, category_ids:[2])
-Item.create(title: "Soup", description: "10 pack assorted types",
+@josh.items.create(title: "Soup", description: "10 pack assorted types",
  inventory: 10, price_pie: 33.99, category_ids: [2])
-Item.create(title: "Rice", description: "50 lb bag",
+@josh.items.create(title: "Rice", description: "50 lb bag",
  inventory: 10, price_pie: 33.99, category_ids:[2])
-Item.create(title: "Protien Bars", description: "30 boxes",
+@josh.items.create(title: "Protien Bars", description: "30 boxes",
  inventory: 12, price_pie: 31.15, category_ids:[2])
-Item.create(title: "Apples", description: "Red",
+@josh.items.create(title: "Apples", description: "Red",
  inventory: 12, price_pie: 36.99, category_ids:[2])
 @josh.items.create(title: "Rope", description: "Tie to things",
  inventory: 15, price_pie: 30.99, category_ids: [3])
-Item.create(title: "Blankets", description: "Keeps warms",
+@josh.items.create(title: "Blankets", description: "Keeps warms",
  inventory: 15, price_pie: 30.99, category_ids:[3])
-Item.create(title: "Tents", description: "Easy to set up",
+@tan.items.create(title: "Tents", description: "Easy to set up",
  inventory: 5, price_pie: 30.99, category_ids:[3])
-Item.create(title: "Sleeping Bag", description: "Adult sized",
+@tan.items.create(title: "Sleeping Bag", description: "Adult sized",
  inventory: 12, price_pie: 30.99, category_ids:[3])
-Item.create(title: "Cot", description: "Twin Sized Sleeping Cot",
+@tan.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
  inventory: 12, price_pie: 30.99, category_ids:[3])
-Item.create(title: "Van Rental", description: "8 person van per day",
+@tan.items.create(title: "Van Rental", description: "8 person van per day",
  inventory: 15, price_pie: 30.99, category_ids: [4])
-Item.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
+@tan.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
  inventory: 15, price_pie: 30.99, category_ids:[4])
-Item.create(title: "Helicopter Pickup", description: "One location",
+@tan.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12, price_pie: 30.99, category_ids:[4])
-Item.create(title: "Pants", description: "All sizes",
+@tan.items.create(title: "Pants", description: "All sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
-Item.create(title: "Sweaters", description: "All Sizes",
+@tan.items.create(title: "Sweaters", description: "All Sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
-Item.create(title: "T-Shirts", description: "All Sizes",
+@tan.items.create(title: "T-Shirts", description: "All Sizes",
  inventory: 15, price_pie: 30.99, category_ids: [5])
-Item.create(title: "Jackets", description: "All Sizes",
+@tan.items.create(title: "Jackets", description: "All Sizes",
  inventory: 15, price_pie: 30.99, category_ids:[5])
-Item.create(title: "Socks", description: "Wool, all sizes",
+@tan.items.create(title: "Socks", description: "Wool, all sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
-Item.create(title: "Shoes", description: "Sneakers, all sizes",
+@tan.items.create(title: "Shoes", description: "Sneakers, all sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
 @tan.items.create(title: "Undergarments", description: "All types & sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
