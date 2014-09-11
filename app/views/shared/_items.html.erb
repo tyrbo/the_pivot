@@ -1,5 +1,33 @@
 <%= render partial: 'shared/category_sidebar', locals: { categories: @categories} %>
-<div class="col-md-11"  id='item-padding'>
+
+<% categories.each do |category| %>
+<div class="col-md-10">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= category.name %></th>
+        <th>Item</th>
+        <th>Unit Size</th>
+        <th>Units in Stock</th>
+        <th>Unit Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% category.items.each do |item| %>
+        <tr>
+          <td><%= image_tag item.picture.url(:thumb), :size => '32x32', :class => "img-rounded" %></td>
+          <td><%= link_to item.title, item_path(item) %></td>
+          <td><%= item.size %></td>
+          <td><%= item.stock %></td>
+          <td><%= item.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>
+
+<!-- <div class="col-md-10">
 <% categories.each do |category| %>
   <div class="row">
     <div class="col-md-12">
@@ -37,4 +65,4 @@
     </div>
   <% end %>
 <% end %>
-</div>
+</div> -->

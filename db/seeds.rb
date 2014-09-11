@@ -12,55 +12,55 @@ User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", pas
 
 
 Item.create(title: "Bandage", description: "Waterproof Standard Size",
- inventory: 10, price: 12.99, category_ids: [1])
+ inventory: 10, price: 12.99, size: '400', stock: 1000000, category_ids: [1])
 @josh.items.create(title: "Ibprofin", description: "200ml, 200 per bottle",
- inventory:12, price: 17.99, category_ids:[1])
+ inventory:12, price: 17.99, size: '200', stock: 10000000, category_ids:[1])
 @josh.items.create(title: "Gauze", description: "Cloth",
- inventory:3, price: 23.99, category_ids:[1])
+ inventory:3, price: 23.99, size: '200', stock: 10000000, category_ids:[1])
 @josh.items.create(title: "Neosporin", description: "Fix your cuts",
- inventory:5, price: 23.99, category_ids:[1])
+ inventory:5, price: 23.99, size: '200', stock: 10000000, category_ids:[1])
 @josh.items.create(title: "Antacids", description: "Fix your stomach",
- inventory: 4, price: 29.99, category_ids: [1])
+ inventory: 4, price: 29.99, size: '200', stock: 10000000, category_ids: [1])
 @josh.items.create(title: "Water Bottles", description: "32 pack",
- inventory: 5, price: 35.99, category_ids:[2])
-@josh.items.create(title: "Soup", description: "10 pack assorted types",
- inventory: 10, price: 33.99, category_ids: [2])
+ inventory: 5, price: 35.99, size: '200', stock: 10000000, category_ids:[2])
+@josh.items.create(title: "Soup", description: "10pac asorted types",
+ inventory: 10, price: 33.99, size: '200', stock: 10000000, category_ids: [2])
 @josh.items.create(title: "Rice", description: "50 lb bag",
- inventory: 10, price: 33.99, category_ids:[2])
+ inventory: 10, price: 33.99, size: '200', stock: 10000000, category_ids:[2])
 @josh.items.create(title: "Protien Bars", description: "30 boxes",
- inventory: 12, price: 31.15, category_ids:[2])
+ inventory: 12, price: 31.15, size: '200', stock: 10000000, category_ids:[2])
 @josh.items.create(title: "Apples", description: "Red",
- inventory: 12, price: 36.99, category_ids:[2])
+ inventory: 12, price: 36.99, size: '200', stock: 10000000, category_ids:[2])
 @josh.items.create(title: "Rope", description: "Tie to things",
- inventory: 15, price: 30.99, category_ids: [3])
+ inventory: 15, price: 30.99, size: '200', stock: 10000000, category_ids: [3])
 @josh.items.create(title: "Blankets", description: "Keeps warms",
- inventory: 15, price: 30.99, category_ids:[3])
+ inventory: 15, price: 30.99, size: '200', stock: 10000000, category_ids:[3])
 @tan.items.create(title: "Tents", description: "Easy to set up",
- inventory: 5, price: 30.99, category_ids:[3])
+ inventory: 5, price: 30.99, size: '200', stock: 10000000, category_ids:[3])
 @tan.items.create(title: "Sleeping Bag", description: "Adult sized",
- inventory: 12, price: 30.99, category_ids:[3])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[3])
 @tan.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
- inventory: 12, price: 30.99, category_ids:[3])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[3])
 @tan.items.create(title: "Van Rental", description: "8 person van per day",
- inventory: 15, price: 30.99, category_ids: [4])
+ inventory: 15, price: 30.99, size: '200', stock: 10000000, category_ids: [4])
 @tan.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
- inventory: 15, price: 30.99, category_ids:[4])
+ inventory: 15, price: 30.99, size: '200', stock: 10000000, category_ids:[4])
 @tan.items.create(title: "Helicopter Pickup", description: "One location",
- inventory: 12, price: 30.99, category_ids:[4])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[4])
 @tan.items.create(title: "Pants", description: "All sizes",
- inventory: 12, price: 30.99, category_ids:[5])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[5])
 @tan.items.create(title: "Sweaters", description: "All Sizes",
- inventory: 12, price: 30.99, category_ids:[5])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[5])
 @tan.items.create(title: "T-Shirts", description: "All Sizes",
- inventory: 15, price: 30.99, category_ids: [5])
+ inventory: 15, price: 30.99, size: '200', stock: 10000000, category_ids: [5])
 @tan.items.create(title: "Jackets", description: "All Sizes",
- inventory: 15, price: 30.99, category_ids:[5])
+ inventory: 15, price: 30.99, size: '200', stock: 10000000, category_ids:[5])
 @tan.items.create(title: "Socks", description: "Wool, all sizes",
- inventory: 12, price: 30.99, category_ids:[5])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[5])
 @tan.items.create(title: "Shoes", description: "Sneakers, all sizes",
- inventory: 12, price: 30.99, category_ids:[5])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[5])
 @tan.items.create(title: "Undergarments", description: "All types & sizes",
- inventory: 12, price: 30.99, category_ids:[5])
+ inventory: 12, price: 30.99, size: '200', stock: 10000000, category_ids:[5])
 
 Order.create(user_id: 1, order_total: 15, order_type: "pick-up", delivery_address: nil, order_status: "completed")
 Order.create(user_id: 1, order_total: 16, order_type: "delivery", delivery_address: "1520 Blake Street, Denver, CO", order_status: "cancelled")

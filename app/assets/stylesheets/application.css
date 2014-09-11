@@ -1,6 +1,8 @@
 //= require bootstrap
 //= require custom
 
-#item-padding {
-  padding-left: 30px;
+#sidebar-padding {
+  padding-right: 30px;
+  padding-top: 25px;
+  height: 2000px;
 }

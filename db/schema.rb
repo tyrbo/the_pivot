@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911192346) do
+ActiveRecord::Schema.define(version: 20140911211403) do
 
   create_table "cart_items", force: true do |t|
     t.integer  "cart_id"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140911192346) do
     t.datetime "picture_updated_at"
     t.boolean  "retire",                                       default: false
     t.integer  "user_id"
+    t.string   "size"
+    t.integer  "stock"
   end
 
   create_table "order_items", force: true do |t|
