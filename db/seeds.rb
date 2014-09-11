@@ -4,6 +4,13 @@ Category.create(name: "Supplies")
 Category.create(name: "Transportation")
 Category.create(name: "Clothing")
 
+User.create(full_name: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password", role: :user, display_name: nil)
+User.create(full_name: "Jeff", email: "demo+jeff@jumpstartlab.com", password: "password", role: :user, display_name: "j3")
+User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", password: "password", role: :user, display_name: "novohispano")
+@josh = User.create(full_name: "Josh Cheek", email: "demojosh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Programmer Relief Foundation", role: :supplier)
+@tan = User.create(full_name: "Tan Doan", email: "tandoan@example.com", password: "password", password_confirmation: "password", display_name: "Viet Cong Rescue Crew", role: :supplier)
+
+
 Item.create(title: "Bandage", description: "Waterproof Standard Size",
  inventory: 10, price_pie: 12.99, category_ids: [1])
 Item.create(title: "Ibprofin", description: "200ml, 200 per bottle",
@@ -24,7 +31,7 @@ Item.create(title: "Protien Bars", description: "30 boxes",
  inventory: 12, price_pie: 31.15, category_ids:[2])
 Item.create(title: "Apples", description: "Red",
  inventory: 12, price_pie: 36.99, category_ids:[2])
-Item.create(title: "Rope", description: "Tie to things",
+@josh.items.create(title: "Rope", description: "Tie to things",
  inventory: 15, price_pie: 30.99, category_ids: [3])
 Item.create(title: "Blankets", description: "Keeps warms",
  inventory: 15, price_pie: 30.99, category_ids:[3])
@@ -52,7 +59,7 @@ Item.create(title: "Socks", description: "Wool, all sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
 Item.create(title: "Shoes", description: "Sneakers, all sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
-Item.create(title: "Undergarments", description: "All types & sizes",
+@tan.items.create(title: "Undergarments", description: "All types & sizes",
  inventory: 12, price_pie: 30.99, category_ids:[5])
 
 Order.create(user_id: 1, order_total: 15, order_type: "pick-up", delivery_address: nil, order_status: "completed")
@@ -77,7 +84,6 @@ OrderItem.create(order_id: 8, item_id: 10)
 OrderItem.create(order_id: 9, item_id: 11)
 OrderItem.create(order_id: 10, item_id: 12)
 
-User.create(full_name: "Rachel Warbelow", email: "demo+rachel@jumpstartlab.com", password: "password", role: :user, display_name: nil)
-User.create(full_name: "Jeff", email: "demo+jeff@jumpstartlab.com", password: "password", role: :user, display_name: "j3")
-User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", password: "password", role: :user, display_name: "novohispano")
-User.create(full_name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", password: "password", display_name: "josh", role: :supplier)
+
+
+"======= Shit has been seeded ========"
