@@ -9,7 +9,7 @@
       <% slice.each do |item| %>
         <div class="col-md-3">
           <div class="thumbnail">
-            <%= image_tag item.picture.url, :class => "img-rounded" %>
+            <%= image_tag item.picture.url(:medium), :class => "img-rounded" %>
             <div class="caption">
               <h3><%= link_to item.title, item_path(item) %></h3>
               <p><%= item.description %></p>
