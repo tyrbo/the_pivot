@@ -43,7 +43,7 @@ describe 'user view', type: :feature do
     it 'can login' do
       click_link('Sign In')
       login(supplier_user)
-      expect(current_path).to eq(supplier_path)
+      expect(current_path).to eq(supplier_dashboard_path)
 
       expect(page).to have_link('Sign Out')
     end

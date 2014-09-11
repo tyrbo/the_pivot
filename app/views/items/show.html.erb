@@ -1,36 +1,34 @@
-<div class="modal-header">
-<h4 class="modal-title"><%= @item.title %></h4>
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <% if @item.picture_file_name != nil %>
+        <%= image_tag @item.picture.url, :class => "img-circle" %>
+      <% else %>
+        <%= image_tag("#{@item.title}.png", :class => "img-circle") %>
+      <% end %>
+      <div class="caption">
+        <p><%= @item.price_pie %></p>
+        <div class="row">
+          <%= form_tag(add_to_cart_path) do %>
+            <input type="hidden" name="item_id" value="<%= @item.id %>">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Qty</span>
+                <input type="text" class="form-control" name="quantity" value="1">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <%= button_tag 'Add To Cart', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h3><%= @item.title %></h3>
+    <p>
+      <%= @item.description %>
+    </p>
+  </div>
 </div>
-<div class="modal-body">
-<p><%= @item.price_pie %></p>
-<p><%= @item.description %>&hellip;</p>
-<p><%= image_tag("#{@item.title}.png") %></p>
-<p>
-<% if @item.picture_file_name != nil %>
-       <%= image_tag @item.picture.url %>
-     <% end %>
-     </p>
-     </div>
-     <% if @item.retire == false || @item.retire == 'f'  %>
-            <div class="modal-footer">
-          </div>
-        <% else %>
-          <div class="modal-footer">
-            <h4>SORRY This item is really old and has retired!</h4>
-            <div>
-            <% end %>
-
-            <%= form_tag(add_to_cart_path) do %>
-              <input type="hidden" name="item_id" value="<%= @item.id %>">
-              <div class="col-md-6">
-                <div class="input-group">
-                  <span class="input-group-addon">Qty</span>
-                  <input type="text" class="form-control" name="quantity" value="1">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <%= button_tag 'Add To Cart', class: 'btn btn-primary' %>
-              </div>
-            <% end %>
-
-            <%= link_to 'Back to Menu', items_path %> -->

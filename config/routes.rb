@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :show]
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :suppliers, only: [:index, :show]
 
   resource :cart, only: [:show]
 
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   match '/signup',  to: 'users#new',        via: 'get'
   match '/signin',  to: 'sessions#new',     via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-  match '/supplier',  to: 'supplier/supplier#show',  via: 'get'
+  match '/supplier',  to: 'supplier/supplier#show',  via: 'get', as: :supplier_dashboard
 
   post     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
   get     '/about_us'          => 'about_us#index' 

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       sign_in user
 
       if user.role == 'supplier'
-        redirect_to supplier_path
+        redirect_to supplier_dashboard_path
       else
         redirect_to items_path
       end

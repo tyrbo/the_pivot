@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :items
 
+  scope :active_suppliers, -> { where(role: :supplier) }
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
