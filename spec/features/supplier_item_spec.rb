@@ -58,7 +58,7 @@ describe 'a supplier viewing the items page', type: :feature do
       login
       page.click_link('Menu Item Management')
       page.click_link('Create a New Item')
-      expect(page).to have_content('New Pie')
+      expect(page).to have_content('New Item')
       fill_in('item[title]', with: 'Item')
       fill_in('item[description]', with: 'Description')
       fill_in('item[price_pie]', with: '100')
