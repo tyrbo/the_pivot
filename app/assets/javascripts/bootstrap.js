@@ -8,11 +8,11 @@
 
 $(document).ready(function() {
 
-$("#cart-link").click(function(){
+$(".cart-link").click(function(){
   $(".cart-info").toggleClass('hidden');
 });
 
-$("#details-link").click(function(){
+$(".details-link").click(function(){
   $(".details-info").toggleClass('hidden');
 })
 });
