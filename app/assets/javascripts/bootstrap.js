@@ -4,6 +4,23 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+
+
+$(document).ready(function() {
+
+$("#cart-link").click(function(){
+  $(".cart-info").toggleClass('hidden');
+});
+
+$("#details-link").click(function(){
+  $(".details-info").toggleClass('hidden');
+})
+});
+
+
+
+
+
 if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript requires jQuery') }
 
 /* ========================================================================
