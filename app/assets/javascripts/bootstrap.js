@@ -9,11 +9,11 @@
 $(document).ready(function() {
 
 $(".cart-link").click(function(){
-  $(".cart-info").toggleClass('hidden');
+  $(this).closest("tr").next().next().toggleClass('hidden');
 });
 
 $(".details-link").click(function(){
-  $(".details-info").toggleClass('hidden');
+  $(this).closest("tr").next().toggleClass('hidden');
 })
 });
 
