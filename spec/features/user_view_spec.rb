@@ -20,6 +20,10 @@ describe 'user view', type: :feature do
       choose("user_role_supplier")
       click_button("Create Account")
 
+      fill_in("Name", with:"Business")
+      fill_in("Url", with: "business_thing")
+      click_button("Create Supplier Account")
+
       expect(page).to have_content("Thanks, your request is pending!")
       expect(current_path).to eq(root_path)
     end

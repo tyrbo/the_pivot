@@ -11,6 +11,7 @@ describe 'A unregistered User', type: :feature do
     fill_in('user[display_name]', with: 'Tommy')
     fill_in('user[password]', with: 'password')
     fill_in('user[password_confirmation]', with: 'password')
+    choose("user_role_provider")
     click_on('Create Account')
     visit user_path(User.last)
     expect(page).to have_content('Previous Orders')
@@ -35,6 +36,7 @@ describe 'A registered User', type: :feature do
     fill_in('user[display_name]', with: 'Tommy')
     fill_in('user[password]', with: 'password')
     fill_in('user[password_confirmation]', with: 'password')
+    choose("user_role_provider")
     click_on('Create Account')
   end
 

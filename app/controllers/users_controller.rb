@@ -19,12 +19,12 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      if @user.role == 'supplier'
-        flash[:success] = 'Thanks, your request is pending!'
-      elsif @user.role == 'provider'
+      if params['user']['role'] == 'supplier'
+        redirect_to new_supplier_path
+      elsif params['user']['role'] == 'provider'
         flash[:success] = 'Thanks, for registering!'
+        redirect_to root_path
       end
-      redirect_to root_path
     else
       render 'new'
     end
@@ -40,7 +40,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:full_name,
                                  :email,
                                  :display_name,
-                                 :role,
                                  :password,
                                  :password_confirmation
                                 )
