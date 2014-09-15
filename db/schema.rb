@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915195418) do
+ActiveRecord::Schema.define(version: 20140915204909) do
 
   create_table "cart_items", force: true do |t|
     t.integer  "cart_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140915195418) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "retire",                                       default: false
-    t.integer  "user_id"
+    t.integer  "supplier_id"
     t.string   "size"
   end
 
