@@ -1,9 +1,9 @@
 require './spec/features_helper'
 
 describe 'user view', type: :feature do
-  let(:supplier_user) { User.create(full_name: 'Jane Doe', email: 'jane@email.com', password: 'password', password_confirmation: 'password', role: 'supplier' )}
-  let(:provider_user) { User.create(full_name: 'Joe Doe', email: 'joe@email.com', password: 'password', password_confirmation: 'password', role: 'provider' )}
-
+  let(:supplier) { FactoryGirl.create(:supplier) }
+  let(:supplier_user) { FactoryGirl.create(:user, suppliers: [supplier]) }
+  let(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
     visit root_path
@@ -47,7 +47,7 @@ describe 'user view', type: :feature do
     it 'can login' do
       click_link('Sign In')
       login(supplier_user)
-      expect(current_path).to eq(supplier_dashboard_path)
+      expect(current_path).to eq(dashboard_suppliers_path)
 
       expect(page).to have_link('Sign Out')
     end
@@ -56,7 +56,7 @@ describe 'user view', type: :feature do
   context "as a provider" do
     it 'can login' do
       click_link('Sign In')
-      login(provider_user)
+      login(user)
       expect(current_path).to eq(items_path)
 
       expect(page).to have_link('Sign Out')

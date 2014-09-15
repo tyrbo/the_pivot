@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     root to: 'dashboard#index'
 
-    resources :suppliers do
+    resources :suppliers, only: [:index, :show] do
       resources :supplier
       resources :items
       resources :orders do

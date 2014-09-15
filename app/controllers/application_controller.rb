@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_action :user_has_a_cart
   before_action :cart_count
+  helper_method :current_supplier
 
   def cart
     @cart ||= Cart.find session[:cart_id]
@@ -15,6 +16,11 @@ class ApplicationController < ActionController::Base
 
   def cart_destroy
     cart.cart_items.destroy_all
+  end
+
+  def current_supplier
+    id = params[:supplier_id] || params[:id]
+    Supplier.find(id)
   end
 
   private

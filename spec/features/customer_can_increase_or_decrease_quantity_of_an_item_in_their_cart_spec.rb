@@ -6,8 +6,8 @@ require 'capybara/rspec'
 describe 'a user viewing the cart page', type: :feature do
 
   let!(:category) { Category.create!(name: 'Something') }
-  let!(:user) { User.create(full_name: "Josh Cheek", email: "demojosh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Programmer Relief Foundation", role: :supplier)}
-  let!(:keylime) { user.items.create!(title: 'Key Lime', description: 'Yummy',  inventory: 100, price: 30.00, categories: [category]) }
+  let!(:supplier) { FactoryGirl.create(:supplier) }
+  let!(:keylime) { supplier.items.create!(title: 'Key Lime', description: 'Yummy',  inventory: 100, price: 30.00, categories: [category]) }
 
   it 'can increase the quantity of an item by one' do
     pending
