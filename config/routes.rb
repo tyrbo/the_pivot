@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show]
 
+  namespace :dashboard do
+    root to: 'dashboard#index'
+  end
+
   namespace :supplier do
     resources :supplier
     resources :items
@@ -32,8 +36,9 @@ Rails.application.routes.draw do
   match '/supplier',  to: 'supplier/supplier#show',  via: 'get', as: :supplier_dashboard
 
   post     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
-  get     '/about_us'          => 'about_us#index' 
+  get     '/about_us'          => 'about_us#index'
 
   post    '/cart/items'       => 'cart_items#create',       as: :cart_items
   delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
+  get '/users/supplier/:id'        => 'users#supplier_show',       as: :user_supplier
 end

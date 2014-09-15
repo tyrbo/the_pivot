@@ -1,1 +1,24 @@
 <%= render partial: 'shared/items', locals: {categories: @category} %>
+<div class="content-wrapper formStyle">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Category:</th>
+				<th>Items:</th>
+			</tr>
+
+			<tbody>
+				<tr>
+					<td><%= @category.name %></td>
+					<td>
+						<% @category.items.each do |item| %>|
+							<%= link_to item.title, supplier_item_path(item) %> |
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</thead>
+	</table>
+
+	<%= link_to 'All Categories', supplier_categories_path %>
+</div>

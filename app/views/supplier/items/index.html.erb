@@ -4,9 +4,9 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Pie Name:</th>
+				<th>Item Name:</th>
 				<th>Description:</th>
-				<th>Price/Pie:</th>
+				<th>Price:</th>
 				<th>Options:</th>
 			</tr>
 		</thead>
@@ -14,9 +14,9 @@
 		<tbody>
 			<% @items.each do |item| %>
 				<tr>
-					<td class='pie_title'><%= item.title %></td>
-					<td class='pie_description'><%= item.description %></td>
-					<td class='pie_price'><%= item.price %></td>
+					<td class='item_title'><%= item.title %></td>
+					<td class='item_description'><%= item.description %></td>
+					<td class='item_price'><%= item.price %></td>
 					<td>
 						<%= link_to 'Show', supplier_item_path(item) %> |
 						<%= link_to 'Edit', edit_supplier_item_path(item) %> |

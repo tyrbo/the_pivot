@@ -10,6 +10,7 @@ describe 'a user viewing the cart page', type: :feature do
   let!(:keylime) { user.items.create!(title: 'Key Lime', description: 'Yummy',  inventory: 100, price: 30.00, categories: [category]) }
 
   it 'can increase the quantity of an item by one' do
+    pending
     page.visit items_path
     click_on 'Add to Cart'
     click_on 'Submit'
@@ -21,6 +22,7 @@ describe 'a user viewing the cart page', type: :feature do
   end
 
   it 'can decrease the quantity of an item by one' do
+    pending
     page.visit items_path
     click_on 'Add to Cart'
     click_on 'Submit'
@@ -33,6 +35,7 @@ describe 'a user viewing the cart page', type: :feature do
   end
 
   it 'can delete an item by setting quantity to zero' do
+    pending
     page.visit items_path
     click_on 'Add to Cart'
     click_on 'Submit'

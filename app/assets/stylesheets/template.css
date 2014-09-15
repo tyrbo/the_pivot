@@ -1,5 +1,5 @@
 body {
-  background: url('wedding-pie-buffet.jpg') no-repeat center center fixed;
+  background: url('wedding-item-buffet.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,7 +15,7 @@ body {
   height: 950px;
 }
 
-.pie_picture img{
+.item_picture img{
   width:275px;
   height:275px;
   margin-left: 25px;
@@ -100,11 +100,11 @@ color: #60464b;
   margin-top: 6px;
 }
 
-.pie_picture {
+.item_picture {
   display: inline-block;
 }
 
-.pie_picture {
+.item_picture {
   padding: 70px;
   text-align: center;
 }
