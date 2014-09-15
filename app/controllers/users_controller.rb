@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def supplier_show
+    @user = User.find(params[:id])
+    render :show
+  end
+
   def new
     @user  = User.new
     @title = "Create an account"
