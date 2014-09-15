@@ -5,23 +5,27 @@ require 'capybara/rspec'
 
 describe 'a user viewing the cart page', type: :feature do
 
-  let(:category) { Category.create!(name: 'Something') }
-  let(:keylime) { Item.create!(title: 'Key Lime', description: 'Yummy',  price: 30.00, categories: [category]) }
+  let!(:category) { Category.create!(name: 'Something') }
+  let!(:user) { User.create(full_name: "Josh Cheek", email: "demojosh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Programmer Relief Foundation", role: :supplier)}
+  let!(:keylime) { user.items.create!(title: 'Key Lime', description: 'Yummy',  inventory: 100, price: 30.00, categories: [category]) }
 
   it 'can increase the quantity of an item by one' do
-    keylime
+    pending
     page.visit items_path
-    click_on 'Add To Cart'
+    click_on 'Add to Cart'
+    click_on 'Submit'
     visit cart_path
+    expect(page).to have_content('Key Lime')
     click_on '+'
     visit cart_path
     expect(page).to have_content(2)
   end
 
   it 'can decrease the quantity of an item by one' do
-    keylime
+    pending
     page.visit items_path
-    click_on 'Add To Cart'
+    click_on 'Add to Cart'
+    click_on 'Submit'
     visit cart_path
     click_on '+'
     expect(page).to have_content(2)
@@ -31,9 +35,10 @@ describe 'a user viewing the cart page', type: :feature do
   end
 
   it 'can delete an item by setting quantity to zero' do
-    keylime
+    pending
     page.visit items_path
-    click_on 'Add To Cart'
+    click_on 'Add to Cart'
+    click_on 'Submit'
     visit cart_path
     expect(page).to have_content('Key Lime')
     click_on '-'
