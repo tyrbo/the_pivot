@@ -11,9 +11,10 @@ describe 'a user viewing the cart page', type: :feature do
 
   it 'can increase the quantity of an item by one' do
     page.visit items_path
-    click_button 'Add to Cart'
-    click_button 'Submit'
+    click_on 'Add to Cart'
+    click_on 'Submit'
     visit cart_path
+    expect(page).to have_content('Key Lime')
     click_on '+'
     visit cart_path
     expect(page).to have_content(2)
