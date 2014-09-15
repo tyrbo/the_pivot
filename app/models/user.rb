@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :orders
   has_many :items
+  has_many :suppliers_users
+  has_many :suppliers, through: :suppliers_users
 
   scope :active_suppliers, -> { where(role: :supplier) }
 
