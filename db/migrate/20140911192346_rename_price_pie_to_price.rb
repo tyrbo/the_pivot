@@ -1,5 +1,5 @@
-class RenamePricePieToPrice < ActiveRecord::Migration
+class RenamePriceitemToPrice < ActiveRecord::Migration
   def change
-    rename_column :items, :price_pie, :price
+    rename_column :items, :price_item, :price
   end
 end
