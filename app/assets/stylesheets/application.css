@@ -4,4 +4,9 @@
 #sidebar-padding {
   padding-right: 30px;
   padding-top: 25px;
+  position:fixed;
+}
+
+.align-to-sidebar {
+  padding-left:170px;
 }
