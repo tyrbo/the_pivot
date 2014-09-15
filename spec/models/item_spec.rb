@@ -7,7 +7,7 @@ RSpec.describe Item, :type => :model do
     Item.create(
     id:           167,
     title:       'Baltimore Bomb',
-    description: 'Delicious pie.',
+    description: 'Delicious item.',
     price:    30.00
     )
   end
@@ -29,7 +29,7 @@ RSpec.describe Item, :type => :model do
   end
 
 
-  it 'is invalid without a pie price' do
+  it 'is invalid without a item price' do
     item.price = nil
 
     expect(item).to be_valid
@@ -39,7 +39,7 @@ RSpec.describe Item, :type => :model do
     2.times do
       Item.create(
       title: 'Baltimore Bomb',
-      description: 'Delicious pie.',
+      description: 'Delicious item.',
       price: 30.00
       )
     end

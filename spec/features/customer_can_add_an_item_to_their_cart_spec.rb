@@ -35,7 +35,7 @@ describe 'a user viewing the items page', type: :feature do
       page.visit item_path(keylime)
       page.click_on('Add To Cart')
       page.visit cart_path
-      expect(page).to_not have_css('.pie_title:nth-of-type(2)')
+      expect(page).to_not have_css('.item_title:nth-of-type(2)')
     end
 
     it 'displays correct price for many items' do

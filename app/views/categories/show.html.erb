@@ -3,8 +3,8 @@
 	<div class='row'>
 		<div class='menu_spacing'>
 			<% @category.items.each do |item| %>
-				<div class='pie_picture'><%= image_tag("#{item.title}.png") %>
-					<div class='pie_title'>
+				<div class='item_picture'><%= image_tag("#{item.title}.png") %>
+					<div class='item_title'>
 						<a data-toggle="modal" data-target=<%= "##{item.id}" %>>
 							<div class= 'titlePriceStyle'><%= item.title %>  |  <%= item.price %></div>
 						</button>
