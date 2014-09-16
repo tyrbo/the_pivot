@@ -84,6 +84,7 @@ OrderItem.create(order_id: 8, item_id: 10)
 OrderItem.create(order_id: 9, item_id: 11)
 OrderItem.create(order_id: 10, item_id: 12)
 
+Supplier.create(name: 'Food For Kids', url: 'http://wwww.savethechildren.org', description: 'One kid at a time')
 
 
 "======= Shit has been seeded ========"

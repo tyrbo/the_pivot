@@ -15,7 +15,7 @@ class SuppliersController < ApplicationController
   end
 
   def index
-    @suppliers = User.active_suppliers
+    @suppliers = Supplier.all
   end
 
   def show

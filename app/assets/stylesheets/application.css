@@ -10,3 +10,7 @@
 .align-to-sidebar {
   padding-left:170px;
 }
+
+.details-link {
+  cursor: pointer;
+}

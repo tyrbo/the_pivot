@@ -1,14 +1,8 @@
-<% @suppliers.each_slice(4) do |slice| %>
+<% @suppliers.each do |supplier| %>
   <div class="row">
-    <% slice.each do |supplier| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3><%= link_to supplier.display_name, supplier_path(supplier) %></h3>
-            <p>...</p>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <div class="col-md-3">
+      <%= image_tag supplier.picture.url(:thumb), :size => '32x32', :class => "img-rounded" %>
+      <h3><%= link_to supplier.name, supplier_path(supplier) %></h3>
+    </div>
   </div>
 <% end %>
