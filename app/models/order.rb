@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
     ALL       = [PAID, CANCELLED, COMPLETED, ORDERED]
   end
 
-  def self.status_counts()
+  def self.status_counts
     result = Order.group(:order_status).count  # select status, count(*) from Order group by status
     Status::ALL.each {|key| result[key] ||= 0}
     result
@@ -24,12 +24,9 @@ class Order < ActiveRecord::Base
   belongs_to  :user
   has_many    :sub_orders
 
-  validates :user_id,          presence: true
   validates :order_total,      presence: true
   validates :order_type,       presence: true
   validates :delivery_address, presence: true, if: :delivery?
-  # validates :order_status,     presence: true
-  # validates :order_status,     presence: true, inclusion: {in: Status::ALL}
 
   def delivery?
     order_type == "delivery"
@@ -52,11 +49,11 @@ class Order < ActiveRecord::Base
   end
 
   def item_quantity(item_id)
-    self.items.select { |i| i.id == item_id }.count
+    self.items.count { |i| i.id == item_id }
   end
 
   def subtotal(item_id)
-    self.item_quantity(item_id) * self.items.find(item_id).price
+    self.item_quantity(item_id) * self.items.detect { |x| x.id == item_id }.price
   end
 
   def create_sub_orders

@@ -1,10 +1,10 @@
 class Category < ActiveRecord::Base
-	has_many :categorizations
-	has_many :items, :through => :categorizations
+  has_many :categorizations
+  has_many :items, :through => :categorizations
 
-	validates :name, presence: true
+  validates :name, presence: true
 
-	def item_titles
+  def item_titles
     items.join(", ")
   end
 
@@ -14,7 +14,7 @@ class Category < ActiveRecord::Base
     self.items     			= new_or_found_items
   end
 
-	def to_s
-		name
-	end
+  def to_s
+    name
+  end
 end

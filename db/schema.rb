@@ -88,6 +88,10 @@ ActiveRecord::Schema.define(version: 20140916165023) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "suppliers_users", force: true do |t|

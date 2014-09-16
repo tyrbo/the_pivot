@@ -4,9 +4,11 @@ class SuppliersController < ApplicationController
   end
 
   def create
-    @supplier = current_user.suppliers.new(supplier_params)
+    @supplier = Supplier.new(supplier_params)
 
     if @supplier.save
+      current_user.suppliers << @supplier
+
       flash[:success] = 'Thanks, your request is pending!'
       redirect_to root_path
     else
