@@ -15,6 +15,7 @@ $(".cart-link").click(function(){
 $(".details-link").click(function(){
   $(this).closest("tr").next().toggleClass('hidden');
 })
+
 });
 
 

@@ -3,10 +3,16 @@
 
 #sidebar-padding {
   padding-right: 30px;
-  padding-top: 25px;
+  /*padding-top: 50px;*/
+  /*vertical-align:middle;*/
   position:fixed;
+  top:35%
 }
 
 .align-to-sidebar {
-  padding-left:170px;
+  padding-left:210px;
+}
+
+.details-link {
+  cursor: pointer;
 }
