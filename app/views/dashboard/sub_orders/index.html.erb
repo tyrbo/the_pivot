@@ -1,0 +1,4 @@
+<% @sub_orders.each do |sub_order| %>
+    <%= sub_order.id %>
+    <%= link_to 'Show', dashboard_supplier_sub_order_path(current_supplier, sub_order) %>
+<% end %>

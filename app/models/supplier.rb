@@ -7,4 +7,5 @@ class Supplier < ActiveRecord::Base
   has_many :suppliers_users
   has_many :users, through: :suppliers_users
   has_many :items
+  has_many :sub_orders
 end

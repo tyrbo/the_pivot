@@ -6,9 +6,8 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save!
-      @cart.items.each do |item|
-        @order.order_items.create!(item: item)
-      end
+      @cart.create_order_items(@order)
+      @order.create_sub_orders
       cart_destroy
 
       redirect_to @order, notice: 'Order was successfully created.'

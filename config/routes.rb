@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :suppliers, only: [:index, :show] do
       resources :supplier
       resources :items
-      resources :orders do
+      resources :sub_orders do
         resources :order_items do
           get :increment, on: :member
           get :decrement, on: :member
