@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
 
-      if user.role == 'supplier'
-        redirect_to supplier_dashboard_path
+      if user.suppliers.any?
+        redirect_to dashboard_suppliers_path
       else
         redirect_to items_path
       end

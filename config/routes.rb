@@ -12,22 +12,22 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     root to: 'dashboard#index'
-  end
 
-  namespace :supplier do
-    resources :supplier
-    resources :items
-    resources :orders do
-      resources :order_items do
-        get :increment, on: :member
-        get :decrement, on: :member
+    resources :suppliers, only: [:index, :show] do
+      resources :supplier
+      resources :items
+      resources :orders do
+        resources :order_items do
+          get :increment, on: :member
+          get :decrement, on: :member
+        end
       end
-    end
 
-    patch 'order/:id/cancel' => 'orders#cancel',   as: :cancel_order
-    patch 'pay/:id/pay'      => 'orders#pay',      as: :pay_order
-    patch 'pay/:id/complete' => 'orders#complete', as: :complete_order
-    put 'retire/:id' => 'retire_item#update', as: :retire_item
+      patch 'order/:id/cancel' => 'orders#cancel',   as: :cancel_order
+      patch 'pay/:id/pay'      => 'orders#pay',      as: :pay_order
+      patch 'pay/:id/complete' => 'orders#complete', as: :complete_order
+      put 'retire/:id' => 'retire_item#update', as: :retire_item
+    end
   end
 
   match '/signup',  to: 'users#new',        via: 'get'

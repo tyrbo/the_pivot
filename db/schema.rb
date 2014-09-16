@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140915232027) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "retire",                                       default: false
-    t.integer  "user_id"
+    t.integer  "supplier_id"
     t.string   "size"
   end
 
