@@ -6,17 +6,6 @@
 
 
 
-$(document).ready(function() {
-
-$(".cart-link").click(function(){
-  $(this).closest("tr").next().next().toggleClass('hidden');
-});
-
-$(".details-link").click(function(){
-  $(this).closest("tr").next().toggleClass('hidden');
-})
-
-});
 
 
 
