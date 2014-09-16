@@ -1,0 +1,3 @@
+<% @suppliers.each do |supplier| %>
+  <%= link_to supplier.name, dashboard_supplier_path(supplier)%>
+<% end %>

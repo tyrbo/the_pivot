@@ -1,0 +1,32 @@
+<h1>Our Items</h1>
+
+<div class="content-wrapper formStyle">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Item Name:</th>
+        <th>Description:</th>
+        <th>Price:</th>
+        <th>Options:</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td class='item_title'><%= item.title %></td>
+          <td class='item_description'><%= item.description %></td>
+          <td class='item_price'><%= item.price %></td>
+          <td>
+            <%= link_to 'Show', dashboard_supplier_item_path(current_supplier, item) %> |
+            <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, item) %> |
+            <%= link_to 'Destroy', dashboard_supplier_item_path(current_supplier,item), method: :delete, data: { confirm: 'Are you sure?' } %> |
+            <%= link_to (item.retire ? 'Unretire' : 'Retire'), dashboard_supplier_retire_item_path(current_supplier,item), method: :put, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier) %>
+</div>

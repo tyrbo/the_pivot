@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
   has_many  :cart_items
   has_many  :carts, through: :cart_items
 
-  belongs_to :user
+  belongs_to :supplier
 
   scope :not_retired, -> { where(retire: 'false') }
   scope :not_retired_too, -> { where(retire: 'f') }

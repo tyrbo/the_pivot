@@ -15,12 +15,12 @@ class SuppliersController < ApplicationController
   end
 
   def index
-    @suppliers = User.active_suppliers
+    @suppliers = Supplier.all
   end
 
   def show
-    @supplier = User.find_by(id: params[:id], role: :supplier)
-    @categories = Category.eager_load(:items).where('items.user_id = ?', params[:id])
+    @supplier = Supplier.find_by(id: params[:id])
+    @categories = Category.eager_load(:items).where('items.supplier_id = ?', params[:id])
   end
 
   private

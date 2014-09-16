@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <%= image_tag @item.picture.url(:medium), :class => "img-rounded" %>
+      <div class="caption">
+        <p><%= @item.price %></p>
+        <div class="row">
+          <%= form_tag(add_to_cart_path) do %>
+            <input type="hidden" name="item_id" value="<%= @item.id %>">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon">Qty</span>
+                <input type="text" class="form-control" name="quantity" value="1">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <%= button_tag 'Add To Cart', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h3><%= @item.title %></h3>
+    <p>
+      <%= @item.description %>
+    </p>
+
+    <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, @item) %> |
+    <%= link_to 'Back to All Items', dashboard_supplier_items_path %>
+  </div>
+</div>
