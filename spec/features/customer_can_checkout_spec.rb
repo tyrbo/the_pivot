@@ -1,31 +1,12 @@
 require 'rails_helper'
-require 'capybara/rails'
-require 'capybara/rspec'
 
 describe 'A user with a cart & items', type: :feature do
-  def signup
-    visit '/signup'
-    fill_in('user[full_name]', with: 'Tom Smith')
-    fill_in('user[email]', with: 'tom@example.com')
-    fill_in('user[display_name]', with: 'Tommy')
-    fill_in('user[password]', with: 'password')
-    fill_in('user[password_confirmation]', with: 'password')
-    choose("user_role_provider")
-    click_on('Create Account')
-  end
-
   let!(:supplier) { FactoryGirl.create(:supplier) }
   let!(:keylime)  { supplier.items.create! title: 'key lime', description: "yum", price: 34 }
 
-  def add_to_cart
-    page.visit item_path(keylime)
-    page.click_on('Add To Cart')
-    visit cart_path
-  end
-
   before do
     signup
-    add_to_cart
+    add_to_cart(keylime)
   end
 
   xit 'can get to checkout' do

@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   has_attached_file :picture, styles: { :medium => "300x300#", :thumb => "32x32#" }, default_url: "red_cross.jpg"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
   validates :title,       presence: true, uniqueness: true
   validates :description, presence: true
 
@@ -9,6 +10,7 @@ class Item < ActiveRecord::Base
 
   has_many  :order_items
   has_many  :orders, through: :order_items
+
   has_many  :cart_items
   has_many  :carts, through: :cart_items
 
@@ -31,6 +33,4 @@ class Item < ActiveRecord::Base
   def to_s
     title
   end
-
-
 end

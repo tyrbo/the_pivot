@@ -13,10 +13,12 @@ RSpec.describe ApplicationController, type: :controller do
 
       get :index
       expected_id = Cart.count
+
       expect(session[:cart_id]).to eq expected_id
       expect(Cart.find expected_id).to be_a_kind_of Cart
 
       get :index
+
       expect(session[:cart_id]).to eq expected_id
       expect(Cart.count).to eq expected_id
     end
@@ -24,6 +26,7 @@ RSpec.describe ApplicationController, type: :controller do
     it 'can get my cart' do
       cart = Cart.create!
       session[:cart_id] = cart.id
+
       expect(controller.cart).to eq cart
     end
   end

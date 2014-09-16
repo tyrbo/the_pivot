@@ -1,7 +1,4 @@
 require 'rails_helper'
-require 'capybara/rails'
-require 'capybara/rspec'
-
 
 describe 'a user viewing the cart page', type: :feature do
 

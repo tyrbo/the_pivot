@@ -1,63 +1,67 @@
 require 'rails_helper'
-require 'capybara/rails'
-require 'capybara/rspec'
 
-describe 'A unregistered User', type: :feature do
+describe 'Creating and logging in a User', type: :feature do
+  context 'An unregistered user' do
+    it 'can sign up as a provider' do
+      signup
 
-  it 'can sign up' do
-    visit '/signup'
-    fill_in('user[full_name]', with: 'Tom Smith')
-    fill_in('user[email]', with: 'tom@example.com')
-    fill_in('user[display_name]', with: 'Tommy')
-    fill_in('user[password]', with: 'password')
-    fill_in('user[password_confirmation]', with: 'password')
-    choose("user_role_provider")
-    click_on('Create Account')
-    visit user_path(User.last)
-    expect(page).to have_content('Previous Orders')
-    expect(page).to have_content('Tommy')
+      expect(page).to have_content("Thanks, for registering!")
+      expect(current_path).to eq(root_path)
+    end
+
+    it 'can sign up as a supplier' do
+      signup(role: 'supplier')
+
+      fill_in("Name", with: "Business")
+      fill_in("Url", with: "business_thing")
+      click_button("Create Supplier Account")
+
+      expect(page).to have_content("Thanks, your request is pending!")
+      expect(current_path).to eq(root_path)
+    end
+
+    it 'cannot login with an invalid password' do
+      login
+
+      expect(page.current_path).to eq(sessions_path)
+    end
   end
 
-  it 'cannot login' do
-    visit '/signin'
-    fill_in('session[email]', with: 'tom@example.com')
-    fill_in('session[password]', with: 'password')
-    click_button('Sign in')
-    expect(page.current_path).to eq(sessions_path)
+  context 'A registered user' do
+    it 'can log in as a provider' do
+      signup
+      logout
+      login
+
+      expect(current_path).to eq(items_path)
+    end
+
+    it 'can log in as a supplier' do
+      signup(role: 'supplier')
+
+      fill_in("Name", with: "Business")
+      fill_in("Url", with: "business_thing")
+      click_button("Create Supplier Account")
+
+      logout
+      login
+
+      expect(current_path).to eq(dashboard_suppliers_path)
+    end
+
+    it 'can logout after logging in' do
+      signup
+      logout
+
+      expect(page).to_not have_content('Sign Out')
+    end
+
+    it 'can log in after signing up' do
+      signup
+      logout
+      login
+
+      expect(page).to have_content('Sign Out')
+    end
   end
-end
-
-describe 'A registered User', type: :feature do
-
-  def signup
-    visit '/signup'
-    fill_in('user[full_name]', with: 'Tom Smith')
-    fill_in('user[email]', with: 'tom@example.com')
-    fill_in('user[display_name]', with: 'Tommy')
-    fill_in('user[password]', with: 'password')
-    fill_in('user[password_confirmation]', with: 'password')
-    choose("user_role_provider")
-    click_on('Create Account')
-  end
-
-  it 'can logout after logging in' do
-    signup
-    visit user_path(User.last)
-    expect(page).to have_content('Previous Orders')
-    click_on('Sign Out')
-    expect(page).to_not have_content('Sign Out')
-  end
-
-  it 'can log in after signing up' do
-    signup
-    click_on('Sign Out')
-
-    visit '/signin'
-    fill_in('session[email]', with: 'tom@example.com')
-    fill_in('session[password]', with: 'password')
-    click_button('Sign in')
-    visit user_path(User.last)
-    expect(page).to have_content('Previous Orders')
-  end
-
 end
