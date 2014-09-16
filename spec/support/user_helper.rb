@@ -1,3 +1,7 @@
+def login
+  login_as
+end
+
 def login_as(username: 'user@example.com', password: 'password')
   visit root_path
   click_link 'Sign In'
