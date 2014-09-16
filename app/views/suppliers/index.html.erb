@@ -4,7 +4,7 @@
         <tr>
           <td class='col-md-2'><%= image_tag supplier.picture.url(:thumb), :size => '128x128', :class => "img-rounded" %></td>
           <td class='col-md-2'><h3><%= link_to supplier.name, supplier_path(supplier) %></h3></td>
-          <td class='col-md-2'>Description: <%= supplier.description %></td>
+          <td class='col-md-2'><%= supplier.description %></td>
           <td class='col-md-2'><a href='<%= supplier.url %>'><%= supplier.url %></a></td>
         </tr>
     </div>
