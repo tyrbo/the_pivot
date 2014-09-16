@@ -10,6 +10,7 @@ describe 'A user with a cart & items', type: :feature do
     fill_in('user[display_name]', with: 'Tommy')
     fill_in('user[password]', with: 'password')
     fill_in('user[password_confirmation]', with: 'password')
+    choose("user_role_provider")
     click_on('Create Account')
   end
 

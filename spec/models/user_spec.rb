@@ -12,6 +12,9 @@ RSpec.describe User, :type => :model do
                 )
   end
 
+  it { should have_many(:suppliers_users) }
+  it { should have_many(:suppliers).through(:suppliers_users) }
+
   it 'is valid' do
     expect(user).to be_valid
   end
