@@ -1,2 +1,3 @@
+<h1 align='center'><%= @supplier.name %></h1>
 <% content_for(:title, @supplier.name) %>
 <%= render partial: 'shared/items', locals: { categories: @categories } %>

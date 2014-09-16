@@ -1,7 +1,12 @@
+<table>
 <% @suppliers.each do |supplier| %>
-  <div class="row">
-    <div class="col-md-3">
-      <%= image_tag supplier.picture.url(:thumb), :size => '32x32', :class => "img-rounded" %>
-      <h3><%= link_to supplier.name, supplier_path(supplier) %></h3>
+    <div>
+        <tr>
+          <td class='col-md-2'><%= image_tag supplier.picture.url(:thumb), :size => '128x128', :class => "img-rounded" %></td>
+          <td class='col-md-2'><h3><%= link_to supplier.name, supplier_path(supplier) %></h3></td>
+          <td class='col-md-2'>Description: <%= supplier.description %></td>
+          <td class='col-md-2'><a href='<%= supplier.url %>'><%= supplier.url %></a></td>
+        </tr>
     </div>
-<% end %>
+<% end %></br>
+</table>

@@ -10,8 +10,9 @@ User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", pas
 josh = User.create(full_name: "Josh Cheek", email: "demojosh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Programmer Relief Foundation", role: :supplier)
 tan = User.create(full_name: "Tan Doan", email: "tandoan@example.com", password: "password", password_confirmation: "password", display_name: "Viet Cong Rescue Crew", role: :supplier)
 
-kids = Supplier.create(name: 'Help the Kids', url: 'http://wwww.savethechildren.org', description: 'One kid at a time')
-tsunami = Supplier.create(name: 'Tsunami Relief', url: "http://www.globalgiving.org/projects/japan-earthquake-tsunami-relief/", description: 'Preventing Wipe Outs')
+kids = Supplier.create(name: 'Help the Kids', url: 'http://www.savethechildren.net', description: 'One kid at a time')
+tsunami = Supplier.create(name: 'Tsunami Relief', url: "http://www.globalgiving.org/projects/japan-earthquake-tsunami-relief/", description: 'Preventing wipe outs')
+wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'http://www.epicenter.org/wildfire-relief/', description: 'Rebuilding the ashes')
 
 SuppliersUser.create(supplier_id: kids.id, user_id: josh.id)
 SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)
@@ -66,6 +67,30 @@ tsunami.items.create(title: "Shoes", description: "Sneakers, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Undergarments", description: "All types & sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+
+wildfire.items.create(title: "Water", description: "bottled drinking water",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
+wildfire.items.create(title: "Van Rental", description: "8 person van per day",
+ inventory: 15, price: 30.99, size: '200', category_ids: [4])
+wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
+ inventory: 15, price: 30.99, size: '200', category_ids:[4])
+wildfire.items.create(title: "Helicopter Pickup", description: "One location",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
+wildfire.items.create(title: "Pants", description: "All sizes",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+wildfire.items.create(title: "Sweaters", description: "All Sizes",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+wildfire.items.create(title: "T-Shirts", description: "All Sizes",
+ inventory: 15, price: 30.99, size: '200', category_ids: [5])
+wildfire.items.create(title: "Jackets", description: "All Sizes",
+ inventory: 15, price: 30.99, size: '200', category_ids:[5])
+wildfire.items.create(title: "Socks", description: "Wool, all sizes",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+wildfire.items.create(title: "Shoes", description: "Sneakers, all sizes",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+wildfire.items.create(title: "Undergarments", description: "All types & sizes",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+
 
 Order.create(user_id: 1, order_total: 15, order_type: "pick-up", delivery_address: nil, order_status: "completed")
 Order.create(user_id: 1, order_total: 16, order_type: "delivery", delivery_address: "1520 Blake Street, Denver, CO", order_status: "cancelled")
