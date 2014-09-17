@@ -1,7 +1,81 @@
+<div class="content-wrapper formStyle">
+  <h1>Order Details:</h1>
+  <%= form_for([:dashboard, current_supplier, @sub_order], :html => { :class => "form-horizontal"}) do |f| %>
 
+    <%= render partial: 'shared/error_messages', locals: { obj: @sub_order } %>
+    <h3>Customer Info:</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Customer Name:</th>
+          <th>Customer Email:</th>
+          <th>Delivery Info:</th>
+        </tr>
+      </thead>
 
-<% @sub_order.order_items.each do |order_item| %>
-  <%= order_item.item.title %>
+      <tbody>
+        <tr>
+          <td><%= f.text_field :provider_name, class: "form-control" %></td>
+          <td><%= f.text_field :provider_email, class: "form-control" %></td>
+          <td>Give sub_order delivery info</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <%= link_to 'Delete', dashboard_supplier_sub_order_order_item_path(current_supplier, @sub_order, order_item.id), method: :delete %>
-<% end %>
+    <h3>Order Overview:</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order Date and Time:</th>
+          <th></th>
+          <th>Order Total:</th>
+          <th>Order Type:</th>
+          <th>Order Status:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%= @sub_order.created_at.to_formatted_s(:long) %></td>
+          <td>Last updated at: <%= @sub_order.updated_at.to_formatted_s(:long)%></td>
+          <td><%= @sub_order.total %></td>
+          <td>Give sub_order type</td>
+          <td>Give sub_order status</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Order Items:</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item:</th>
+          <th>Price:</th>
+          <th>Quantity:</th>
+          <th>Subtotal:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @sub_order.order_items.each do |order_item| %>
+          <tr>
+            <td><strong><%= order_item.item.title %></strong></td>
+            <td><%= order_item.item.price %></td>
+            <td><%= order_item.quantity %></td>
+            <td><%= order_item.subtotal %></td>
+            <td><%= link_to 'Edit Item', edit_dashboard_supplier_sub_order_order_item_path(current_supplier, @sub_order, order_item.id) %></td>
+            <td><%= link_to 'Delete', dashboard_supplier_sub_order_order_item_path(current_supplier, @sub_order, order_item.id), method: :delete %></td>
+          </tr>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group">
+      <div class="col-sm-offset-1 col-sm-10">
+        <div class="actions">
+          <%= f.submit value="Save Changes", class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

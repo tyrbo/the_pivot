@@ -4,7 +4,9 @@ class SubOrder < ActiveRecord::Base
   has_many :order_items
   has_many :items, through: :order_items
 
-  def subtotal(item_id)
-    self.item_quantity(item_id) * self.items.detect { |x| x.id == item_id }.price
+  def total
+    self.order_items.reduce(0) do |sum, order_item|
+      sum += (order_item.quantity * order_item.item.price)
+    end
   end
 end

@@ -77,11 +77,11 @@ RSpec.describe Order, :type => :model do
   end
 
   it 'creates sub orders from an order' do
-    order = FactoryGirl.create(:order)
+    order = FactoryGirl.create(:order, user: FactoryGirl.create(:user))
     item = FactoryGirl.create(:item, price: 28.00)
     order.items << item
     order.create_sub_orders
-    
+
     expect(SubOrder.all.count).to eq(1)
   end
 
