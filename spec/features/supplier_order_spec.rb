@@ -24,6 +24,13 @@ describe 'a supplier viewing the order page', type: :feature do
   it 'can edit the sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
     click_on('Edit')
+    fill_in('sub_order[provider_name]', with: 'Allie')
+    fill_in('sub_order[provider_email]', with: 'allie@example.com')
+    click_on('Save Changes')
+    expect(page).to have_content('allie@example.com')
+    expect(page).to have_content('Allie')
+    expect(page).to_not have_content('user@example.come')
+    expect(page).to_not have_content('Jon')
   end
 
   it 'can delete items from a sub-order' do
@@ -37,6 +44,12 @@ describe 'a supplier viewing the order page', type: :feature do
     visit dashboard_supplier_sub_orders_path(supplier)
     click_on('Edit')
     click_on('Edit Item')
+    fill_in('order_item[quantity]', with: 99)
+    click_on('Save Item')
+    expect(page).to have_content(99)
+    expect(page).to have_content(3068.01)
+    expect(page).to_not have_content(12)
+    expect(page).to_not have_content(371.88)
   end
 
   it 'can change the status of a sub-order' do

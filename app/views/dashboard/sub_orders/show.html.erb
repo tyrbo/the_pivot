@@ -7,6 +7,7 @@
       <tr>
         <th>Customer Name:</th>
         <th>Customer Email:</th>
+        <th>Delivery Info:</th>
       </tr>
     </thead>
 
@@ -14,7 +15,7 @@
       <tr>
         <td><%= @sub_order.provider_name %></td>
         <td><%= @sub_order.provider_email %></td>
-        <td><%= link_to 'Edit', edit_dashboard_supplier_sub_order_path(current_supplier, @sub_order) %>
+        <td>Something should go here</td>
       </tr>
     </tbody>
   </table>
@@ -24,6 +25,7 @@
     <thead>
       <tr>
         <th>Order Date and Time:</th>
+        <th></th>
         <th>Order Total:</th>
         <th>Order Type:</th>
         <th>Order Status:</th>
@@ -33,9 +35,10 @@
     <tbody>
       <tr>
         <td><%= @sub_order.created_at.to_formatted_s(:long) %></td>
-        <td>
-          Last updated at: <%= @sub_order.updated_at.to_formatted_s(:long)%>
-        </td>
+        <td>Last updated at: <%= @sub_order.updated_at.to_formatted_s(:long)%></td>
+        <td><%= @sub_order.total %></td>
+        <td>Give sub_order type</td>
+        <td>Give sub_order status</td>
       </tr>
     </tbody>
   </table>
@@ -65,6 +68,6 @@
   </table>
 
   <div>
-
+    <%= link_to 'Edit', edit_dashboard_supplier_sub_order_path(current_supplier, @sub_order) %>
   </div>
 </div>
