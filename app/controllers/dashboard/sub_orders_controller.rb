@@ -7,4 +7,8 @@ class Dashboard::SubOrdersController < ApplicationController
   def show
     @sub_order = current_supplier.sub_orders.find(params[:id])
   end
+
+  def edit
+    @sub_order = current_supplier.sub_orders.find(params[:id])
+  end
 end

@@ -1,0 +1,7 @@
+
+
+<% @sub_order.order_items.each do |order_item| %>
+  <%= order_item.item.title %>
+
+  <%= link_to 'Delete', dashboard_supplier_sub_order_order_item_path(current_supplier, @sub_order, order_item.id), method: :delete %>
+<% end %>

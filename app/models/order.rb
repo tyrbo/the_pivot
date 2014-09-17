@@ -61,9 +61,12 @@ class Order < ActiveRecord::Base
 
     suppliers.each do |supplier_id, items|
       sub = SubOrder.create(supplier_id: supplier_id, order_id: self.id)
+      sub.save
 
       items.each do |item|
-        OrderItem.create(sub_order_id: sub.id, item: item, order: self)
+        order_item = self.order_items.find_by(item_id: item.id, sub_order_id: nil)
+        sub.order_items << order_item
+        sub.save
       end
 
     end
