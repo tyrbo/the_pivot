@@ -5,7 +5,7 @@
   <div class="col-md-10">
   </br></br>
   <table class="table">
-    <h2><%= category.name %></h2>
+    <h2 class='category-header'><%= category.name %></h2>
     <thead>
       <tr>
         <th></th>
@@ -63,47 +63,3 @@
 </div
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="assets/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="application.js"></script> -->
-
-<!-- <div class="col-md-10">
-<% categories.each do |category| %>
-  <div class="row">
-    <div class="col-md-12">
-      <h1><%= category.name %></h1>
-    </div>
-  </div>
-  <% category.items.each_slice(4) do |slice| %>
-    <div class="row">
-      <% slice.each do |item| %>
-        <div class="col-md-3">
-          <div class="thumbnail">
-            <%= image_tag item.picture.url(:medium), :class => "img-rounded" %>
-            <div class="caption">
-              <h3><%= link_to item.title, item_path(item) %></h3>
-              <p><%= item.description %></p>
-              <p><%= item.price %></p>
-              <div class="row">
-                <%= form_tag(add_to_cart_path) do %>
-                  <input type="hidden" name="item_id" value="<%= item.id %>">
-                  <div class="col-md-6">
-                    <div class="input-group">
-                      <span class="input-group-addon">Qty</span>
-                      <input type="text" class="form-control" name="quantity" value="1">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <%= button_tag 'Add To Cart', class: 'btn btn-primary' %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
-</div> -->
