@@ -1,9 +1,3 @@
-<% @sub_orders.each do |sub_order| %>
-    <%= sub_order.id %>
-    <%= link_to 'Show', dashboard_supplier_sub_order_path(current_supplier, sub_order) %>
-    <%= link_to 'Edit', edit_dashboard_supplier_sub_order_path(current_supplier, sub_order) %>
-<% end %>
-
 <div class="content-wrapper formStyle">
   <h1>Order Management</h1>
 
@@ -24,13 +18,14 @@
     <tbody>
       <% @sub_orders.each do |sub_order| %>
       <tr>
-        <td><%= link_to sub_order.id, dashboard_supplier_sub_order_path(current_supplier, sub_order) %></td>
+        <td><%= sub_order.id %></td>
         <td><%= sub_order.provider_name %></td>
         <td><%= sub_order.total %></td>
         <td>Give This</td>
         <td>Give This</td>
         <td>GiveThis</td>
         <td>
+          <%= link_to "Show", dashboard_supplier_sub_order_path(current_supplier, sub_order) %> |
           <%= link_to "Delete", dashboard_supplier_sub_order_path(current_supplier, sub_order), method: :delete, data: { confirm: 'Are you sure?'} %>
         </td>
       </tr>
