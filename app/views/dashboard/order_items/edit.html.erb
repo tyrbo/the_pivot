@@ -1,0 +1,33 @@
+<h3>Order Items:</h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Item:</th>
+        <th>Price:</th>
+        <th>Quantity:</th>
+        <th>Subtotal:</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+        <% @order_items.each do |order_item| %>
+          <% @order_item = order_item %>
+          <%= form_for([:dashboard, current_supplier, @sub_order, @order_item], :html => { :class => "form-horizontal"}) do |f| %>
+
+          <%= render partial: 'shared/error_messages', locals: { obj: order_item } %>
+
+        <tr>
+          <td><strong><%= order_item.item.title %></strong></td>
+          <td><%= order_item.item.price %></td>
+          <td><%= f.text_field :quantity, class: "form-control" %></td>
+          <td><%= order_item.subtotal %></td>
+          <td><%= f.submit value="Save Changes", class: "btn btn-default" %></td>
+        </tr>
+
+        <% end %>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
