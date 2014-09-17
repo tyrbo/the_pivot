@@ -56,20 +56,26 @@ class Order < ActiveRecord::Base
     self.item_quantity(item_id) * self.items.detect { |x| x.id == item_id }.price
   end
 
-  def create_sub_orders
+  def suppliers
     suppliers = self.items.group_by(&:supplier_id)
+  end
 
+  def create_sub_orders
     suppliers.each do |supplier_id, items|
-      sub = SubOrder.create(supplier_id: supplier_id, order_id: self.id)
+      sub =  SubOrder.create(supplier_id: supplier_id,
+                                order_id: self.id,
+                           provider_name: self.user.full_name,
+                          provider_email: self.user.email)
       sub.save
-
-      items.each do |item|
-        order_item = self.order_items.find_by(item_id: item.id, sub_order_id: nil)
-        sub.order_items << order_item
-        sub.save
-      end
-
+      create_order_items(sub, items)
     end
   end
 
+  def create_order_items(sub, items)
+    items.each do |item|
+      order_item = self.order_items.find_by(item_id: item.id, sub_order_id: nil)
+      sub.order_items << order_item
+      sub.save
+    end
+  end
 end

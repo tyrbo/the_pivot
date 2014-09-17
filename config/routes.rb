@@ -40,5 +40,5 @@ Rails.application.routes.draw do
 
   post    '/cart/items'       => 'cart_items#create',       as: :cart_items
   delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
-  get '/users/supplier/:id'        => 'users#supplier_show',       as: :user_supplier
+  # get '/users/supplier/:id'        => 'users#supplier_show',       as: :user_supplier
 end

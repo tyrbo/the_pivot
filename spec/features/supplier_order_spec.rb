@@ -33,6 +33,12 @@ describe 'a supplier viewing the order page', type: :feature do
     expect(page).to_not have_content(item.title)
   end
 
+  it 'can edit items on a sub-order' do
+    visit dashboard_supplier_sub_orders_path(supplier)
+    click_on('Edit')
+    click_on('Edit Item')
+  end
+
   it 'can change the status of a sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
     click_on('Edit')
