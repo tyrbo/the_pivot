@@ -18,6 +18,17 @@ class UsersController < ApplicationController
     @title = "Create an account"
   end
 
+  def update
+    @user = current_user
+
+    @user.update(user_params)
+    @user.save
+      redirect_to edit_user_path(current_user)
+  #   else
+  #     render :edit
+  #   end
+  end
+
   def create
     @user = User.create(user_params)
 

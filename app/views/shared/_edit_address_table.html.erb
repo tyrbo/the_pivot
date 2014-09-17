@@ -19,10 +19,10 @@
           <td class='col-md-2'><%= address.city %></td>
           <td class='col-md-2'><%= address.state %></td>
           <td class='col-md-2'><%= address.zip %></td>
-          <td class='col-md-2'><a class='btn btn-warning' id='edit-link'>Edit</a>
+          <td class='col-md-2'><a class='btn btn-warning edit-address-link'>Edit</a>
         </tr>
-        <tr class='edit-dropdown'>
-          <%= form_for address do |f| %>
+        <tr class='edit-address-dropdown hidden'>
+          <%= form_for address, url: address_path(address) do |f| %>
             <td>
             <%= f.label      :street %>
             <%= f.text_field :street %>

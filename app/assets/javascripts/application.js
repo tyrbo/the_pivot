@@ -5,6 +5,7 @@
 //=require_tree .
 
 $(document).ready(function() {
+
   $(".cart-link").click(function(){
     var nextCartInfo = $(this).closest('tr').next().next();
     var allCartInfo = $(this).closest("div.align-to-sidebar").find(".cart-info");
@@ -20,6 +21,25 @@ $(document).ready(function() {
 
   $(".details-link").click(function(){
     $(this).closest("tr").next().toggleClass('hidden');
+  })
+
+  $(".edit-link").click(function() {
+    // debugger;
+    $(this).closest('div').find('div').toggleClass('hidden');
+  })
+
+  $(".edit-address-link").click(function() {
+    var nextAddressInfo = $(this).closest('tr').next();
+    var allAddressInfo = $(this).closest("div.edit-page").find(".edit-address-dropdown");
+
+
+    if (nextAddressInfo.hasClass('hidden')) {
+      allAddressInfo.addClass('hidden');
+      nextAddressInfo.toggleClass('hidden');
+    } else {
+      allAddressInfo.addClass('hidden');
+    }
+
   })
 });
 

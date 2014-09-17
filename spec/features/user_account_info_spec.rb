@@ -36,17 +36,28 @@ describe 'a user editing their account information', type: :feature do
 
   context 'editing account information' do
 
-    it 'can visit edit account information' do
+    before(:each) do
       click_on 'Edit Account'
+    end
+
+    it 'can visit edit account information' do
       expect(current_path).to eq(edit_user_path(user))
     end
 
     it 'can update personal information' do
-      # click_on 'Edit'
-      fill_in('Full name', with: 'rachelw')
-      click_on 'Update'
+      fill_in('Full name', with: 'Rachel Warbelo')
+      first(:button, 'Update').click
       expect(current_path).to eq(edit_user_path(user))
       expect(page).to have_content('rachelw')
+    end
+
+    it 'can update an address' do
+      fill_in('Street', with: 'Wynkoop')
+      within('.edit-address-dropdown') do
+        first(:button, 'Update').click
+      end
+      expect(current_path).to eq(edit_user_path(user))
+      expect(page).to have_content('Wynkoop')
     end
   end
 end
