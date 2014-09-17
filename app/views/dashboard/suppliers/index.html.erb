@@ -1,3 +1,5 @@
 <% @suppliers.each do |supplier| %>
   <%= link_to supplier.name, dashboard_supplier_path(supplier)%>
+  <%= link_to 'Menu Item Management', dashboard_supplier_items_path(supplier) %>
+  <%= link_to 'Order Item Management', dashboard_supplier_sub_orders_path(supplier) %>
 <% end %>

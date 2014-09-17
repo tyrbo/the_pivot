@@ -9,6 +9,10 @@ class OrderItem < ActiveRecord::Base
 	end
 
 	def subtotal
-		self.quantity * self.item.price
+		if self.item && self.quantity
+			self.quantity * self.item.price
+		else
+			0.00
+		end
 	end
 end

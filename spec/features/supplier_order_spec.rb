@@ -52,6 +52,15 @@ describe 'a supplier viewing the order page', type: :feature do
     expect(page).to_not have_content(371.88)
   end
 
+  it 'can delete a sub-order' do
+    visit dashboard_supplier_sub_orders_path(supplier)
+    expect(order.sub_orders.count).to eq(2)
+    click_on('Delete')
+    expect(page).to_not have_content(user.full_name)
+    expect(order.sub_orders.count).to eq(1)
+    expect(order.order_items.count).to eq(1)
+  end
+
   it 'can change the status of a sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
     click_on('Edit')

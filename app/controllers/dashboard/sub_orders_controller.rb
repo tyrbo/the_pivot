@@ -22,6 +22,12 @@ class Dashboard::SubOrdersController < ApplicationController
     end
   end
 
+  def destroy
+    @sub_order = current_supplier.sub_orders.find(params[:id])
+    @sub_order.destroy
+    redirect_to dashboard_supplier_sub_orders_path(current_supplier)
+  end
+
   private
 
   def sub_order_params
