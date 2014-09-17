@@ -1,28 +1,6 @@
 <h1><%= @user.full_name %></h1>
+<h5><%= @user.display_name %></h5>
+<h5><%= @user.email %></h5></br></br>
 
-<div class="content-wrapper formStyle">
-  <table class="table" >
-    <thead>
-      <tr>
-        <th>Email:</th>
-        <th>Display Name:</th>
-        <th>Previous Orders:</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <td><%= @user.email %></td>
-      <td><%= @user.display_name %></td>
-      <td>
-        <ul>
-          <% @user.orders.each do |order| %>
-            <li><%= link_to order.created_at.to_formatted_s(:long), order_path(order) %></li>
-          <% end %>
-        </ul>
-      </td>
-    </tbody>
-  </table>
-
-  <%= link_to 'Back to Cart', cart_path %> |
-  <%= link_to 'Back to Menu', items_path %>
-</div>
+<%= render partial: 'shared/address_table', locals: { address_type: 'billing' } %>
+<%= render partial: 'shared/address_table', locals: { address_type: 'shipping' } %>
