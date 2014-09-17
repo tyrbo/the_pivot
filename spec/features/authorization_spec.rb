@@ -5,16 +5,18 @@ describe 'authorization', type: :feature do
   let!(:user2) { FactoryGirl.create(:user, email: "hacker@example.com") }
   let!(:sub_order) { FactoryGirl.create(:sub_order, supplier: supplier)}
   let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
-  let!(:item) { FactoryGirl.create(:item, supplier: supplier) }
+  let!(:category) { FactoryGirl.create(:category) }
+  let!(:item) { FactoryGirl.create(:item, supplier: supplier, categories: [category]) }
+
+  before(:each) do
+    login_as(username: user2.email)
+  end
 
   def no_access?
     expect(current_path).to(eq(dashboard_root_path)) && expect(page).to(have_content("You cannot access that resource."))
   end
 
   context 'for suppliers' do
-    before(:each) do
-      login_as(username: user2.email)
-    end
 
     it 'cannot visit item management of other suppliers' do
       visit dashboard_supplier_items_path(supplier)
@@ -41,5 +43,6 @@ describe 'authorization', type: :feature do
     end
   end
 
-
+  context 'for users' do
+  end
 end
