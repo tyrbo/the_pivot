@@ -19,8 +19,6 @@
           <% item_id = cart_item.item_id %>
           <td>
             <%= quantity =  @cart.cart_items.select { |cart_item| cart_item.item_id == item_id }.count%>
-            <span class='item_quantity_changer'><%= link_to '+', cart_items_path(item_id: item_id), method: :post %></span>
-            <span class='item_quantity_changer'><%= link_to '-', cart_items_path(item_id: item_id), method: :delete %></span>
             <br/>
 
           </td>

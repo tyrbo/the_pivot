@@ -1,6 +1,10 @@
-class OrdersController < ApplicationController
+class OrdersController < UserController
   def show
-    @order = Order.find(params[:id])
+    begin
+      @order = current_user.orders.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to dashboard_root_path, flash: { error: 'You cannot access that resource.' }
+    end
   end
 
   def create

@@ -37,7 +37,4 @@ Rails.application.routes.draw do
 
   post     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
   get     '/about_us'          => 'about_us#index'
-
-  post    '/cart/items'       => 'cart_items#create',       as: :cart_items
-  delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
 end
