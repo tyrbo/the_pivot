@@ -1,4 +1,4 @@
-class Dashboard::OrderItemsController < ApplicationController
+class Dashboard::OrderItemsController < Dashboard::SupplierController
   def destroy
     @order_item = current_supplier.sub_orders.find(params[:sub_order_id]).order_items.find(params[:id])
     @order_item.destroy

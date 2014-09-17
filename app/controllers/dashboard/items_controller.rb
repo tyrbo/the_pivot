@@ -1,4 +1,4 @@
-class Dashboard::ItemsController < ApplicationController
+class Dashboard::ItemsController < Dashboard::SupplierController
   def index
     @items = current_supplier.items.all
   end

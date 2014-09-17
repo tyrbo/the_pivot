@@ -1,4 +1,4 @@
-class Dashboard::RetireItemController < ApplicationController
+class Dashboard::RetireItemController < Dashboard::SupplierController
   def update
     @item = Item.find(params[:id])
     @item.retire ^= true
