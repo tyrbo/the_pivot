@@ -4,3 +4,5 @@
 
 <%= render partial: 'shared/address_table', locals: { address_type: 'billing' } %>
 <%= render partial: 'shared/address_table', locals: { address_type: 'shipping' } %>
+
+<br/><%= link_to 'Edit Account', edit_user_path(@user), class: 'btn btn-primary' %><br/>

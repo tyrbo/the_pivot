@@ -12,22 +12,41 @@ describe 'a user editing their account information', type: :feature do
     click_on 'Account'
   end
 
-  it 'can visit account information page' do
-    expect(current_path).to eq(user_path(user))
+  context 'viewing account information' do
+
+    it 'can visit account information page' do
+      expect(current_path).to eq(user_path(user))
+    end
+
+    it 'displays user information on account page' do
+      expect(page).to have_content(user.full_name)
+      expect(page).to have_content(user.display_name)
+      expect(page).to have_content(user.email)
+    end
+
+    it 'displays user addresses' do
+      user.addresses.each do |address|
+        expect(page).to have_content(address.city)
+        expect(page).to have_content(address.state)
+        expect(page).to have_content(address.zip)
+        expect(page).to have_content(address.street)
+      end
+    end
   end
 
-  it 'displays user information on account page' do
-    expect(page).to have_content(user.full_name)
-    expect(page).to have_content(user.display_name)
-    expect(page).to have_content(user.email)
-  end
+  context 'editing account information' do
 
-  it 'displays user addresses' do
-    user.addresses.each do |address|
-      expect(page).to have_content(address.city)
-      expect(page).to have_content(address.state)
-      expect(page).to have_content(address.zip)
-      expect(page).to have_content(address.street)
+    it 'can visit edit account information' do
+      click_on 'Edit Account'
+      expect(current_path).to eq(edit_user_path(user))
+    end
+
+    it 'can update personal information' do
+      # click_on 'Edit'
+      fill_in('Full name', with: 'rachelw')
+      click_on 'Update'
+      expect(current_path).to eq(edit_user_path(user))
+      expect(page).to have_content('rachelw')
     end
   end
 end

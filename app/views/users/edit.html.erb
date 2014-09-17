@@ -1,0 +1,27 @@
+<h1><%= @user.full_name %><a class='btn btn-warning' id='edit-link'>Edit</a></h1>
+  <div class='edit-dropdown'>
+    <%= form_for @user do |f| %>
+      <%= f.label :full_name %>
+      <%= f.text_field :full_name %>
+      <%= f.submit class: 'btn btn-danger', value: 'Update' %>
+    <% end %>
+  </div>
+<h5><%= @user.display_name %><a class='btn btn-warning' id='edit-link'>Edit</a></h5>
+  <div class='edit-dropdown'>
+    <%= form_for @user do |f| %>
+      <%= f.label :display_name %>
+      <%= f.text_field :display_name %>
+      <%= f.submit class: 'btn btn-danger', value: 'Update' %>
+    <% end %>
+  </div>
+<h5><%= @user.email %><a class='btn btn-warning' id='edit-link'>Edit</a></h5>
+  <div class='edit-dropdown'>
+    <%= form_for @user do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.submit class: 'btn btn-danger', value: 'Update' %>
+    <% end %>
+  </div>
+
+<%= render partial: 'shared/edit_address_table', locals: { address_type: 'billing' } %>
+<%= render partial: 'shared/edit_address_table', locals: { address_type: 'shipping' } %>
