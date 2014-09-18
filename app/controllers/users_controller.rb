@@ -1,7 +1,30 @@
 class UsersController < ApplicationController
+  def show
+    must_be_user!
+    @user = User.find(current_user.id)
+  end
+
+  def edit
+    @user = User.find(current_user.id)
+  end
+
+  def supplier_show
+    @user = User.find(params[:id])
+    render :show
+  end
+
   def new
     @user  = User.new
     @title = "Create an account"
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to edit_user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def create

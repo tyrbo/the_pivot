@@ -1,7 +1,7 @@
 <div class="col-md-2">
-  <div class="btn-group-vertical" id='sidebar-padding'>
+  <div class="list-group" id='sidebar-padding'>
     <% categories.each do |category| %>
-        <a href="#<%= category.name %>" class='btn btn-default'><%= category.name %></a>
+        <a href="#<%= category.name %>" class='btn btn-default list-group-item'><%= category.name %></a>
     <% end %>
   </div>
 </div>
