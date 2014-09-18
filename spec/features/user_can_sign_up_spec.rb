@@ -46,7 +46,7 @@ describe 'Creating and logging in a User', type: :feature do
       logout
       login
 
-      expect(current_path).to eq(dashboard_suppliers_path)
+      expect(current_path).to eq(dashboard_root_path)
     end
 
     it 'can logout after logging in' do

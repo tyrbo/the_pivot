@@ -11,7 +11,7 @@ describe 'a supplier viewing the items page', type: :feature do
     before(:each) do
       login
 
-      page.click_link('Menu Item Management')
+      page.click_link('Item Management')
     end
 
     it 'can show an item' do
@@ -23,8 +23,8 @@ describe 'a supplier viewing the items page', type: :feature do
     it 'can only see items that belongs to self' do
       item = FactoryGirl.create(:item, title: 'Hello', supplier: nil)
 
-      visit dashboard_suppliers_path
-      page.click_link('Menu Item Management')
+      visit dashboard_root_path
+      page.click_link('Item Management')
 
       expect(page).to_not have_content item.title
     end
