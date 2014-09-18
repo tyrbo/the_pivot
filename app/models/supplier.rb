@@ -8,4 +8,7 @@ class Supplier < ActiveRecord::Base
   has_many :users, through: :suppliers_users
   has_many :items
   has_many :sub_orders
+
+  extend FriendlyId
+  friendly_id :url, use: [:finders]
 end
