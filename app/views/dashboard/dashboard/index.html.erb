@@ -1,6 +1,10 @@
 <div class="row">
-  <div class="col-md-12">
-
+  <div class="col-md-2">
+    <div class="list-group" id='sidebar-padding'>
+      <%= link_to 'User Information', dashboard_user_path, class: 'btn btn-default list-group-item' %>
+    </div>
+  </div>
+  <div class="col-md-10">
     <% if @suppliers.count > 0 %>
       <table class="table table-hover">
         <h3> Supplier Management </h3>
@@ -10,40 +14,40 @@
           </tr>
         </thead>
         <tbody>
-        <% @suppliers.each do |supplier| %>
-          <tr>
-            <td><%= supplier.name %></td>
-            <td><%= link_to 'Item Management', dashboard_supplier_items_path(supplier) %></td>
-            <td><%= link_to 'Order Management', dashboard_supplier_sub_orders_path(supplier) %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <% end %>
-
-      <table class="table table-hover">
-        <h3> Order History </h3>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Date</th>
-            <th>Total</th>
-            <th>Type</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders.each do |order| %>
+          <% @suppliers.each do |supplier| %>
             <tr>
-              <td><%= order.id %></td>
-              <td><%= order.created_at.to_formatted_s(:short) %></td>
-              <td><%= order.order_total %></td>
-              <td><%= order.order_type.capitalize %></td>
-              <td><%= order.order_status.capitalize %></td>
-              <td><%= link_to 'View Order Details', order_path(order) %></td>
+              <td><%= supplier.name %></td>
+              <td><%= link_to 'Item Management', dashboard_supplier_items_path(supplier) %></td>
+              <td><%= link_to 'Order Management', dashboard_supplier_sub_orders_path(supplier) %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+    <% end %>
+
+    <table class="table table-hover">
+      <h3> Order History </h3>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th>Type</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.created_at.to_formatted_s(:short) %></td>
+            <td><%= order.order_total %></td>
+            <td><%= order.order_type.capitalize %></td>
+            <td><%= order.order_status.capitalize %></td>
+            <td><%= link_to 'View Order Details', order_path(order) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

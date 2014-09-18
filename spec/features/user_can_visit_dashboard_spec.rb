@@ -7,7 +7,7 @@ describe 'Viewing the dashboard', type: :feature do
 
     before(:each) do
       login
-      click_link 'Dashboard'
+      click_link 'Account Overview'
     end
 
     it 'Can see past orders' do

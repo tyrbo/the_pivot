@@ -1,9 +1,9 @@
-class AddressesController < ApplicationController
+class Dashboard::AddressesController < UserController
   def update
-    @address = Address.find(params[:id])
+    @address = current_user.addresses.find(params[:id])
 
     if @address.update(address_params)
-      redirect_to edit_user_path(current_user)
+      redirect_to edit_dashboard_user_path
     else
       render :edit
     end
