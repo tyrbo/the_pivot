@@ -1,4 +1,4 @@
-class Dashboard::SubOrdersController < ApplicationController
+class Dashboard::SubOrdersController < Dashboard::SupplierController
 
   def index
     @sub_orders = current_supplier.sub_orders

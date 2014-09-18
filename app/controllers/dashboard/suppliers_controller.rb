@@ -1,4 +1,6 @@
-class Dashboard::SuppliersController < ApplicationController
+class Dashboard::SuppliersController < Dashboard::SupplierController
+  before_action :check_supplier, only: [:show]
+
   def index
     @suppliers = current_user.suppliers
   end

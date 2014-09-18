@@ -2,8 +2,10 @@ require 'rails_helper'
 
 describe 'a supplier viewing the items page', type: :feature do
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:user2) { FactoryGirl.create(:user, email: "hacker@example.com") }
   let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
   let!(:item) { FactoryGirl.create(:item, supplier: supplier) }
+
 
   context "supplier user functionality" do
     before(:each) do
@@ -73,6 +75,16 @@ describe 'a supplier viewing the items page', type: :feature do
       page.click_link('Unretire')
 
       expect(page).to have_content('Retire')
+    end
+  end
+
+  context 'unauthorized user' do
+    it 'cannot visit item management of other suppliers' do
+      login_as(username: user2.email)
+      visit dashboard_supplier_items_path(supplier)
+
+      expect(current_path).to eq(dashboard_root_path)
+      expect(page).to have_content("You cannot access that resource.")
     end
   end
 end

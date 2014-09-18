@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :orders, only: [:create, :show]
-  resources :users
+  resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :suppliers, only: [:index, :new, :create, :show]
 
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   post     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
   get     '/about_us'          => 'about_us#index'
 
-  post    '/cart/items'       => 'cart_items#create',       as: :cart_items
-  delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
+  #post    '/cart/items'       => 'cart_items#create',       as: :cart_items
+  #delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
   # get '/users/supplier/:id'        => 'users#supplier_show',       as: :user_supplier
 end

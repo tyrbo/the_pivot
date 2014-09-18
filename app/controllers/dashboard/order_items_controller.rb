@@ -1,4 +1,4 @@
-class Dashboard::OrderItemsController < ApplicationController
+class Dashboard::OrderItemsController < Dashboard::SupplierController
   def edit
     @sub_order = current_supplier.sub_orders.find(params[:sub_order_id])
     @order_items = @sub_order.order_items.find_all
