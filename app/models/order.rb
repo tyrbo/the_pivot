@@ -9,16 +9,6 @@ class Order < ActiveRecord::Base
     ALL       = [PAID, CANCELLED, COMPLETED, ORDERED]
   end
 
-  def self.status_counts
-    result = Order.group(:order_status).count  # select status, count(*) from Order group by status
-    Status::ALL.each {|key| result[key] ||= 0}
-    result
-  end
-
-  def self.all_count
-    Order.count
-  end
-
   has_many    :order_items
   has_many    :items, through: :order_items
   belongs_to  :user
@@ -65,13 +55,15 @@ class Order < ActiveRecord::Base
       sub =  SubOrder.create(supplier_id: supplier_id,
                                 order_id: self.id,
                            provider_name: self.user.full_name,
-                          provider_email: self.user.email)
+                          provider_email: self.user.email,
+                              order_type: self.order_type,
+                                  status: self.order_status)
       sub.save
-      create_order_items(sub, items)
+      update_order_items(sub, items)
     end
   end
 
-  def create_order_items(sub, items)
+  def update_order_items(sub, items)
     items.each do |item|
       order_item = self.order_items.find_by(item_id: item.id, sub_order_id: nil)
       sub.order_items << order_item

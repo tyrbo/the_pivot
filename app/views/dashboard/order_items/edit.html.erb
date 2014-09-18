@@ -20,7 +20,7 @@
 
         <tr>
           <td><strong><%= order_item.item.title %></strong></td>
-          <td><%= order_item.item.price %></td>
+          <td><%= f.text_field :price, class: "form_control" %></td>
           <td><%= f.text_field :quantity, class: "form-control" %></td>
           <td><%= order_item.subtotal %></td>
           <td><%= f.submit value="Save Changes", class: "btn btn-default" %></td>
@@ -31,4 +31,4 @@
       </tr>
     </tbody>
   </table>
-  <%= link_to 'Back to Order',dashboard_supplier_sub_order_path(current_supplier, @sub_order) %> 
+  <%= link_to 'Back to Order',dashboard_supplier_sub_order_path(current_supplier, @sub_order) %>

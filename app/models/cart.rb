@@ -7,7 +7,7 @@ class Cart < ActiveRecord::Base
 			if order.order_items.any?{ |o| o.item_id == item.id}
 				add_to_quantity(order, item)
 			else
-				order.order_items.create(item:item)
+				order.order_items.create(item:item, price: item.price)
 			end
 		end
 	end
