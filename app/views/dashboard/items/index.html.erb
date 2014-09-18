@@ -18,12 +18,11 @@
           <tr>
             <td class='item_title'><%= item.title %></td>
             <td class='item_description'><%= item.description %></td>
-            <td class='item_price'><%= item.price %></td>
+            <td class='item_price'><%= item.format_price %></td>
             <td>
               <%= link_to 'Show', dashboard_supplier_item_path(current_supplier, item) %> |
               <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, item) %> |
-              <%= link_to 'Destroy', dashboard_supplier_item_path(current_supplier,item), method: :delete, data: { confirm: 'Are you sure?' } %> |
-              <%= link_to (item.retire ? 'Unretire' : 'Retire'), dashboard_supplier_retire_item_path(current_supplier,item), method: :put, data: { confirm: 'Are you sure?' } %>
+              <%= link_to (item.retire ? 'Activate' : 'Remove'), dashboard_supplier_retire_item_path(current_supplier,item), method: :put, data: { confirm: 'Are you sure?' } %>
             </td>
           </tr>
         <% end %>

@@ -3,7 +3,7 @@
     <div class="thumbnail">
       <%= image_tag @item.picture.url(:medium), :class => "img-rounded" %>
       <div class="caption">
-        <p><%= @item.price %></p>
+        <p><%= @item.format_price %></p>
         <div class="row">
           <%= form_tag(add_to_cart_path) do %>
             <input type="hidden" name="item_id" value="<%= @item.id %>">
