@@ -21,8 +21,8 @@ class SuppliersController < ApplicationController
   end
 
   def show
-    @supplier = Supplier.find_by(id: params[:id])
-    @categories = Category.eager_load(:items).where('items.supplier_id = ?', params[:id])
+    @supplier = Supplier.find(params[:id])
+    @categories = Category.eager_load(:items).where('items.supplier_id = ?', @supplier.id)
   end
 
   private

@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def cart_count
-    @cart_count = cart.items.count
+    @cart_count = cart.cart_item_quantity
   end
 
   def must_be_user!

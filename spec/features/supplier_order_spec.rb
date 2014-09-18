@@ -50,7 +50,7 @@ describe 'a supplier viewing the order page', type: :feature do
     fill_in('order_item[price]', with: 30.99)
     fill_in('order_item[quantity]', with: 99)
     click_on('Save Changes')
-    click_on('Back to Order')
+    click_on('Back to Edit Order')
     expect(page).to have_content(99)
     expect(page).to have_content(2970)
     expect(page).to_not have_content(12)

@@ -1,4 +1,5 @@
 <div class="content-wrapper formStyle">
+  <%= link_to 'Back to Dashboard', dashboard_root_path %>
   <h1>Order Management</h1>
   <h3>Order Status Counts:</h3>
   <table class='table'>
@@ -41,9 +42,9 @@
         <td><%= sub_order.id %></td>
         <td><%= sub_order.provider_name %></td>
         <td><%= sub_order.total %></td>
-        <td>Give This</td>
-        <td>Give This</td>
+        <td><%= sub_order.order_type %></td>
         <td>GiveThis</td>
+        <td><%= sub_order.status%></td>
         <td>
           <%= link_to "Show", dashboard_supplier_sub_order_path(current_supplier, sub_order) %> |
           <%= link_to "Delete", dashboard_supplier_sub_order_path(current_supplier, sub_order), method: :delete, data: { confirm: 'Are you sure?'} %>
@@ -52,4 +53,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= link_to 'Back to Dashboard', dashboard_root_path %>
 </div>

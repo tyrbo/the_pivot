@@ -10,9 +10,9 @@ User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", pas
 josh = User.create(full_name: "Josh Cheek", email: "demojosh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Programmer Relief Foundation", role: :supplier)
 tan = User.create(full_name: "Tan Doan", email: "tandoan@example.com", password: "password", password_confirmation: "password", display_name: "Viet Cong Rescue Crew", role: :supplier)
 
-kids = Supplier.create(name: 'Help the Kids', url: 'http://www.savethechildren.net', description: 'One kid at a time')
-tsunami = Supplier.create(name: 'Tsunami Relief', url: "http://www.globalgiving.org/projects/japan-earthquake-tsunami-relief/", description: 'Preventing wipe outs')
-wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'http://www.epicenter.org/wildfire-relief/', description: 'Rebuilding the ashes')
+kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time')
+tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs')
+wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes')
 
 SuppliersUser.create(supplier_id: kids.id, user_id: josh.id)
 SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)

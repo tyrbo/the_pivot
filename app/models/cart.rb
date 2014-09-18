@@ -6,6 +6,10 @@ class Cart < ActiveRecord::Base
 		cart_items.reduce(0) { |total, cart_item| total += cart_item.item.price }
 	end
 
+	def cart_item_quantity
+		self.items.uniq.count
+	end
+
 	def create_order_items(order)
 		self.items.each do |item|
 			if order.order_items.any?{ |o| o.item_id == item.id}

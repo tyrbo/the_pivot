@@ -11,13 +11,14 @@ describe 'a supplier viewing the items page', type: :feature do
     before(:each) do
       login
 
+      visit dashboard_root_path
       page.click_link('Item Management')
     end
 
     it 'can show an item' do
       page.click_link('Show')
 
-      expect(page.current_path).to eq dashboard_supplier_item_path(supplier.id, item.id)
+      expect(page.current_path).to eq dashboard_supplier_item_path(supplier.url, item.id)
     end
 
     it 'can only see items that belongs to self' do
@@ -59,14 +60,14 @@ describe 'a supplier viewing the items page', type: :feature do
       fill_in('item[title]', with: 'Allie')
       click_on('Save Changes')
 
-      expect(page.current_path).to eq dashboard_supplier_item_path(supplier.id, item.id)
+      expect(page.current_path).to eq dashboard_supplier_item_path(supplier.url, item.id)
       expect(page).to have_content('Allie')
     end
 
     it 'can retire an item' do
       page.click_link('Retire')
 
-      expect(page.current_path).to eq dashboard_supplier_items_path(supplier.id)
+      expect(page.current_path).to eq dashboard_supplier_items_path(supplier.url)
       expect(page).to have_content('Unretire')
     end
 

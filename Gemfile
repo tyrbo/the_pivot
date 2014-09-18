@@ -50,6 +50,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'pg'
 gem 'jquery-turbolinks'
+gem 'friendly_id', '~> 5.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
