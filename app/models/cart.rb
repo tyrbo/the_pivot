@@ -25,4 +25,8 @@ class Cart < ActiveRecord::Base
 		order_item.quantity += 1
 		order_item.save
 	end
+
+	def get_total
+		'$' + sprintf("%.2f", total / 100.00)
+	end
 end

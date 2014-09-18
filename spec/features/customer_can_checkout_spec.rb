@@ -26,6 +26,6 @@ describe 'A user with a cart & items', type: :feature do
   it 'can see it made previous orders' do
     click_on('Checkout')
     visit dashboard_root_path
-    expect(page).to have_content('Order History')
+    expect(page).to have_content('Purchased Orders')
   end
 end
