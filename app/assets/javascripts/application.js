@@ -24,14 +24,16 @@ $(document).ready(function() {
   })
 
   $(".edit-link").click(function() {
-    // debugger;
-    $(this).closest('div').find('div').toggleClass('hidden');
+    $(this).closest('div.edit-page').find('.edit-dropdown').toggleClass('hidden');
   })
 
   $(".edit-address-link").click(function() {
     var nextAddressInfo = $(this).closest('tr').next();
     var allAddressInfo = $(this).closest("div.edit-page").find(".edit-address-dropdown");
 
+    if (!$(this).closest('div.edit-page').find('.edit-dropdown').hasClass('hidden')) {
+      $(this).closest('div.edit-page').find('.edit-dropdown').addClass('hidden');
+    }
 
     if (nextAddressInfo.hasClass('hidden')) {
       allAddressInfo.addClass('hidden');

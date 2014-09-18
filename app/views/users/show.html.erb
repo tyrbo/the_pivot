@@ -1,8 +1,9 @@
 <h1><%= @user.full_name %></h1>
 <h5><%= @user.display_name %></h5>
-<h5><%= @user.email %></h5></br></br>
+<h5><%= @user.email %></h5></br>
+
 
 <%= render partial: 'shared/address_table', locals: { address_type: 'billing' } %>
 <%= render partial: 'shared/address_table', locals: { address_type: 'shipping' } %>
 
-<br/><%= link_to 'Edit Account', edit_user_path(@user), class: 'btn btn-primary' %><br/>
+<br/><%= link_to 'Edit Account', edit_user_path(@user), class: 'btn btn-primary' %><br/><br/>
