@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <% if @suppliers.count > 0 %>
+      <table class="table table-hover">
+        <h3>Supplier Management</h3>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @suppliers.each do |supplier| %>
+          <tr>
+            <td><%= supplier.name %></td>
+            <td>
+              <%= link_to (supplier.enabled? ? 'Disapprove' : 'Approve'), admin_supplier_toggle_enabled_path(supplier), method: :put, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% end %>
+  </div>
+</div>

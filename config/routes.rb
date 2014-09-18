@@ -4,16 +4,19 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :orders, only: [:create]
-  resources :users
+  resources :users, only: [:create, :new]
   resources :sessions, only: [:new, :create, :destroy]
   resources :suppliers, only: [:index, :new, :create, :show]
-  resources :addresses, only: [:update]
 
   resource :cart, only: [:show]
 
   namespace :dashboard do
     root to: 'dashboard#index'
     resources :orders
+
+    resource :user, only: [:show, :edit, :update] do
+      resources :addresses, only: [:update]
+    end
 
     resources :suppliers, only: [:index, :show] do
       resources :supplier
@@ -29,6 +32,14 @@ Rails.application.routes.draw do
       patch 'pay/:id/pay'      => 'orders#pay',      as: :pay_order
       patch 'pay/:id/complete' => 'orders#complete', as: :complete_order
       put 'retire/:id' => 'retire_item#update', as: :retire_item
+    end
+  end
+
+  namespace :admin do
+    root to: 'admin#index'
+
+    resources :suppliers, only: [:index] do
+      put 'toggle_enabled' => 'suppliers#toggle_enabled', as: :toggle_enabled
     end
   end
 

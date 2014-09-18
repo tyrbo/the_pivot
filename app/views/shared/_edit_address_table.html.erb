@@ -22,7 +22,7 @@
           <td class='col-md-2'><a class='btn btn-warning edit-address-link'>Edit</a>
         </tr>
         <tr class='edit-address-dropdown hidden'>
-          <%= form_for address, url: address_path(address) do |f| %>
+          <%= form_for address, url: dashboard_user_address_path(address) do |f| %>
             <td>
             <%= f.label      :street %>
             <%= f.text_field :street %>
