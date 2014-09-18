@@ -18,6 +18,16 @@ class Order < ActiveRecord::Base
   validates :order_type,       presence: true
   validates :delivery_address, presence: true, if: :delivery?
 
+  def self.status_counts
+    result = self.group(:order_status).count  # select status, count(*) from Order group by status
+    Status::ALL.each {|key| result[key] ||= 0}
+    result
+  end
+
+  def self.all_count
+    self.count
+  end
+
   def delivery?
     order_type == "delivery"
   end

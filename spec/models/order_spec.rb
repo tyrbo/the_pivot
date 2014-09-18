@@ -18,7 +18,7 @@ RSpec.describe Order, :type => :model do
   it { should validate_presence_of(:order_total) }
   it { should validate_presence_of(:order_type) }
 
-  xcontext 'Status counts' do
+  context 'Status counts' do
     before(:each) do
       FactoryGirl.create(:order, order_status: Order::Status::CANCELLED)
       FactoryGirl.create(:order, order_status: Order::Status::PAID)
