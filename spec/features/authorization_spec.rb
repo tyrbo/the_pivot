@@ -70,13 +70,14 @@ describe 'authorization', type: :feature do
 
     it 'cannot view orders if not logged in' do
       logout
-      visit order_path(order)
+      visit dashboard_order_path(order)
 
       expect(unauthenticated?).to be true
     end
 
     it 'cannot view orders it does not own' do
-      visit order_path(order)
+      visit dashboard_order_path(order)
+      
       expect(unauthorized?).to be true
     end
   end

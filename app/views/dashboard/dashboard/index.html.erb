@@ -40,7 +40,7 @@
               <td><%= order.order_total %></td>
               <td><%= order.order_type.capitalize %></td>
               <td><%= order.order_status.capitalize %></td>
-              <td><%= link_to 'View Order Details', order_path(order) %></td>
+              <td><%= link_to 'View Order Details', dashboard_order_path(order) %></td>
             </tr>
           <% end %>
         </tbody>
