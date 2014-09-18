@@ -1,0 +1,32 @@
+<div class='edit-page'>
+
+<%= form_for @user do |f| %>
+<div>
+<h1><%= @user.full_name %></h1>
+  <div class='edit-dropdown hidden'>
+      <%= f.text_field :full_name %>
+  </div>
+</div>
+<div>
+<h5><%= @user.display_name %></h5>
+  <div class='edit-dropdown hidden'>
+      <%= f.text_field :display_name %>
+  </div>
+</div>
+<div>
+<h5><%= @user.email %></h5>
+  <div class='edit-dropdown hidden'>
+      <%= f.text_field :email %>
+  </div>
+</div>
+<a class='btn btn-warning edit-link' >Edit</a>
+<%= f.submit class: 'btn btn-danger edit-dropdown hidden', value: 'Update' %>
+<% end %>
+
+<%= render partial: 'shared/edit_address_table', locals: { address_type: 'billing' } %>
+<%= render partial: 'shared/edit_address_table', locals: { address_type: 'shipping' } %>
+
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="assets/javascripts/application.js" type="text/javascript" charset="utf-8"></script>

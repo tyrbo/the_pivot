@@ -10,9 +10,7 @@ describe 'a supplier viewing the items page', type: :feature do
   context "supplier user functionality" do
     before(:each) do
       login
-
       visit dashboard_root_path
-
       page.click_link('Item Management')
     end
 

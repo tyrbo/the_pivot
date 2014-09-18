@@ -3,10 +3,9 @@
 
 #sidebar-padding {
   padding-right: 30px;
-  /*padding-top: 50px;*/
-  /*vertical-align:middle;*/
   position:fixed;
-  top:35%
+  top:20%;
+  width:15%;
 }
 
 .align-to-sidebar {

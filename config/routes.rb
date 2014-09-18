@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :orders, only: [:create, :show]
-  resources :users, only: [:new, :create]
+  resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :suppliers, only: [:index, :new, :create, :show]
+  resources :addresses, only: [:update]
 
   resource :cart, only: [:show]
 

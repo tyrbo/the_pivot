@@ -4,7 +4,7 @@ RSpec.describe User, :type => :model do
   it { should have_many(:suppliers_users) }
   it { should have_many(:suppliers).through(:suppliers_users) }
   it { should have_many(:orders) }
-  
+
   it { should validate_presence_of(:full_name) }
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:role) }
@@ -22,4 +22,7 @@ RSpec.describe User, :type => :model do
   it { should_not allow_value('fake@fake', 'faker').for(:email) }
 
   it { should have_secure_password }
+
+  it { should have_many(:user_addresses) }
+  it { should have_many(:addresses).through(:user_addresses) }
 end
