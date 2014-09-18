@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :orders, only: [:create, :show]
+  resources :orders, only: [:create]
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :suppliers, only: [:index, :new, :create, :show]
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     root to: 'dashboard#index'
+    resources :orders
 
     resources :suppliers, only: [:index, :show] do
       resources :supplier
