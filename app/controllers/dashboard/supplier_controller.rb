@@ -1,4 +1,4 @@
-class Dashboard::SupplierController < ApplicationController
+class Dashboard::SupplierController < UserController
   before_action :check_supplier
 
   private
