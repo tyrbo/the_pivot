@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140917193720) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sub_order_id"
+    t.integer  "quantity"
   end
 
   create_table "orders", force: true do |t|
@@ -89,6 +90,8 @@ ActiveRecord::Schema.define(version: 20140917193720) do
     t.integer  "supplier_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider_name"
+    t.string   "provider_email"
   end
 
   create_table "suppliers", force: true do |t|
