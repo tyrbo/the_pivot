@@ -49,4 +49,8 @@ class SubOrder < ActiveRecord::Base
       sum += (order_item.quantity * order_item.price)
     end
   end
+
+  def get_total
+    '$' + sprintf("%.2f", total / 100.00)
+  end
 end

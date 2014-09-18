@@ -7,11 +7,11 @@ describe 'Viewing the dashboard', type: :feature do
 
     before(:each) do
       login
-      click_link 'Dashboard'
+      click_link 'Account Overview'
     end
 
     it 'Can see past orders' do
-      expect(page).to have_content order.order_total
+      expect(page).to have_content order.get_total
     end
 
     it 'can link to individual orders' do

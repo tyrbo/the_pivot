@@ -33,4 +33,8 @@ class Item < ActiveRecord::Base
   def to_s
     title
   end
+
+  def format_price
+    '$' + sprintf("%.2f", price / 100.00)
+  end
 end

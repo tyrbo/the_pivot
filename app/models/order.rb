@@ -80,4 +80,8 @@ class Order < ActiveRecord::Base
       sub.save
     end
   end
+
+  def get_total
+    '$' + sprintf("%.2f", order_total / 100.00)
+  end
 end

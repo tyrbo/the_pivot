@@ -11,7 +11,7 @@ describe 'a user viewing the items page', type: :feature do
 
       expect(page).to have_content(1)
       expect(page).to have_content(keylime.title)
-      expect(page).to have_content(keylime.price)
+      expect(page).to have_content(keylime.format_price)
     end
 
     it 'adds two of the same item' do
