@@ -28,8 +28,6 @@ class User < ActiveRecord::Base
   has_many :user_addresses
   has_many :addresses, through: :user_addresses
 
-  scope :active_suppliers, -> { where(role: :supplier) }
-
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

@@ -31,6 +31,14 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    root to: 'admin#index'
+
+    resources :suppliers, only: [:index] do
+      put 'toggle_enabled' => 'suppliers#toggle_enabled', as: :toggle_enabled
+    end
+  end
+
   match '/signup',  to: 'users#new',        via: 'get'
   match '/signin',  to: 'sessions#new',     via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
