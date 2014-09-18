@@ -1,4 +1,5 @@
 <div class="content-wrapper formStyle">
+  <%= link_to 'Back to Order',dashboard_supplier_sub_order_path(current_supplier, @sub_order) %>
   <h1>Order Details:</h1>
   <%= form_for([:dashboard, current_supplier, @sub_order], :html => { :class => "form-horizontal"}) do |f| %>
 
@@ -70,8 +71,8 @@
         </tr>
       </tbody>
     </table>
-    <%= f.submit value="Save Changes", class: "btn btn-default" %>
+    <%= f.submit value="Save Changes", class: "btn btn-default" %>  <%= link_to 'Cancel',dashboard_supplier_sub_order_path(current_supplier, @sub_order), class: "btn btn-default" %>
   <% end %>
   <br>
-  <%= link_to 'Back to Order',dashboard_supplier_sub_order_path(current_supplier, @sub_order) %>
+
 </div>
