@@ -6,6 +6,22 @@
 
 $(document).ready(function() {
 
+  $(".cart-btn").bind('click', false);
+
+  $(".qty-box").focus(function() {
+
+    var nextCartButton = $(this).closest('td').next().find('.cart-btn');
+    var allCartButton = $(this).closest("div.align-to-sidebar").find(".cart-btn");
+
+    allCartButton.removeClass('btn-primary');
+    nextCartButton.addClass('btn-primary');
+
+    allCartButton.bind('click', false)
+    nextCartButton.unbind('click', false);
+
+    $('.qty-box').val('')
+  })
+
   $(".cart-link").click(function(){
     var nextCartInfo = $(this).closest('tr').next().next();
     var allCartInfo = $(this).closest("div.align-to-sidebar").find(".cart-info");
