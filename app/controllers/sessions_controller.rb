@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       sign_in user
 
       if user.suppliers.any?
-        redirect_to dashboard_suppliers_path
+        redirect_to dashboard_root_path
       else
         redirect_to items_path
       end

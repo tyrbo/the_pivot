@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917193720) do
 
-  create_table "addresses", force: true do |t|
-    t.string  "city"
-    t.string  "state"
-    t.string  "zip"
-    t.string  "street"
-    t.boolean "billing"
-    t.boolean "shipping"
-  end
+ActiveRecord::Schema.define(version: 20140917223652) do
+
+    create_table "addresses", force: true do |t|
+      t.string  "city"
+      t.string  "state"
+      t.string  "zip"
+      t.string  "street"
+      t.boolean "billing"
+      t.boolean "shipping"
+    end
 
   create_table "cart_items", force: true do |t|
     t.integer  "cart_id"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140917193720) do
     t.datetime "updated_at"
     t.integer  "sub_order_id"
     t.integer  "quantity"
+    t.integer  "price"
   end
 
   create_table "orders", force: true do |t|
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140917193720) do
     t.string   "order_status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "billing_address"
   end
 
   create_table "sub_orders", force: true do |t|
@@ -92,6 +95,10 @@ ActiveRecord::Schema.define(version: 20140917193720) do
     t.datetime "updated_at"
     t.string   "provider_name"
     t.string   "provider_email"
+    t.string   "status"
+    t.integer  "delivery_address"
+    t.integer  "billing_address"
+    t.string   "order_type"
   end
 
   create_table "suppliers", force: true do |t|
