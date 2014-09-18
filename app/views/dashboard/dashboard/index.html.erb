@@ -22,7 +22,7 @@
       <% end %>
 
       <table class="table table-hover">
-        <h3> Order History </h3>
+        <h3> Purchased Orders </h3>
         <thead>
           <tr>
             <th>#</th>
@@ -37,7 +37,7 @@
             <tr>
               <td><%= order.id %></td>
               <td><%= order.created_at.to_formatted_s(:short) %></td>
-              <td><%= order.order_total %></td>
+              <td><%= order.get_total %></td>
               <td><%= order.order_type.capitalize %></td>
               <td><%= order.order_status.capitalize %></td>
               <td><%= link_to 'View Order Details', order_path(order) %></td>
