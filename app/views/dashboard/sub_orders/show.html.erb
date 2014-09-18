@@ -37,8 +37,8 @@
         <td><%= @sub_order.created_at.to_formatted_s(:long) %></td>
         <td>Last updated at: <%= @sub_order.updated_at.to_formatted_s(:long)%></td>
         <td><%= @sub_order.total %></td>
-        <td>Give sub_order type</td>
-        <td>Give sub_order status</td>
+        <td><%= @sub_order.order_type %></td>
+        <td><%= @sub_order.status %></td>
       </tr>
     </tbody>
   </table>
@@ -58,7 +58,7 @@
       <% @sub_order.order_items.each do |order_item| %>
         <tr>
           <td><strong><%= link_to "#{order_item.item.title}", item_path(order_item.item) %></strong></td>
-          <td><%= order_item.item.price %></td>
+          <td><%= order_item.price %></td>
           <td><%= order_item.quantity %></td>
           <td><%= order_item.subtotal %></td>
         </tr>
