@@ -11,4 +11,12 @@ class Supplier < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :url, use: [:finders]
+  #
+  # def self.admins
+  #   self.all.map do |supplier|
+  #     supplier.suppliers_users.default.map do |suppliers_user|
+  #       suppliers_user.user
+  #     end
+  #   end.flatten.compact
+  # end
 end

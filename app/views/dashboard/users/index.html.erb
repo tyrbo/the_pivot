@@ -1,0 +1,60 @@
+
+<%= link_to 'Back to Dashboard', dashboard_root_path %>
+
+  <div class="content-wrapper formStyle">
+    <h1>Admins</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Admin Name:</th>
+          <th>Admin Email:</th>
+          <th>Admin Role</th>
+          <th>Options:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @admins.each do |admin| %>
+          <tr>
+            <td class='item_title'><%= admin.full_name %></td>
+            <td class='item_description'><%= admin.email %></td>
+            <td class='item_price'><%= admin.role %></td>
+            <td>
+              <%= link_to 'Show', user_path(admin) %> |
+              <%= link_to 'Remove Admin', dashboard_supplier_user_path(current_supplier, admin),method: :delete, data: { confirm: 'Are you sure?' } %> |
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <h3>Requests</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User Name:</th>
+          <th>User Email:</th>
+          <th>Status:</th>
+          <th>Options:</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @pending.each do |pending| %>
+          <tr>
+            <td class='item_title'><%= pending.full_name %></td>
+            <td class='item_description'><%= pending.email %></td>
+            <td class='item_price'>Pending</td>
+            <td>
+              <%= link_to 'Show', user_path(pending) %> |
+              <%= link_to 'Add', dashboard_supplier_add_pending_path(current_supplier, pending) %> |
+              <%= link_to 'Remove from List', dashboard_supplier_remove_pending_path(current_supplier, pending), data: { confirm: 'Are you sure?' } %> |
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+    <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier) %> | <%= link_to 'Back to Dashboard', dashboard_root_path %>
+  </div>

@@ -1,6 +1,6 @@
 <%= render partial: 'shared/category_sidebar', locals: { categories: @categories} %>
 <div class='align-to-sidebar'>
-<% categories.each do |category| %>
+<% @categories.each do |category| %>
 <span id="<%= category.name %>">
   <div class="col-md-10">
   </br></br>
@@ -60,6 +60,4 @@
   </div>
 </span>
 <% end %>
-</div
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="assets/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+</div>

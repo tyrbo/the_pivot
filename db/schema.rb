@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140917223652) do
 
-    create_table "addresses", force: true do |t|
-      t.string  "city"
-      t.string  "state"
-      t.string  "zip"
-      t.string  "street"
-      t.boolean "billing"
-      t.boolean "shipping"
-    end
+  create_table "addresses", force: true do |t|
+    t.string  "city"
+    t.string  "state"
+    t.string  "zip"
+    t.string  "street"
+    t.boolean "billing"
+    t.boolean "shipping"
+  end
 
   create_table "cart_items", force: true do |t|
     t.integer  "cart_id"

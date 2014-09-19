@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   before_save   { self.email = email.downcase }
   before_create :create_remember_token
 
+  scope :admins, -> { where(role: 'admin') }
+  scope :pending, -> { where(role: 'pending') }
+
   validates :full_name,
             presence: true,
             length:   { maximum: 50 }
