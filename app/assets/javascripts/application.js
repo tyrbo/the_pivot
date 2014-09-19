@@ -13,8 +13,8 @@ $(document).ready(function() {
     var nextCartButton = $(this).closest('td').next().find('.cart-btn');
     var allCartButton = $(this).closest("div.align-to-sidebar").find(".cart-btn");
 
-    allCartButton.removeClass('btn-primary');
-    nextCartButton.addClass('btn-primary');
+    allCartButton.removeClass('btn-default');
+    nextCartButton.addClass('btn-default');
 
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);

@@ -14,7 +14,7 @@
       </thead>
 
       <tbody>
-        <% @items.each do |item| %>
+        <% @items.sort_by { |i| i.title }.each do |item| %>
           <tr>
             <td class='item_title'><%= item.title %></td>
             <td class='item_description'><%= item.description %></td>

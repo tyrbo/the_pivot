@@ -1,7 +1,7 @@
 <br/><br/>
 <div class="content-wrapper formStyle">
   <table class="table" >
-    <h5><%= address_type.capitalize %> Addresses</h5>
+    <h4><%= address_type.capitalize %> Addresses</h4>
     <thead>
       <tr>
         <th>Street</th>
@@ -19,7 +19,7 @@
           <td class='col-md-2'><%= address.city %></td>
           <td class='col-md-2'><%= address.state %></td>
           <td class='col-md-2'><%= address.zip %></td>
-          <td class='col-md-2'><a class='btn btn-warning edit-address-link'>Edit</a>
+          <td class='col-md-2'><a class='btn btn-default edit-address-link'>Edit</a>
         </tr>
         <tr class='edit-address-dropdown hidden'>
           <%= form_for address, url: dashboard_user_address_path(address) do |f| %>
