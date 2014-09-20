@@ -7,4 +7,6 @@ RSpec.describe Supplier, :type => :model do
   it { should have_many(:items) }
   it { should have_many(:suppliers_users) }
   it { should have_many(:users).through(:suppliers_users) }
+
+    
 end
