@@ -15,7 +15,7 @@
       <% unique_cart_items.each do |cart_item| %>
         <tr>
           <td><%= link_to cart_item.item.title, item_path(cart_item.item) %></td>
-          <td><%= cart_item.item.price %></td>
+          <td><%= cart_item.item.format_price %></td>
           <% item_id = cart_item.item_id %>
           <td>
             <%= quantity =  @cart.cart_items.select { |cart_item| cart_item.item_id == item_id }.count%>
@@ -23,7 +23,7 @@
 
           </td>
           <td>
-            <%= quantity * cart_item.item.price %>
+            <%= calculate_total(cart_item, quantity) %>
           </td>
         </tr>
       <% end %>
@@ -37,7 +37,7 @@
 
       <div class='form-group'>
         <%= label_tag 'Order Total:' %>
-        <%= @cart.total %>
+        <%= @cart.get_total %>
       </div>
 
       <div class='form-group'>

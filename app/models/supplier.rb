@@ -1,4 +1,7 @@
 class Supplier < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :url, use: [:finders]
+
   has_attached_file :picture, styles: { :medium => "300x300#", :thumb => "32x32#" }, default_url: "red_cross.jpg"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates :name, presence: true
@@ -11,12 +14,14 @@ class Supplier < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :url, use: [:finders]
-  #
-  # def self.admins
-  #   self.all.map do |supplier|
-  #     supplier.suppliers_users.default.map do |suppliers_user|
-  #       suppliers_user.user
-  #     end
-  #   end.flatten.compact
-  # end
+
+  scope :approved, -> { where(enabled: true) }
+
+  def enabled?
+    enabled
+  end
+
+  def toggle_enabled
+    self.enabled ^= true
+  end
 end

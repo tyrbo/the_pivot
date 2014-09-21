@@ -2,9 +2,9 @@ require 'rails_helper'
 require 'capybara/rails'
 require 'capybara/rspec'
 describe 'a supplier viewing the order page', type: :feature do
-  let(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
+  let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
   let(:supplier2) { FactoryGirl.create(:supplier, name: 'Different', url: 'Different') }
-  let(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user, role:'supplier') }
   let(:order) { FactoryGirl.create(:order, user: user, items: [item, item2])}
   let(:item) { FactoryGirl.create(:item, supplier: supplier)}
   let(:item2) { FactoryGirl.create(:item, supplier: supplier2, title: 'Different')}
@@ -71,5 +71,7 @@ describe 'a supplier viewing the order page', type: :feature do
     click_on('Show')
     click_on('Edit')
   end
+
+  it 'has an address for each supplier'
 
 end

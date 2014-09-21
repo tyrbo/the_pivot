@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'authorization', type: :feature do
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user, role: 'supplier') }
   let!(:user2) { FactoryGirl.create(:user, email: "hacker@example.com") }
   let!(:order) { FactoryGirl.create(:order, user: user) }
   let!(:sub_order) { FactoryGirl.create(:sub_order, supplier: supplier)}
@@ -70,13 +70,14 @@ describe 'authorization', type: :feature do
 
     it 'cannot view orders if not logged in' do
       logout
-      visit order_path(order)
+      visit dashboard_order_path(order)
 
       expect(unauthenticated?).to be true
     end
 
     it 'cannot view orders it does not own' do
-      visit order_path(order)
+      visit dashboard_order_path(order)
+
       expect(unauthorized?).to be true
     end
   end

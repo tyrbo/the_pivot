@@ -15,7 +15,7 @@
     <tbody>
       <tr>
         <td><%= @order.created_at.to_formatted_s(:long) %></td>
-        <td>$<%= @order.order_total %></td>
+        <td><%= @order.get_total %></td>
         <td>
           <%= @order.order_type.upcase %><br/>
           <%= @order.delivery_address %>
@@ -45,7 +45,7 @@
         <tr>
           <td class='col-md-3'><%= link_to order_item.item.supplier.name, supplier_path(order_item.item.supplier) %></td>
           <td><strong><%= link_to "#{order_item.item.title}", item_path(order_item.item) %></strong></td>
-          <td><%= order_item.item.price %></td>
+          <td><%= order_item.item.format_price %></td>
           <td><%= order_item.quantity%></td>
           <td><%= order_item.subtotal %></td>
         </tr>

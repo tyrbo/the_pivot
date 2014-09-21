@@ -23,9 +23,15 @@ class ApplicationController < ActionController::Base
     Supplier.find(id)
   end
 
+  def user_is_admin_of_supplier?
+    supplier.users.enabled.exists?(id: current_user.id)
+  end
+
   def current_supplier
-    if supplier.users.admins.find(current_user)
+    if user_is_admin_of_supplier?
       supplier
+    else
+      flash[:error] = "You cannot access that resource"
     end
   end
 

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :orders, only: [:create, :show]
-  resources :users
+  resources :orders, only: [:create]
+  resources :users, only: [:create, :new]
   resources :sessions, only: [:new, :create, :destroy]
   resources :suppliers, only: [:index, :new, :create, :show] do
     get      'pending_admin'    =>  'suppliers#add_pending_admin'
@@ -15,6 +15,11 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     root to: 'dashboard#index'
+    resources :orders
+
+    resource :user, only: [:show, :edit, :update] do
+      resources :addresses, only: [:update]
+    end
 
     resources :suppliers, only: [:index, :show] do
       resources :supplier
@@ -33,6 +38,14 @@ Rails.application.routes.draw do
       put 'retire/:id' => 'retire_item#update', as: :retire_item
       get 'users/pending/:id/remove' => 'users#pending_remove', as: :remove_pending
       get 'users/pending/:id/add' => 'users#pending_add', as: :add_pending
+    end
+  end
+
+  namespace :admin do
+    root to: 'admin#index'
+
+    resources :suppliers, only: [:index] do
+      put 'toggle_enabled' => 'suppliers#toggle_enabled', as: :toggle_enabled
     end
   end
 

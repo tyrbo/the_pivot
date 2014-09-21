@@ -23,4 +23,12 @@ class OrderItem < ActiveRecord::Base
 			0.00
 		end
 	end
+
+	def get_price
+		'$' + sprintf("%.2f", price / 100.00)
+	end
+
+	def get_subtotal
+		'$' + sprintf("%.2f", subtotal / 100.00)
+	end
 end

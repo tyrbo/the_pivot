@@ -8,7 +8,7 @@ class SuppliersController < ApplicationController
 
     if @supplier.save
       current_user.suppliers << @supplier
-      current_user.suppliers_user.update_attribute(:pending, false)
+      current_user.suppliers_users.first.update_attribute(:role, 'supplier')
 
       flash[:success] = 'Thanks, your request is pending!'
       redirect_to root_path
@@ -18,7 +18,6 @@ class SuppliersController < ApplicationController
   end
 
 
-#user role to pending
   def add_pending_admin
     @supplier = Supplier.find(params[:supplier_id])
     @supplier.users << current_user
@@ -28,12 +27,11 @@ class SuppliersController < ApplicationController
   end
 
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.approved
   end
 
   def show
-    binding.pry
-    @supplier = supplier
+    @supplier = Supplier.approved.find(params[:id])
     @categories = Category.eager_load(:items).where('items.supplier_id = ?', @supplier.id)
   end
 

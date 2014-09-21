@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   before_save   { self.email = email.downcase }
   before_create :create_remember_token
 
-  scope :admins, -> { where(role: 'admin') }
+  scope :enabled, -> { where(role: 'supplier') }
   scope :pending, -> { where(role: 'pending') }
 
   validates :full_name,
@@ -30,8 +30,6 @@ class User < ActiveRecord::Base
 
   has_many :user_addresses
   has_many :addresses, through: :user_addresses
-
-  scope :active_suppliers, -> { where(role: :supplier) }
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
