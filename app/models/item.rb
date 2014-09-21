@@ -41,6 +41,10 @@ class Item < ActiveRecord::Base
   end
 
   def convert_to_cents
-    self.price = (price * 100).to_i 
+    self.price = (price * 100).to_i
+  end
+
+  def edit_price
+    format_price.gsub('$', '')
   end
 end

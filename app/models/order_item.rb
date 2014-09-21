@@ -31,4 +31,8 @@ class OrderItem < ActiveRecord::Base
 	def get_subtotal
 		'$' + sprintf("%.2f", subtotal / 100.00)
 	end
+
+	def edit_price
+		get_price.gsub("$", '')
+	end
 end

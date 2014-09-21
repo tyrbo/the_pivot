@@ -9,7 +9,7 @@
 }
 
 .align-to-sidebar {
-  padding-left:210px;
+  padding-left:230px;
 }
 
 .details-link {
@@ -23,7 +23,7 @@
 .body-theme {
   background:transparent;
   color:#113672;
-  font-family:Arial, Helvetica, sans;
+  /*font-family:"cantarell",sans-serif;*/
 }
 
 .body-theme:link {

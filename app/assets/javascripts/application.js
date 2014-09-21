@@ -6,6 +6,16 @@
 
 $(document).ready(function() {
 
+  $('.edit-user-link').bind('click', false);
+
+  $('.update-order-item-btn').bind('click', false);
+
+  $('.form-control').focus(function() {
+    $('.edit-user-link').addClass('btn-primary')
+    $('.edit-user-link').unbind('click', false)
+    $('.edit-address-dropdown').addClass('hidden');
+  })
+
   $(".cart-btn").bind('click', false);
 
   $(".qty-box").focus(function() {
@@ -13,8 +23,8 @@ $(document).ready(function() {
     var nextCartButton = $(this).closest('td').next().find('.cart-btn');
     var allCartButton = $(this).closest("div.align-to-sidebar").find(".cart-btn");
 
-    allCartButton.removeClass('btn-default');
-    nextCartButton.addClass('btn-default');
+    allCartButton.removeClass('btn-primary');
+    nextCartButton.addClass('btn-primary');
 
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);
@@ -47,6 +57,9 @@ $(document).ready(function() {
     var nextAddressInfo = $(this).closest('tr').next();
     var allAddressInfo = $(this).closest("div.edit-page").find(".edit-address-dropdown");
 
+    $('.edit-user-link').removeClass('btn-primary')
+    $('.edit-user-link').bind('click', false)
+
     if (!$(this).closest('div.edit-page').find('.edit-dropdown').hasClass('hidden')) {
       $(this).closest('div.edit-page').find('.edit-dropdown').addClass('hidden');
     }
@@ -58,6 +71,14 @@ $(document).ready(function() {
       allAddressInfo.addClass('hidden');
     }
 
+  })
+
+  $('.edit-order-item-box').focus(function() {
+    $('.update-order-item-btn').bind('click', false);
+    $('.update-order-item-btn').removeClass('btn-primary');
+
+    $(this).closest('tr').find('.update-order-item-btn').unbind('click', false);
+    $(this).closest('tr').find('.update-order-item-btn').addClass('btn-primary');
   })
 });
 

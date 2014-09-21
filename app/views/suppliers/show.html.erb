@@ -2,5 +2,6 @@
   <%= image_tag @supplier.picture.url(:thumb), :size => '64x64', :class => "img-rounded" %>
   <%= @supplier.name %>
 </h1>
+<p align='center'><%= @supplier.description %></p>
 <% content_for(:title, @supplier.name) %>
 <%= render partial: 'shared/items', locals: { categories: @categories } %>

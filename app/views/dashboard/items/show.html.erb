@@ -7,9 +7,9 @@
     <p>
       <%= @item.description %>
     </p>
-    <p>Unit Size: <%= @item.size %></p>
-    <p>Units Available: <%= @item.inventory %></p>
-    <p>Unit Price: <%= @item.format_price %></p>
+    <p>Unit Size: <%= @item.size %> |
+    Units Available: <%= @item.inventory %> |
+    Unit Price: <%= @item.format_price %></p>
 
     <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, @item) %> |
     <%= link_to 'Back to All Items', dashboard_supplier_items_path %>

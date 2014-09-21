@@ -68,7 +68,7 @@
   </table>
 
   <div>
-    <%= link_to 'Edit', edit_dashboard_supplier_sub_order_path(current_supplier, @sub_order) %> |
-    <%= link_to 'Back to Order Management', dashboard_supplier_sub_orders_path(current_supplier) %>
+    <%= link_to 'Edit', edit_dashboard_supplier_sub_order_path(current_supplier, @sub_order), class: 'btn btn-default' %>
+    <%= link_to 'Back to Order Management', dashboard_supplier_sub_orders_path(current_supplier), class: 'btn btn-default' %>
   </div>
 </div>

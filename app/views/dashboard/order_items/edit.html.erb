@@ -20,10 +20,10 @@
 
         <tr>
           <td><strong><%= order_item.item.title %></strong></td>
-          <td><%= f.text_field :price, class: "form_control" %></td>
-          <td><%= f.text_field :quantity, class: "form-control" %></td>
+          <td><%= f.text_field :price, class: "form_control edit-order-item-box", value: order_item.edit_price %></td>
+          <td><%= f.text_field :quantity, class: "form-control edit-order-item-box" %></td>
           <td><%= order_item.subtotal %></td>
-          <td><%= f.submit value="Save Changes", class: "btn btn-default" %></td>
+          <td><%= f.submit value="Save Changes", class: "btn update-order-item-btn" %></td>
         </tr>
 
         <% end %>

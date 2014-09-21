@@ -39,7 +39,7 @@
         <tr>
           <td><%= @sub_order.created_at.to_formatted_s(:long) %></td>
           <td>Last updated at: <%= @sub_order.updated_at.to_formatted_s(:long)%></td>
-          <td><%= @sub_order.total %></td>
+          <td><%= @sub_order.get_total %></td>
           <td><%= select_tag(:order_type, options_for_select(['delivery', 'pickup'])) %></td>
           <td><%= select_tag(:status, options_for_select(['paid', 'cancelled', 'completed', 'ordered'])) %></td>
         </tr>
@@ -61,9 +61,9 @@
         <% @sub_order.order_items.each do |order_item| %>
           <tr>
             <td><strong><%= order_item.item.title %></strong></td>
-            <td><%= order_item.price %></td>
+            <td><%= order_item.get_price %></td>
             <td><%= order_item.quantity %></td>
-            <td><%= order_item.subtotal %></td>
+            <td><%= order_item.get_subtotal %></td>
             <td><%= link_to 'Edit Item', edit_dashboard_supplier_sub_order_order_item_path(current_supplier, @sub_order, order_item.id) %></td>
             <td><%= link_to 'Delete', dashboard_supplier_sub_order_order_item_path(current_supplier, @sub_order, order_item.id), method: :delete %></td>
           </tr>
@@ -71,7 +71,7 @@
         </tr>
       </tbody>
     </table>
-    <%= f.submit value="Save Changes", class: "btn btn-default" %>  <%= link_to 'Cancel',dashboard_supplier_sub_order_path(current_supplier, @sub_order), class: "btn btn-default" %>
+    <%= f.submit value="Save Changes", class: "btn btn-primary" %>  <%= link_to 'Cancel',dashboard_supplier_sub_order_path(current_supplier, @sub_order), class: "btn btn-default" %>
   <% end %>
   <br>
 
