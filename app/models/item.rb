@@ -37,4 +37,9 @@ class Item < ActiveRecord::Base
   def format_price
     '$' + sprintf("%.2f", price / 100.00)
   end
+
+
+  def self.search(search)
+    where("title like ? or description like ?", "%#{search}%", "%#{search}%")
+  end
 end
