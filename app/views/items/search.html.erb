@@ -1,5 +1,7 @@
-<% if @items %>
+<% if @items && check_count? %>
   <% @items.each do |item| %>
     <%= item.title %>
   <% end %>
+  <% else %>
+    <%= p "No results have been found." %>
 <% end %>

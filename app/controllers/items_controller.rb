@@ -10,8 +10,6 @@ class ItemsController < ApplicationController
 	def search
 		if params[:search] && params[:search] != ""
 			@items = Item.search(params[:search])
-		else
-		 	flash[:notice] = "No results have been found."
 		end
 	end
 

@@ -16,7 +16,6 @@ describe 'A user searching for items', type: :feature do
   it 'should find correct results after search for title' do
     visit root_path
     fill_in("search", with: "Bandaid")
-    save_and_open_page
     click_link_or_button("Search")
 
 
