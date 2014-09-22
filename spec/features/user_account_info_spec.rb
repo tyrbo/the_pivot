@@ -45,7 +45,7 @@ describe 'a user editing their account information', type: :feature do
 
     it 'can update personal information' do
       fill_in('Full name', with: 'Wat')
-      first(:button, 'Update').click
+      first(:button, 'Save Changes').click
       expect(current_path).to eq(dashboard_user_path)
       expect(page).to have_content('Wat')
     end
@@ -53,7 +53,7 @@ describe 'a user editing their account information', type: :feature do
     it 'can update an address' do
       fill_in('Street', with: 'Wynkoop')
       within('.edit-address-dropdown') do
-        first(:button, 'Update').click
+        first(:button, 'Save Changes').click
       end
       expect(current_path).to eq(edit_dashboard_user_path)
       expect(page).to have_content('Wynkoop')

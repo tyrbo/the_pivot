@@ -1,5 +1,9 @@
-<h1 align='center'><%= @supplier.name %></h1>
 <%= link_to 'Become an Admin', supplier_pending_admin_path(@supplier) %>
+<h1 align='center'>
+  <%= image_tag @supplier.picture.url(:thumb), :size => '64x64', :class => "img-rounded" %>
+  <%= @supplier.name %>
+</h1>
+<p align='center'><%= @supplier.description %></p>
 <% content_for(:title, @supplier.name) %>
 <%= @supplier.description %>
 <%= render partial: 'shared/items', locals: { categories: @categories } %>
