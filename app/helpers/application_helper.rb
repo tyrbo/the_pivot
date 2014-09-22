@@ -4,8 +4,12 @@ module ApplicationHelper
   end
 
 
-  def check_count?
+  def check_count
     @items.count > 0
+  end
+
+  def no_results
+    p "No results have been found."
   end
 
   def calculate_total(cart_item, quantity)
