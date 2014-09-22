@@ -77,7 +77,7 @@ describe 'authorization', type: :feature do
 
     it 'cannot view orders it does not own' do
       visit dashboard_order_path(order)
-      
+
       expect(unauthorized?).to be true
     end
   end

@@ -47,13 +47,12 @@
           <td><strong><%= link_to "#{order_item.item.title}", item_path(order_item.item) %></strong></td>
           <td><%= order_item.item.format_price %></td>
           <td><%= order_item.quantity%></td>
-          <td><%= order_item.subtotal %></td>
+          <td><%= order_item.get_subtotal %></td>
         </tr>
       <% end %>
       </tr>
     </tbody>
   </table>
 
-  <%#link_to 'Back to Order History', user_path(current_user.id) %> |
-  <%= link_to 'Back to Menu', items_path %>
+  <%#link_to 'Back to Order History', user_path(current_user.id) %>
 </div>
