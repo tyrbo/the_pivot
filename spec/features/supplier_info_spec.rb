@@ -10,9 +10,11 @@ describe 'a supplier with info', type: :feature do
     expect(page).to have_content('We sell things.')
   end
 
-  xit 'can edit info on supplier show page' do
+  it 'can edit info on supplier show page' do
     login_as(username: user.email, password: user.password)
     click_on('Settings')
-
+    fill_in('supplier[description]', with: 'description description')
+    click_on('Save Changes')
+    expect(page).to have_content('description description')
   end
 end

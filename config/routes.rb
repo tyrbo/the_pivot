@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :addresses, only: [:update]
     end
 
-    resources :suppliers, only: [:index, :show] do
+    resources :suppliers, only: [:index, :show, :edit, :update] do
       resources :supplier
       resources :items
       resources :users

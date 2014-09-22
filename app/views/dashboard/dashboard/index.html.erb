@@ -20,6 +20,7 @@
             <td><%= link_to 'Item Management', dashboard_supplier_items_path(supplier) %></td>
             <td><%= link_to 'Order Management', dashboard_supplier_sub_orders_path(supplier) %></td>
             <td><%= link_to 'Admin Management', dashboard_supplier_users_path(supplier) %></td>
+            <td><%= link_to 'Settings', edit_dashboard_supplier_path(supplier)%></td>
           </tr>
           <% end %>
         </tbody>
