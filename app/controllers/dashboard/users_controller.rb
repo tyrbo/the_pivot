@@ -20,7 +20,7 @@ class Dashboard::UsersController < UserController
 
   def pending_remove
     admin = current_supplier.suppliers_users.find_by(user_id: params[:id])
-    admin.user.update_attribute(:role, 'customer')
+    admin.user.update_attribute(:role, 'user')
     admin.destroy
     redirect_to dashboard_supplier_users_path(current_supplier)
   end

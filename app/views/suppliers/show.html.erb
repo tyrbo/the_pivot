@@ -1,4 +1,5 @@
 <h1 align='center'><%= @supplier.name %></h1>
 <%= link_to 'Become an Admin', supplier_pending_admin_path(@supplier) %>
 <% content_for(:title, @supplier.name) %>
+<%= @supplier.description %>
 <%= render partial: 'shared/items', locals: { categories: @categories } %>

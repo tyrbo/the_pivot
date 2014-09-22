@@ -3,7 +3,7 @@
 
   <div class="content-wrapper formStyle">
     <h1>Admins</h1>
-    <table class="table">
+    <table class="table admins">
       <thead>
         <tr>
           <th>Admin Name:</th>
@@ -20,7 +20,9 @@
             <td class='item_description'><%= admin.email %></td>
             <td class='item_price'><%= admin.role %></td>
             <td>
+              <% if current_user != admin %>
               <%= link_to 'Remove Admin', dashboard_supplier_user_path(current_supplier, admin),method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
             </td>
           </tr>
         <% end %>
@@ -28,7 +30,7 @@
     </table>
 
     <h3>Requests</h3>
-    <table class="table">
+    <table class="table pending">
       <thead>
         <tr>
           <th>User Name:</th>
@@ -45,8 +47,8 @@
             <td class='item_description'><%= pending.email %></td>
             <td class='item_price'>Pending</td>
             <td>
-              <%= link_to 'Add', dashboard_supplier_add_pending_path(current_supplier, pending) %> |
-              <%= link_to 'Remove from List', dashboard_supplier_remove_pending_path(current_supplier, pending), data: { confirm: 'Are you sure?' } %> |
+              <%= link_to 'Add As Admin', dashboard_supplier_add_pending_path(current_supplier, pending) %> |
+              <%= link_to 'Remove Pending Admin', dashboard_supplier_remove_pending_path(current_supplier, pending), data: { confirm: 'Are you sure?' } %> |
             </td>
           </tr>
         <% end %>

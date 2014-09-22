@@ -31,6 +31,6 @@ class Dashboard::SubOrdersController < Dashboard::SupplierController
   private
 
   def sub_order_params
-    params.require(:sub_order).permit(:provider_name, :provider_email)
+    params.require(:sub_order).permit(:provider_name, :provider_email, :status, :order_type)
   end
 end
