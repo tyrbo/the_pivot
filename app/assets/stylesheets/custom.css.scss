@@ -60,6 +60,18 @@
   text-align: center;
 }
 
+#footer-links {
+  margin-top: 2em;
+}
+
+.footer-link-border {
+  margin-top: 2em;
+  border-top: 1px solid #d3d3d3;
+  margin-left: 100px;
+  margin-right: 100px;
+
+}
+
 html,
 body {
   height: 100%;
@@ -74,4 +86,9 @@ body {
   margin: 0 auto -60px;
   /* Pad bottom by footer height */
   padding: 0 0 60px;
+}
+
+#ul-footer-links
+{
+    list-style-type: none;
 }

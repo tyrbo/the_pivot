@@ -1,7 +1,8 @@
 //= require bootstrap
 //= require custom
 
-
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
 #sidebar-padding {
   padding-right: 30px;
