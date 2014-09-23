@@ -1,7 +1,6 @@
 class OrdersController < UserController
   def new
     @order = current_user.orders.new
-    @order.items << @cart.items
     @user = current_user
   end
 
