@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :orders, only: [:create]
+  resources :orders
   resources :users, only: [:create, :new]
   resources :sessions, only: [:new, :create, :destroy]
   resources :suppliers, only: [:index, :new, :create, :show] do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :orders
 
     resource :user, only: [:show, :edit, :update] do
-      resources :addresses, only: [:update]
+      resources :addresses
     end
 
     resources :suppliers, only: [:index, :show, :edit, :update] do

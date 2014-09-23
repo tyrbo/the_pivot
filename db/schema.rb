@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923153705) do
+ActiveRecord::Schema.define(version: 20140923155433) do
 
   create_table "addresses", force: true do |t|
     t.string  "city"
@@ -84,11 +84,11 @@ ActiveRecord::Schema.define(version: 20140923153705) do
     t.integer  "user_id"
     t.integer  "order_total"
     t.string   "order_type"
-    t.string   "delivery_address"
     t.string   "order_status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "billing_address"
+    t.integer  "delivery_address_id"
+    t.integer  "billing_address_id"
   end
 
   create_table "sub_orders", force: true do |t|
@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(version: 20140923153705) do
     t.string   "provider_name"
     t.string   "provider_email"
     t.string   "status"
-    t.integer  "delivery_address"
-    t.integer  "billing_address"
     t.string   "order_type"
+    t.integer  "delivery_address_id"
+    t.integer  "billing_address_id"
   end
 
   create_table "suppliers", force: true do |t|

@@ -1,3 +1,5 @@
+<%= link_to 'Become an Admin', supplier_pending_admin_path(@supplier) %>
+
 <h1 align='center'>
   <%= image_tag @supplier.picture.url(:thumb), :size => '64x64', :class => "img-rounded" %>
   <a class='description-link'><%= @supplier.name %></a>

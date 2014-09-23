@@ -1,4 +1,10 @@
 class OrdersController < UserController
+  def new
+    @order = current_user.orders.new
+    @order.items << @cart.items
+    @user = current_user
+  end
+
   def create
     @order = current_user.orders.new(order_params)
     @order.order_total = cart.total
@@ -18,6 +24,6 @@ class OrdersController < UserController
   private
 
   def order_params
-    params.require(:order).permit(:order_type, :delivery_address)
+    params.require(:order).permit(:order_type, :billing_address_id, :delivery_address_id)
   end
 end

@@ -6,10 +6,13 @@ class Dashboard::SubOrdersController < Dashboard::SupplierController
 
   def show
     @sub_order = current_supplier.sub_orders.find(params[:id])
+    @delivery_address = Address.find(@sub_order.delivery_address_id)
   end
 
   def edit
     @sub_order = current_supplier.sub_orders.find(params[:id])
+    @delivery_address = Address.find(@sub_order.delivery_address_id)
+
   end
 
   def update
@@ -31,6 +34,6 @@ class Dashboard::SubOrdersController < Dashboard::SupplierController
   private
 
   def sub_order_params
-    params.require(:sub_order).permit(:provider_name, :provider_email, :status, :order_type)
+    params.require(:sub_order).permit(:provider_name, :provider_email, :status, :order_type, :delivery_address_id, :billing_address_id)
   end
 end
