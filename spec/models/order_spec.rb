@@ -7,12 +7,12 @@ RSpec.describe Order, :type => :model do
 
   context 'as delivery' do
     before { subject.stub(:delivery?) { true } }
-    it { should validate_presence_of(:delivery_address) }
+    it { should validate_presence_of(:delivery_address_id) }
   end
 
   context 'not delivery' do
     before { subject.stub(:delivery?) { false } }
-    it { should_not validate_presence_of(:delivery_address) }
+    it { should_not validate_presence_of(:delivery_address_id) }
   end
 
   it { should validate_presence_of(:order_total) }
@@ -36,7 +36,7 @@ RSpec.describe Order, :type => :model do
   end
 
   it 'knows if its delivery' do
-    order = FactoryGirl.create(:order, order_type: 'delivery', delivery_address: 'test')
+    order = FactoryGirl.create(:order, order_type: 'delivery', delivery_address_id: 'test')
     expect(order.delivery?).to eq(true)
   end
 

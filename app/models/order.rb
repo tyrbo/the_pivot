@@ -16,7 +16,7 @@ class Order < ActiveRecord::Base
 
   validates :order_total,      presence: true
   validates :order_type,       presence: true
-  validates :delivery_address, presence: true, if: :delivery?
+  validates :delivery_address_id, presence: true, if: :delivery?
 
   def self.status_counts
     result = self.group(:order_status).count  # select status, count(*) from Order group by status
@@ -71,7 +71,9 @@ class Order < ActiveRecord::Base
                            provider_name: self.user.full_name,
                           provider_email: self.user.email,
                               order_type: self.order_type,
-                                  status: self.order_status)
+                                  status: self.order_status,
+                        delivery_address_id: self.delivery_address_id,
+                         billing_address_id: self.billing_address_id)
       sub.save
       update_order_items(sub, items)
     end

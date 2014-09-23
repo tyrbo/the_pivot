@@ -1,55 +1,24 @@
 <h1>Order Details:</h1>
-<div class="content-wrapper formStyle">
-  <table class='table'>
-    <thead>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Item:</th>
+      <th>Price:</th>
+      <th>Quantity:</th>
+      <th>Item Total:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.items.each do |item| %>
       <tr>
-        <th>Item:</th>
-        <th>Price:</th>
-        <th>Quantity:</th>
-        <th>Item Total:</th>
+        <td><%= link_to item.title, item_path(item) %></td>
+        <td><%= item.format_price %></td>
+  
       </tr>
-    </thead>
-
-    <tbody>
-      <% unique_cart_items = @cart.cart_items.to_a.uniq { |cart_item| cart_item.item_id } %>
-      <% unique_cart_items.each do |cart_item| %>
-        <tr>
-          <td><%= link_to cart_item.item.title, item_path(cart_item.item) %></td>
-          <td><%= cart_item.item.format_price %></td>
-          <% item_id = cart_item.item_id %>
-          <td>
-            <%= quantity =  @cart.cart_items.select { |cart_item| cart_item.item_id == item_id }.count%>
-            <br/>
-
-          </td>
-          <td>
-            <%= calculate_total(cart_item, quantity) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <div>
-    <%= form_tag orders_path, method: :post do %>
-      <% order = Order.new %>
-      <%= hidden_field_tag 'order[user_id]', current_user.try(:id) || 1 %>
-
-      <div class='form-group'>
-        <%= label_tag 'Order Total:' %>
-        <%= @cart.get_total %>
-      </div>
-
-      <div class='form-group'>
-        <%= label_tag 'Order Type:' %>
-        <%= select_tag 'order[order_type]', '<option>Pickup</option><option>Delivery</option>'.html_safe %><br/>
-        <%= label_tag 'Delivery Address:' %>
-        <%= text_field_tag 'order[delivery_address]' %>
-      </div>
-
-      <div class='actions'>
-        <%= submit_tag 'Checkout', class: "btn btn-default" %>
-      </div>
     <% end %>
-  </div>
+  </tbody>
+</table>
+  <%= link_to 'Continue to Checkout', new_order_path,  class: "btn btn-default" %>
+
 </div>
