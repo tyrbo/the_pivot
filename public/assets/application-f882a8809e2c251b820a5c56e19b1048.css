@@ -5,6 +5,7 @@
  */
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -3969,7 +3970,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     padding-bottom: 15px;
   }
   .navbar-nav.navbar-right:last-child {
-    margin-right: 10px;
+    margin-right: -15px;
   }
 }
 @media (min-width: 768px) {
@@ -4098,7 +4099,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
-  color: black;
+  color: #777;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -4109,7 +4110,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color:#777;
+  color: #777;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -4847,8 +4848,7 @@ a.thumbnail.active {
   margin-right: 5px;
 }
 a.list-group-item {
-  color:#777;
-  border-color:#777;
+  color: #555;
 }
 a.list-group-item .list-group-item-heading {
   color: #333;
@@ -6203,3 +6203,71 @@ button.close {
     display: none !important;
   }
 }
+/* line 1, /Users/Jon/Projects/turing/Projects/the_pivot/app/assets/stylesheets/custom.css.scss */
+.homepage {
+  background-image: url("helicopter_save.jpg");
+  background-size: cover;
+  color: white;
+}
+
+/* line 8, /Users/Jon/Projects/turing/Projects/the_pivot/app/assets/stylesheets/custom.css.scss */
+.navbar-right {
+  padding-right: 12px;
+}
+
+/* line 12, /Users/Jon/Projects/turing/Projects/the_pivot/app/assets/stylesheets/custom.css.scss */
+.airlift-logo {
+  position: relative;
+  top: -15px;
+  left: 10px;
+  background: transparent;
+}
+
+
+
+#sidebar-padding {
+  padding-right: 30px;
+  position:fixed;
+  top:20%;
+  width:15%;
+}
+
+.align-to-sidebar {
+  padding-left:230px;
+}
+
+.details-link {
+  cursor: pointer;
+}
+
+.sidebar-button {
+  color:white;
+}
+
+.body-theme {
+  background:transparent;
+  color:#113672;
+  /*font-family:"cantarell",sans-serif;*/
+}
+
+.body-theme:link {
+  color:white;
+}
+
+.navbar-theme {
+  background:white;
+  border-bottom-width:5px;
+  border-bottom-color:#113672;
+}
+
+.navbar-top-link {
+  color:black;
+}
+
+a {
+  color:#0390a5;
+}
+
+/*.navbar-background {
+  background:#1c5a6d;
+}*/
