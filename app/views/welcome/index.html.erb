@@ -12,34 +12,15 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-      Image
-      <div class="caption">
-        <h3>Supplier Name</h3>
-        <p>Supplier Description</p>
-        <p>Supplier Location</p>
+  <% @featured.each do |supplier| %>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <%= image_tag supplier.supplier.picture.url(:medium), :class => "img-rounded" %>
+        <div class="caption">
+          <h3><%= link_to supplier.supplier.name, supplier.supplier %></h3>
+          <p><%= supplier.supplier.description %></p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      Image
-      <div class="caption">
-        <h3>Supplier Name</h3>
-        <p>Supplier Description</p>
-        <p>Supplier Location</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-      Image
-      <div class="caption">
-        <h3>Supplier Name</h3>
-        <p>Supplier Description</p>
-        <p>Supplier Location</p>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>
