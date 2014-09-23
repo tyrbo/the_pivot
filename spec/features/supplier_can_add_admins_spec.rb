@@ -2,11 +2,13 @@ require 'rails_helper'
 
 describe 'a supplier', type: :feature do
 
-  let!(:user) { FactoryGirl.create(:user, role: 'supplier')}
-  let!(:supplier) { FactoryGirl.create(:supplier, users: [user, user1])}
-  let!(:user1) { FactoryGirl.create(:user, email: 'bob@example.com', role:'pending')}
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user1) { FactoryGirl.create(:user, email: 'bob@example.com') }
+  let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
 
   before do
+    supplier.pending_users << user1
+
     login_as(username: user.email, password: user.password)
     visit dashboard_root_path
     click_on('Admin Management')

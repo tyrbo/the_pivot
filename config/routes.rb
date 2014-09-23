@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     root to: 'dashboard#index'
+
     resources :orders
 
     resource :user, only: [:show, :edit, :update] do
@@ -22,9 +23,13 @@ Rails.application.routes.draw do
     end
 
     resources :suppliers, only: [:index, :show, :edit, :update] do
-      resources :supplier
       resources :items
-      resources :users
+
+      resources :users do
+        get 'pending/confirm' => 'users#pending_remove', as: :remove_pending
+        get 'pending/deny' => 'users#pending_add', as: :add_pending
+      end
+
       resources :sub_orders do
         resources :order_items do
           get :increment, on: :member
@@ -36,8 +41,6 @@ Rails.application.routes.draw do
       patch 'pay/:id/pay'      => 'orders#pay',      as: :pay_order
       patch 'pay/:id/complete' => 'orders#complete', as: :complete_order
       put 'retire/:id' => 'retire_item#update', as: :retire_item
-      get 'users/pending/:id/remove' => 'users#pending_remove', as: :remove_pending
-      get 'users/pending/:id/add' => 'users#pending_add', as: :add_pending
     end
   end
 
@@ -52,12 +55,8 @@ Rails.application.routes.draw do
   match '/signup',  to: 'users#new',        via: 'get'
   match '/signin',  to: 'sessions#new',     via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-  match '/supplier',  to: 'supplier/supplier#show',  via: 'get', as: :supplier_dashboard
 
   post     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
   get      '/about_us'         => 'about_us#index'
   get     '/search'           => 'items#search', as: :search_items
-  #post    '/cart/items'       => 'cart_items#create',       as: :cart_items
-  #delete  '/cart/items'       => 'cart_items#destroy',      as: :cart_items_destroy
-  # get '/users/supplier/:id'        => 'users#supplier_show',       as: :user_supplier
 end
