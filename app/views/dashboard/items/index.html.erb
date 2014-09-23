@@ -1,30 +1,75 @@
   <div class="content-wrapper formStyle">
-    <h1>Your Listings</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Item Name:</th>
-          <th>Description:</th>
-          <th>Price:</th>
-          <th>Options:</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @items.sort_by { |i| i.title }.each do |item| %>
+    <h1>Active Listings</h1>
+    <% sort_categories(@categories).each do |category| %>
+    <% if category.has_active_items? %>
+    <h4><%= category.name %></h4>
+      <table class="table">
+        <thead>
           <tr>
-            <td class='item_title'><%= item.title %></td>
-            <td class='item_description'><%= item.description %></td>
-            <td class='item_price'><%= item.format_price %></td>
-            <td>
-              <%= link_to 'Show', dashboard_supplier_item_path(current_supplier, item) %> |
-              <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, item) %> |
-              <%= link_to (item.retire ? 'Activate' : 'Remove'), dashboard_supplier_retire_item_path(current_supplier,item), method: :put, data: { confirm: 'Are you sure?' } %>
-            </td>
+            <th class='col-md-2'>Item Name:</th>
+            <th class='col-md-2'>Description:</th>
+            <th class='col-md-2'>Unit Size:</th>
+            <th class='col-md-2'>Units Available:</th>
+            <th class='col-md-2'>Unit Price:</th>
+            <th class='col-md-2'>Options:</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% category.items.active.sort_by { |i| i.title }.each do |item| %>
+            <tr>
+              <td class='item_title'><%= item.title %></td>
+              <td class='item_description'><%= item.description %></td>
+              <td><%= item.size %></td>
+              <td><%= item.inventory %></td>
+              <td class='item_price'><%= item.format_price %></td>
+              <td>
+                <%= link_to 'Show', dashboard_supplier_item_path(current_supplier, item) %> |
+                <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, item) %> |
+                <%= link_to 'Make Inactive', dashboard_supplier_retire_item_path(current_supplier,item), method: :put %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    <% end %>
+
+    <h1>Inactive Listings</h1>
+    <% sort_categories(@categories).each do |category| %>
+    <% if category.has_inactive_items? %>
+      <h4><%= category.name %></h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class='col-md-2'>Item Name:</th>
+            <th class='col-md-2'>Description:</th>
+            <th class='col-md-2'>Unit Size:</th>
+            <th class='col-md-2'>Units Available:</th>
+            <th class='col-md-2'>Unit Price:</th>
+            <th class='col-md-2'>Options:</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% category.items.inactive.sort_by { |i| i.title }.each do |item| %>
+            <tr>
+              <td class='item_title'><%= item.title %></td>
+              <td class='item_description'><%= item.description %></td>
+              <td><%= item.size %></td>
+              <td><%= item.inventory %></td>
+              <td class='item_price'><%= item.format_price %></td>
+              <td>
+                <%= link_to 'Show', dashboard_supplier_item_path(current_supplier, item) %> |
+                <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, item) %> |
+                <%= link_to 'Make Active', dashboard_supplier_retire_item_path(current_supplier,item), method: :put %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    <% end %>
 
     <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier), class: 'btn btn-default' %>
     <%= link_to 'Back to Dashboard', dashboard_root_path, class: 'btn btn-default' %>

@@ -47,10 +47,22 @@ class Item < ActiveRecord::Base
   end
 
   def convert_to_cents
-    self.price = (price * 100).to_i
+      self.price = (price * 100).to_i
   end
 
   def edit_price
     format_price.gsub('$', '')
+  end
+
+  def self.active
+    all.select { |item| !item.retire }
+  end
+
+  def self.inactive
+    all.select { |item| item.retire }
+  end
+
+  def update_retired_attribute
+    retire ? update_column(:retire, false) : update_column(:retire, true)
   end
 end

@@ -17,4 +17,12 @@ class Category < ActiveRecord::Base
   def to_s
     name
   end
+
+  def has_active_items?
+    items.any? { |item| !item.retire }
+  end
+
+  def has_inactive_items?
+    items.any? { |item| item.retire }
+  end
 end
