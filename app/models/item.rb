@@ -20,6 +20,8 @@ class Item < ActiveRecord::Base
   scope :not_retired_too, -> { where(retire: 'f') }
   scope :retired, -> { where(retire: 't') }
 
+  before_update :convert_to_cents
+
   def category_names
     categories.join(", ")
   end
@@ -36,5 +38,13 @@ class Item < ActiveRecord::Base
 
   def format_price
     '$' + sprintf("%.2f", price / 100.00)
+  end
+
+  def convert_to_cents
+    self.price = (price * 100).to_i
+  end
+
+  def edit_price
+    format_price.gsub('$', '')
   end
 end
