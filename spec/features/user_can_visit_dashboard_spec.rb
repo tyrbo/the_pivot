@@ -17,10 +17,10 @@ describe 'Viewing the dashboard', type: :feature do
     it 'can link to individual orders' do
       click_link 'View Order Details'
 
-      expect(current_path).to eq(dashboard_root_path)
+      expect(current_path).to eq(dashboard_order_path(order))
     end
 
-    xit 'shows supplier for each item on details page' do
+    it 'shows supplier for each item on details page' do
       click_link 'View Order Details'
 
       within('#order-items-header') do

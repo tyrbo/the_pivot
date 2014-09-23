@@ -9,6 +9,10 @@ class Supplier < ActiveRecord::Base
 
   has_many :suppliers_users
   has_many :users, through: :suppliers_users
+
+  has_many :pending_admins
+  has_many :pending_users, through: :pending_admins, source: :user
+
   has_many :items
   has_many :sub_orders
 

@@ -17,13 +17,11 @@ class SuppliersController < ApplicationController
     end
   end
 
-
   def add_pending_admin
     @supplier = Supplier.find(params[:supplier_id])
-    @supplier.users << current_user
-    current_user.update_attribute(:role, 'pending')
-    redirect_to dashboard_root_path
-    flash[:success] = "Request has been made!"
+    @supplier.pending_users << current_user
+
+    redirect_to dashboard_root_path, flash: { success: 'Request has been made!' }
   end
 
   def index
