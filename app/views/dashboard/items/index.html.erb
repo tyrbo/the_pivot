@@ -2,6 +2,7 @@
     <h1>Active Listings</h1>
     <% sort_categories(@categories).each do |category| %>
     <% if category.has_active_items? %>
+    <div class='custom-box'>
     <h4><%= category.name %></h4>
       <table class="table">
         <thead>
@@ -32,12 +33,14 @@
           <% end %>
         </tbody>
       </table>
+    </div><br/>
     <% end %>
     <% end %>
 
     <h1>Inactive Listings</h1>
     <% sort_categories(@categories).each do |category| %>
     <% if category.has_inactive_items? %>
+    <div class='custom-box'>
       <h4><%= category.name %></h4>
       <table class="table">
         <thead>
@@ -68,9 +71,10 @@
           <% end %>
         </tbody>
       </table>
+    </div><br/>
     <% end %>
     <% end %>
 
-    <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier), class: 'btn btn-default' %>
+    <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier), class: 'btn btn-primary' %>
     <%= link_to 'Back to Dashboard', dashboard_root_path, class: 'btn btn-default' %>
   </div>

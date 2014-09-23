@@ -1,14 +1,12 @@
-
-<%= link_to 'Back to Dashboard', dashboard_root_path %>
-
-  <div class="content-wrapper formStyle">
-    <h1>Admins</h1>
+  <div class="content-wrapper formStyle users-tables">
+    <div class='custom-box'>
+    <h3>Admins</h3>
     <table class="table admins">
       <thead>
         <tr>
-          <th>Admin Name:</th>
-          <th>Admin Email:</th>
-          <th>Admin Role</th>
+          <th>Name:</th>
+          <th>Email:</th>
+          <th>Role</th>
           <th>Options:</th>
         </tr>
       </thead>
@@ -28,7 +26,9 @@
         <% end %>
       </tbody>
     </table>
+  </div><br/>
 
+    <div class='custom-box'>
     <h3>Requests</h3>
     <table class="table pending">
       <thead>
@@ -54,7 +54,6 @@
         <% end %>
       </tbody>
     </table>
-
-
-    <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier) %> | <%= link_to 'Back to Dashboard', dashboard_root_path %>
+  </div></br>
+    <%= link_to 'Back to Dashboard', dashboard_root_path, class: 'btn btn-default' %>
   </div>

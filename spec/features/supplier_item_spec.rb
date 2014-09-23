@@ -69,10 +69,6 @@ describe 'a supplier viewing the items page', type: :feature do
 
       expect(page).to have_content('Remove')
     end
-
-    it 'sees items sorted by active and inactive' do
-      
-    end
   end
 
   context 'unauthorized user' do
