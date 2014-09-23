@@ -11,12 +11,10 @@ class Cart < ActiveRecord::Base
 	end
 
 	def create_order_items(order)
-		self.items.each do |item|
-			if order.order_items.any?{ |o| o.item_id == item.id}
-				add_to_quantity(order, item)
-			else
-				order.order_items.create(item:item, price: item.price)
-			end
+
+		self.cart_items.each do |cart_item|
+			order.order_items.create(item_id: cart_item.item_id,
+			 											quantity: cart_item.quantity)
 		end
 	end
 
