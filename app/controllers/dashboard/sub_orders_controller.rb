@@ -6,7 +6,9 @@ class Dashboard::SubOrdersController < Dashboard::SupplierController
 
   def show
     @sub_order = current_supplier.sub_orders.find(params[:id])
-    @delivery_address = Address.find(@sub_order.delivery_address_id)
+    if @sub_order.delivery?
+      @delivery_address = Address.find(@sub_order.delivery_address_id)
+    end
   end
 
   def edit

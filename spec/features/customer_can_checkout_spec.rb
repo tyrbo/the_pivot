@@ -27,23 +27,23 @@ describe 'A user with a cart & items', type: :feature do
     expect(current_path).to eq new_order_path
   end
 
-  xit 'can get to checkout' do
+  it 'can get to checkout' do
     click_on('Continue to Checkout')
     expect(page).to have_content('Order Overview')
     expect(page).to have_content(keylime)
   end
 
-  xit 'can get order delivered to saved address' do
+  it 'can get order delivered to saved address' do
     click_on('Continue to Checkout')
-    choose "order_type"
-    select "123 Main", :from => "delivery_address"
-    select "123 Main", :from => "billing_address"
+    choose "order[order_type]", :option  =>"Delivery"
+    choose "order[delivery_address_id]", :option => 1
+    choose "order[billing_address_id]", :option => 2
     click_on('Place Order')
     expect(page).to have_content('Order was successfully created')
     expect(page).to have_content('123 Main Denver CO')
   end
 
-  xit 'can see it made previous orders' do
+  it 'can see it made previous orders' do
     click_on('Checkout')
     visit dashboard_root_path
     expect(page).to have_content('Your Orders')
