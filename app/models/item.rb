@@ -40,6 +40,10 @@ class Item < ActiveRecord::Base
     '$' + sprintf("%.2f", price / 100.00)
   end
 
+  def self.search(search)
+    where("title like ? or description like ?", "%#{search}%", "%#{search}%")
+  end
+  
   def convert_to_cents
     self.price = (price * 100).to_i
   end

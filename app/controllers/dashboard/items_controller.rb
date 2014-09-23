@@ -1,6 +1,6 @@
 class Dashboard::ItemsController < Dashboard::SupplierController
   def index
-    @items = current_supplier.items.all
+    @items = current_supplier.items.order(:title)
   end
 
   def show
