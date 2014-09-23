@@ -13,6 +13,20 @@ describe 'A user with a cart & items', type: :feature do
     page.click_on('Cart')
   end
 
+  it 'redirects to checkout page after being forced to log in' do
+    logout
+    click_on('Cart')
+    click_on('Continue to Checkout')
+
+    expect(current_path).to eq signin_path
+
+    fill_in('Email', with: user.email)
+    fill_in('Password', with: user.password)
+    click_button('Sign in')
+
+    expect(current_path).to eq new_order_path
+  end
+
   xit 'can get to checkout' do
     click_on('Continue to Checkout')
     expect(page).to have_content('Order Overview')
