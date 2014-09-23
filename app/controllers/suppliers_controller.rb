@@ -22,7 +22,7 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.find(params[:supplier_id])
     @supplier.users << current_user
     current_user.update_attribute(:role, 'pending')
-    redirect_to supplier_path(@supplier)
+    redirect_to dashboard_root_path
     flash[:success] = "Request has been made!"
   end
 

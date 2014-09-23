@@ -21,6 +21,7 @@ class Item < ActiveRecord::Base
   scope :retired, -> { where(retire: 't') }
 
   before_update :convert_to_cents
+  before_create :convert_to_cents
 
   def category_names
     categories.join(", ")
@@ -43,7 +44,7 @@ class Item < ActiveRecord::Base
   def self.search(search)
     where("title like ? or description like ?", "%#{search}%", "%#{search}%")
   end
-  
+
   def convert_to_cents
     self.price = (price * 100).to_i
   end
