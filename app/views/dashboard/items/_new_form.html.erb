@@ -1,0 +1,52 @@
+<div class="form-group">
+  <div class="span6 offset3">
+    <%= form_for([:dashboard, current_supplier, @item], :html => { :class => "form-horizontal"}) do |f| %>
+
+    <%= render partial: 'shared/error_messages', locals: { obj: @item } %>
+
+      <div class="form-group">
+        <%= f.label :title, :class => "col-sm-1 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, :class => "col-sm-1 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :price, :class => "col-sm-1 control-label" %>
+        <div class="col-sm-10">
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :categories, :class => "col-sm-1 control-label" %>
+        <div class="col-sm-10">
+          <%= f.select(:categories, options_from_collection_for_select(sort_categories(Category.all), :id, :name), {}, { multiple: true, size: Category.all.count }) %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :picture, :class => "col-sm-1 control-label" %>
+        <div class="col-sm-10">
+          <%= f.file_field :picture %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+          <div class="actions">
+            <%= f.submit value="Create Item", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
