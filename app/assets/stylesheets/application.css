@@ -24,7 +24,6 @@
 .body-theme {
   background:transparent;
   color:#113672;
-  /*font-family:"cantarell",sans-serif;*/
 }
 
 .body-theme:link {
@@ -45,13 +44,16 @@ a {
   color:#0390a5;
 }
 
-.custom-box {
+/*.custom-box {
   padding-left:10px;
   padding-right: 10px;
   border-style:solid;
   border-width:3px;
   border-color:#113672;
-}
+  border-left-color:white;
+  border-right-color:white;
+  border-top-color:white;
+}*/
 
 .category-header {
   border-bottom-style:solid;
