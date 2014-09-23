@@ -18,7 +18,10 @@
         <td><%= @order.get_total %></td>
         <td>
           <%= @order.order_type.upcase %><br/>
-          <%= @order.delivery_address %>
+          <%= @delivery_address.street %>
+          <%= @delivery_address.city %>
+          <%= @delivery_address.state %>
+          <%= @delivery_address.zip %>
         </td>
         <td>
           <%= @order.order_status.upcase %><br/>

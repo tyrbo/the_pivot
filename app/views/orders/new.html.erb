@@ -1,5 +1,65 @@
-<h1>New order</h1>
+<div class="content-wrapper formStyle">
+  <h1>Order Overview</h1>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Item:</th>
+        <th>Price:</th>
+        <th>Quantity:</th>
+        <th>Item Total:</th>
+      </tr>
+    </thead>
 
-<%= render 'form' %>
+    <tbody>
+      <% @order.items.each do |item| %>
+        <tr>
+          <td><%= link_to item.title, item_path(item) %></td>
+          <td><%= item.format_price %></td>
 
-<%= link_to 'Back', orders_path %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="form-group">
+    <div class="span6 offset3">
+
+      <%= form_for(@order, :html => { :class => "form-horizontal"}) do |f| %>
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            <%= f.radio_button(:order_type, "Pickup") %>
+            <%= f.label(:order_type, "Pickup") %>
+            <%= f.radio_button(:order_type, "Delivery") %>
+            <%= f.label(:order_type, "Delivery") %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            Delivery Address
+            <% @user.addresses.delivery.each do |address| %>
+              <%= f.check_box(:delivery_address_id) %>
+              <%= f.label(:delivery_address_id, address.street) %>
+            <% end %>
+            <%= link_to 'Add Delivery Address', new_dashboard_user_address_path %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            Billing Address
+            <% @user.addresses.billing.each do |address| %>
+              <%= f.check_box(:billing_address_id) %>
+              <%= f.label(:billing_address_id, address.street) %>
+            <% end %>
+            <%= link_to 'Add Billing Address', new_dashboard_user_address_path %>
+        </div>
+
+      </div>
+
+    <%= f.submit value="Place Order", class: "btn btn-default" %>
+  </div>
+</div>
+  <% end %>
+</div>

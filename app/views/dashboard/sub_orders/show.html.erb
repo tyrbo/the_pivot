@@ -15,7 +15,10 @@
       <tr>
         <td><%= @sub_order.provider_name %></td>
         <td><%= @sub_order.provider_email %></td>
-        <td>Something should go here</td>
+        <td><%= @delivery_address.street %>
+        <%= @delivery_address.city %>
+        <%= @delivery_address.state %>
+        <%= @delivery_address.zip %></td>
       </tr>
     </tbody>
   </table>
