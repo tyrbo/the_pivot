@@ -78,12 +78,11 @@ ActiveRecord::Schema.define(version: 20140923153705) do
     t.integer  "sub_order_id"
     t.integer  "quantity"
     t.integer  "price"
-    t.integer  "order_total"
   end
 
   create_table "orders", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "order_total",      precision: 4, scale: 2
+    t.integer  "order_total"
     t.string   "order_type"
     t.string   "delivery_address"
     t.string   "order_status"
