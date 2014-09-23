@@ -73,7 +73,7 @@ RSpec.describe Order, :type => :model do
     item = FactoryGirl.create(:item, price: 28.00)
     order.items << item
 
-    expect(order.subtotal(item.id)).to eq(28.0)
+    expect(order.get_subtotal(item.id)).to eq('28.00')
   end
 
   it 'creates sub orders from an order' do

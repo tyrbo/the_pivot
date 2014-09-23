@@ -56,6 +56,10 @@ class Order < ActiveRecord::Base
     self.item_quantity(item_id) * self.items.detect { |x| x.id == item_id }.price
   end
 
+  def get_subtotal(item_id)
+    sprintf("%.2f", subtotal(item_id) / 100.00)
+  end
+
   def suppliers
     suppliers = self.items.group_by(&:supplier_id)
   end

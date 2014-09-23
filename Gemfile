@@ -25,7 +25,8 @@ gem "aws-sdk"
 gem 'rails', '4.1.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-gem 'bootstrap-sass'
+
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sprockets'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -51,6 +52,7 @@ gem 'unicorn'
 gem 'pg'
 gem 'jquery-turbolinks'
 gem 'friendly_id', '~> 5.0.0'
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

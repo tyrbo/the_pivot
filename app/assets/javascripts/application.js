@@ -6,6 +6,14 @@
 
 $(document).ready(function() {
 
+  $('.admin-request-dropdown-link').click(function() {
+    $('.admin-request-dropdown').toggleClass('hidden');
+  })
+
+  $('.description-link').click(function() {
+    $('.description-dropdown').toggleClass('hidden');
+  })
+
   $('.edit-user-link').bind('click', false);
 
   $('.update-order-item-btn').bind('click', false);

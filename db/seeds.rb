@@ -11,86 +11,92 @@ josh = User.create(full_name: "Josh Cheek", email: "demojosh@jumpstartlab.com", 
 tan = User.create(full_name: "Tan Doan", email: "tandoan@example.com", password: "password", password_confirmation: "password", display_name: "Viet Cong Rescue Crew", role: 'supplier')
 
 
-kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time', enabled: true)
-tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs', enabled: true)
-wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes', enabled: true)
+kids_picture = File.new("#{Rails.root}/app/assets/images/kids_anime.jpg")
+wildfire_picture = File.new("#{Rails.root}/app/assets/images/fire_anime.jpg")
+tsunami_picture = File.new("#{Rails.root}/app/assets/images/tsunami_anime.jpg")
+
+kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time', enabled: true, picture: kids_picture)
+tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs', enabled: true, picture: tsunami_picture)
+wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes', enabled: true, picture: wildfire_picture)
 
 SuppliersUser.create(supplier_id: kids.id, user_id: josh.id)
 SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)
 
+
+
 kids.items.create(title: "Bandage", description: "Waterproof Standard Size",
- inventory: 10000000, price: 1299, size: '400', category_ids: [1])
+ inventory: 10000000, price: 12.99, size: '400', category_ids: [1])
 kids.items.create(title: "Ibuprofin", description: "200ml, 200 per bottle",
- inventory:12000000, price: 1799, size: '200', category_ids:[1])
+ inventory:12000000, price: 17.99, size: '200', category_ids:[1])
 kids.items.create(title: "Gauze", description: "Cloth",
- inventory:3000000, price: 2399, size: '200', category_ids:[1])
+ inventory:3000000, price: 23.99, size: '200', category_ids:[1])
 kids.items.create(title: "Neosporin", description: "Fix your cuts",
- inventory:5000000, price: 2399, size: '200', category_ids:[1])
+ inventory:5000000, price: 23.99, size: '200', category_ids:[1])
 kids.items.create(title: "Antacids", description: "Fix your stomach",
- inventory: 4000000, price: 2999, size: '200', category_ids: [1])
+ inventory: 4000000, price: 29.99, size: '200', category_ids: [1])
 kids.items.create(title: "Water Bottles", description: "32 pack",
- inventory: 5000000, price: 3599, size: '200', category_ids:[2])
+ inventory: 5000000, price: 35.99, size: '200', category_ids:[2])
 kids.items.create(title: "Soup", description: "10pac asorted types",
- inventory: 10000000, price: 3399, size: '200', category_ids: [2])
+ inventory: 10000000, price: 33.99, size: '200', category_ids: [2])
 kids.items.create(title: "Rice", description: "50 lb bag",
- inventory: 10000000, price: 3399, size: '200', category_ids:[2])
+ inventory: 10000000, price: 33.99, size: '200', category_ids:[2])
 kids.items.create(title: "Protien Bars", description: "30 boxes",
- inventory: 12000000, price: 3115, size: '200', category_ids:[2])
+ inventory: 12000000, price: 31.15, size: '200', category_ids:[2])
 kids.items.create(title: "Apples", description: "Red",
- inventory: 12000000, price: 3699, size: '200', category_ids:[2])
+ inventory: 12000000, price: 36.99, size: '200', category_ids:[2])
 kids.items.create(title: "Rope", description: "Tie to things",
- inventory: 15000000, price: 3099, size: '200', category_ids: [3])
+ inventory: 15000000, price: 30.99, size: '200', category_ids: [3])
 kids.items.create(title: "Blankets", description: "Keeps warms",
- inventory: 15000000, price: 3099, size: '200', category_ids:[3])
+ inventory: 15000000, price: 30.99, size: '200', category_ids:[3])
 tsunami.items.create(title: "Tents", description: "Easy to set up",
- inventory: 5000000, price: 3099, size: '200', category_ids:[3])
+ inventory: 5000000, price: 30.99, size: '200', category_ids:[3])
 tsunami.items.create(title: "Sleeping Bag", description: "Adult sized",
- inventory: 12000000, price: 3099, size: '200', category_ids:[3])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
 tsunami.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
- inventory: 12000000, price: 3099, size: '200', category_ids:[3])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
 tsunami.items.create(title: "Van Rental", description: "8 person van per day",
- inventory: 15, price: 3099, size: '200', category_ids: [4])
+ inventory: 15, price: 30.99, size: '200', category_ids: [4])
 tsunami.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
- inventory: 15, price: 3099, size: '200', category_ids:[4])
+ inventory: 15, price: 30.99, size: '200', category_ids:[4])
 tsunami.items.create(title: "Helicopter Pickup", description: "One location",
- inventory: 12000000, price: 3099, size: '200', category_ids:[4])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
 tsunami.items.create(title: "Pants", description: "All sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Sweaters", description: "All Sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "T-Shirts", description: "All Sizes",
- inventory: 15, price: 3099, size: '200', category_ids: [5])
+ inventory: 15, price: 30.99, size: '200', category_ids: [5])
 tsunami.items.create(title: "Jackets", description: "All Sizes",
- inventory: 15, price: 3099, size: '200', category_ids:[5])
+ inventory: 15, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Socks", description: "Wool, all sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Shoes", description: "Sneakers, all sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Undergarments", description: "All types & sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 
 wildfire.items.create(title: "Water", description: "bottled drinking water",
- inventory: 12000000, price: 3099, size: '200', category_ids:[3])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
 wildfire.items.create(title: "Van Rental", description: "8 person van per day",
- inventory: 15, price: 3099, size: '200', category_ids: [4])
+ inventory: 15, price: 30.99, size: '200', category_ids: [4])
 wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
- inventory: 15, price: 3099, size: '200', category_ids:[4])
+ inventory: 15, price: 30.99, size: '200', category_ids:[4])
 wildfire.items.create(title: "Helicopter Pickup", description: "One location",
- inventory: 12000000, price: 3099, size: '200', category_ids:[4])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
 wildfire.items.create(title: "Pants", description: "All sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 wildfire.items.create(title: "Sweaters", description: "All Sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 wildfire.items.create(title: "T-Shirts", description: "All Sizes",
- inventory: 15, price: 3099, size: '200', category_ids: [5])
+ inventory: 15, price: 30.99, size: '200', category_ids: [5])
 wildfire.items.create(title: "Jackets", description: "All Sizes",
- inventory: 15, price: 3099, size: '200', category_ids:[5])
+ inventory: 15, price: 30.99, size: '200', category_ids:[5])
 wildfire.items.create(title: "Socks", description: "Wool, all sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 wildfire.items.create(title: "Shoes", description: "Sneakers, all sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 wildfire.items.create(title: "Undergarments", description: "All types & sizes",
- inventory: 12000000, price: 3099, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 
 
 Order.create(user_id: 1, order_total: 1500, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
@@ -151,6 +157,6 @@ UserAddress.create(user_id: 3, address_id: 8)
 UserAddress.create(user_id: 3, address_id: 16)
 UserAddress.create(user_id: 4, address_id: 17)
 
-
+FeaturedSupplier.update
 
 "======= Shit has been seeded ========"

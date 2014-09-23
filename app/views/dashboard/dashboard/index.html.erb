@@ -27,8 +27,14 @@
       </table>
     <% end %>
 
+    <a class='admin-request-dropdown-link'>Request to Be an Admin</a><br/><br/>
+    <% @all_suppliers.each do |supplier| %>
+      <li class='admin-request-dropdown hidden'>
+        <%= link_to supplier.name , supplier_pending_admin_path(supplier) %>
+      </li>
+    <% end %>
     <table class="table table-hover">
-      <h3>Purchased Orders</h3>
+      <h3>Your Orders</h3>
       <thead>
         <tr>
           <th>#</th>

@@ -2,9 +2,8 @@
 
 <h1 align='center'>
   <%= image_tag @supplier.picture.url(:thumb), :size => '64x64', :class => "img-rounded" %>
-  <%= @supplier.name %>
+  <a class='description-link'><%= @supplier.name %></a>
 </h1>
-<p align='center'><%= @supplier.description %></p>
+<p class='description-dropdown hidden' align='center'><%= @supplier.description %></p>
 <% content_for(:title, @supplier.name) %>
-<%= @supplier.description %>
 <%= render partial: 'shared/items', locals: { categories: @categories } %>

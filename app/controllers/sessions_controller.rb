@@ -7,12 +7,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       sign_in user
-
-      if user.suppliers.any?
-        redirect_to dashboard_root_path
-      else
-        redirect_to items_path
-      end
+      redirect_to session.delete(:last_page) || root_path
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'

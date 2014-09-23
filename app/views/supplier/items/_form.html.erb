@@ -29,7 +29,7 @@
 			<div class="form-group">
 				<%= f.label :categories, :class => "col-sm-1 control-label" %>
 				<div class="col-sm-10">
-          <%= f.select(:categories, options_from_collection_for_select(Category.all, :id, :name), {}, { multiple: true, size: Category.all.count }) %>
+          <%= f.select(:categories, options_from_collection_for_select(Category.order(:name), :id, :name), {}, { multiple: true, size: Category.all.count }) %>
 				</div>
 			</div>
 

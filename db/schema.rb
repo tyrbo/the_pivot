@@ -51,10 +51,13 @@ ActiveRecord::Schema.define(version: 20140923162850) do
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
   add_index "categorizations", ["item_id"], name: "index_categorizations_on_item_id"
 
+  create_table "featured_suppliers", force: true do |t|
+    t.integer "supplier_id"
+  end
+
   create_table "items", force: true do |t|
     t.string   "title"
     t.string   "description"
-    t.decimal  "price",                precision: 4, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "inventory"
@@ -62,9 +65,10 @@ ActiveRecord::Schema.define(version: 20140923162850) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.boolean  "retire",                                       default: false
+    t.boolean  "retire",               default: false
     t.integer  "supplier_id"
     t.string   "size"
+    t.integer  "price"
   end
 
   create_table "order_items", force: true do |t|
@@ -79,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140923162850) do
 
   create_table "orders", force: true do |t|
     t.integer  "user_id"
-    t.decimal  "order_total",         precision: 4, scale: 2
+    t.integer  "order_total"
     t.string   "order_type"
     t.string   "order_status"
     t.datetime "created_at"

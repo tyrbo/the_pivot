@@ -21,6 +21,7 @@ class Item < ActiveRecord::Base
   scope :retired, -> { where(retire: 't') }
 
   before_update :convert_to_cents
+  before_create :convert_to_cents
 
   def category_names
     categories.join(", ")
@@ -37,7 +38,12 @@ class Item < ActiveRecord::Base
   end
 
   def format_price
-    '$' + sprintf("%.2f", price / 100.00)
+    '$' + sprintf("%.2f", price.to_d / 100.00)
+  end
+
+  def self.search(search)
+    search = search.downcase
+    where("lower(title) like ? or lower(description) like ?", "%#{search}%", "%#{search}%")
   end
 
   def convert_to_cents

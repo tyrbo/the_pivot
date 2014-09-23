@@ -12,6 +12,7 @@ describe 'a supplier with info', type: :feature do
 
   it 'can edit info on supplier show page' do
     login_as(username: user.email, password: user.password)
+    visit dashboard_root_path
     click_on('Settings')
     fill_in('supplier[description]', with: 'description description')
     click_on('Save Changes')
