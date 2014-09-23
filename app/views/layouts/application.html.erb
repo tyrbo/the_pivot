@@ -20,59 +20,61 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class='body-theme'>
-    <div class="container-fluid">
-      <nav class="navbar navbar-default navbar-fixed-top navbar-theme" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class='navbar-top-group'>
-          <div class="airlift-logo"><%= link_to image_tag("airlift_small.png"), root_path, class: 'navbar-brand' %></div>
+  <div id="wrap">
+    <body class='body-theme'>
+      <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-theme" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class='navbar-top-group'>
+            <div class="airlift-logo"><%= link_to image_tag("airlift_small.png"), root_path, class: 'navbar-brand' %></div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-              <li class='navbar-top-link'><%= link_to 'Items', items_path %></li>
-              <li class='navbar-top-link'><%= link_to 'Suppliers', suppliers_path %></li>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class='navbar-top-link'><%= link_to 'Items', items_path %></li>
+                <li class='navbar-top-link'><%= link_to 'Suppliers', suppliers_path %></li>
 
-            <!--  end  -->
-          </ul>
+              <!--  end  -->
+            </ul>
 
-          <%= form_tag(search_items_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', class: 'btn btn-default' %>
-          <% end %>
-          <ul class="nav navbar-nav navbar-right">
-            <% if current_user %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <%= current_user.display_name || current_user.email %><span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><%= link_to 'Account Overview', dashboard_root_path %></li>
-                  <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
-                </ul>
-              </li>
-            <% else %>
-              <li><%= link_to 'Register', signup_path %></li>
-              <li><%= link_to 'Sign In', signin_path, class: "btn btn-default", id: "signin-button" %></li>
-              <li class='divider-vertical'></li>
+            <%= form_tag(search_items_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
+              <%= text_field_tag :search %>
+              <%= submit_tag 'Search', class: 'btn btn-default' %>
             <% end %>
-            <li><%= link_to cart_path do %>Cart <span class="badge"><%= @cart_count %></span><% end %></li>
-          </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if current_user %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <%= current_user.display_name || current_user.email %><span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><%= link_to 'Account Overview', dashboard_root_path %></li>
+                    <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
+                  </ul>
+                </li>
+              <% else %>
+                <li><%= link_to 'Register', signup_path %></li>
+                <li><%= link_to 'Sign In', signin_path, class: "btn btn-default", id: "signin-button" %></li>
+                <li class='divider-vertical'></li>
+              <% end %>
+              <li><%= link_to cart_path do %>Cart <span class="badge"><%= @cart_count %></span><% end %></li>
+            </ul>
 
-        </div><!-- /.navbar-collapse -->
-      </nav>
-      <% flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, class: name %>
-      <% end -%>
-      <%= yield %>
-    </div>
-  </body>
+          </div><!-- /.navbar-collapse -->
+        </nav>
+        <% flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: name %>
+        <% end -%>
+        <%= yield %>
+      </div>
+    </body>
+  </div>
   <div class= "footer">
     <div class="row">
       <div class='col-md-12'>
