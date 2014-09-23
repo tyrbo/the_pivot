@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_is_admin_of_supplier?
-    supplier.users.enabled.exists?(id: current_user.id)
+    supplier.users.exists?(id: current_user.id)
   end
 
   def current_supplier

@@ -2,9 +2,6 @@ class User < ActiveRecord::Base
   before_save   { self.email = email.downcase }
   before_create :create_remember_token
 
-  scope :enabled, -> { where(role: 'supplier') }
-  scope :pending, -> { where(role: 'pending') }
-
   validates :full_name,
             presence: true,
             length:   { maximum: 50 }
@@ -25,6 +22,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :orders
+
   has_many :suppliers_users
   has_many :suppliers, through: :suppliers_users
 

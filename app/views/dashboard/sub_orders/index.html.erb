@@ -28,7 +28,7 @@
         <th>User:</th>
         <th>Order Total:</th>
         <th>Order Type:</th>
-        <!-- <th>Delivery Address:</th> -->
+        <th>Delivery Address:</th>
         <th>Order Status:</th>
         <th>Options:</th>
       </tr>
@@ -41,7 +41,7 @@
         <td><%= sub_order.provider_name %></td>
         <td><%= sub_order.get_total %></td>
         <td><%= sub_order.order_type %></td>
-        <!-- <td>GiveThis</td> -->
+        <td><%= sub_order.delivery_address_id%></td>
         <td><%= sub_order.status%></td>
         <td>
           <%= link_to "Show", dashboard_supplier_sub_order_path(current_supplier, sub_order)%> |

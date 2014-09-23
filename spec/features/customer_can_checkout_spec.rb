@@ -13,23 +13,37 @@ describe 'A user with a cart & items', type: :feature do
     page.click_on('Cart')
   end
 
-  xit 'can get to checkout' do
+  it 'redirects to checkout page after being forced to log in' do
+    logout
+    click_on('Cart')
+    click_on('Continue to Checkout')
+
+    expect(current_path).to eq signin_path
+
+    fill_in('Email', with: user.email)
+    fill_in('Password', with: user.password)
+    click_button('Sign in')
+
+    expect(current_path).to eq new_order_path
+  end
+
+  it 'can get to checkout' do
     click_on('Continue to Checkout')
     expect(page).to have_content('Order Overview')
     expect(page).to have_content(keylime)
   end
 
-  xit 'can get order delivered to saved address' do
+  it 'can get order delivered to saved address' do
     click_on('Continue to Checkout')
-    choose "order_type"
-    select "123 Main", :from => "delivery_address"
-    select "123 Main", :from => "billing_address"
+    choose "order[order_type]", :option  =>"Delivery"
+    choose "order[delivery_address_id]", :option => 1
+    choose "order[billing_address_id]", :option => 2
     click_on('Place Order')
     expect(page).to have_content('Order was successfully created')
     expect(page).to have_content('123 Main Denver CO')
   end
 
-  xit 'can see it made previous orders' do
+  it 'can see it made previous orders' do
     click_on('Checkout')
     visit dashboard_root_path
     expect(page).to have_content('Your Orders')

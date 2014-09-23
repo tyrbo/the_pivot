@@ -1,4 +1,4 @@
-<h1>Order Details:</h1>
+<h1>Items in Your Cart</h1>
 <table class='table'>
   <thead>
     <tr>
@@ -10,15 +10,17 @@
   </thead>
 
   <tbody>
-    <% @cart.items.each do |item| %>
+    <% @cart.cart_items.each do |item| %>
       <tr>
-        <td><%= link_to item.title, item_path(item) %></td>
-        <td><%= item.format_price %></td>
-
+        <td><%= link_to item.item.title, item_path(item.item) %></td>
+        <td><%= item.item.format_price %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.total_price %></td?
       </tr>
     <% end %>
   </tbody>
 </table>
+  Total: <%= @cart.get_total %>
   <%= link_to 'Continue to Checkout', new_order_path,  class: "btn btn-primary" %>
 
 </div>
