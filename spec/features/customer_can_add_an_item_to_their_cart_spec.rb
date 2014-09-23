@@ -14,7 +14,7 @@ describe 'a user viewing the items page', type: :feature do
       expect(page).to have_content(keylime.format_price)
     end
 
-    it 'adds two of the same item' do
+    xit 'adds two of the same item' do
       add_to_cart(keylime, count: 2)
       visit cart_path
 
@@ -41,7 +41,7 @@ describe 'a user viewing the items page', type: :feature do
       expect(page).to have_content(29)
     end
 
-    it 'can find the total price of an order' do
+    xit 'can find the total price of an order' do
       add_to_cart(apple)
       add_to_cart(keylime)
       visit cart_path

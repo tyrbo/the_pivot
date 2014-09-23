@@ -18,7 +18,10 @@
         <tr>
           <td><%= f.text_field :provider_name, class: "form-control" %></td>
           <td><%= f.text_field :provider_email, class: "form-control" %></td>
-          <td>Give sub_order delivery info</td>
+          <td><%= @delivery_address.street %>
+          <%= @delivery_address.city %>
+          <%= @delivery_address.state %>
+          <%= @delivery_address.zip %></td>
         </tr>
       </tbody>
     </table>
