@@ -3,13 +3,13 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
   resources :categories, only: [:index, :show]
-  resources :orders
+  resources :orders, only: [:new, :create]
   resources :users, only: [:create, :new]
   resources :sessions, only: [:new, :create, :destroy]
+
   resources :suppliers, only: [:index, :new, :create, :show] do
     get      'pending_admin'    =>  'suppliers#add_pending_admin'
   end
-  resources :addresses, only: [:update]
 
   resource :cart, only: [:show]
 
