@@ -9,9 +9,41 @@
 }
 
 .align-to-sidebar {
-  padding-left:210px;
+  padding-left:230px;
 }
 
 .details-link {
   cursor: pointer;
 }
+
+.sidebar-button {
+  color:white;
+}
+
+.body-theme {
+  background:transparent;
+  color:#113672;
+  /*font-family:"cantarell",sans-serif;*/
+}
+
+.body-theme:link {
+  color:white;
+}
+
+.navbar-theme {
+  background:white;
+  border-bottom-width:5px;
+  border-bottom-color:#113672;
+}
+
+.navbar-top-link {
+  color:black;
+}
+
+a {
+  color:#0390a5;
+}
+
+/*.navbar-background {
+  background:#1c5a6d;
+}*/

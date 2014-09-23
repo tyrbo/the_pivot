@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'a supplier viewing the items page', type: :feature do
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user, role: 'supplier') }
   let!(:user2) { FactoryGirl.create(:user, email: "hacker@example.com") }
   let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
   let!(:item) { FactoryGirl.create(:item, supplier: supplier) }
@@ -10,7 +10,6 @@ describe 'a supplier viewing the items page', type: :feature do
   context "supplier user functionality" do
     before(:each) do
       login
-
       visit dashboard_root_path
       page.click_link('Item Management')
     end
@@ -30,15 +29,8 @@ describe 'a supplier viewing the items page', type: :feature do
       expect(page).to_not have_content item.title
     end
 
-    it 'can destroy an item' do
-      expect(page).to have_content("Yummy")
-
-      page.click_link('Destroy')
-
-      expect(page).to_not have_content("Yummy")
-    end
-
     it 'can add an item' do
+      # save_and_open_page
       page.click_link('Create a New Item')
 
       expect(page).to have_content('New Item')
@@ -65,17 +57,17 @@ describe 'a supplier viewing the items page', type: :feature do
     end
 
     it 'can retire an item' do
-      page.click_link('Retire')
+      page.click_link('Remove')
 
       expect(page.current_path).to eq dashboard_supplier_items_path(supplier.url)
-      expect(page).to have_content('Unretire')
+      expect(page).to have_content('Activate')
     end
 
     it 'can unretire an item' do
-      page.click_link('Retire')
-      page.click_link('Unretire')
+      page.click_link('Remove')
+      page.click_link('Activate')
 
-      expect(page).to have_content('Retire')
+      expect(page).to have_content('Remove')
     end
   end
 

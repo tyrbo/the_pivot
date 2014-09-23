@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   resources :orders, only: [:create]
   resources :users, only: [:create, :new]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :suppliers, only: [:index, :new, :create, :show]
+  resources :suppliers, only: [:index, :new, :create, :show] do
+    get      'pending_admin'    =>  'suppliers#add_pending_admin'
+  end
+  resources :addresses, only: [:update]
 
   resource :cart, only: [:show]
 
@@ -18,9 +21,10 @@ Rails.application.routes.draw do
       resources :addresses, only: [:update]
     end
 
-    resources :suppliers, only: [:index, :show] do
+    resources :suppliers, only: [:index, :show, :edit, :update] do
       resources :supplier
       resources :items
+      resources :users
       resources :sub_orders do
         resources :order_items do
           get :increment, on: :member
@@ -32,6 +36,8 @@ Rails.application.routes.draw do
       patch 'pay/:id/pay'      => 'orders#pay',      as: :pay_order
       patch 'pay/:id/complete' => 'orders#complete', as: :complete_order
       put 'retire/:id' => 'retire_item#update', as: :retire_item
+      get 'users/pending/:id/remove' => 'users#pending_remove', as: :remove_pending
+      get 'users/pending/:id/add' => 'users#pending_add', as: :add_pending
     end
   end
 

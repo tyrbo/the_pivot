@@ -1,6 +1,3 @@
-
-<%= link_to 'Back to Dashboard', dashboard_root_path %>
-
   <div class="content-wrapper formStyle">
     <h1>Your Listings</h1>
     <table class="table">
@@ -14,21 +11,21 @@
       </thead>
 
       <tbody>
-        <% @items.each do |item| %>
+        <% @items.sort_by { |i| i.title }.each do |item| %>
           <tr>
             <td class='item_title'><%= item.title %></td>
             <td class='item_description'><%= item.description %></td>
-            <td class='item_price'><%= item.price %></td>
+            <td class='item_price'><%= item.format_price %></td>
             <td>
               <%= link_to 'Show', dashboard_supplier_item_path(current_supplier, item) %> |
               <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, item) %> |
-              <%= link_to 'Destroy', dashboard_supplier_item_path(current_supplier,item), method: :delete, data: { confirm: 'Are you sure?' } %> |
-              <%= link_to (item.retire ? 'Unretire' : 'Retire'), dashboard_supplier_retire_item_path(current_supplier,item), method: :put, data: { confirm: 'Are you sure?' } %>
+              <%= link_to (item.retire ? 'Activate' : 'Remove'), dashboard_supplier_retire_item_path(current_supplier,item), method: :put, data: { confirm: 'Are you sure?' } %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
 
-    <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier) %> | <%= link_to 'Back to Dashboard', dashboard_root_path %>
+    <%= link_to 'Create a New Item', new_dashboard_supplier_item_path(current_supplier), class: 'btn btn-default' %>
+    <%= link_to 'Back to Dashboard', dashboard_root_path, class: 'btn btn-default' %>
   </div>

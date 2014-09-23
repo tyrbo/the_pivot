@@ -18,9 +18,21 @@ class ApplicationController < ActionController::Base
     cart.cart_items.destroy_all
   end
 
-  def current_supplier
+  def supplier
     id = params[:supplier_id] || params[:id]
     Supplier.find(id)
+  end
+
+  def user_is_admin_of_supplier?
+    supplier.users.enabled.exists?(id: current_user.id)
+  end
+
+  def current_supplier
+    if user_is_admin_of_supplier?
+      supplier
+    else
+      flash[:error] = "You cannot access that resource"
+    end
   end
 
   private
@@ -31,6 +43,7 @@ class ApplicationController < ActionController::Base
     cart = Cart.create!
     session[:cart_id] = cart.id
   end
+
 
   def cart_count
     @cart_count = cart.cart_item_quantity

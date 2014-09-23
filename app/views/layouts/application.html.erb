@@ -3,6 +3,8 @@
   <head>
     <title>Airlift</title>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script src="/assets/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -18,9 +20,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class='body-theme'>
     <div class="container-fluid">
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-default navbar-fixed-top navbar-theme" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -35,8 +37,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-              <li><%= link_to 'Items', items_path %></li>
-              <li><%= link_to 'Suppliers', suppliers_path %></a></li>
+              <li class='navbar-top-link'><%= link_to 'Items', items_path %></li>
+              <li class='navbar-top-link'><%= link_to 'Suppliers', suppliers_path %></li>
 
             <!--  end  -->
           </ul>
