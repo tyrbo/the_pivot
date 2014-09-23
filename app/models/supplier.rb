@@ -12,6 +12,9 @@ class Supplier < ActiveRecord::Base
   has_many :items
   has_many :sub_orders
 
+  extend FriendlyId
+  friendly_id :url, use: [:finders]
+
   scope :approved, -> { where(enabled: true) }
 
   def enabled?
@@ -20,5 +23,10 @@ class Supplier < ActiveRecord::Base
 
   def toggle_enabled
     self.enabled ^= true
+  end
+
+  def categories
+    categories = self.items.map {|item| item.categories }
+    categories.flatten.uniq
   end
 end

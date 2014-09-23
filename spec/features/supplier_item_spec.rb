@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'a supplier viewing the items page', type: :feature do
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user, role: 'supplier') }
   let!(:user2) { FactoryGirl.create(:user, email: "hacker@example.com") }
   let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
   let!(:item) { FactoryGirl.create(:item, supplier: supplier) }
@@ -10,7 +10,6 @@ describe 'a supplier viewing the items page', type: :feature do
   context "supplier user functionality" do
     before(:each) do
       login
-
       visit dashboard_root_path
       page.click_link('Item Management')
     end
