@@ -43,7 +43,7 @@ class Item < ActiveRecord::Base
 
   def self.search(search)
     search = search.downcase
-    where("title like lower(?) or description like lower(?)", "%#{search}%", "%#{search}%")
+    where("lower(title) like ? or lower(description) like ?", "%#{search}%", "%#{search}%")
   end
 
   def convert_to_cents
