@@ -4109,7 +4109,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color:#113672;
+  color:#777;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -4847,8 +4847,8 @@ a.thumbnail.active {
   margin-right: 5px;
 }
 a.list-group-item {
-  color:#113672;
-  border-color:#113672;
+  color:#777;
+  border-color:#777;
 }
 a.list-group-item .list-group-item-heading {
   color: #333;
