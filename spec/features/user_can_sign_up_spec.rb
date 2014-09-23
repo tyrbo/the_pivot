@@ -33,7 +33,7 @@ describe 'Creating and logging in a User', type: :feature do
       logout
       login
 
-      expect(current_path).to eq(items_path)
+      expect(current_path).to eq(root_path)
     end
 
     it 'can log in as a supplier' do
@@ -46,7 +46,7 @@ describe 'Creating and logging in a User', type: :feature do
       logout
       login
 
-      expect(current_path).to eq(dashboard_root_path)
+      expect(current_path).to eq(root_path)
     end
 
     it 'can logout after logging in' do
