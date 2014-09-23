@@ -1,0 +1,5 @@
+<%= form_for([:dashboard, @supplier], :html => { :class => "form-horizontal"}) do |f| %>
+  <%= f.text_field :description, class: "form-control" %>
+  <%= f.submit value="Save Changes", class: "btn btn-default" %>
+  <%= link_to 'Cancel', dashboard_supplier_path(current_supplier, @supplier), class: "btn btn-default" %>
+<% end %>

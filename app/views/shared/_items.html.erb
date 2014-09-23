@@ -1,7 +1,6 @@
 <%= render partial: 'shared/category_sidebar', locals: { categories: @categories} %>
 
 <div class='align-to-sidebar'>
-
   <% categories.each do |category| %>
     <span id="<%= category.name %>">
       <div class="col-md-10">

@@ -24,4 +24,9 @@ class Supplier < ActiveRecord::Base
   def toggle_enabled
     self.enabled ^= true
   end
+
+  def categories
+    categories = self.items.map {|item| item.categories }
+    categories.flatten.uniq
+  end
 end
