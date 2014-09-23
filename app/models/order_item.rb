@@ -2,10 +2,12 @@ class OrderItem < ActiveRecord::Base
 	belongs_to :order
 	belongs_to :item
 	belongs_to :sub_order
-	before_create :set_quantity, :set_price
+	before_save :set_quantity, :set_price
 
 	def set_quantity
-		self.quantity = 1
+		if quantity.nil?
+			self.quantity = 1
+		end
 	end
 
 	def set_price

@@ -72,6 +72,5 @@ describe 'a supplier viewing the order page', type: :feature do
     click_on('Edit')
   end
 
-  it 'has an address for each supplier'
 
 end

@@ -14,7 +14,8 @@ class Cart < ActiveRecord::Base
 
 		self.cart_items.each do |cart_item|
 			order.order_items.create(item_id: cart_item.item_id,
-			 											quantity: cart_item.quantity)
+			 										  	quantity: cart_item.quantity,
+														     price: cart_item.item.price)
 		end
 	end
 
