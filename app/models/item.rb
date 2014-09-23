@@ -39,6 +39,7 @@ class Item < ActiveRecord::Base
 
   def format_price
     '$' + sprintf("%.2f", price.to_d / 100.00)
+    price
   end
 
   def self.search(search)
