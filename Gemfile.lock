@@ -206,7 +206,7 @@ DEPENDENCIES
   aasm (~> 3.3.3)
   aws-sdk
   bcrypt (~> 3.1.7)
-  bootstrap-sass
+  bootstrap-sass (~> 3.2.0)
   capybara
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
