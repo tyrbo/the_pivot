@@ -3,7 +3,8 @@
 
 <div class='align-to-sidebar'>
     <span id="search-results">
-      <div class="col-md-10">
+      <div class="col-md-10 custom-box">
+        <h2 class='category-header'>Search Results</h2>
         <% if @items && check_count %>
         </br></br>
 
@@ -20,42 +21,39 @@
           </thead>
           <tbody>
             <% @items.each do |item| %>
-              <div>
-                <tr>
-                  <td><%= image_tag item.picture.url(:thumb), :size => '32x32', :class => "img-rounded" %></td>
-                  <td class='col-md-3'><%= link_to item.title, item_path(item) %></td>
-                  <td ><%= item.size %></td>
-                  <td><%= item.inventory %></td>
-                  <td><%= item.format_price %></td
-                    <td></td><td class='col-md-3'><a class='details-link'>Details</a></td>
-                    <td><button class='btn btn-primary cart-link'>Add to Cart</button></td>
-                  </tr>
-                  <tr class='details-info hidden'>
-                    <td></td>
-                    <td class='col-md-3'>Description: <br/><%= item.description %></td>
-                    <td></td><td></td><td></td>
-                    <td class='col-md-3'>Supplier: <br/><%= item.supplier.name %></td>
-
-                  </tr>
-                  <tr class='cart-info hidden'>
-                    <td></td></td><td></td><td></td><td></td><td></td>
-                  <td>
+            <div>
+              <tr>
+                <td><%= image_tag item.picture.url(:thumb), :size => '32x32', :class => "img-rounded" %></td>
+                <td class='col-md-3'><a class='details-link'><%= item.title %></a></td>
+                <td class='col-md-1'><%= item.size %></td>
+                <td class='col-md-1'><%= item.inventory %></td>
+                <td class='col-md-1'><%= item.format_price %></td
+                  <td></td><td class='col-md-3'><a class='details-link'>Details</a></td>
+                  <td class='col-md-3'>
                     <%= form_tag(add_to_cart_path) do %>
                       <input type="hidden" name="item_id" value="<%= item.id %>">
                       <div class="col-md-10">
                         <div class="input-group">
                           <span class="input-group-addon">Qty</span>
-                          <input type="text" class="form-control" name="quantity" value="1">
+                          <input type="text" class="form-control qty-box" name="quantity" value="">
                         </div>
                       </div>
-                    </td>
-                    <td>
-                      <div class="col-md-3">
-                        <%= button_tag 'Submit', class: 'btn btn-danger' %>
+                  </td>
+                  <td>
+                      <div class="col-md-2">
+                        <%= button_tag 'Add To Cart', class: 'btn cart-btn' %>
                       </div>
                     <% end %>
-                  </tr>
-                </div>
+                  </td>
+                </tr>
+                <tr class='details-info hidden'>
+                  <td></td>
+                  <td class='col-md-3'>Description: <br/><%= item.description %></td>
+                  <td></td><td></td><td></td>
+                  <td class='col-md-3'>Supplier: <br/><%= item.supplier.name %></td>
+                  <td></td><td></td>
+                </tr>
+              </div>
             </tbody>
           </table>
               <% end %>
