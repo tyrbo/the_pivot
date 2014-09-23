@@ -5,6 +5,7 @@
       <th>Item:</th>
       <th>Price:</th>
       <th>Quantity:</th>
+      <th></th>
       <th>Item Total:</th>
     </tr>
   </thead>
@@ -14,13 +15,19 @@
       <tr>
         <td><%= link_to item.item.title, item_path(item.item) %></td>
         <td><%= item.item.format_price %></td>
-        <td><%= item.quantity %></td>
+        <td class='col-md-2'>
+          <%= form_for item, url: { action: :update, id: item.id }, method: :put do %>
+            <input type="hidden" name="item_id" value="<%= item.id %>">
+              <div class="input-group">
+                <span><input type="text" class="form-control qty-box" name="quantity" value="<%=item.quantity%>">
+            </div>
+        </td>
+        <td><%= button_tag 'Update Quantity', method: :put, class: 'btn cart-btn' %></td></span>
+            <% end %>
         <td><%= item.total_price %></td?
       </tr>
-    <% end %>
+      <% end %>
   </tbody>
 </table>
   Total: <%= @cart.get_total %>
   <%= link_to 'Continue to Checkout', new_order_path,  class: "btn btn-default" %>
-
-</div>
