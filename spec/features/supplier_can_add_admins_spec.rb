@@ -11,7 +11,7 @@ describe 'a supplier', type: :feature do
 
     login_as(username: user.email, password: user.password)
     visit dashboard_root_path
-    click_on('Admin Management')
+    click_on('Users')
   end
 
   it 'can see pending admins' do

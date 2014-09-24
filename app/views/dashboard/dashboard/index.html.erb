@@ -1,40 +1,17 @@
-<div class="row">
-  <div class="col-md-2">
-    <div class="list-group" id='sidebar-padding'>
-      <%= link_to 'User Information', dashboard_user_path, class: 'btn btn-default list-group-item' %>
-    </div>
-  </div>
-  <div class="col-md-10">
-    <% if @suppliers.count > 0 %>
-      <table class="table table-hover">
-        <h3> Supplier Management </h3>
-        <thead>
-          <tr>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @suppliers.each do |supplier| %>
-          <tr>
-            <td><%= supplier.name %></td>
-            <td><%= link_to 'Item Management', dashboard_supplier_items_path(supplier) %></td>
-            <td><%= link_to 'Order Management', dashboard_supplier_sub_orders_path(supplier) %></td>
-            <td><%= link_to 'Admin Management', dashboard_supplier_users_path(supplier) %></td>
-            <td><%= link_to 'Settings', edit_dashboard_supplier_path(supplier)%></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
+<%= render partial: 'shared/breadcrumb' %>
 
-    <a class='admin-request-dropdown-link'>Request to Be an Admin</a><br/><br/>
-    <% @all_suppliers.each do |supplier| %>
-      <li class='admin-request-dropdown hidden'>
-        <%= link_to supplier.name , supplier_pending_admin_path(supplier) %>
-      </li>
-    <% end %>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href=#orders role="tab" data-toggle="tab">Your Orders</a></li>
+  <li><a href="#organization" role="tab" data-toggle="tab">Your Organization</a></li>
+  <li><a href="#admin" role="tab" data-toggle="tab">Admin Settings</a></li>
+  <li><a href="#user" role="tab" data-toggle="tab">User Settings</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="orders">
     <table class="table table-hover">
-      <h3>Your Orders</h3>
+      <h3>Orders Placed</h3>
       <thead>
         <tr>
           <th>#</th>
@@ -57,5 +34,48 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+
+  <div class="tab-pane fade" id="organization">
+    <% if @suppliers.count > 0 %>
+      <table class="table table-hover">
+        <h3> Organization Management </h3>
+        <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @suppliers.each do |supplier| %>
+          <tr>
+            <td><%= supplier.name %></td>
+            <td><%= link_to 'Listings', dashboard_supplier_items_path(supplier) %></td>
+            <td><%= link_to 'Orders', dashboard_supplier_sub_orders_path(supplier) %></td>
+            <td><%= link_to 'Users', dashboard_supplier_users_path(supplier) %></td>
+            <td><%= link_to 'Settings', edit_dashboard_supplier_path(supplier)%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+
+  <div class="tab-pane fade" id="admin">
+    <a class='admin-request-dropdown-link'>Request to Be an Admin</a><br/><br/>
+    <% @all_suppliers.each do |supplier| %>
+      <li class='admin-request-dropdown hidden'>
+        <%= link_to supplier.name , supplier_pending_admin_path(supplier) %>
+      </li>
+    <% end %>
+  </div>
+
+  <div class="tab-pane fade" id="user">
+    <h1><%= current_user.full_name %></h1>
+    <h5><%= current_user.email %></h5></br>
+
+    <%= render partial: 'shared/address_table', locals: { address_type: 'billing' } %>
+    <%= render partial: 'shared/address_table', locals: { address_type: 'shipping' } %>
+
+    <br/><%= link_to 'Edit Account', edit_dashboard_user_path, class: 'btn btn-default' %><br/><br/>
   </div>
 </div>
