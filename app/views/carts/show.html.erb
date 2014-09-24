@@ -40,8 +40,8 @@
   <% if current_user %>
     <%= link_to 'Enter Your Billing Info', new_order_path, class: "btn btn-primary"%>
   <% else %>
-    You must sign in or register in order to checkout<br>
-    <%= link_to 'Register', signup_path,  class: "btn btn-default" %> <%= link_to 'Sign in', signin_path, class: "btn btn-default"  %>
+    You must sign in or register in order to checkout.</br></br>
+    <%= link_to 'Register', signup_path,  class: "btn btn-primary" %> <%= link_to 'Sign in', signin_path, class: "btn btn-primary"  %>
   <% end %>
 </div>
 </div>

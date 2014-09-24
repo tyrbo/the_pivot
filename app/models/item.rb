@@ -65,4 +65,8 @@ class Item < ActiveRecord::Base
   def update_retired_attribute
     retire ? update_column(:retire, false) : update_column(:retire, true)
   end
+
+  def out_of_stock?
+    inventory <= 0
+  end
 end

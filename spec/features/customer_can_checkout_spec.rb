@@ -55,8 +55,6 @@ describe 'A user with a cart & items', type: :feature do
     keylime.inventory = 1
     keylime.save
 
-    # binding.pry
-
     click_on('Enter Your Billing Info')
     choose "order[order_type]", :option  =>"Delivery"
     choose "order[delivery_address_id]", :option => 1

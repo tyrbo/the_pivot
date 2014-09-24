@@ -14,7 +14,7 @@
               <th class="col-md-1">Units Available</th>
               <th class="col-md-1">Unit Price</th>
               <th class="col-md-1"></th>
-              <th class="col-md-5"></th>
+              <th class="col-md-5" style='text-align:center'>Quantity</th>
             </tr>
           </thead>
           <tbody>
@@ -26,18 +26,21 @@
                 <td><%= item.inventory %></td>
                 <td><%= item.format_price %></td>
                 <td><a class='details-link'>Details</a></td>
-                <td>
-                  <%= form_tag(add_to_cart_path) do %>
-                    <input type="hidden" name="item_id" value="<%= item.id %>">
-                    <div class="col-md-7">
-                      <div class="input-group">
-                        <span class="input-group-addon">Qty</span>
-                        <input type="text" class="form-control qty-box" name="quantity" value="">
+                <td style='text-align:center'>
+                  <% if item.out_of_stock? %>
+                    <strong>Out of Stock</strong>
+                  <% else %>
+                    <%= form_tag(add_to_cart_path) do %>
+                      <input type="hidden" name="item_id" value="<%= item.id %>">
+                      <div class="col-md-7">
+                        <div class="input-group">
+                          <input type="text" class="form-control qty-box" name="quantity" value="">
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-md-5">
-                      <%= button_tag 'Add To Cart', class: 'btn cart-btn' %>
-                    </div>
+                      <div class="col-md-5">
+                        <%= button_tag 'Add To Cart', class: 'btn cart-btn' %>
+                      </div>
+                    <% end %>
                   <% end %>
                 </td>
               </tr>

@@ -50,4 +50,12 @@ RSpec.describe Item, :type => :model do
     expect(inactive).not_to include(item1)
     expect(inactive).to include(item2)
   end
+
+  it 'determines whether an item is out of stock' do
+    item = FactoryGirl.create(:item)
+    item1 = FactoryGirl.create(:item, title: 'second', inventory: 0)
+
+    expect(item.out_of_stock?).to eq(false)
+    expect(item1.out_of_stock?).to eq(true)
+  end
 end
