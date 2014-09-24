@@ -21,5 +21,6 @@ module DinnerDash
     # config.i18n.default_locale = :de
 
     config.assets.precompile
+    config.action_mailer.default_url_options = { host: 'airlift.herokuapp.com' }
   end
 end

@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
   def send_password_reset
     generate_token(:password_reset_token)
-    save!
+    save!(validate: false)
 
     UserMailer.password_reset(self).deliver
   end
