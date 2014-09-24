@@ -10,12 +10,12 @@ describe 'A user with a cart & items', type: :feature do
   before do
     login_as(username: user.email, password: user.password)
     add_to_cart(keylime)
-    page.click_on('Cart')
+    find("#cart-button").click
   end
 
   it 'redirects to checkout page after being forced to log in' do
     logout
-    click_on('Cart')
+    find("#cart-button").click
     click_on('Continue to Checkout')
 
     expect(current_path).to eq signin_path

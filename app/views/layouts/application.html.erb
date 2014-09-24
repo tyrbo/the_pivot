@@ -47,7 +47,7 @@
 
             <%= form_tag(search_items_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
               <%= text_field_tag :search %>
-              <%= button_tag(type: "submit", class: 'btn btn-primary') do %><i class='fa fa-search fa-xs'></i>
+              <%= button_tag(type: "submit", class: 'btn btn-primary search', id: 'btn-search') do %><span class='fa fa-search fa-xs'></span>
               <% end %>
             <% end %>
             <ul class="nav navbar-nav navbar-right">
@@ -65,7 +65,7 @@
                 <li><%= link_to 'Sign In', signin_path, class: "btn btn-default", id: "signin-button" %></li>
                 <li class='divider-vertical'></li>
               <% end %>
-              <li><%= link_to cart_path do %><i class="fa fa-shopping-cart fa-lg"></i> <% if @cart_count > 0 %><span class="badge"><%= @cart_count %></span><% end %></li><% end %>
+              <li><%= link_to cart_path, id: 'cart-button' do %><span class="fa fa-shopping-cart fa-lg"></span> <% if @cart_count > 0 %><span class="badge"><%= @cart_count %></span><% end %></li><% end %>
             </ul>
 
           </div><!-- /.navbar-collapse -->
@@ -101,8 +101,8 @@
           <div class='col-md-3'>
             <ul id="ul-footer-links">
               <li><h5>Follow Airlift</h5></li>
-              <li><i class='fa fa-facebook'></i> &nbsp;<%= link_to 'Facebook', 'http://www.facebook.com' %></li>
-              <li><i class='fa fa-twitter'></i> <%= link_to 'Twitter', 'http://www.twitter.com' %></li>
+              <li><%= link_to 'http://www.facebook.com' do %><span class='fa fa-facebook fa-lg'></span><% end %></li>
+              <li><so='fa fa-twitter'></span> <%= link_to 'Twitter', 'http://www.twitter.com' %></li>
               <li>Blog</li>
             </ul>
           </div>

@@ -13,7 +13,6 @@ describe 'a user editing their account information', type: :feature do
   context 'viewing account information' do
 
     it 'can visit account information page' do
-      save_and_open_page
       expect(current_path).to eq('/dashboard')
     end
 

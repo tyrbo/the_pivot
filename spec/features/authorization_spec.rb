@@ -62,7 +62,7 @@ describe 'authorization', type: :feature do
       logout
 
       add_to_cart(item)
-      click_link 'Cart'
+      find("#cart-button").click
       click_on 'Checkout'
 
       expect(unauthenticated?).to be true
