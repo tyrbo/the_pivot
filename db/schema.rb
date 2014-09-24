@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924154219) do
+ActiveRecord::Schema.define(version: 20140924160124) do
 
   create_table "addresses", force: true do |t|
     t.string  "city"
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 20140924154219) do
     t.string   "full_name"
     t.string   "email"
     t.string   "display_name"
-    t.string   "role",               default: "customer"
+    t.string   "role",                 default: "customer"
     t.string   "encrypted_password"
     t.string   "password_digest"
     t.string   "salt"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20140924154219) do
     t.string   "remember_token"
     t.string   "phone_number"
     t.boolean  "send_texts"
+    t.string   "password_reset_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
