@@ -11,3 +11,9 @@ var find_location = function(){
     //message about not being able to find location
   };
 };
+
+$(document).ready(function () {
+
+    $(".player").mb_YTPlayer();
+
+});

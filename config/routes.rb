@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get      'pending_admin'    =>  'suppliers#add_pending_admin'
   end
 
-  resource :cart, only: [:show, :update]
+  resource :cart, only: [:show, :update, :destroy]
   resource :cart_item, only: [:update]
 
   namespace :dashboard do
@@ -60,6 +60,8 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
   post     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
-  get      '/about_us'         => 'about_us#index'
+  get      '/about'           => 'static_pages#about'
+  get      '/privacy'         => 'static_pages#privacy'
+  get      '/terms'         => 'static_pages#terms'
   get     '/search'           => 'items#search', as: :search_items
 end
