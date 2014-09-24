@@ -77,6 +77,7 @@ describe 'Creating and logging in a User', type: :feature do
     end
 
     it 'can complete a password reset' do
+
       signup_provider
       logout
 

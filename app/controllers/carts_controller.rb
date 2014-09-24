@@ -20,7 +20,7 @@ class CartsController < ApplicationController
 		@cart = cart
 		cart_item = @cart.cart_items.find(params[:id])
 		cart_item.update_attribute(:quantity, params[:quantity])
-		redirect_to cart_path
+		redirect_to cart_path, notice: "#{cart_item.item.title} quantity updated!"
 	end
 
 	def destroy

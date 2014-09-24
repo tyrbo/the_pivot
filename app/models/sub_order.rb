@@ -14,9 +14,20 @@ class SubOrder < ActiveRecord::Base
   end
 
   def self.status_counts
-    result = self.group(:status).count 
+    result = self.group(:status).count
     Status::ALL.each {|key| result[key] ||= 0}
     result
+  end
+
+  def find_address
+    if !self.delivery_address_id.nil?
+      user_address = self.order.user.addresses.find(delivery_address_id)
+      print_address(user_address)
+    end
+  end
+
+  def print_address(address)
+    "#{address.street}, #{address.city}, #{address.state} #{address.zip}"
   end
 
   def self.all_count

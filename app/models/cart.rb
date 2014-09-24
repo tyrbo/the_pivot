@@ -3,7 +3,7 @@ class Cart < ActiveRecord::Base
 	has_many :items, through: :cart_items
 
 	def total
-		cart_items.reduce(0) { |total, cart_item| total += cart_item.item.price }
+		cart_items.reduce(0) { |total, cart_item| total += cart_item.price }
 	end
 
 	def cart_item_quantity

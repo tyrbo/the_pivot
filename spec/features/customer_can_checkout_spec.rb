@@ -43,7 +43,7 @@ describe 'A user with a cart & items', type: :feature do
     choose "order[delivery_address_id]", :option => 1
     choose "order[billing_address_id]", :option => 2
     click_on('Place Order')
-    expect(page).to have_content('Order was successfully created')
+    expect(page).to have_content('order was successfully created')
     expect(page).to have_content('123 Main Denver CO')
   end
 
