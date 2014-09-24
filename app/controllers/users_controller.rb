@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
+      UserConfirmationMailer.welcome_email(@user).deliver
       sign_in @user
       if params['user']['role'] == 'supplier'
         redirect_to new_supplier_path
