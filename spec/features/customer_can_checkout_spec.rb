@@ -28,7 +28,7 @@ describe 'A user with a cart & items', type: :feature do
     fill_in('Password', with: user.password)
     click_button('Sign in')
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq cart_path
   end
 
   it 'can get to checkout' do
