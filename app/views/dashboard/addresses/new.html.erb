@@ -36,9 +36,9 @@
       <div class="form-group">
         <div class="col-sm-10">
           <%= f.label(:shipping, "Shipping Address") %>
-          <%= f.radio_button(:shipping, "TRUE") %>
-          <%= f.label(:shipping, "Billing Address") %>
-          <%= f.radio_button(:shipping, "FALSE") %>
+          <%= f.check_box(:shipping) %>
+          <%= f.label(:billing, "Billing Address") %>
+          <%= f.check_box(:billing) %>
         </div>
       </div>
 
