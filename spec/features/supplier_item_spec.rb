@@ -12,7 +12,7 @@ describe 'a supplier viewing the items page', type: :feature do
     before(:each) do
       login_as(username: user.email, password: user.password)
       visit dashboard_root_path
-      page.click_link('Item Management')
+      page.click_link('Listings')
     end
 
     it 'can show an item' do
@@ -25,13 +25,12 @@ describe 'a supplier viewing the items page', type: :feature do
       item = FactoryGirl.create(:item, title: 'Hello', supplier: nil)
 
       visit dashboard_root_path
-      page.click_link('Item Management')
+      page.click_link('Listings')
 
       expect(page).to_not have_content item.title
     end
 
     it 'can add an item' do
-      # save_and_open_page
       page.click_link('Create a New Item')
 
       expect(page).to have_content('New Item')

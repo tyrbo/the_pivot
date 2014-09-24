@@ -11,7 +11,7 @@
       </tr>
     </thead>
 
-    <% @user.addresses.select { |a| a.send(address_type) }.each do |address| %>
+    <% current_user.addresses.select { |a| a.send(address_type) }.each do |address| %>
     <tbody>
         <td class='col-md-2'><%= address.street %></td>
         <td class='col-md-2'><%= address.city %></td>
