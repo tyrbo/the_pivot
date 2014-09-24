@@ -11,16 +11,12 @@ class OrdersController < UserController
     @order.order_total = cart.total
     @order.order_status = Order::Status::ORDERED
 
-    if @order.save!
-      if current_user.send_texts?
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
-        client.account.sms.messages.create(
-          from: TWILIO_CONFIG['from'],
-          to: current_user.phone_number,
-          body: "Thank you, your order has been placed!"
-        )
-      end
+    if out_of_stock?(@cart)
+      cart_item = get_item_out_of_stock(@cart)
+      redirect_to cart_path, notice: "There are not enough #{cart_item.item.title} in stock to fulfill your order."
+    elsif @order.save!
       @cart.create_order_items(@order)
+      reduce_item_inventory(@order)
       @order.create_sub_orders
       cart_destroy
 

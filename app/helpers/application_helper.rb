@@ -28,9 +28,15 @@ module ApplicationHelper
     end
   end
 
-  def out_of_stock?(order)
-    order.order_items.each do |order_item|
-      order_item.item.inventory < (order_item.quantiy * item.size.to_i)
+  def out_of_stock?(cart)
+    cart.cart_items.any? do |cart_item|
+      cart_item.item.inventory < (cart_item.quantity * cart_item.item.size.to_i)
+    end
+  end
+
+  def get_item_out_of_stock(cart)
+    cart.cart_items.detect do |cart_item|
+      cart_item.item.inventory < (cart_item.quantity * cart_item.item.size.to_i)
     end
   end
 end
