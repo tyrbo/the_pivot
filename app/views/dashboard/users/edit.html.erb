@@ -1,4 +1,5 @@
 <div class='edit-page'>
+</br><div class='custom-box'>
   <h1><%= @user.full_name %></h1>
 
   <%= form_for @user, url: dashboard_user_path, html: { class: 'form-horizontal' } do |f| %>
@@ -31,7 +32,13 @@
       </div>
     </div>
   <% end %>
+</div></br>
 
-  <%= render partial: 'shared/edit_address_table', locals: { address_type: 'billing' } %>
-  <%= render partial: 'shared/edit_address_table', locals: { address_type: 'shipping' } %>
+  <div class='custom-box'>
+    <%= render partial: 'shared/edit_address_table', locals: { address_type: 'billing' } %>
+  </div></br>
+  <div class='custom-box'>
+    <%= render partial: 'shared/edit_address_table', locals: { address_type: 'shipping' } %>
+  </div></br>
 </div>
+<%= link_to 'Back to Dashboard', dashboard_root_path, class: 'btn btn-default' %>
