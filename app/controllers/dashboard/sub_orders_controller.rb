@@ -20,7 +20,6 @@ class Dashboard::SubOrdersController < Dashboard::SupplierController
   def edit
     @sub_order = current_supplier.sub_orders.find(params[:id])
     @delivery_address = Address.find(@sub_order.delivery_address_id)
-
   end
 
   def update

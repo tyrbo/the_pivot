@@ -6,7 +6,6 @@ class Dashboard::AddressesController < UserController
   def create
     @address = current_user.addresses.create(address_params)
     if @address.save
-      binding.pry
       redirect_to new_order_path
     else
       render :new
