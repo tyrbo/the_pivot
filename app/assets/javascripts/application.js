@@ -28,8 +28,8 @@ $(document).ready(function() {
 
   $(".qty-box").focus(function() {
 
-    var nextCartButton = $(this).closest('td').next().find('.cart-btn');
-    var allCartButton = $(this).closest("div.align-to-sidebar").find(".cart-btn");
+    var nextCartButton = $(this).closest('td').find('.cart-btn');
+    var allCartButton = $(this).closest('div.align-to-sidebar').find(".cart-btn");
 
     allCartButton.removeClass('btn-primary');
     nextCartButton.addClass('btn-primary');
@@ -37,7 +37,7 @@ $(document).ready(function() {
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);
 
-    $('.qty-box').val('')
+    $(this).val('')
   })
 
   $(".cart-link").click(function(){
