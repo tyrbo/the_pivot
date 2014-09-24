@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 	def show
 		@cart = cart
+		session[:last_page] = request.path unless current_user
 	end
 
 	def add_to_cart_view
