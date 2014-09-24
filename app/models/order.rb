@@ -76,6 +76,8 @@ class Order < ActiveRecord::Base
                         delivery_address_id: self.delivery_address_id,
                          billing_address_id: self.billing_address_id)
       sub.save
+      supplier = Supplier.find(supplier_id)
+      SupplierRequestMailer.request_email(supplier).deliver
       update_order_items(sub, items)
     end
   end
