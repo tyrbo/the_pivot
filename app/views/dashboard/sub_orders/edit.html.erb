@@ -18,10 +18,12 @@
         <tr>
           <td><%= f.text_field :provider_name, class: "form-control" %></td>
           <td><%= f.text_field :provider_email, class: "form-control" %></td>
-          <td><%= @delivery_address.street %>
+          <td><% if @sub_order.delivery? %>
+          <%= @delivery_address.street %>
           <%= @delivery_address.city %>
           <%= @delivery_address.state %>
           <%= @delivery_address.zip %></td>
+          <% end %>
         </tr>
       </tbody>
     </table>
@@ -43,8 +45,8 @@
           <td><%= @sub_order.created_at.to_formatted_s(:long) %></td>
           <td>Last updated at: <%= @sub_order.updated_at.to_formatted_s(:long)%></td>
           <td><%= @sub_order.get_total %></td>
-          <td><%= select_tag(:order_type, options_for_select(['delivery', 'pickup'])) %></td>
-          <td><%= select_tag(:status, options_for_select(['paid', 'cancelled', 'completed', 'ordered'])) %></td>
+          <td><%= @sub_order.order_type %></td>
+          <td><%= f.select(:status, options_for_select(['paid', 'cancelled', 'completed', 'ordered'])) %></td>
         </tr>
       </tbody>
     </table>
