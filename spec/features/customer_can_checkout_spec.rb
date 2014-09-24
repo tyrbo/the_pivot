@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe 'A user with a cart & items', type: :feature do
-  let!(:supplier) { FactoryGirl.create(:supplier)}
+  let!(:supplier) { FactoryGirl.create(:supplier, users: [user2])}
+  let(:user2) {FactoryGirl.create(:user,email: 'hi@example.com', addresses: [address1, address2])}
   let!(:keylime)  { supplier.items.create! title: 'key lime', description: "yum", price: 34 }
   let(:user) {FactoryGirl.create(:user, addresses: [address1, address2])}
   let(:address1) { FactoryGirl.create(:address, shipping: true, billing: false)}
