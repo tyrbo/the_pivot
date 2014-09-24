@@ -54,13 +54,9 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
-<<<<<<< HEAD
   def send_texts?
     send_texts
   end
-
-=======
->>>>>>> ed8f49b2a10c1bbf900efa30e7f13768064dda13
   private
 
   def create_remember_token

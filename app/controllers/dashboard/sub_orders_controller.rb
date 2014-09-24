@@ -1,7 +1,6 @@
 class Dashboard::SubOrdersController < Dashboard::SupplierController
 
   def index
-    binding.pry
     @sub_orders = current_supplier.sub_orders
   end
 

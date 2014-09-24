@@ -2,7 +2,7 @@ class Supplier < ActiveRecord::Base
   extend FriendlyId
   friendly_id :url, use: [:finders]
 
-  has_attached_file :picture, styles: { :medium => "300x300#", :thumb => "32x32#" }, default_url: "red_cross.jpg"
+  has_attached_file :picture, style: { :medium => "300x300#", :thumb => "32x32#" }, default_url: "red_cross.jpg"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   validates :name, presence: true
   validates :url, presence: true
