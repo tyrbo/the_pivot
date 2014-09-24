@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,7 +47,8 @@
 
             <%= form_tag(search_items_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
               <%= text_field_tag :search %>
-              <%= submit_tag 'Search', class: 'btn btn-default' %>
+              <%= button_tag(type: "submit", class: 'btn btn-primary') do %><i class='fa fa-search fa-xs'></i>
+              <% end %>
             <% end %>
             <ul class="nav navbar-nav navbar-right">
               <% if current_user %>
@@ -57,13 +58,14 @@
                     <li><%= link_to 'Account Overview', dashboard_root_path %></li>
                     <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
                   </ul>
+                  <li class='divider-signed_in'></li>
                 </li>
               <% else %>
                 <li><%= link_to 'Register', signup_path %></li>
                 <li><%= link_to 'Sign In', signin_path, class: "btn btn-default", id: "signin-button" %></li>
                 <li class='divider-vertical'></li>
               <% end %>
-              <li><%= link_to cart_path do %>Cart <span class="badge"><%= @cart_count %></span><% end %></li>
+              <li><%= link_to cart_path do %><i class="fa fa-shopping-cart fa-lg"></i> <% if @cart_count > 0 %><span class="badge"><%= @cart_count %></span><% end %></li><% end %>
             </ul>
 
           </div><!-- /.navbar-collapse -->
@@ -91,7 +93,7 @@
           <div class='col-md-3'>
             <ul id="ul-footer-links">
               <li><h5>Get to Know Us</h5></li>
-              <li>About</li>
+              <li><%= link_to 'About', about_us_path %></li>
               <li>Careers</li>
               <li>Contact Us</li>
             </ul>
@@ -99,8 +101,8 @@
           <div class='col-md-3'>
             <ul id="ul-footer-links">
               <li><h5>Follow Airlift</h5></li>
-              <li><%= link_to 'Facebook', 'http://www.facebook.com' %></li>
-              <li><%= link_to 'Twitter', 'http://www.twitter.com' %></li>
+              <li><i class='fa fa-facebook'></i> &nbsp;<%= link_to 'Facebook', 'http://www.facebook.com' %></li>
+              <li><i class='fa fa-twitter'></i> <%= link_to 'Twitter', 'http://www.twitter.com' %></li>
               <li>Blog</li>
             </ul>
           </div>

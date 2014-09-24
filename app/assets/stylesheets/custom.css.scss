@@ -26,6 +26,13 @@
   border-radius: 3px;
 }
 
+.divider-signed_in {
+  height: 35px;
+  margin: 10px 0px 0px 5px;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #ffffff;
+}
+
 .navbar .divider-vertical {
   height: 35px;
   margin: 10px 0px 0px 20px;
@@ -34,10 +41,6 @@
 }
 
 
-// .navbar-right {
-//   margin-left: 0px;
-//
-// }
 
 .airlift-logo {
   position: relative;
@@ -51,6 +54,14 @@
   margin-right: 130px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+#search {
+  height: 33.7px;
+  line-height: 1px;
+  margin-right: -5px;
+
+  border-radius: 4px;
 }
 
 #featured-supplier-header {
@@ -100,4 +111,37 @@ body {
 #ul-footer-links
 {
     list-style-type: none;
+}
+
+
+.picture1 {
+  background: url('gu.jpg');
+  background-size: cover;
+  height: 240px;
+  width:auto;
+  margin-top:30px;
+}
+
+.picture2 {
+  background: url('tim_proc.jpg');
+  background-size: cover;
+  height: 270px;
+  width:auto;
+  margin-top:30px;
+}
+
+.picture3 {
+  background: url('emily.jpg');
+  background-size: cover;
+  height: 280px;
+  margin-top:20px;
+  width:auto;
+}
+
+.picture4 {
+  background: url('gus.jpg');
+  background-size: cover;
+  height: 240px;
+  width:auto;
+  margin-top:40px;
 }
