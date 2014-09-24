@@ -1,16 +1,16 @@
+<div align='center' class='supplier-list'>
 <table>
 <% @suppliers.each do |supplier| %>
-    <div>
-        <tr class='col-md-10 custom-box'>
-          <td class='col-md-2'><%= image_tag supplier.picture.url(:thumb), :size => '128x128', :class => "img-rounded" %></td>
-          <td class='col-md-2'><h3><a href='<%= supplier_path(supplier)%>' class='supplier-link'><%= supplier.name %></a></h3></td>
-          <td class='col-md-2'><%= supplier.description %></td>
-          <td class='col-md-4'>
-            <% supplier.categories.each do |category| %>
-              | <%= category.name %> |
-              <% end %>
-            </td>
-        </tr>
-    </div>
+      <tr class='col-md-9 custom-box'>
+        <td class='col-md-2'><%= image_tag supplier.picture.url(:thumb), :size => '128x128', :class => "img-rounded" %></td>
+        <td class='col-md-2'><h3><a href='<%= supplier_path(supplier)%>' class='supplier-link'><%= supplier.name %></a></h3></td>
+        <td class='col-md-2'><%= supplier.description %></td>
+        <td class='col-md-4'>
+          <% supplier.categories.each do |category| %>
+            | <%= category.name %> |
+            <% end %>
+          </td>
+      </tr>
 <% end %></br>
 </table>
+</div>

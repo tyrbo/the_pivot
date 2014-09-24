@@ -4,12 +4,13 @@ describe 'a supplier viewing the items page', type: :feature do
   let!(:user) { FactoryGirl.create(:user, role: 'supplier') }
   let!(:user2) { FactoryGirl.create(:user, email: "hacker@example.com") }
   let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
-  let!(:item) { FactoryGirl.create(:item, supplier: supplier) }
+  let!(:category) { FactoryGirl.create(:category) }
+  let!(:item) { FactoryGirl.create(:item, supplier: supplier, category_ids: [category.id]) }
 
 
   context "supplier user functionality" do
     before(:each) do
-      login
+      login_as(username: user.email, password: user.password)
       visit dashboard_root_path
       page.click_link('Listings')
     end
@@ -37,7 +38,7 @@ describe 'a supplier viewing the items page', type: :feature do
       fill_in('item[title]', with: 'Item')
       fill_in('item[description]', with: 'Description')
       fill_in('item[price]', with: '100')
-      click_on('Save Changes')
+      click_on('Create Item')
 
       expect(page).to have_content('Item')
       expect(Item.last.supplier_id).to eq supplier.id
@@ -56,17 +57,17 @@ describe 'a supplier viewing the items page', type: :feature do
     end
 
     it 'can retire an item' do
-      page.click_link('Remove')
+      page.click_link('Make Inactive')
 
       expect(page.current_path).to eq dashboard_supplier_items_path(supplier.url)
-      expect(page).to have_content('Activate')
+      expect(page).to have_content('Make Active')
     end
 
     it 'can unretire an item' do
-      page.click_link('Remove')
-      page.click_link('Activate')
+      page.click_link('Make Inactive')
+      page.click_link('Make Active')
 
-      expect(page).to have_content('Remove')
+      expect(page).to have_content('Make Inactive')
     end
   end
 

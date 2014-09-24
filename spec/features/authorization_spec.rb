@@ -62,10 +62,11 @@ describe 'authorization', type: :feature do
       logout
 
       add_to_cart(item)
-      find("#cart-button").click
-      click_on 'Checkout'
 
-      expect(unauthenticated?).to be true
+      find("#cart-button").click
+
+      expect(page).to_not have_content('Enter Your Billing Info')
+      expect(page).to have_content('You must sign in or register in order to checkout')
     end
 
     it 'cannot view orders if not logged in' do
