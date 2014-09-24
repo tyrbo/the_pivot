@@ -65,6 +65,7 @@ class Order < ActiveRecord::Base
   end
 
   def create_sub_orders
+
     suppliers.each do |supplier_id, items|
       sub =  SubOrder.create(supplier_id: supplier_id,
                                 order_id: self.id,
