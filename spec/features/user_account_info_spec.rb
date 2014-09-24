@@ -8,13 +8,13 @@ describe 'a user editing their account information', type: :feature do
   before(:each) do
     login_as(username: user.email, password: user.password)
     click_on 'Account Overview'
-    click_on 'User Information'
   end
 
   context 'viewing account information' do
 
     it 'can visit account information page' do
-      expect(current_path).to eq(dashboard_user_path)
+      save_and_open_page
+      expect(current_path).to eq('/dashboard')
     end
 
     it 'displays user information on account page' do
