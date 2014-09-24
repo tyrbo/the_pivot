@@ -1,7 +1,13 @@
 class Dashboard::SubOrdersController < Dashboard::SupplierController
 
   def index
-    @sub_orders = current_supplier.sub_orders
+    if params[:filter]
+      @sub_orders = current_supplier.sub_orders.select do |sub_order|
+        sub_order.status == params[:filter] 
+      end
+    else
+      @sub_orders = current_supplier.sub_orders
+    end
   end
 
   def show

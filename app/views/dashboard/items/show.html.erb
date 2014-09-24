@@ -11,7 +11,7 @@
     Units Available: <%= @item.inventory %> |
     Unit Price: <%= @item.format_price %></p>
 
-    <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, @item) %> |
-    <%= link_to 'Back to All Items', dashboard_supplier_items_path %>
+    <%= link_to 'Edit', edit_dashboard_supplier_item_path(current_supplier, @item), class: 'btn btn-primary' %>
+    <%= link_to 'Back to All Items', dashboard_supplier_items_path, class: 'btn btn-default' %>
   </div>
 </div>

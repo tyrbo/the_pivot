@@ -1,22 +1,12 @@
 <div class="content-wrapper formStyle">
   <h1>Order Management</h1>
   <table class='table'>
-    <thead>
-      <tr>
-        <th>All Orders:</th>
-        <th>Paid:</th>
-        <th>Cancelled:</th>
-        <th>Completed:</th>
-        <th>Ordered:</th>
-      </tr>
-    </thead>
-
     <tbody>
-      <td><%= link_to 'See All Orders', dashboard_supplier_sub_orders_path(current_supplier) %>(<%= SubOrder.all_count %>)</td>
-      <td><%= link_to 'See Paid Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'paid') %>(<%= SubOrder.status_counts[SubOrder::Status::PAID] %>)</td>
-      <td><%= link_to 'See Cancelled Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'cancelled') %>(<%= SubOrder.status_counts[SubOrder::Status::CANCELLED] %>)</td>
-      <td><%= link_to 'See Completed Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'completed') %>(<%= SubOrder.status_counts[SubOrder::Status::COMPLETED] %>)</td>
-      <td><%= link_to 'See Ordered/Pending Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'ordered') %>(<%= SubOrder.status_counts[SubOrder::Status::ORDERED] %>)</td>
+      <td><%= link_to 'See All Orders', dashboard_supplier_sub_orders_path(current_supplier) %> (<%= current_supplier.sub_orders.count %>)</td>
+      <td><%= link_to 'See Paid Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'paid') %> (<%= current_supplier.sub_order_count_by_status('paid') %>)</td>
+      <td><%= link_to 'See Cancelled Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'cancelled') %> (<%= current_supplier.sub_order_count_by_status('cancelled') %>)</td>
+      <td><%= link_to 'See Completed Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'completed') %> (<%= current_supplier.sub_order_count_by_status('completed') %>)</td>
+      <td><%= link_to 'See Ordered/Pending Orders', dashboard_supplier_sub_orders_path(current_supplier, filter: 'ordered') %> (<%= current_supplier.sub_order_count_by_status('ordered') %>)</td>
     </tbody>
   </table>
 
