@@ -17,14 +17,14 @@ class OrdersController < UserController
         client.account.sms.messages.create(
           from: TWILIO_CONFIG['from'],
           to: current_user.phone_number,
-          body: "Thank you, your order has been placed!"
+          body: "Thank you, your order has been placed! Respond to this number with 'Status' to get updates on your order, or 'Stop' to cancel text updates."
         )
       end
       @cart.create_order_items(@order)
       @order.create_sub_orders
       cart_destroy
 
-      redirect_to dashboard_order_path(@order), notice: 'Order was successfully created.'
+      redirect_to dashboard_order_path(@order), notice: "Your order was successfully created!"
     else
       render :new
     end
