@@ -19,7 +19,7 @@ describe 'A user with a cart & items', type: :feature do
     find("#cart-button").click
 
     expect(page).to_not have_content('Enter Your Billing Info')
-    
+
     click_on('Sign in')
 
     expect(current_path).to eq signin_path

@@ -1,61 +1,61 @@
 <%= render partial: 'shared/category_sidebar', locals: { categories: @categories} %>
 
 <div class='align-to-sidebar'>
-<% categories.each do |category| %>
-  <div id="<%= category.name %>">
-    </br></br>
-    <div class='custom-box'>
-    <h2 class='category-header'><%= category.name %></h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Item</th>
-            <th>Unit Size</th>
-            <th>Units Available</th>
-            <th>Unit Price</th>
-            <th></th><th></th><th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% category.items.each do |item| %>
-            <div>
+  <% categories.each do |category| %>
+    <div id="<%= category.name %>">
+      <div class='col-md-10 custom-box category-items'>
+        <h2 class='category-header'><%= category.name %></h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="col-md-1"></th>
+              <th class="col-md-2">Item</th>
+              <th class="col-md-1">Unit Size</th>
+              <th class="col-md-1">Units Available</th>
+              <th class="col-md-1">Unit Price</th>
+              <th class="col-md-1"></th>
+              <th class="col-md-5"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% category.items.each do |item| %>
               <tr>
                 <td><%= image_tag item.picture.url(:thumb), :size => '32x32', :class => "img-rounded" %></td>
-                <td class='col-md-3'><a class='details-link'><%= item.title %></a></td>
-                <td class='col-md-1'><%= item.size %></td>
-                <td class='col-md-1'><%= item.inventory %></td>
-                <td class='col-md-1'><%= item.format_price %></td
-                  <td></td><td class='col-md-3'><a class='details-link'>Details</a></td>
-                  <td class='col-md-3'>
-                    <%= form_tag(add_to_cart_path) do %>
-                      <input type="hidden" name="item_id" value="<%= item.id %>">
-                      <div class="col-md-10">
-                        <div class="input-group">
-                          <span class="input-group-addon">Qty</span>
-                          <input type="text" class="form-control qty-box" name="quantity" value="">
-                        </div>
+                <td><a class='details-link'><%= item.title %></a></td>
+                <td><%= item.size %></td>
+                <td><%= item.inventory %></td>
+                <td><%= item.format_price %></td>
+                <td><a class='details-link'>Details</a></td>
+                <td>
+                  <%= form_tag(add_to_cart_path) do %>
+                    <input type="hidden" name="item_id" value="<%= item.id %>">
+                    <div class="col-md-7">
+                      <div class="input-group">
+                        <span class="input-group-addon">Qty</span>
+                        <input type="text" class="form-control qty-box" name="quantity" value="">
                       </div>
-                  </td>
-                  <td>
-                      <div class="col-md-2">
-                        <%= button_tag 'Add To Cart', class: 'btn cart-btn' %>
-                      </div>
-                    <% end %>
-                  </td>
-                </tr>
-                <tr class='details-info hidden'>
-                  <td></td>
-                  <td class='col-md-3'>Description: <br/><%= item.description %></td>
-                  <td></td><td></td><td></td>
-                  <td class='col-md-3'>Supplier: <br/><%= item.supplier.name %></td>
-                  <td></td><td></td>
-                </tr>
-              </div>
+                    </div>
+                    <div class="col-md-5">
+                      <%= button_tag 'Add To Cart', class: 'btn cart-btn' %>
+                    </div>
+                  <% end %>
+                </td>
+              </tr>
+              <tr class='details-info hidden'>
+                <td colspan="7">
+                  <div class="col-md-6">
+                    Description: <br><%= item.description %>
+                  </div>
+                  <div class="col-md-6">
+                    Supplier: <br><%= item.supplier.name %>
+                  </div>
+                </td>
+              </tr>
             <% end %>
           </tbody>
         </table>
       </div>
+      <div class="col-md-2"></div>
     </div>
   <% end %>
 </div>

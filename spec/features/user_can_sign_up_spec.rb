@@ -65,7 +65,7 @@ describe 'Creating and logging in a User', type: :feature do
     end
 
     it 'can request a password reset' do
-      signup
+      signup_provider
       logout
 
       visit signin_path
@@ -77,7 +77,11 @@ describe 'Creating and logging in a User', type: :feature do
     end
 
     it 'can complete a password reset' do
+<<<<<<< HEAD
       signup
+=======
+      signup_provider
+>>>>>>> ed8f49b2a10c1bbf900efa30e7f13768064dda13
       logout
 
       user = User.last
