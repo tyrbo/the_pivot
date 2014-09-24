@@ -28,7 +28,9 @@ class UsersController < ApplicationController
                                  :email,
                                  :display_name,
                                  :password,
-                                 :password_confirmation
+                                 :password_confirmation,
+                                 :phone_number,
+                                 :send_texts
                                 )
   end
 end

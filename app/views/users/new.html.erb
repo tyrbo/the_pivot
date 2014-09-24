@@ -7,44 +7,65 @@
     <%= form_for @user, html: { class: 'form-horizontal' } do |f| %>
       <%= render partial: 'shared/error_messages', locals: { obj: @user } %>
 
-      <div class="form-group">
-        <%= f.label :full_name, class: 'col-md-4 control-label' %>
 
-        <div class="col-md-8">
-          <%= f.text_field :full_name, class: "form-control" %>
-        </div>
-      </div>
       <div class="form-group">
         <%= f.label :email, class: 'col-md-4 control-label' %>
         <div class="col-md-8">
           <%= f.text_field :email, class: "form-control" %>
         </div>
       </div>
-      <div class="form-group">
-        <%= f.label :display_name, class: 'col-md-4 control-label' %>
-        <div class="col-md-8">
-          <%= f.text_field :display_name, class: "form-control" %>
-        </div>
-      </div>
+
       <div class="form-group">
         <%= f.label :password, class: 'col-md-4 control-label' %>
         <div class="col-md-8">
           <%= f.password_field :password, class: "form-control" %>
         </div>
       </div>
+
       <div class="form-group">
         <%= f.label :password_confirmation, "Confirmation", class: 'col-md-4 control-label' %>
         <div class="col-md-8">
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
       </div>
+      <div>
+        <br>
+      </div>
+      <div class="form-group">
+        <%= f.label :full_name, class: 'col-md-4 control-label' %>
+        <div class="col-md-8">
+          <%= f.text_field :full_name, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :display_name, class: 'col-md-4 control-label' %>
+        <div class="col-md-8">
+          <%= f.text_field :display_name, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :phone_number, class: 'col-md-4 control-label' %>
+        <div class="col-md-8">
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </div>
+      </div>
+
       <div class="form-group">
         <div class="col-md-12">
           <div class="pull-right">
-            <%= f.label :supplier, class: 'control-label' %>
+            <%= f.label(:send_texts, "I would like to recieve order updates via text-message") %>
+            <%= f.check_box(:send_texts) %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-12">
+          <div class="pull-right">
+            <%= f.label :supplier, 'I would like to be a supplier' %>
             <%= f.radio_button :role, :supplier %>
-            <%= f.label :provider, class: 'control-label' %>
-            <%= f.radio_button :role, :provider %>
           </div>
         </div>
       </div>

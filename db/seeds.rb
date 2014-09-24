@@ -10,116 +10,93 @@ User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", pas
 josh = User.create(full_name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Josh", role: 'supplier')
 tan = User.create(full_name: "Tan Doan", email: "tandoan@example.com", password: "password", password_confirmation: "password", display_name: "Viet Cong Rescue Crew", role: 'supplier')
 
-#
-# kids_picture = File.new("#{Rails.root}/app/assets/images/kids_anime.jpg")
-# wildfire_picture = File.new("#{Rails.root}/app/assets/images/fire_anime.jpg")
-# tsunami_picture = File.new("#{Rails.root}/app/assets/images/tsunami_anime.jpg")
 
-kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time', enabled: true) #picture: kids_picture)
-tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs', enabled: true)# picture: tsunami_picture)
-wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes', enabled: true)# picture: wildfire_picture)
+kids_picture = File.new("#{Rails.root}/app/assets/images/help_the_kids.jpg")
+wildfire_picture = File.new("#{Rails.root}/app/assets/images/wildfire.jpg")
+tsunami_picture = File.new("#{Rails.root}/app/assets/images/tsunami.jpg")
+
+kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time', enabled: true, picture: kids_picture)
+tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs', enabled: true, picture: tsunami_picture)
+wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes', enabled: true, picture: wildfire_picture)
 
 SuppliersUser.create(supplier_id: kids.id, user_id: josh.id)
 SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)
 
 
 
-kids.items.create(title: "Bandage", description: "Waterproof Standard Size",
+item1 = kids.items.create(title: "Bandage", description: "Waterproof Standard Size",
  inventory: 10000000, price: 12.99, size: '400', category_ids: [1])
-kids.items.create(title: "Ibuprofin", description: "200ml, 200 per bottle",
+item2 = kids.items.create(title: "Ibuprofin", description: "200ml, 200 per bottle",
  inventory:12000000, price: 17.99, size: '200', category_ids:[1])
-kids.items.create(title: "Gauze", description: "Cloth",
+item3 = kids.items.create(title: "Gauze", description: "Cloth",
  inventory:3000000, price: 23.99, size: '200', category_ids:[1])
-kids.items.create(title: "Neosporin", description: "Fix your cuts",
+item4 = kids.items.create(title: "Neosporin", description: "Fix your cuts",
  inventory:5000000, price: 23.99, size: '200', category_ids:[1])
-kids.items.create(title: "Antacids", description: "Fix your stomach",
+item5 = kids.items.create(title: "Antacids", description: "Fix your stomach",
  inventory: 4000000, price: 29.99, size: '200', category_ids: [1])
-kids.items.create(title: "Water Bottles", description: "32 pack",
+item6 = kids.items.create(title: "Water Bottles", description: "32 pack",
  inventory: 5000000, price: 35.99, size: '200', category_ids:[2])
-kids.items.create(title: "Soup", description: "10pac asorted types",
+item7 = kids.items.create(title: "Soup", description: "10pac asorted types",
  inventory: 10000000, price: 33.99, size: '200', category_ids: [2])
-kids.items.create(title: "Rice", description: "50 lb bag",
+item8 = kids.items.create(title: "Rice", description: "50 lb bag",
  inventory: 10000000, price: 33.99, size: '200', category_ids:[2])
-kids.items.create(title: "Protien Bars", description: "30 boxes",
+item9 = kids.items.create(title: "Protien Bars", description: "30 boxes",
  inventory: 12000000, price: 31.15, size: '200', category_ids:[2])
-kids.items.create(title: "Apples", description: "Red",
+item10 = kids.items.create(title: "Apples", description: "Red",
  inventory: 12000000, price: 36.99, size: '200', category_ids:[2])
-kids.items.create(title: "Rope", description: "Tie to things",
+item11 = kids.items.create(title: "Rope", description: "Tie to things",
  inventory: 15000000, price: 30.99, size: '200', category_ids: [3])
-kids.items.create(title: "Blankets", description: "Keeps warms",
+item12 = kids.items.create(title: "Blankets", description: "Keeps warms",
  inventory: 15000000, price: 30.99, size: '200', category_ids:[3])
-tsunami.items.create(title: "Tents", description: "Easy to set up",
+item13 = tsunami.items.create(title: "Tents", description: "Easy to set up",
  inventory: 5000000, price: 30.99, size: '200', category_ids:[3])
-tsunami.items.create(title: "Sleeping Bag", description: "Adult sized",
+item14 = tsunami.items.create(title: "Sleeping Bag", description: "Adult sized",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
-tsunami.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
+item15 = tsunami.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
-tsunami.items.create(title: "Van Rental", description: "8 person van per day",
+item16 = tsunami.items.create(title: "Van Rental", description: "8 person van per day",
  inventory: 15, price: 30.99, size: '200', category_ids: [4])
-tsunami.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
+item17 = tsunami.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
  inventory: 15, price: 30.99, size: '200', category_ids:[4])
-tsunami.items.create(title: "Helicopter Pickup", description: "One location",
+item18 = tsunami.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
-tsunami.items.create(title: "Pants", description: "All sizes",
+item19 = tsunami.items.create(title: "Pants", description: "All sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-tsunami.items.create(title: "Sweaters", description: "All Sizes",
+item20 = tsunami.items.create(title: "Sweaters", description: "All Sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-tsunami.items.create(title: "T-Shirts", description: "All Sizes",
+item21 = tsunami.items.create(title: "T-Shirts", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids: [5])
-tsunami.items.create(title: "Jackets", description: "All Sizes",
+item22 = tsunami.items.create(title: "Jackets", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids:[5])
-tsunami.items.create(title: "Socks", description: "Wool, all sizes",
+item23 = tsunami.items.create(title: "Socks", description: "Wool, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-tsunami.items.create(title: "Shoes", description: "Sneakers, all sizes",
+item24 = tsunami.items.create(title: "Shoes", description: "Sneakers, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-tsunami.items.create(title: "Undergarments", description: "All types & sizes",
+item25 = tsunami.items.create(title: "Undergarments", description: "All types & sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 
-wildfire.items.create(title: "Water", description: "bottled drinking water",
+item26 = wildfire.items.create(title: "Water", description: "bottled drinking water",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
-wildfire.items.create(title: "Van Rental", description: "8 person van per day",
+item27 = wildfire.items.create(title: "Van Rental", description: "8 person van per day",
  inventory: 15, price: 30.99, size: '200', category_ids: [4])
-wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
+item28 = wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
  inventory: 15, price: 30.99, size: '200', category_ids:[4])
-wildfire.items.create(title: "Helicopter Pickup", description: "One location",
+item29 = wildfire.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
-wildfire.items.create(title: "Pants", description: "All sizes",
+item30 = wildfire.items.create(title: "Pants", description: "All sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-wildfire.items.create(title: "Sweaters", description: "All Sizes",
+item31 = wildfire.items.create(title: "Sweaters", description: "All Sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-wildfire.items.create(title: "T-Shirts", description: "All Sizes",
+item32 = wildfire.items.create(title: "T-Shirts", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids: [5])
-wildfire.items.create(title: "Jackets", description: "All Sizes",
+item33 = wildfire.items.create(title: "Jackets", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids:[5])
-wildfire.items.create(title: "Socks", description: "Wool, all sizes",
+item34 = wildfire.items.create(title: "Socks", description: "Wool, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-wildfire.items.create(title: "Shoes", description: "Sneakers, all sizes",
+item35 = wildfire.items.create(title: "Shoes", description: "Sneakers, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-wildfire.items.create(title: "Undergarments", description: "All types & sizes",
+item36 = wildfire.items.create(title: "Undergarments", description: "All types & sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-
-
-Order.create(user_id: 1, order_total: 1500, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
-Order.create(user_id: 1, order_total: 1600, order_type: "delivery", delivery_address_id: "1520 Blake Street, Denver, CO", order_status: "cancelled")
-Order.create(user_id: 2, order_total: 1700, order_type: "pick-up", delivery_address_id: nil, order_status: "ordered")
-Order.create(user_id: 3, order_total: 3500, order_type: "pick-up", delivery_address_id: nil, order_status: "ordered")
-Order.create(user_id: 4, order_total: 4500, order_type: "pick-up", delivery_address_id: nil, order_status: "cancelled")
-Order.create(user_id: 4, order_total: 3400, order_type: "delivery", delivery_address_id: "1510 Blake Street, Denver, CO", order_status: "completed")
-Order.create(user_id: 3, order_total: 7800, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
-Order.create(user_id: 2, order_total: 8800, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
-Order.create(user_id: 4, order_total: 3400, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
-Order.create(user_id: 3, order_total: 1200, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
-
-OrderItem.create(order_id: 1, item_id: 2)
-OrderItem.create(order_id: 2, item_id: 4)
-OrderItem.create(order_id: 3, item_id: 5)
-OrderItem.create(order_id: 4, item_id: 6)
-OrderItem.create(order_id: 5, item_id: 7)
-OrderItem.create(order_id: 6, item_id: 8)
-OrderItem.create(order_id: 7, item_id: 9)
-OrderItem.create(order_id: 8, item_id: 10)
-OrderItem.create(order_id: 9, item_id: 11)
-OrderItem.create(order_id: 10, item_id: 12)
 
 Address.create(city: 'Denver', state: 'CO', zip: '80205', street: '1510 Blake St', shipping: true )
 Address.create(city: 'Seattle', state: 'WA', zip: '13205', street: '11233 Ralph St', shipping: true )
@@ -138,6 +115,40 @@ Address.create(city: 'St. Louis', state: 'MO', zip: '24305', street: '3213 Broad
 Address.create(city: 'Cleveland', state: 'OH', zip: '23405', street: '9898 James St', billing: true )
 Address.create(city: 'Detroit', state: 'MI', zip: '13305', street: '7876 Motor St', billing: true )
 Address.create(city: 'Portland', state: 'OR', zip: '52205', street: '7653 Green St', billing: true )
+
+order1 = Order.create(user_id: 1, order_total: 1500, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
+order2 = Order.create(user_id: 1, order_total: 1600, order_type: "delivery", delivery_address_id: 1, order_status: "cancelled")
+order3 = Order.create(user_id: 2, order_total: 1700, order_type: "pick-up", delivery_address_id: nil, order_status: "ordered")
+order4 = Order.create(user_id: 3, order_total: 3500, order_type: "delivery", delivery_address_id: 7, order_status: "ordered")
+order5 = Order.create(user_id: 4, order_total: 4500, order_type: "pick-up", delivery_address_id: nil, order_status: "cancelled")
+order6 = Order.create(user_id: 4, order_total: 3400, order_type: "delivery", delivery_address_id: 9, order_status: "completed")
+order7 = Order.create(user_id: 3, order_total: 7800, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
+order8 = Order.create(user_id: 2, order_total: 8800, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
+order9 = Order.create(user_id: 4, order_total: 3400, order_type: "delivery", delivery_address_id: 14, order_status: "completed")
+order10 = Order.create(user_id: 3, order_total: 1200, order_type: "pick-up", delivery_address_id: nil, order_status: "completed")
+
+OrderItem.create(order_id: 1, item_id: item2.id)
+OrderItem.create(order_id: 2, item_id: item13.id)
+OrderItem.create(order_id: 3, item_id: item9.id)
+OrderItem.create(order_id: 4, item_id: item12.id)
+OrderItem.create(order_id: 5, item_id: item21.id)
+OrderItem.create(order_id: 6, item_id: item18.id)
+OrderItem.create(order_id: 7, item_id: item22.id)
+OrderItem.create(order_id: 8, item_id: item19.id)
+OrderItem.create(order_id: 9, item_id: item3.id)
+OrderItem.create(order_id: 10, item_id: item15.id)
+
+order1.create_sub_orders
+order2.create_sub_orders
+order3.create_sub_orders
+order4.create_sub_orders
+order5.create_sub_orders
+order6.create_sub_orders
+order7.create_sub_orders
+order8.create_sub_orders
+order9.create_sub_orders
+order10.create_sub_orders
+
 
 UserAddress.create(user_id: 1, address_id: 1)
 UserAddress.create(user_id: 1, address_id: 9)

@@ -19,4 +19,18 @@ module ApplicationHelper
   def sort_categories(categories)
     categories.sort_by { |c| c.name }
   end
+
+  def reduce_item_inventory(order)
+    order.order_items.each do |order_item|
+      item = order_item.item
+      item.inventory -= (order_item.quantity * item.size.to_i)
+      item.save
+    end
+  end
+
+  def out_of_stock?(order)
+    order.order_items.each do |order_item|
+      order_item.item.inventory < (order_item.quantiy * item.size.to_i)
+    end
+  end
 end

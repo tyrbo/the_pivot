@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Airlift</title>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-      <script src="/assets/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <%= favicon_link_tag('airlift_small.png') %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,8 +18,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <div id="wrap">
-    <body class='body-theme'>
+  <body class='body-theme'>
+    <div id="wrap">
       <div class="container-fluid">
         <nav class="navbar navbar-default navbar-fixed-top navbar-theme" role="navigation">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,91 +34,97 @@
           <div class='navbar-top-group'>
             <div class="airlift-logo"><%= link_to image_tag("airlift_small.png"), root_path, class: 'navbar-brand' %></div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
                 <li class='navbar-top-link'><%= link_to 'Items', items_path %></li>
                 <li class='navbar-top-link'><%= link_to 'Suppliers', suppliers_path %></li>
 
-              <!--  end  -->
-            </ul>
+                <!--  end  -->
+              </ul>
 
-            <%= form_tag(search_items_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
-              <%= text_field_tag :search %>
-              <%= button_tag(type: "submit", class: 'btn btn-primary search', id: 'btn-search') do %><span class='fa fa-search fa-xs'></span>
+              <%= form_tag(search_items_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
+                <%= text_field_tag :search %>
+                <%= button_tag(type: "submit", class: 'btn btn-primary search', id: 'btn-search') do %><span class='fa fa-search fa-xs'></span>
+                <% end %>
               <% end %>
-            <% end %>
-            <ul class="nav navbar-nav navbar-right">
-              <% if current_user %>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <%= current_user.display_name || current_user.email %><span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><%= link_to 'Account Overview', dashboard_root_path %></li>
-                    <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
-                  </ul>
-                  <li class='divider-signed_in'></li>
+              <ul class="nav navbar-nav navbar-right">
+                <% if current_user %>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <%= current_user.display_name || current_user.email %><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><%= link_to 'Account Overview', dashboard_root_path %></li>
+                      <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
+                    </ul>
+                    <li class='divider-signed_in'></li>
+                  </li>
+                <% else %>
+                  <li><%= link_to 'Register', signup_path %></li>
+                  <li><%= link_to 'Sign In', signin_path, class: "btn btn-default", id: "signin-button" %></li>
+                  <li class='divider-vertical'></li>
+                <% end %>
+                <li>
+                  <%= link_to cart_path, id: 'cart-button' do %>
+                    <span class="fa fa-shopping-cart fa-lg"></span>
+                    <% if @cart_count > 0 %>
+                      <span class="badge"><%= @cart_count %></span>
+                    <% end %>
+                  <% end %>
                 </li>
-              <% else %>
-                <li><%= link_to 'Register', signup_path %></li>
-                <li><%= link_to 'Sign In', signin_path, class: "btn btn-default", id: "signin-button" %></li>
-                <li class='divider-vertical'></li>
-              <% end %>
-              <li><%= link_to cart_path, id: 'cart-button' do %><span class="fa fa-shopping-cart fa-lg"></span> <% if @cart_count > 0 %><span class="badge"><%= @cart_count %></span><% end %></li><% end %>
-            </ul>
-
-          </div><!-- /.navbar-collapse -->
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div>
         </nav>
         <% flash.each do |name, msg| -%>
           <%= content_tag :div, msg, class: name %>
         <% end -%>
         <%= yield %>
       </div>
-    </body>
-  </div>
-  
-  <div class='footer-link-border'>
-    <div class="divider"></li>
-    <div class= "row">
-      <div id='footer-links'>
-        <div class='col-md-2'></div>
-          <div class='col-md-3'>
-            <ul id="ul-footer-links">
-              <li><h5>Community</h5></li>
-              <li>Donate</li>
-              <li>Mailing List</li>
-              <li></li>
-            </ul>
-          </div>
-          <div class='col-md-3'>
-            <ul id="ul-footer-links">
-              <li><h5>Get to Know Us</h5></li>
-              <li><%= link_to 'About', about_path %></li>
-              <li>Careers</li>
-              <li>Contact Us</li>
-            </ul>
-          </div>
-          <div class='col-md-3'>
-            <ul id="ul-footer-links">
-              <li><h5>Follow Airlift</h5></li>
-              <li>
-                <%= link_to 'http://www.facebook.com' do %><%= image_tag('facebook_small.png') %><% end %>
-                <%= link_to 'http://www.twitter.com' do %><%= image_tag('twitter_small.png') %><% end %>
-              </li>
-            </ul>
-          </div>
-      </div>
     </div>
-  </div>
-  <div class= "footer">
-    <div class="row">
-      <div class='col-md-12'>
-        <div class="footer-text">
-          <%= link_to 'Terms & Conditions', terms_path %>&nbsp;&nbsp;
-          <%= link_to 'Privacy', privacy_path %>
-          &copy; 2014, Airlift. A Turing Company. All Rights Reserved.
+    <div class='footer-link-border'>
+      <div class="divider">
+        <div class= "row">
+          <div class='footer-links'>
+            <div class='col-md-2'></div>
+            <div class='col-md-3'>
+              <ul class="ul-footer-links">
+                <li><h5>Community</h5></li>
+                <li>Donate</li>
+                <li>Mailing List</li>
+                <li></li>
+              </ul>
+            </div>
+            <div class='col-md-3'>
+              <ul class="ul-footer-links">
+                <li><h5>Get to Know Us</h5></li>
+                <li><%= link_to 'About', about_path %></li>
+                <li>Careers</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+            <div class='col-md-3'>
+              <ul class="ul-footer-links">
+                <li><h5>Follow Airlift</h5></li>
+                <li>
+                  <%= link_to 'http://www.facebook.com' do %><%= image_tag('facebook_small.png') %><% end %>
+                  <%= link_to 'http://www.twitter.com' do %><%= image_tag('twitter_small.png') %><% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class= "footer">
+        <div class="row">
+          <div class='col-md-12'>
+            <div class="footer-text">
+              <%= link_to 'Terms & Conditions', terms_path %>&nbsp;&nbsp;
+              <%= link_to 'Privacy', privacy_path %>
+              &copy; 2014, Airlift. A Turing Company. All Rights Reserved.
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
+  </body>
 </html>

@@ -1,4 +1,5 @@
 <br/>
+<div class='custom-box'>
 <%= form_for([:dashboard, @supplier], :html => { :class => "form-horizontal"}) do |f| %>
 
   <%= f.label :name %>
@@ -8,9 +9,10 @@
   <%= f.text_area :description, class: "form-control" %><br/>
 
   <%= f.label :picture %>
-  <%= f.file_field :picture %><br/>
+  <%= f.file_field :picture %></br>
 
   <%= f.submit value="Save Changes", class: "btn btn-primary" %>
   <%= link_to 'Back to Dashboard', dashboard_root_path, class: "btn btn-default" %>
 
 <% end %>
+</div>
