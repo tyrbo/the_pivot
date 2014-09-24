@@ -31,7 +31,6 @@ describe 'a supplier viewing the items page', type: :feature do
     end
 
     it 'can add an item' do
-      # save_and_open_page
       page.click_link('Create a New Item')
 
       expect(page).to have_content('New Item')

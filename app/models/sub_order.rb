@@ -14,7 +14,7 @@ class SubOrder < ActiveRecord::Base
   end
 
   def self.status_counts
-    result = self.group(:status).count  # select status, count(*) from Order group by status
+    result = self.group(:status).count 
     Status::ALL.each {|key| result[key] ||= 0}
     result
   end
