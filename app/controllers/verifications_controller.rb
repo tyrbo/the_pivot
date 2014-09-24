@@ -23,9 +23,9 @@ class VerificationsController < ApplicationController
   end
 
   def text(text_body)
-    client = Twilio::REST::Client.new('AC9601317f1702968a45d706de9767ce13', '62d1588091664ed1634707827e0ae48f')
+    client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
     client.account.sms.messages.create(
-      from: '+17792039177',
+      from: TWILIO_CONFIG['from'],
       to: @user.phone_number,
       body: text_body
     )
