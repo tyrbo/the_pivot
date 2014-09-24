@@ -51,7 +51,7 @@
             <td><%= supplier.name %></td>
             <td><%= link_to 'Listings', dashboard_supplier_items_path(supplier) %></td>
             <td><%= link_to 'Orders', dashboard_supplier_sub_orders_path(supplier) %></td>
-            <td><%= link_to 'Users', dashboard_supplier_users_path(supplier) %></td>
+            <td><%= link_to 'Admins', dashboard_supplier_users_path(supplier) %></td>
             <td><%= link_to 'Settings', edit_dashboard_supplier_path(supplier)%></td>
           </tr>
           <% end %>
