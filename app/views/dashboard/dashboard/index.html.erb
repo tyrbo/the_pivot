@@ -69,6 +69,12 @@
   </div>
 
   <div class="tab-pane fade" id="user">
-    <%= link_to 'User Information', dashboard_user_path, class: 'btn btn-default list-group-item' %>
-  </div>
+  <h1><%= current_user.full_name %></h1>
+  <h5><%= current_user.display_name %></h5>
+  <h5><%= current_user.email %></h5></br>
+
+  <%= render partial: 'shared/address_table', locals: { address_type: 'billing' } %>
+  <%= render partial: 'shared/address_table', locals: { address_type: 'shipping' } %>
+
+  <br/><%= link_to 'Edit Account', edit_dashboard_user_path, class: 'btn btn-default' %><br/><br/>  </div>
 </div>
