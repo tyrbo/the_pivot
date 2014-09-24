@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create]
   resources :users, only: [:create, :new]
   resources :sessions, only: [:new, :create, :destroy]
+  resource  :verifications
 
   resources :suppliers, only: [:index, :new, :create, :show] do
     get      'pending_admin'    =>  'suppliers#add_pending_admin'
