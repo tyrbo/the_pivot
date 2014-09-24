@@ -145,9 +145,9 @@ ActiveRecord::Schema.define(version: 20140924160124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
-    t.string   "password_reset_token"
     t.string   "phone_number"
     t.boolean  "send_texts"
+    t.string   "password_reset_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
