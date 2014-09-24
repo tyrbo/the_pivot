@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Creating and logging in a User', type: :feature do
   context 'An unregistered user' do
     it 'can sign up as a provider' do
-      signup
+      signup_provider
 
       expect(page).to have_content("Thanks, for registering!")
       expect(current_path).to eq(root_path)
@@ -29,7 +29,7 @@ describe 'Creating and logging in a User', type: :feature do
 
   context 'A registered user' do
     it 'can log in as a provider' do
-      signup
+      signup_provider
       logout
       login
 
@@ -50,14 +50,14 @@ describe 'Creating and logging in a User', type: :feature do
     end
 
     it 'can logout after logging in' do
-      signup
+      signup_provider
       logout
 
       expect(page).to_not have_content('Sign Out')
     end
 
     it 'can log in after signing up' do
-      signup
+      signup_provider
       logout
       login
 
