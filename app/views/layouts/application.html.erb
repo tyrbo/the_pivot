@@ -101,9 +101,10 @@
           <div class='col-md-3'>
             <ul id="ul-footer-links">
               <li><h5>Follow Airlift</h5></li>
-              <li><%= link_to 'http://www.facebook.com' do %><span class='fa fa-facebook fa-lg'></span><% end %></li>
-              <li><so='fa fa-twitter'></span> <%= link_to 'Twitter', 'http://www.twitter.com' %></li>
-              <li>Blog</li>
+              <li>
+                <%= link_to 'http://www.facebook.com' do %><%= image_tag('facebook_small.png') %><% end %>
+                <%= link_to 'http://www.twitter.com' do %><%= image_tag('twitter_small.png') %><% end %>
+              </li>
             </ul>
           </div>
       </div>
