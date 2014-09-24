@@ -10,14 +10,14 @@ User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", pas
 josh = User.create(full_name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Josh", role: 'supplier')
 tan = User.create(full_name: "Tan Doan", email: "tandoan@example.com", password: "password", password_confirmation: "password", display_name: "Viet Cong Rescue Crew", role: 'supplier')
 
+#
+# kids_picture = File.new("#{Rails.root}/app/assets/images/kids_anime.jpg")
+# wildfire_picture = File.new("#{Rails.root}/app/assets/images/fire_anime.jpg")
+# tsunami_picture = File.new("#{Rails.root}/app/assets/images/tsunami_anime.jpg")
 
-kids_picture = File.new("#{Rails.root}/app/assets/images/kids_anime.jpg")
-wildfire_picture = File.new("#{Rails.root}/app/assets/images/fire_anime.jpg")
-tsunami_picture = File.new("#{Rails.root}/app/assets/images/tsunami_anime.jpg")
-
-kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time', enabled: true, picture: kids_picture)
-tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs', enabled: true, picture: tsunami_picture)
-wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes', enabled: true, picture: wildfire_picture)
+kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time', enabled: true) #picture: kids_picture)
+tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs', enabled: true)# picture: tsunami_picture)
+wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes', enabled: true)# picture: wildfire_picture)
 
 SuppliersUser.create(supplier_id: kids.id, user_id: josh.id)
 SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)

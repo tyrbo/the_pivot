@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     get      'pending_admin'    =>  'suppliers#add_pending_admin'
   end
 
-  resource :cart, only: [:show]
+  resource :cart, only: [:show, :update]
+  resource :cart_item, only: [:update]
 
   namespace :dashboard do
     root to: 'dashboard#index'

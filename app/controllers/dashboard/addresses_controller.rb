@@ -5,9 +5,8 @@ class Dashboard::AddressesController < UserController
 
   def create
     @address = current_user.addresses.create(address_params)
-    binding.pry
     if @address.save
-      billing_or_shipping
+      binding.pry
       redirect_to new_order_path
     else
       render :new
@@ -26,15 +25,8 @@ class Dashboard::AddressesController < UserController
 
   private
 
-  def billing_or_shipping
-    if @address.shipping
-      !@address.billing
-    else
-      @address.billing
-    end
-  end
 
   def address_params
-    params.require(:address).permit(:street, :city, :state, :zip, :shipping)
+    params.require(:address).permit(:street, :city, :state, :zip, :shipping, :billing)
   end
 end

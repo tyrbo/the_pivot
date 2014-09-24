@@ -16,4 +16,11 @@ class CartsController < ApplicationController
 		redirect_to items_path
 	end
 
+	def update
+		@cart = cart
+		cart_item = @cart.cart_items.find(params[:id])
+		cart_item.update_attribute(:quantity, params[:quantity])
+		redirect_to cart_path
+	end
+
 end
