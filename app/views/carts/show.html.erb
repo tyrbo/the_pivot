@@ -6,8 +6,8 @@
       <th>Item:</th>
       <th>Price:</th>
       <th>Quantity:</th>
-      <th></th>
-      <th>Item Total:</th>
+      <th></th><th></th><th></th>
+      <th>Item Subtotal:</th>
     </tr>
   </thead>
 
@@ -17,7 +17,7 @@
         <td><%= link_to item.item.title, item_path(item.item) %></td>
         <td><%= item.item.format_price %></td>
         <td><%= item.quantity %></td>
-        <td><%= item.total_price %></td?
+        <td><td?
       </tr>
         <td class='col-md-2'>
           <%= form_for item, url: { action: :update, id: item.id }, method: :put do %>
@@ -29,7 +29,6 @@
             <td><%= link_to cart_path(id: item.id), method: :delete, id: 'remove-from-cart' do %><span class='fa fa-trash fa-lg'> </span> <% end %>&nbsp;<%= button_tag 'Update Quantity', method: :put, class: 'btn cart-btn' %></td>
         <% end %>
         <td><%= item.total_price %></td>
-      </tr>
     <% end %>
   </tbody>
 </table>
