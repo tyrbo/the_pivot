@@ -14,7 +14,7 @@ class SubOrder < ActiveRecord::Base
   end
 
   def self.status_counts
-    result = self.group(:status).count 
+    result = self.group(:status).count
     Status::ALL.each {|key| result[key] ||= 0}
     result
   end
@@ -42,6 +42,11 @@ class SubOrder < ActiveRecord::Base
   def complete?
     order_status == 'completed'
   end
+
+  scope :ordered, -> {where(status: "ordered")}
+  scope :cancelled, -> {where(status: "cancelled")}
+  scope :paid, -> {where(status: "paid")}
+  scope :completed, -> {where(status: "completed")}
 
 
   def total
