@@ -25,4 +25,11 @@ RSpec.describe User, :type => :model do
 
   it { should have_many(:user_addresses) }
   it { should have_many(:addresses).through(:user_addresses) }
+
+  it 'should generate and set a token' do
+    user = FactoryGirl.create(:user)
+    user.generate_token(:password_reset_token)
+
+    expect(user.password_reset_token).to_not be_nil
+  end
 end

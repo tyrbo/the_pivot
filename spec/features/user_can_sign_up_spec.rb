@@ -71,9 +71,9 @@ describe 'Creating and logging in a User', type: :feature do
       visit signin_path
       click_on 'I Forgot My Password'
       fill_in 'Email', with: 'user@example.com'
-      click_on 'Request Reset'
+      click_on 'Reset Password'
 
-      expect(page).to have_content('A one time reset link has been sent to the email address on file for that account.')
+      expect(page).to have_content('You should receive an email soon with instructions for resetting your password.')
     end
   end
 end
