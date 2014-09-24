@@ -90,4 +90,13 @@ Rails.application.configure do
     :secret_access_key => ENV['S3_SECRET']
     }
   }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mandrillapp.com',
+    port:                 587,
+    user_name:            'allisonlarson91@gmail.com',
+    password:             'FZA7F5cYtMQpSjXlfBHrrA',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
 end
