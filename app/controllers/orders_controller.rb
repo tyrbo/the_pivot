@@ -1,4 +1,6 @@
 class OrdersController < UserController
+  include ApplicationHelper
+
   def new
     @order = current_user.orders.new
     @user = current_user

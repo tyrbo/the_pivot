@@ -40,7 +40,7 @@
         <div class="form-group">
           <div class="col-sm-10">
             Delivery Address
-            <% @user.addresses.delivery.each do |address| %>
+            <% current_user.addresses.delivery.each do |address| %>
               <%= f.radio_button(:delivery_address_id, address.id) %>
               <%= f.label(:delivery_address_id, address.street) %>
             <% end %>
@@ -51,7 +51,7 @@
         <div class="form-group">
           <div class="col-sm-10">
             Billing Address
-            <% @user.addresses.billing.each do |address| %>
+            <% current_user.addresses.billing.each do |address| %>
               <%= f.radio_button(:billing_address_id, address.id) %>
               <%= f.label(:billing_address_id, address.street) %>
             <% end %>
@@ -60,7 +60,7 @@
 
       </div>
 
-    <%= f.submit value="Place Order", class: "btn btn-default" %>
+    <%= f.submit value="Place Order", class: "btn btn-primary" %>
   </div>
 </div>
   <% end %>

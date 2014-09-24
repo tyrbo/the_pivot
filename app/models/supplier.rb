@@ -33,4 +33,12 @@ class Supplier < ActiveRecord::Base
     categories = self.items.map {|item| item.categories }
     categories.flatten.uniq
   end
+
+  def sub_order_count_by_status(status)
+    count = 0
+    sub_orders.each do |suborder|
+      count += 1 if suborder.status == status
+    end
+    return count
+  end
 end
