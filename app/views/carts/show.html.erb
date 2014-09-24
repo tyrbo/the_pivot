@@ -26,7 +26,7 @@
               <span><input type="text" class="form-control qty-box" name="quantity" value="<%=item.quantity%>">
               </div>
             </td>
-            <td><%= button_tag 'Update Quantity', method: :put, class: 'btn cart-btn' %></td></span>
+            <td><%= link_to cart_path(id: item.id), method: :delete, id: 'remove-from-cart' do %><span class='fa fa-trash fa-lg'> </span> <% end %>&nbsp;<%= button_tag 'Update Quantity', method: :put, class: 'btn cart-btn' %></td>
         <% end %>
         <td><%= item.total_price %></td>
       </tr>
