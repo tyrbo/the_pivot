@@ -10,6 +10,14 @@ class OrdersController < UserController
     @order.order_status = Order::Status::ORDERED
 
     if @order.save!
+      if current_user.send_texts?
+        client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+        client.account.sms.messages.create(
+          from: TWILIO_CONFIG['from'],
+          to: current_user.phone_number,
+          body: "Thank you, your order has been placed!"
+        )
+      end
       @cart.create_order_items(@order)
       @order.create_sub_orders
       cart_destroy

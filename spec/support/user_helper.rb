@@ -24,3 +24,13 @@ def signup(full_name: 'Tom Smith', email: 'user@example.com', display_name: 'Tom
   choose("user_role_#{role}")
   click_on('Create Account')
 end
+
+def signup_provider(full_name: 'Tom Smith', email: 'user@example.com', display_name: 'Tommy', password: 'password', role: 'provider')
+  visit '/signup'
+  fill_in('user[full_name]', with: full_name)
+  fill_in('user[email]', with: email)
+  fill_in('user[display_name]', with: display_name)
+  fill_in('user[password]', with: password)
+  fill_in('user[password_confirmation]', with: password)
+  click_on('Create Account')
+end

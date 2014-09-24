@@ -18,7 +18,7 @@ group :test do
 end
 
 gem "codeclimate-test-reporter", group: :test, require: nil
-
+gem 'twilio-ruby'
 gem "paperclip", "~> 4.1"
 gem "aws-sdk"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create]
   resources :users, only: [:create, :new]
   resources :sessions, only: [:new, :create, :destroy]
+  resource  :verifications
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   resources :suppliers, only: [:index, :new, :create, :show] do
