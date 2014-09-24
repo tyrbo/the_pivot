@@ -58,8 +58,9 @@ class Dashboard::UsersController < UserController
     params.require(:user).permit(:full_name,
                                  :email,
                                  :display_name,
-                                 :password,
-                                 :password_confirmation
+
+                                 :send_texts,
+                                 :phone_number
                                 )
   end
 end

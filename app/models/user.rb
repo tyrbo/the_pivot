@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
 
+  def send_texts?
+    send_texts
+  end
+
   private
 
   def create_remember_token
