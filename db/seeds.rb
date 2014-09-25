@@ -134,7 +134,7 @@ tsunami.items.create(title: "Jackets", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Socks", description: "Wool, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-tsunami.items.create(title: "Shoes", description: "Sneakers, all sizes",
+tsunami.items.create(title: "Shoes9", description: "Sneakers, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Undergarments", description: "All types & sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
@@ -179,21 +179,21 @@ wildfire.items.create(title: "Rain Boots", description: "Specify Size",
  inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
 wildfire.items.create(title: "Power Cord", description: "15ft, US",
  inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
-wildfire.items.create(title: "Pants", description: "Sizes XS-XXL",
+wildfire.items.create(title: "Pants12", description: "Sizes XS-XXL",
  inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5, 11])
-wildfire.items.create(title: "Sweaters", description: "Sizes XS-XXL",
+wildfire.items.create(title: "Sweaters12", description: "Sizes XS-XXL",
  inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-wildfire.items.create(title: "T-Shirts", description: "Sizes XS-XXL",
+wildfire.items.create(title: "T-Shirts12", description: "Sizes XS-XXL",
  inventory: 15, price: 30.99, size: '50pk', category_ids: [5])
-wildfire.items.create(title: "Jackets", description: "Size L",
+wildfire.items.create(title: "Jackets12", description: "Size L",
  inventory: 15, price: 30.99, size: '2pk', category_ids:[5])
-wildfire.items.create(title: "Socks", description: "Cotton, all sizes",
+wildfire.items.create(title: "Socks12", description: "Cotton, all sizes",
  inventory: 12000000, price: 30.99, size: '30pk', category_ids:[5])
-wildfire.items.create(title: "Shoes", description: "Sneakers, sizes 5-9",
+wildfire.items.create(title: "Shoes12", description: "Sneakers, sizes 5-9",
  inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5, 11])
-wildfire.items.create(title: "Undergarments", description: "All types & sizes",
+wildfire.items.create(title: "Undergarments12", description: "All types & sizes",
  inventory: 12000000, price: 30.99, size: '50pk', category_ids:[5])
-wildfire.items.create(title: "Generator", description: "Outputs 100v",
+wildfire.items.create(title: "Generator12", description: "Outputs 100v",
  inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6, 11])
 wildfire.items.create(title: "Kids Socks5", description: "Cotton/polyester blend, sizes range 1-9",
   inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
@@ -253,7 +253,7 @@ hunger.items.create(title: "Kids Socks6", description: "Cotton/polyester blend, 
   inventory: 15, price: 30.99, size: '4pk', category_ids:[7, 10])
  medical.items.create(title: "Power Cord1", description: "15ft, US",
   inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
- medical.items.create(title: "Pants1", description: "All sizes",
+ medical.items.create(title: "Pants6", description: "All sizes",
   inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
  medical.items.create(title: "Sweaters1", description: "All Sizes",
   inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
@@ -261,7 +261,7 @@ hunger.items.create(title: "Kids Socks6", description: "Cotton/polyester blend, 
   inventory: 15, price: 30.99, size: '200', category_ids: [5])
  medical.items.create(title: "Jackets1", description: "All Sizes",
   inventory: 15, price: 30.99, size: '200', category_ids:[5])
- medical.items.create(title: "Socks1", description: "Wool, all sizes",
+ medical.items.create(title: "Socks8", description: "Wool, all sizes",
   inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
  medical.items.create(title: "Shoes1", description: "Sneakers, all sizes",
   inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
@@ -306,7 +306,7 @@ medical.items.create(title: "Kids Socks7", description: "Cotton/polyester blend,
   inventory: 12000000, price: 30.99, size: '2pk', category_ids:[5])
  medic.items.create(title: "Rain Boots1", description: "Specify Size",
   inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
- medic.items.create(title: "Power Cord1", description: "15ft, US",
+ medic.items.create(title: "Power Cord0", description: "15ft, US",
   inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
  medic.items.create(title: "Pants1", description: "Sizes XS-XXL",
   inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
@@ -382,21 +382,21 @@ hurricane.items.create(title: "Mops2", description: "Super absorbant",
  inventory: 15, price: 30.99, size: '4pk', category_ids:[7, 10])
 hurricane.items.create(title: "Power Cord2", description: "15ft, US",
  inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
-hurricane.items.create(title: "Pants2", description: "All sizes",
+hurricane.items.create(title: "Pants99", description: "All sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-hurricane.items.create(title: "Sweaters2", description: "All Sizes",
+hurricane.items.create(title: "Sweaters0", description: "All Sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-hurricane.items.create(title: "T-Shirts2", description: "All Sizes",
+hurricane.items.create(title: "T-Shirts9", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids: [5])
 hurricane.items.create(title: "Jackets2", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids:[5])
-hurricane.items.create(title: "Socks2", description: "Wool, all sizes",
+hurricane.items.create(title: "Socks6", description: "Wool, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 hurricane.items.create(title: "Shoes2", description: "Sneakers, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5, 10])
-hurricane.items.create(title: "Undergarments2", description: "All types & sizes",
+hurricane.items.create(title: "Undergarments00", description: "All types & sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5, 10])
-hurricane.items.create(title: "Generator2", description: "Outputs 100v",
+hurricane.items.create(title: "Generator00", description: "Outputs 100v",
  inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6, 10])
 hurricane.items.create(title: "Brooms2", description: "Standard Brooms",
  inventory: 12000000, price: 30.99, size: '3pk', category_ids:[7, 10])
@@ -496,7 +496,7 @@ disaster.items.create(title: "Shoes3", description: "Sneakers, sizes 5-9",
 disaster.items.create(title: "Undergarments3", description: "All types & sizes",
  inventory: 12000000, price: 30.99, size: '50pk', category_ids:[5])
 disaster.items.create(title: "Generator3", description: "Outputs 100v",
- inventory: 12000000, price: 300., size: '1', category_ids:[3, 6])
+ inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6])
 disaster.items.create(title: "Kids Socks12", description: "Cotton/polyester blend, sizes range 1-9",
    inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
 
@@ -517,8 +517,7 @@ disaster.items.create(title: "Kids Socks12", description: "Cotton/polyester blen
                     city: Faker::Address.city,
                     state: Faker::Address.state_abbr,
                       zip: Faker::Address.zip,
-                  shipping: [true, false].sample,
-                  billing: [true, false].sample)
+                  shipping: [true, false].sample)
 
     UserAddress.create(user_id: user.id, address_id: address.id)
   end
@@ -526,20 +525,22 @@ end
 
 
 #Makes pickup orders
-200.times do
+100.times do
   user = *(1..123)
-  item = *(1..200)
-  quantity = *(1..1000)
-  number_of_items = item.sample
+  items_amount = *(1..50)
+  quantity = *(1..500)
+  number_of_items = items_amount.sample
 
   order = Order.create(user_id: user.sample,
                       order_total: 0,
                       order_type: 'pick-up',
                       delivery_address_id: nil,
                       order_status:["completed", "cancelled", "ordered", "paid", "pending"].sample)
-
+  items = *(1..200)
   number_of_items.times do
-    OrderItem.create(order_id: order.id, item_id: item.sample, quantity: quantity.sample)
+    item = items.sample
+    OrderItem.create(order_id: order.id, item_id: item, quantity: quantity.sample)
+    items.delete(item)
   end
 
   total = order.order_items.reduce(0) do |total, order_item|
@@ -551,12 +552,12 @@ end
 end
 
 #Makes delivery orders
-200.times do
+100.times do
   users = *(1..123)
   user = users.sample
-  item = *(1..200)
-  quantity = *(1..1000)
-  number_of_items = item.sample
+  items_amount = *(1..50)
+  quantity = *(1..500)
+  number_of_items = items_amount.sample
 
   address = Address.create(street: Faker::Address.street_address,
                             city: Faker::Address.city,
@@ -571,9 +572,11 @@ end
                       order_type: 'delivery',
                       delivery_address_id: address.id,
                       order_status:["completed", "cancelled", "ordered", "paid", "pending"].sample)
-
+  items = *(1..200)
   number_of_items.times do
-    OrderItem.create(order_id: order.id, item_id: item.sample, quantity: quantity.sample)
+    item = items.sample
+    OrderItem.create(order_id: order.id, item_id: item, quantity: quantity.sample)
+    items.delete(item)
   end
 
   total = order.order_items.reduce(0) do |total, order_item|
