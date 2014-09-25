@@ -32,6 +32,7 @@
             <% supplier.supplier.items[0..2].each do |item| %>
               <%= link_to item_path(item) do %><%= image_tag item.picture.url(:thumb), :class => "img-rounded-thumb", id: "feature-thumb" %><% end %>
             <% end %>
+              <%= link_to supplier_path(supplier.supplier) do %><%= image_tag ("viewall.jpg"), :class => "img-rounded-thumb", id: "feature-thumb"  %><% end %>
           </div>
 
         </div>
