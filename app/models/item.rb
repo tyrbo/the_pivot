@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  has_attached_file :picture, styles: { :medium => "200x200#", :thumb => "50x50#" }, default_url: "red_cross.jpg"
+  has_attached_file :picture, styles: { :medium => "200x200#", :thumb => "50x50#", :small => '128x128#' }, default_url: "red_cross.jpg"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   validates :title,       presence: true, uniqueness: true

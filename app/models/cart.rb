@@ -28,4 +28,8 @@ class Cart < ActiveRecord::Base
 	def get_total
 		'$' + sprintf("%.2f", total / 100.00)
 	end
+
+	def empty?
+		self.cart_items.length == 0
+	end
 end

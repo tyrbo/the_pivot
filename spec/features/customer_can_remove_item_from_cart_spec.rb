@@ -19,6 +19,7 @@ describe 'a user view the cart', type: :feature do
     it 'removes the item from cart' do
       add_to_cart(keylime)
       visit cart_path
+
       find('#remove-from-cart').click
 
       visit cart_path

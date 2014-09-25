@@ -27,7 +27,7 @@
           <td><%= sub_order.provider_name %></td>
           <td><%= sub_order.get_total %></td>
           <td><%= sub_order.order_type %></td>
-          <td><%= sub_order.delivery_address_id%></td>
+          <td><%= sub_order.find_address %></td>
           <td><%= sub_order.status%></td>
           <td>
             <%= link_to "Show", dashboard_supplier_sub_order_path(current_supplier, sub_order)%> |
@@ -62,7 +62,7 @@
         <td><%= sub_order.provider_name %></td>
         <td><%= sub_order.get_total %></td>
         <td><%= sub_order.order_type %></td>
-        <td><%= sub_order.delivery_address_id%></td>
+        <td><%= sub_order.find_address %></td>
         <td><%= sub_order.status%></td>
         <td>
           <%= link_to "Show", dashboard_supplier_sub_order_path(current_supplier, sub_order)%> |
@@ -98,7 +98,7 @@
         <td><%= sub_order.provider_name %></td>
         <td><%= sub_order.get_total %></td>
         <td><%= sub_order.order_type %></td>
-        <td><%= sub_order.delivery_address_id%></td>
+        <td><%= sub_order.find_address %></td>
         <td><%= sub_order.status%></td>
         <td>
           <%= link_to "Show", dashboard_supplier_sub_order_path(current_supplier, sub_order)%> |
@@ -136,7 +136,7 @@
         <td><%= sub_order.provider_name %></td>
         <td><%= sub_order.get_total %></td>
         <td><%= sub_order.order_type %></td>
-        <td><%= sub_order.delivery_address_id%></td>
+        <td><%= sub_order.find_address %></td>
         <td><%= sub_order.status%></td>
         <td>
           <%= link_to "Show", dashboard_supplier_sub_order_path(current_supplier, sub_order)%> |
