@@ -20,7 +20,7 @@
         </tr>
       <% end %>
     </tbody>
-  </table>
+  </table><br/>
 
   <div class="form-group">
     <div class="span6 offset3">
@@ -42,17 +42,17 @@
             <% current_user.addresses.delivery.each do |address| %>
               <%= f.radio_button(:delivery_address_id, address.id) %>
               <%= f.label(:delivery_address_id, address.street) %>
-            <% end %>
+            <% end %></br>
             <%= link_to 'Add Delivery Address', new_dashboard_user_address_path %>
           </div>
-        </div>
+        </div></br>
 
-        <div class="form-group">
+        <div class="form-group credit-card-info">
           <label for="CardCardNumber">Credit Card Number</label>
           <input type="text" class="form-control" id="credit_card" data-stripe="number">
           <label for="ExpirationDate">Expiration Date</label>
-          <input type="text" class="form-control" id="exp_month" data-stripe="exp-month">
-          <input type="text" class="form-control" id="exp_year" data-stripe="exp-year">
+          <input type="text" class="form-control expiration-date-info" id="exp_month" data-stripe="exp-month" value='month (1-12)'>
+          <input type="text" class="form-control expiration-date-info" id="exp_year" data-stripe="exp-year" value='year'>
           <label for="CVV">CVV</label>
           <input type="text" class="form-control" id="cvv" data-stripe="cvv">
         </div>

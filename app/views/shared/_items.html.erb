@@ -1,7 +1,7 @@
 <%= render partial: 'shared/category_sidebar', locals: { categories: @categories} %>
 
 <% if @added[:item_name] != nil %>
-  <div class='added-custom-box col-md-2'>
+  <div class='added-custom-box pull-right col-md-2'>
     <div class='added-caption'>Added To Cart:</br>
       <img src="/assets/<%= @added[:item_picture] %>" height='32' width='32' class='img-rounded'>
       <%= @added[:item_name] %>

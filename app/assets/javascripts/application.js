@@ -6,6 +6,10 @@
 
 $(document).ready(function() {
 
+  $('.expiration-date-info').focus(function() {
+    $(this).val('');
+  })
+
   function stripeResponseHandler(status, response) {
     var $form = $('#new_order');
 
@@ -72,7 +76,6 @@ $(document).ready(function() {
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);
 
-  $(this).val('')
   })
 
   $(".add-cart-btn").bind('click', false);
@@ -88,7 +91,6 @@ $(document).ready(function() {
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);
 
-  $(this).val('')
   })
 
 
