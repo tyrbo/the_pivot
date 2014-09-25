@@ -61,6 +61,7 @@ Rails.application.routes.draw do
 
   post     '/add_to_cart'      => 'carts#add_to_cart_view',  as: :add_to_cart
   get      '/about'           => 'static_pages#about'
+  get      '/contact'           => 'static_pages#contact'
   get      '/privacy'         => 'static_pages#privacy'
   get      '/terms'         => 'static_pages#terms'
   get     '/search'           => 'items#search', as: :search_items
