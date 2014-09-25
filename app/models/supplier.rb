@@ -1,6 +1,6 @@
 class Supplier < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :url, use: [:slugged, :finders]
+  friendly_id :url, use: :slugged
 
   has_attached_file :picture, styles: { medium: "200x200#", thumb: "32x32#"}, default_url: "red_cross.jpg"
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
@@ -15,9 +15,6 @@ class Supplier < ActiveRecord::Base
 
   has_many :items
   has_many :sub_orders
-
-  extend FriendlyId
-  friendly_id :url, use: [:finders]
 
   scope :approved, -> { where(enabled: true) }
 

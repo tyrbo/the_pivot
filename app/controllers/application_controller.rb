@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def supplier
     id = params[:supplier_id] || params[:id]
-    Supplier.find(id)
+    @supplier ||= Supplier.friendly.find(id)
   end
 
   def user_is_admin_of_supplier?

@@ -17,9 +17,9 @@ class CartsController < ApplicationController
 
 		if params[:supplier_id]
 			supplier = Supplier.find(params[:supplier_id])
-			redirect_to supplier_path(supplier, item_name: item.title, item_picture: item.picture)
+			redirect_to supplier_path(supplier), notice: "#{item.title} x#{qty} added to cart."
 		else
-			redirect_to items_path(item_name: item.title, item_picture: item.picture)
+      redirect_to items_path, notice: "#{item.title} x#{qty} added to cart."
 		end
 	end
 

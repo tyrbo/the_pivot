@@ -5,6 +5,9 @@
 //=require_tree .
 
 $(document).ready(function() {
+  $('div.flash').each(function(index) {
+    humane.log($(this).text());
+  });
 
   $('.expiration-date-info').focus(function() {
     $(this).val('');
