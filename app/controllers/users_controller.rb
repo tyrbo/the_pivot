@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         redirect_to new_supplier_path
       else
         flash[:success] = 'Thanks, for registering!'
-        redirect_to root_path
+        redirect_to session.delete(:last_page) || root_path
       end
     else
       render 'new'
