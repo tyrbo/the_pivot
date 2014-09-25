@@ -79,6 +79,9 @@ RSpec.describe Order, :type => :model do
   it 'creates sub orders from an order' do
     order = FactoryGirl.create(:order, user: FactoryGirl.create(:user))
     item = FactoryGirl.create(:item, price: 28.00)
+    user = FactoryGirl.create(:user, email: 'e@example.com')
+    supplier = FactoryGirl.create(:supplier, users:[user], items: [item])
+
     order.items << item
     order.create_sub_orders
 
