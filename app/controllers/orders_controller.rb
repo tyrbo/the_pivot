@@ -14,7 +14,7 @@ class OrdersController < UserController
     if out_of_stock?(@cart)
       cart_item = get_item_out_of_stock(@cart)
       redirect_to cart_path, notice: "There are not enough #{cart_item.item.title} in stock to fulfill your order."
-    elsif @order.save!
+    elsif @order.charge(params[:stripeToken]) && @order.save!
       if current_user.send_texts?
         client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
         client.account.sms.messages.create(
