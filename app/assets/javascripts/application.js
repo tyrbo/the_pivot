@@ -72,7 +72,6 @@ $(document).ready(function() {
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);
 
-  $(this).val('')
   })
 
   $(".add-cart-btn").bind('click', false);
@@ -88,7 +87,6 @@ $(document).ready(function() {
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);
 
-  $(this).val('')
   })
 
 
