@@ -74,450 +74,450 @@ relief_picture = File.new("#{Rails.root}/app/assets/images/relief.jpeg")
 disaster_picture = File.new("#{Rails.root}/app/assets/images/disaster.jpeg")
 
 
-kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time.', enabled: true, picture: kids_picture)
-tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs. Preventing wipe outs. Preventing wipe outs. Preventing wipe outs. Preventing wipe outs.', enabled: true, picture: tsunami_picture)
-wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes.', enabled: true, picture: wildfire_picture)
-hunger = Supplier.create(name: 'HungerRelief', url: 'hungerrelief', description: 'Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry.', enabled: true, picture: hunger_picture)
-medical = Supplier.create(name: 'Medical Supply Fund', url: 'medical-supply-fund', description: 'Medical Fund for relief. Medical Fund for relief. Medical Fund for relief. Medical Fund for relief. Medical Fund for relief.', enabled: true, picture: medical_picture)
-medic = Supplier.create(name: 'MedicSupply', url: 'medicsupply', description: 'Medical Supplies for the masses. Medical Supplies for the masses. Medical Supplies for the masses. Medical Supplies for the masses. ', enabled: true, picture: medic_picture)
-safe = Supplier.create(name: 'SafeStart', url: 'safestart', description: 'Ensuring every child is cared for. Ensuring every child is cared for. Ensuring every child is cared for. Ensuring every child is cared for.', enabled: true, picture: safe_picture)
-hurricane = Supplier.create(name: 'Hurricane Recovery', url: 'hurricanerecovery', description: 'Recovery from the unexpected. Recovery from the unexpected. Recovery from the unexpected. Recovery from the unexpected. ', enabled: true, picture: hurricane_picture)
-relief = Supplier.create(name: 'Relief Without Borders', url: 'relief-without-borders', description: 'Relieve the World. Relieve the World. Relieve the World. Relieve the World.', enabled: true, picture: relief_picture)
-disaster = Supplier.create(name: 'Disaster Relief', url: 'disaster-relief', description: 'Disaster Relief for Everyone. Disaster Relief for Everyone. Disaster Relief for Everyone. Disaster Relief for Everyone.', enabled: true, picture: disaster_picture)
+kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'You can make a difference in the life of a child. One kid at a time.', enabled: true, picture: kids_picture)
+tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Help rebuild tsunami affected communities. Because extreme tidal waves are not nice.', enabled: true, picture: tsunami_picture)
+wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes, because no one wants to live in a pile of dust.', enabled: true, picture: wildfire_picture)
+hunger = Supplier.create(name: 'HungerRelief', url: 'hungerrelief', description: 'Preventing hunger is our mission. Offering a wide range of perish resistent goods.', enabled: true, picture: hunger_picture)
+medical = Supplier.create(name: 'Medical Supply Fund', url: 'medical-supply-fund', description: 'Unbeatable prices on cutting edge supplies to treat ailments caused by natural events.', enabled: true, picture: medical_picture)
+medic = Supplier.create(name: 'MedicSupply', url: 'medicsupply', description: 'Stocks rare medical equipments suitable for all purposes.', enabled: true, picture: medic_picture)
+safe = Supplier.create(name: 'SafeStart', url: 'safestart', description: 'Ensuring every child is cared for. No child is left behind.', enabled: true, picture: safe_picture)
+hurricane = Supplier.create(name: 'Hurricane Recovery', url: 'hurricanerecovery', description: 'Recovery from the unexpected. Supplies to you freaky fast.', enabled: true, picture: hurricane_picture)
+relief = Supplier.create(name: 'Relief Without Borders', url: 'relief-without-borders', description: 'The world is not as big as you may think.  We\'re all in this together.  Help relieve the World.', enabled: true, picture: relief_picture)
+disaster = Supplier.create(name: 'Disaster Relief', url: 'disaster-relief', description: 'Disaster Relief for Everyone. Are you in good hands?', enabled: true, picture: disaster_picture)
 
 SuppliersUser.create(supplier_id: kids.id, user_id: josh.id)
 SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)
 
 kids.items.create(title: "Bandages", description: "Waterproof Standard Size",
- inventory: 10000000, price: 12.99, size: '100pk, 100/pk', category_ids: [1, 3, 8], picture: bandages)
+ inventory: 1000, price: 12.99, size: '100pk, 100/pk', category_ids: [1, 3, 8], picture: bandages)
 kids.items.create(title: "Ibuprofen", description: "200ml, 200 per bottle",
- inventory:12000000, price: 17.99, size: '50pk', category_ids:[1, 3, 8], picture: ibuprofen)
+ inventory: 120, price: 17.99, size: '50pk', category_ids:[1, 3, 8], picture: ibuprofen)
 kids.items.create(title: "Gauze", description: "Cloth, 10ft rolls",
- inventory:3000000, price: 50.99, size: '200pk', category_ids:[1, 8], picture: gauze)
+ inventory:3000, price: 50.99, size: '200pk', category_ids:[1, 8], picture: gauze)
 kids.items.create(title: "Neosporin", description: "Fixes cuts",
- inventory:5000000, price: 23.99, size: '5pk, 16oz/pk', category_ids:[1, 3, 8])
+ inventory:5000, price: 23.99, size: '5pk, 16oz/pk', category_ids:[1, 3, 8])
 kids.items.create(title: "Antacids", description: "200ml, 200 per bottle",
- inventory: 4000000, price: 29.99, size: '200pk', category_ids: [1, 3, 8])
+ inventory: 4000, price: 29.99, size: '200pk', category_ids: [1, 3, 8])
 kids.items.create(title: "Water Bottles", description: "Fresh Water in individual bottles",
- inventory: 5000000, price: 35.99, size: '32pk', category_ids:[2, 3])
+ inventory: 5000, price: 35.99, size: '32pk', category_ids:[2, 3])
 kids.items.create(title: "Chicken Noodle Soup", description: "Generic Chicken Soup",
- inventory: 10000000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3], picture: soup)
+ inventory: 1000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3], picture: soup)
 kids.items.create(title: "White Rice", description: "White rice, burlap sack",
- inventory: 10000000, price: 33.99, size: '50 lbs', category_ids:[2, 3], picture: rice)
+ inventory: 1000, price: 33.99, size: '50 lbs', category_ids:[2, 3], picture: rice)
 kids.items.create(title: "Protien Bars", description: "Chocolate & Peanutbutter Varieties",
- inventory: 12000000, price: 31.15, size: '30pk, 12 bars/pk', category_ids:[2, 3])
+ inventory: 120, price: 31.15, size: '30pk, 12 bars/pk', category_ids:[2, 3])
 kids.items.create(title: "Apples", description: "Red & Green",
- inventory: 12000000, price: 36.99, size: '50 lbs', category_ids:[2, 3], picture: apples)
+ inventory: 120, price: 36.99, size: '50 lbs', category_ids:[2, 3], picture: apples)
 kids.items.create(title: "Rope", description: "Tie to things",
- inventory: 15000000, price: 30.99, size: '50ft', category_ids: [3, 4], picture: rope)
+ inventory: 150, price: 30.99, size: '50ft', category_ids: [3, 4], picture: rope)
 kids.items.create(title: "Blankets", description: "Keeps warms, 5x5",
- inventory: 15000000, price: 30.99, size: '5pk', category_ids:[3, 5], picture: blankets)
+ inventory: 150, price: 30.99, size: '5pk', category_ids:[3, 5], picture: blankets)
 kids.items.create(title: "Brown Rice", description: "Brown Rice, burlap sack",
-  inventory: 4000000, price: 16.99, size: '50lb', category_ids: [2, 3])
+  inventory: 4000, price: 16.99, size: '50lb', category_ids: [2, 3])
 kids.items.create(title: "Black Beans", description: "Generic Black Beans",
-  inventory: 5000000, price: 35.99, size: '32pk, 16ox', category_ids:[2, 3 ])
+  inventory: 5000, price: 35.99, size: '32pk, 16ox', category_ids:[2, 3 ])
 kids.items.create(title: "Kids T Shirts", description: "Varied colors, mix of XS-XXL",
-  inventory: 10000000, price: 33.99, size: '50pk', category_ids: [3, 5])
+  inventory: 1000, price: 33.99, size: '50pk', category_ids: [3, 5])
 kids.items.create(title: "Kids Jackets", description: "Light coats, varied colors, mix of XS-XXL",
-  inventory: 10000000, price: 33.99, size: '50pk', category_ids:[3, 5])
+  inventory: 1000, price: 33.99, size: '50pk', category_ids:[3, 5])
 kids.items.create(title: "Family tent", description: "Easily assembled, fits 10x10",
-  inventory: 12000000, price: 31.15, size: '10pk', category_ids:[3, 4, 8])
+  inventory: 120, price: 31.15, size: '10pk', category_ids:[3, 4, 8])
 kids.items.create(title: "Tarp", description: "10x10",
-  inventory: 12000000, price: 36.99, size: '20pk', category_ids:[3, 4])
+  inventory: 120, price: 36.99, size: '20pk', category_ids:[3, 4])
 kids.items.create(title: "Gallon Water", description: "Fresh water in gallon sized containers",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids: [2, 3])
+  inventory: 150, price: 30.99, size: '32pk', category_ids: [2, 3])
 kids.items.create(title: "Kids Socks", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
-kids.items.create(title: "Kids Socks3", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
+kids.items.create(title: "Adult Socks", description: "Cotton/polyester blend, sizes range 1-9",
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
 tsunami.items.create(title: "Tents", description: "Easy to set up, 8x8",
- inventory: 5000000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent)
+ inventory: 5000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent)
 tsunami.items.create(title: "Sleeping Bag", description: "Adult sized",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[3], picture: sleepingbag)
+ inventory: 120, price: 30.99, size: '1', category_ids:[3], picture: sleepingbag)
 tsunami.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[3], picture: cot)
+ inventory: 120, price: 30.99, size: '1', category_ids:[3], picture: cot)
 tsunami.items.create(title: "WetVac", description: "32hz",
  inventory: 15, price: 200.00, size: '1', category_ids: [7, 9])
 tsunami.items.create(title: "Mops", description: "Super absorbant",
  inventory: 15, price: 30.99, size: '4pk', category_ids:[7, 10])
 tsunami.items.create(title: "Power Cord", description: "15ft, US",
- inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
+ inventory: 120, price: 30.99, size: '3pk', category_ids:[6, 8])
 tsunami.items.create(title: "Pants", description: "All sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+ inventory: 120, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Sweaters", description: "All Sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5], picture: sweaters)
+ inventory: 120, price: 30.99, size: '200', category_ids:[5], picture: sweaters)
 tsunami.items.create(title: "T-Shirts", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids: [5])
 tsunami.items.create(title: "Jackets", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Socks", description: "Wool, all sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5], picture: socks)
-tsunami.items.create(title: "Shoes9", description: "Sneakers, all sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+ inventory: 120, price: 30.99, size: '200', category_ids:[5], picture: socks)
+tsunami.items.create(title: "Snow Shoes", description: "Sneakers, all sizes",
+ inventory: 120, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Undergarments", description: "All types & sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+ inventory: 120, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Generator", description: "Outputs 100v",
- inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6])
+ inventory: 120, price: 300.00, size: '1', category_ids:[3, 6])
 tsunami.items.create(title: "Brooms", description: "Standard Brooms",
- inventory: 12000000, price: 30.99, size: '3pk', category_ids:[7])
+ inventory: 120, price: 30.99, size: '3pk', category_ids:[7])
 tsunami.items.create(title: "Soap", description: "Generic bars",
  inventory: 15, price: 30.99, size: '20pk', category_ids: [7,8])
 tsunami.items.create(title: "Detergent", description: "Generic detergent",
  inventory: 15, price: 30.99, size: '4pk, 32oz', category_ids:[7])
 tsunami.items.create(title: "Sponges", description: "Standard kitchen sponge",
- inventory: 12000000, price: 30.99, size: '20pk', category_ids:[7])
+ inventory: 120, price: 30.99, size: '20pk', category_ids:[7])
 tsunami.items.create(title: "WoodChip Clipper", description: "Small, low power",
- inventory: 12000000, price: 200.00, size: '200', category_ids:[3])
+ inventory: 120, price: 200.00, size: '200', category_ids:[3])
 tsunami.items.create(title: "Face Masks", description: "All types & sizes",
-  inventory: 12000000, price: 30.99, size: '100pk', category_ids:[1, 3, 8])
-tsunami.items.create(title: "Kids Socks4", description: "Cotton/polyester blend, sizes range 1-9",
- inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+  inventory: 120, price: 30.99, size: '100pk', category_ids:[1, 3, 8])
+tsunami.items.create(title: "Gap Socks for Babies", description: "Cotton/polyester blend, sizes range 1-9",
+ inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
 wildfire.items.create(title: "Water", description: "bottled drinking water",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[3], picture: water)
+ inventory: 120, price: 30.99, size: '200', category_ids:[3], picture: water)
 wildfire.items.create(title: "Van Rental", description: "8 person van per day",
  inventory: 15, price: 100.99, size: '1 day', category_ids: [4], picture: van)
 wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
  inventory: 15, price: 200.99, size: '1 day', category_ids:[4], picture: truck)
 wildfire.items.create(title: "Helicopter Pickup", description: "One location",
- inventory: 12000000, price: 600.99, size: '1 day', category_ids:[4, 11])
+ inventory: 120, price: 600.99, size: '1 day', category_ids:[4, 11])
 wildfire.items.create(title: "Hats", description: "One Size, Varied Colors",
- inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5,11])
+ inventory: 120, price: 30.99, size: '5pk', category_ids:[5,11])
 wildfire.items.create(title: "Work Boots", description: "Specify Size",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
+ inventory: 120, price: 30.99, size: '1', category_ids:[5])
 wildfire.items.create(title: "Long Sleeved Shirts", description: "Varied Colors, Sizes XS-XL",
  inventory: 15, price: 30.99, size: '10pk', category_ids: [5])
 wildfire.items.create(title: "Winter Coats", description: "One Size",
  inventory: 15, price: 30.99, size: '1', category_ids:[5])
 wildfire.items.create(title: "Wool Socks", description: "Wool, all sizes",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5,11])
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5,11])
 wildfire.items.create(title: "Rain Coat", description: "One Size",
- inventory: 12000000, price: 30.99, size: '2pk', category_ids:[5])
+ inventory: 120, price: 30.99, size: '2pk', category_ids:[5])
 wildfire.items.create(title: "Rain Boots", description: "Specify Size",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
+ inventory: 120, price: 30.99, size: '1', category_ids:[5])
 wildfire.items.create(title: "Power Cord", description: "15ft, US",
- inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
+ inventory: 120, price: 30.99, size: '3pk', category_ids:[6, 8])
 wildfire.items.create(title: "Pants12", description: "Sizes XS-XXL",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5, 11])
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5, 11])
 wildfire.items.create(title: "Sweaters12", description: "Sizes XS-XXL",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-wildfire.items.create(title: "T-Shirts12", description: "Sizes XS-XXL",
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+wildfire.items.create(title: "Tees", description: "Sizes XS-XXL",
  inventory: 15, price: 30.99, size: '50pk', category_ids: [5])
-wildfire.items.create(title: "Jackets12", description: "Size L",
+wildfire.items.create(title: "Heavy Duty Jacket", description: "Size L",
  inventory: 15, price: 30.99, size: '2pk', category_ids:[5])
-wildfire.items.create(title: "Socks12", description: "Cotton, all sizes",
- inventory: 12000000, price: 30.99, size: '30pk', category_ids:[5])
-wildfire.items.create(title: "Shoes12", description: "Sneakers, sizes 5-9",
- inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5, 11])
-wildfire.items.create(title: "Undergarments12", description: "All types & sizes",
- inventory: 12000000, price: 30.99, size: '50pk', category_ids:[5])
-wildfire.items.create(title: "Generator12", description: "Outputs 100v",
- inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6, 11])
+wildfire.items.create(title: "Baby Socks", description: "Cotton, all sizes",
+ inventory: 120, price: 30.99, size: '30pk', category_ids:[5])
+wildfire.items.create(title: "Water Proof Shoes", description: "Sneakers, sizes 5-9",
+ inventory: 120, price: 30.99, size: '5pk', category_ids:[5, 11])
+wildfire.items.create(title: "Underwear", description: "All types & sizes",
+ inventory: 120, price: 30.99, size: '50pk', category_ids:[5])
+wildfire.items.create(title: "Generator 5000", description: "Outputs 100v",
+ inventory: 120, price: 300.00, size: '1', category_ids:[3, 6, 11])
 wildfire.items.create(title: "Kids Socks5", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
-hunger.items.create(title: "Bandage1", description: "Waterproof Standard Size",
-  inventory: 10000000, price: 12.99, size: '100pk, 100/pk', category_ids: [1, 3, 8], picture: bandages)
-hunger.items.create(title: "Ibuprofin1", description: "200ml, 200 per bottle",
-  inventory:12000000, price: 17.99, size: '50pk', category_ids:[1, 3, 8], picture: ibuprofen)
-hunger.items.create(title: "Gauze1", description: "Cloth, 10ft rolls",
-  inventory:3000000, price: 50.99, size: '200pk', category_ids:[1, 8], picture: gauze)
-hunger.items.create(title: "Neosporin1", description: "Fixes cuts",
-  inventory:5000000, price: 23.99, size: '5pk, 16oz/pk', category_ids:[1, 3, 8])
-hunger.items.create(title: "Antacids1", description: "200ml, 200 per bottle",
-  inventory: 4000000, price: 29.99, size: '200pk', category_ids: [1, 3, 8])
-hunger.items.create(title: "Water Bottles1", description: "Fresh Water in individual bottles",
-  inventory: 5000000, price: 35.99, size: '32pk', category_ids:[2, 3])
+hunger.items.create(title: "Bandage", description: "Waterproof Standard Size",
+  inventory: 1000, price: 12.99, size: '100pk, 100/pk', category_ids: [1, 3, 8], picture: bandages)
+hunger.items.create(title: "Generic Ibuprofen", description: "200ml, 200 per bottle",
+  inventory: 120, price: 17.99, size: '50pk', category_ids:[1, 3, 8], picture: ibuprofen)
+hunger.items.create(title: "Gauzee", description: "Cloth, 10ft rolls",
+  inventory:3000, price: 50.99, size: '200pk', category_ids:[1, 8], picture: gauze)
+hunger.items.create(title: "Neosporeen", description: "Fixes cuts",
+  inventory:5000, price: 23.99, size: '5pk, 16oz/pk', category_ids:[1, 3, 8])
+hunger.items.create(title: "Antyacids", description: "200ml, 200 per bottle",
+  inventory: 4000, price: 29.99, size: '200pk', category_ids: [1, 3, 8])
+hunger.items.create(title: "Aquafina", description: "Fresh Water in individual bottles",
+  inventory: 5000, price: 35.99, size: '32pk', category_ids:[2, 3])
 hunger.items.create(title: "Chicken Noodle Soup1", description: "Generic Chicken Soup",
-  inventory: 10000000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3])
-hunger.items.create(title: "White Rice1", description: "White rice, burlap sack",
-  inventory: 10000000, price: 33.99, size: '50 lbs', category_ids:[2, 3])
-hunger.items.create(title: "Protien Bars1", description: "Chocolate & Peanutbutter Varieties",
-  inventory: 12000000, price: 31.15, size: '30pk, 12 bars/pk', category_ids:[2, 3])
-hunger.items.create(title: "Apples1", description: "Red & Green",
-  inventory: 12000000, price: 36.99, size: '50 lbs', category_ids:[2, 3])
-hunger.items.create(title: "Rope1", description: "Tie to things",
-  inventory: 15000000, price: 30.99, size: '50ft', category_ids: [3, 4])
-hunger.items.create(title: "Blankets1", description: "Keeps warms, 5x5",
-  inventory: 15000000, price: 30.99, size: '5pk', category_ids:[3, 5])
-hunger.items.create(title: "Brown Rice1", description: "Brown Rice, burlap sack",
-   inventory: 4000000, price: 16.99, size: '50lb', category_ids: [2, 3])
-hunger.items.create(title: "Black Beans1", description: "Generic Black Beans",
-   inventory: 5000000, price: 35.99, size: '32pk, 16ox', category_ids:[2, 3 ])
-hunger.items.create(title: "Kids T Shirts1", description: "Varied colors, mix of XS-XXL",
-   inventory: 10000000, price: 33.99, size: '50pk', category_ids: [3, 5])
-hunger.items.create(title: "Kids Jackets1", description: "Light coats, varied colors, mix of XS-XXL",
-   inventory: 10000000, price: 33.99, size: '50pk', category_ids:[3, 5])
-hunger.items.create(title: "Family Tents1", description: "Easily assembled, fits 10x10",
-   inventory: 12000000, price: 31.15, size: '10pk', category_ids:[3, 4, 8])
-hunger.items.create(title: "Tarp1", description: "10x10",
-   inventory: 12000000, price: 36.99, size: '20pk', category_ids:[3, 4])
+  inventory: 1000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3])
+hunger.items.create(title: 'Jasemin Rice', description: "White rice, burlap sack",
+  inventory: 1000, price: 33.99, size: '50 lbs', category_ids:[2, 3])
+hunger.items.create(title: "Cliff Bars", description: "Chocolate & Peanutbutter Varieties",
+  inventory: 120, price: 31.15, size: '30pk, 12 bars/pk', category_ids:[2, 3])
+hunger.items.create(title: "Granny Smith", description: "Red & Green",
+  inventory: 120, price: 36.99, size: '50 lbs', category_ids:[2, 3])
+hunger.items.create(title: "Leather Rope", description: "Tie to things",
+  inventory: 150, price: 30.99, size: '50ft', category_ids: [3, 4])
+hunger.items.create(title: "Quilts", description: "Keeps warms, 5x5",
+  inventory: 150, price: 30.99, size: '5pk', category_ids:[3, 5])
+hunger.items.create(title: "Basmati Brown Rice", description: "Brown Rice, burlap sack",
+   inventory: 4000, price: 16.99, size: '50lb', category_ids: [2, 3])
+hunger.items.create(title: "Pinto Beans", description: "Generic Black Beans",
+   inventory: 5000, price: 35.99, size: '32pk, 16ox', category_ids:[2, 3 ])
+hunger.items.create(title: "Kids Shirts XL", description: "Varied colors, mix of XS-XXL",
+   inventory: 1000, price: 33.99, size: '50pk', category_ids: [3, 5])
+hunger.items.create(title: "Kids Jackets XL", description: "Light coats, varied colors, mix of XS-XXL",
+   inventory: 1000, price: 33.99, size: '50pk', category_ids:[3, 5])
+hunger.items.create(title: "One Man Tent", description: "Easily assembled, fits 10x10",
+   inventory: 120, price: 31.15, size: '10pk', category_ids:[3, 4, 8])
+hunger.items.create(title: "Coleman Tarp", description: "10x10",
+   inventory: 120, price: 36.99, size: '20pk', category_ids:[3, 4])
 hunger.items.create(title: "Gallon Water1", description: "Fresh water in gallon sized containers",
-   inventory: 15000000, price: 30.99, size: '32pk', category_ids: [2, 3])
-hunger.items.create(title: "Kids Socks1", description: "Cotton/polyester blend, sizes range 1-9",
-   inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
-hunger.items.create(title: "Kids Socks6", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+   inventory: 150, price: 30.99, size: '32pk', category_ids: [2, 3])
+hunger.items.create(title: "Mitts", description: "Cotton/polyester blend, sizes range 1-9",
+   inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
+hunger.items.create(title: "Scarf", description: "Cotton/polyester blend, sizes range 1-9",
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
- medical.items.create(title: "Tents1", description: "Easy to set up, 8x8",
-  inventory: 5000000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent)
- medical.items.create(title: "Sleeping Bag1", description: "Adult sized",
-  inventory: 12000000, price: 30.99, size: '1', category_ids:[3], picture: sleepingbag)
- medical.items.create(title: "Cot1", description: "Twin Sized Sleeping Cot",
-  inventory: 12000000, price: 30.99, size: '1', category_ids:[3], picture: cot)
- medical.items.create(title: "WetVac1", description: "32hz",
+ medical.items.create(title: "Walmart Tent", description: "Easy to set up, 8x8",
+  inventory: 5000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent)
+ medical.items.create(title: "Walmart Sleeping Bag", description: "Adult sized",
+  inventory: 120, price: 30.99, size: '1', category_ids:[3], picture: sleepingbag)
+ medical.items.create(title: "Coleman Cot", description: "Twin Sized Sleeping Cot",
+  inventory: 120, price: 30.99, size: '1', category_ids:[3], picture: cot)
+ medical.items.create(title: "Indestructible Dyson Vacuum", description: "32hz",
   inventory: 15, price: 200.00, size: '1', category_ids: [7, 9])
- medical.items.create(title: "Mops1", description: "Super absorbant",
+ medical.items.create(title: "Wetjet", description: "Super absorbant",
   inventory: 15, price: 30.99, size: '4pk', category_ids:[7, 10])
- medical.items.create(title: "Power Cord1", description: "15ft, US",
-  inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
- medical.items.create(title: "Pants6", description: "All sizes",
-  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
- medical.items.create(title: "Sweaters1", description: "All Sizes",
-  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
- medical.items.create(title: "T-Shirts1", description: "All Sizes",
+ medical.items.create(title: "Outlets", description: "15ft, US",
+  inventory: 120, price: 30.99, size: '3pk', category_ids:[6, 8])
+ medical.items.create(title: "Shorts", description: "All sizes",
+  inventory: 120, price: 30.99, size: '200', category_ids:[5])
+ medical.items.create(title: "Ugly Christmas Sweaters", description: "All Sizes",
+  inventory: 120, price: 30.99, size: '200', category_ids:[5])
+ medical.items.create(title: "Wife Beaters", description: "All Sizes",
   inventory: 15, price: 30.99, size: '200', category_ids: [5])
- medical.items.create(title: "Jackets1", description: "All Sizes",
+ medical.items.create(title: "Down Jackets", description: "All Sizes",
   inventory: 15, price: 30.99, size: '200', category_ids:[5])
- medical.items.create(title: "Socks8", description: "Wool, all sizes",
-  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
- medical.items.create(title: "Shoes1", description: "Sneakers, all sizes",
-  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
- medical.items.create(title: "Undergarments1", description: "All types & sizes",
-  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+ medical.items.create(title: "Lowrises", description: "Wool, all sizes",
+  inventory: 120, price: 30.99, size: '200', category_ids:[5])
+ medical.items.create(title: "High Heels", description: "Sneakers, all sizes",
+  inventory: 120, price: 30.99, size: '200', category_ids:[5])
+ medical.items.create(title: "White Tidys", description: "All types & sizes",
+  inventory: 120, price: 30.99, size: '200', category_ids:[5])
  medical.items.create(title: "Generator1", description: "Outputs 100v",
-  inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6])
- medical.items.create(title: "Brooms1", description: "Standard Brooms",
-  inventory: 12000000, price: 30.99, size: '3pk', category_ids:[7])
- medical.items.create(title: "Soap1", description: "Generic bars",
+  inventory: 120, price: 300.00, size: '1', category_ids:[3, 6])
+ medical.items.create(title: "Industrial Broom", description: "Standard Brooms",
+  inventory: 120, price: 30.99, size: '3pk', category_ids:[7])
+ medical.items.create(title: "Organic Soap", description: "For those with sensitive skin",
   inventory: 15, price: 30.99, size: '20pk', category_ids: [7,8])
- medical.items.create(title: "Detergent1", description: "Generic detergent",
+ medical.items.create(title: "All", description: "Generic detergent",
   inventory: 15, price: 30.99, size: '4pk, 32oz', category_ids:[7])
- medical.items.create(title: "Sponges1", description: "Standard kitchen sponge",
-  inventory: 12000000, price: 30.99, size: '20pk', category_ids:[7])
+ medical.items.create(title: "Bubbles Sponge", description: "Standard kitchen sponge",
+  inventory: 120, price: 30.99, size: '20pk', category_ids:[7])
  medical.items.create(title: "WoodChip Clipper1", description: "Small, low power",
-  inventory: 12000000, price: 200.00, size: '200', category_ids:[3])
- medical.items.create(title: "Face Masks1", description: "All types & sizes",
-  inventory: 12000000, price: 30.99, size: '100pk', category_ids:[1, 3, 8])
-medical.items.create(title: "Kids Socks7", description: "Cotton/polyester blend, sizes range 1-9",
-    inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+  inventory: 120, price: 200.00, size: '200', category_ids:[3])
+ medical.items.create(title: "3M Face Mask", description: "All types & sizes",
+  inventory: 120, price: 30.99, size: '100pk', category_ids:[1, 3, 8])
+medical.items.create(title: "High Socks", description: "Cotton/polyester blend, sizes range 1-9",
+    inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
- medic.items.create(title: "Water1", description: "bottled drinking water",
-  inventory: 12000000, price: 30.99, size: '200', category_ids:[3], picture: water)
- medic.items.create(title: "Van Rental1", description: "8 person van per day",
+ medic.items.create(title: "Vitamin Water", description: "bottled drinking water",
+  inventory: 120, price: 30.99, size: '200', category_ids:[3], picture: water)
+ medic.items.create(title: "Mega Van", description: "8 person van per day",
   inventory: 15, price: 100.99, size: '1 day', category_ids: [4], picture: van)
- medic.items.create(title: "Truck Rental1", description: "Standard sized pickup truck per day",
+ medic.items.create(title: "Monster Truck", description: "Standard sized pickup truck per day",
   inventory: 15, price: 200.99, size: '1 day', category_ids:[4], picture: truck)
- medic.items.create(title: "Helicopter Pickup1", description: "One location",
-  inventory: 12000000, price: 600.99, size: '1 day', category_ids:[4])
- medic.items.create(title: "Hats1", description: "One Size, Varied Colors",
-  inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5])
- medic.items.create(title: "Work Boots1", description: "Specify Size",
-  inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
- medic.items.create(title: "Long Sleeved Shirts1", description: "Varied Colors, Sizes XS-XL",
+ medic.items.create(title: "Golden Helicopter", description: "One location",
+  inventory: 120, price: 600.99, size: '1 day', category_ids:[4])
+ medic.items.create(title: "Waterproof Hats", description: "One Size, Varied Colors",
+  inventory: 120, price: 30.99, size: '5pk', category_ids:[5])
+ medic.items.create(title: "Heavy Duty Work Boots", description: "Specify Size",
+  inventory: 120, price: 30.99, size: '1', category_ids:[5])
+ medic.items.create(title: "Shirts With Long Sleeves", description: "Varied Colors, Sizes XS-XL",
   inventory: 15, price: 30.99, size: '10pk', category_ids: [5])
- medic.items.create(title: "Winter Coats1", description: "One Size",
+ medic.items.create(title: "Fur Winter Coats", description: "One Size",
   inventory: 15, price: 30.99, size: '1', category_ids:[5])
- medic.items.create(title: "Wool Socks1", description: "Wool, all sizes",
-  inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
+ medic.items.create(title: "Wool Socks XL", description: "Wool, all sizes",
+  inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
  medic.items.create(title: "Rain Coat1", description: "One Size",
-  inventory: 12000000, price: 30.99, size: '2pk', category_ids:[5])
- medic.items.create(title: "Rain Boots1", description: "Specify Size",
-  inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
- medic.items.create(title: "Power Cord0", description: "15ft, US",
-  inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
- medic.items.create(title: "Pants1", description: "Sizes XS-XXL",
-  inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
- medic.items.create(title: "Sweaters1", description: "Sizes XS-XXL",
-  inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
- medic.items.create(title: "T-Shirts1", description: "Sizes XS-XXL",
+  inventory: 120, price: 30.99, size: '2pk', category_ids:[5])
+ medic.items.create(title: "Rain Boots Extra Durable", description: "To keep the rain out",
+  inventory: 120, price: 30.99, size: '1', category_ids:[5])
+ medic.items.create(title: "Power Cord Generic", description: "15ft, US",
+  inventory: 120, price: 30.99, size: '3pk', category_ids:[6, 8])
+ medic.items.create(title: "Levis", description: "Sizes XS-XXL",
+  inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+ medic.items.create(title: "Warm Sweaters", description: "Sizes XS-XXL",
+  inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+ medic.items.create(title: "Hanes Tees", description: "Sizes XS-XXL",
   inventory: 15, price: 30.99, size: '50pk', category_ids: [5])
- medic.items.create(title: "Jackets1", description: "Size L",
+ medic.items.create(title: "Dickies Jackets", description: "Size L",
   inventory: 15, price: 30.99, size: '2pk', category_ids:[5])
- medic.items.create(title: "Socks1", description: "Cotton, all sizes",
-  inventory: 12000000, price: 30.99, size: '30pk', category_ids:[5])
- medic.items.create(title: "Shoes1", description: "Sneakers, sizes 5-9",
-  inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5])
- medic.items.create(title: "Undergarments1", description: "All types & sizes",
-  inventory: 12000000, price: 30.99, size: '50pk', category_ids:[5])
- medic.items.create(title: "Generator1", description: "Outputs 100v",
-  inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6])
-medic.items.create(title: "Kids Socks8", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+ medic.items.create(title: "Hanes Socks", description: "Cotton, all sizes",
+  inventory: 120, price: 30.99, size: '30pk', category_ids:[5])
+ medic.items.create(title: "Reeboks", description: "Sneakers, sizes 5-9",
+  inventory: 120, price: 30.99, size: '5pk', category_ids:[5])
+ medic.items.create(title: "Victoria Secret", description: "All types & sizes",
+  inventory: 120, price: 30.99, size: '50pk', category_ids:[5])
+ medic.items.create(title: "Honda Generator", description: "Outputs 100v",
+  inventory: 120, price: 300.00, size: '1', category_ids:[3, 6])
+medic.items.create(title: "Van Kid's Socks", description: "Cotton/polyester blend, sizes range 1-9",
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
-  safe.items.create(title: "Bandage2", description: "Waterproof Standard Size",
- inventory: 10000000, price: 12.99, size: '100pk, 100/pk', category_ids: [1, 3, 8], picture: bandages)
- safe.items.create(title: "Ibuprofin2", description: "200ml, 200 per bottle",
- inventory:12000000, price: 17.99, size: '50pk', category_ids:[1, 3, 8], picture: ibuprofen)
- safe.items.create(title: "Gauze2", description: "Cloth, 10ft rolls",
- inventory:3000000, price: 50.99, size: '200pk', category_ids:[1, 8], picture: gauze)
- safe.items.create(title: "Neosporin2", description: "Fixes cuts",
- inventory:5000000, price: 23.99, size: '5pk, 16oz/pk', category_ids:[1, 3, 8])
- safe.items.create(title: "Antacids2", description: "200ml, 200 per bottle",
- inventory: 4000000, price: 29.99, size: '200pk', category_ids: [1, 3, 8])
- safe.items.create(title: "Water Bottles2", description: "Fresh Water in individual bottles",
- inventory: 5000000, price: 35.99, size: '32pk', category_ids:[2, 3])
- safe.items.create(title: "Chicken Noodle Soup2", description: "Generic Chicken Soup",
- inventory: 10000000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3])
- safe.items.create(title: "White Rice2", description: "White rice, burlap sack",
- inventory: 10000000, price: 33.99, size: '50 lbs', category_ids:[2, 3])
- safe.items.create(title: "Protien Bars2", description: "Chocolate & Peanutbutter Varieties",
- inventory: 12000000, price: 31.15, size: '30pk, 12 bars/pk', category_ids:[2, 3])
- safe.items.create(title: "Apples2", description: "Red & Green",
- inventory: 12000000, price: 36.99, size: '50 lbs', category_ids:[2, 3])
- safe.items.create(title: "Rope2", description: "Tie to things",
- inventory: 15000000, price: 30.99, size: '50ft', category_ids: [3, 4])
- safe.items.create(title: "Blankets2", description: "Keeps warms, 5x5",
- inventory: 15000000, price: 30.99, size: '5pk', category_ids:[3, 5])
- safe.items.create(title: "Brown Rice2", description: "Brown Rice, burlap sack",
-  inventory: 4000000, price: 16.99, size: '50lb', category_ids: [2, 3])
-  safe.items.create(title: "Black Beans2", description: "Generic Black Beans",
-  inventory: 5000000, price: 35.99, size: '32pk, 16ox', category_ids:[2, 3 ])
-  safe.items.create(title: "Kids T Shirts2", description: "Varied colors, mix of XS-XXL",
-  inventory: 10000000, price: 33.99, size: '50pk', category_ids: [3, 5])
-  safe.items.create(title: "Kids Jackets2", description: "Light coats, varied colors, mix of XS-XXL",
-  inventory: 10000000, price: 33.99, size: '50pk', category_ids:[3, 5])
-  safe.items.create(title: "Family Tents2", description: "Easily assembled, fits 10x10",
-  inventory: 12000000, price: 31.15, size: '10pk', category_ids:[3, 4, 8])
-  safe.items.create(title: "Tarp2", description: "10x10",
-  inventory: 12000000, price: 36.99, size: '20pk', category_ids:[3, 4])
-  safe.items.create(title: "Gallon Water2", description: "Fresh water in gallon sized containers",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids: [2, 3])
-  safe.items.create(title: "Kids Socks2", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
-safe.items.create(title: "Kids Socks9", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+  safe.items.create(title: "Band-Aid", description: "Waterproof Standard Size",
+ inventory: 1000, price: 12.99, size: '100pk, 100/pk', category_ids: [1, 3, 8], picture: bandages)
+ safe.items.create(title: "Vicks Ibuprofen", description: "200ml, 200 per bottle",
+ inventory: 120, price: 17.99, size: '50pk', category_ids:[1, 3, 8], picture: ibuprofen)
+ safe.items.create(title: "J&J Gauze", description: "Cloth, 10ft rolls",
+ inventory:3000, price: 50.99, size: '200pk', category_ids:[1, 8], picture: gauze)
+ safe.items.create(title: "Hydrogen Peroxide", description: "Fixes cuts",
+ inventory:5000, price: 23.99, size: '5pk, 16oz/pk', category_ids:[1, 3, 8])
+ safe.items.create(title: "Tums", description: "200ml, 200 per bottle",
+ inventory: 4000, price: 29.99, size: '200pk', category_ids: [1, 3, 8])
+ safe.items.create(title: "Fiji", description: "Fresh Water in individual bottles",
+ inventory: 5000, price: 35.99, size: '32pk', category_ids:[2, 3])
+ safe.items.create(title: "Campbell's Chicken Noodle Soup", description: "Generic Chicken Soup",
+ inventory: 1000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3])
+ safe.items.create(title: "Short White Rice", description: "White rice, burlap sack",
+ inventory: 1000, price: 33.99, size: '50 lbs', category_ids:[2, 3])
+ safe.items.create(title: "Power bar", description: "Chocolate & Peanutbutter Varieties",
+ inventory: 120, price: 31.15, size: '30pk, 12 bars/pk', category_ids:[2, 3])
+ safe.items.create(title: "Gaia Apples", description: "Red & Green",
+ inventory: 120, price: 36.99, size: '50 lbs', category_ids:[2, 3])
+ safe.items.create(title: "Parachute Cord", description: "Tie to things",
+ inventory: 150, price: 30.99, size: '50ft', category_ids: [3, 4])
+ safe.items.create(title: "Comforters", description: "Keeps warms, 5x5",
+ inventory: 150, price: 30.99, size: '5pk', category_ids:[3, 5])
+ safe.items.create(title: "Uncle Ben's Brown Rice", description: "Brown Rice, burlap sack",
+  inventory: 4000, price: 16.99, size: '50lb', category_ids: [2, 3])
+  safe.items.create(title: "Kidney Beans", description: "Generic Black Beans",
+  inventory: 5000, price: 35.99, size: '32pk, 16ox', category_ids:[2, 3 ])
+  safe.items.create(title: "Kid's Wife Beater", description: "Varied colors, mix of XS-XXL",
+  inventory: 1000, price: 33.99, size: '50pk', category_ids: [3, 5])
+  safe.items.create(title: "Patagonia Coat", description: "Light coats, varied colors, mix of XS-XXL",
+  inventory: 1000, price: 33.99, size: '50pk', category_ids:[3, 5])
+  safe.items.create(title: "Patagonia Tent", description: "Easily assembled, fits 10x10",
+  inventory: 120, price: 31.15, size: '10pk', category_ids:[3, 4, 8])
+  safe.items.create(title: "3M Tarps", description: "10x10",
+  inventory: 120, price: 36.99, size: '20pk', category_ids:[3, 4])
+  safe.items.create(title: "Deep Rock Gallon", description: "Fresh water in gallon sized containers",
+  inventory: 150, price: 30.99, size: '32pk', category_ids: [2, 3])
+  safe.items.create(title: "Fruit of The Loom Socks", description: "Cotton/polyester blend, sizes range 1-9",
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
+safe.items.create(title: "Argyle Socks", description: "Cotton/polyester blend, sizes range 1-9",
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
-hurricane.items.create(title: "Tents2", description: "Easy to set up, 8x8",
- inventory: 5000000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent)
-hurricane.items.create(title: "Sleeping Bag2", description: "Adult sized",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[3], picture: sleepingbag)
+hurricane.items.create(title: "Air Matress", description: "Easy to set up, 8x8",
+ inventory: 5000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent)
+hurricane.items.create(title: "Sleeping Sack", description: "Adult sized",
+ inventory: 120, price: 30.99, size: '1', category_ids:[3], picture: sleepingbag)
 hurricane.items.create(title: "Cot2", description: "Twin Sized Sleeping Cot",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[3], picture: cot)
-hurricane.items.create(title: "WetVac2", description: "32hz",
+ inventory: 120, price: 30.99, size: '1', category_ids:[3], picture: cot)
+hurricane.items.create(title: "Hoover Wetvac", description: "32hz",
  inventory: 15, price: 200.00, size: '1', category_ids: [7, 9])
-hurricane.items.create(title: "Mops2", description: "Super absorbant",
+hurricane.items.create(title: "Swiffer Mops", description: "Super absorbant",
  inventory: 15, price: 30.99, size: '4pk', category_ids:[7, 10])
-hurricane.items.create(title: "Power Cord2", description: "15ft, US",
- inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
-hurricane.items.create(title: "Pants99", description: "All sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-hurricane.items.create(title: "Sweaters0", description: "All Sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-hurricane.items.create(title: "T-Shirts9", description: "All Sizes",
+hurricane.items.create(title: "GE powercord", description: "15ft, US",
+ inventory: 120, price: 30.99, size: '3pk', category_ids:[6, 8])
+hurricane.items.create(title: "Hanes Sweatpants", description: "All sizes",
+ inventory: 120, price: 30.99, size: '200', category_ids:[5])
+hurricane.items.create(title: "Wrangler Sweaters", description: "All Sizes",
+ inventory: 120, price: 30.99, size: '200', category_ids:[5])
+hurricane.items.create(title: "Starter Shirts", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids: [5])
-hurricane.items.create(title: "Jackets2", description: "All Sizes",
+hurricane.items.create(title: "Industrial Jacket", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids:[5])
-hurricane.items.create(title: "Socks6", description: "Wool, all sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
-hurricane.items.create(title: "Shoes2", description: "Sneakers, all sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5, 10])
-hurricane.items.create(title: "Undergarments00", description: "All types & sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5, 10])
-hurricane.items.create(title: "Generator00", description: "Outputs 100v",
- inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6, 10])
-hurricane.items.create(title: "Brooms2", description: "Standard Brooms",
- inventory: 12000000, price: 30.99, size: '3pk', category_ids:[7, 10])
-hurricane.items.create(title: "Soap2", description: "Generic bars",
+hurricane.items.create(title: "Industrial Socks", description: "Wool, all sizes",
+ inventory: 120, price: 30.99, size: '200', category_ids:[5])
+hurricane.items.create(title: "Steeltoe Shoes", description: "Sneakers, all sizes",
+ inventory: 120, price: 30.99, size: '200', category_ids:[5, 10])
+hurricane.items.create(title: "Foddle Underwear", description: "All types & sizes",
+ inventory: 120, price: 30.99, size: '200', category_ids:[5, 10])
+hurricane.items.create(title: "Mitsubishi Generator", description: "Outputs 100v",
+ inventory: 120, price: 300.00, size: '1', category_ids:[3, 6, 10])
+hurricane.items.create(title: "Asian Broom", description: "Standard Brooms",
+ inventory: 120, price: 30.99, size: '3pk', category_ids:[7, 10])
+hurricane.items.create(title: "Dove Soap", description: "For soft skins",
  inventory: 15, price: 30.99, size: '20pk', category_ids: [7, 8, 10])
-hurricane.items.create(title: "Detergent2", description: "Generic detergent",
+hurricane.items.create(title: "Tide", description: "Generic detergent",
  inventory: 15, price: 30.99, size: '4pk, 32oz', category_ids:[7, 10])
-hurricane.items.create(title: "Sponges2", description: "Standard kitchen sponge",
- inventory: 12000000, price: 30.99, size: '20pk', category_ids:[7, 10])
-hurricane.items.create(title: "WoodChip Clipper2", description: "Small, low power",
- inventory: 12000000, price: 200.00, size: '200', category_ids:[3, 10])
-hurricane.items.create(title: "Face Masks2", description: "All types & sizes",
- inventory: 12000000, price: 30.99, size: '100pk', category_ids:[1, 3, 8])
- hurricane.items.create(title: "Kids Socks10", description: "Cotton/polyester blend, sizes range 1-9",
-   inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+hurricane.items.create(title: "Scotts", description: "Standard kitchen sponge",
+ inventory: 120, price: 30.99, size: '20pk', category_ids:[7, 10])
+hurricane.items.create(title: "WoodChip Clipper 5000", description: "Small, low power",
+ inventory: 120, price: 200.00, size: '200', category_ids:[3, 10])
+hurricane.items.create(title: "3M Face Masks", description: "All types & sizes",
+ inventory: 120, price: 30.99, size: '100pk', category_ids:[1, 3, 8])
+ hurricane.items.create(title: "Polo Socks", description: "Cotton/polyester blend, sizes range 1-9",
+   inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
 
-relief.items.create(title: "Water2", description: "bottled drinking water",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[3], picture: water)
-relief.items.create(title: "Van Rental2", description: "8 person van per day",
+relief.items.create(title: "Arrowhead Water", description: "bottled drinking water",
+ inventory: 120, price: 30.99, size: '200', category_ids:[3], picture: water)
+relief.items.create(title: "Honda Odyssey", description: "8 person van per day",
  inventory: 15, price: 100.99, size: '1 day', category_ids: [4], picture: van)
-relief.items.create(title: "Truck Rental2", description: "Standard sized pickup truck per day",
+relief.items.create(title: "Honda Ridgeline", description: "Standard sized pickup truck per day",
  inventory: 15, price: 200.99, size: '1 day', category_ids:[4], picture: truck)
-relief.items.create(title: "Helicopter Pickup2", description: "One location",
- inventory: 12000000, price: 600.99, size: '1 day', category_ids:[4])
-relief.items.create(title: "Hats2", description: "One Size, Varied Colors",
- inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5])
-relief.items.create(title: "Work Boots2", description: "Specify Size",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
-relief.items.create(title: "Long Sleeved Shirts2", description: "Varied Colors, Sizes XS-XL",
+relief.items.create(title: "Mitsubishi Helicopter", description: "One location",
+ inventory: 120, price: 600.99, size: '1 day', category_ids:[4])
+relief.items.create(title: "Nike Hat", description: "One Size, Varied Colors",
+ inventory: 120, price: 30.99, size: '5pk', category_ids:[5])
+relief.items.create(title: "Work Unicorm", description: "Specify Size",
+ inventory: 120, price: 30.99, size: '1', category_ids:[5])
+relief.items.create(title: "Heavy Duty Long Sleeves", description: "Varied Colors, Sizes XS-XL",
  inventory: 15, price: 30.99, size: '10pk', category_ids: [5])
-relief.items.create(title: "Winter Coats2", description: "One Size",
+relief.items.create(title: "Indestructible Long Shirt", description: "One Size",
  inventory: 15, price: 30.99, size: '1', category_ids:[5])
-relief.items.create(title: "Wool Socks2", description: "Wool, all sizes",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-relief.items.create(title: "Rain Coat2", description: "One Size",
- inventory: 12000000, price: 30.99, size: '2pk', category_ids:[5])
-relief.items.create(title: "Rain Boots2", description: "Specify Size",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
-relief.items.create(title: "Power Cord2", description: "15ft, US",
- inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
-relief.items.create(title: "Pants2", description: "Sizes XS-XXL",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-relief.items.create(title: "Sweaters2", description: "Sizes XS-XXL",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-relief.items.create(title: "T-Shirts2", description: "Sizes XS-XXL",
+relief.items.create(title: "Monster Socks", description: "Wool, all sizes",
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+relief.items.create(title: "Yellow Rain Coat", description: "One Size",
+ inventory: 120, price: 30.99, size: '2pk', category_ids:[5])
+relief.items.create(title: "Yellow Rain Boots", description: "Specify Size",
+ inventory: 120, price: 30.99, size: '1', category_ids:[5])
+relief.items.create(title: "Samsung Power Cord", description: "15ft, US",
+ inventory: 120, price: 30.99, size: '3pk', category_ids:[6, 8])
+relief.items.create(title: "Yoga Pants", description: "Sizes XS-XXL",
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+relief.items.create(title: "Thick Sweaters", description: "Sizes XS-XXL",
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+relief.items.create(title: "Tiny T-Shirts", description: "Sizes XS-XXL",
  inventory: 15, price: 30.99, size: '50pk', category_ids: [5])
-relief.items.create(title: "Jackets2", description: "Size L",
+relief.items.create(title: "Snow Jacket", description: "Size L",
  inventory: 15, price: 30.99, size: '2pk', category_ids:[5])
-relief.items.create(title: "Socks2", description: "Cotton, all sizes",
- inventory: 12000000, price: 30.99, size: '30pk', category_ids:[5])
-relief.items.create(title: "Shoes2", description: "Sneakers, sizes 5-9",
- inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5])
-relief.items.create(title: "Undergarments2", description: "All types & sizes",
- inventory: 12000000, price: 30.99, size: '50pk', category_ids:[5])
-relief.items.create(title: "Generator2", description: "Outputs 100v",
- inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6])
-relief.items.create(title: "Kids Socks11", description: "Cotton/polyester blend, sizes range 1-9",
-  inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+relief.items.create(title: "Snow Socks", description: "Cotton, all sizes",
+ inventory: 120, price: 30.99, size: '30pk', category_ids:[5])
+relief.items.create(title: "Flip-Flops", description: "Sneakers, sizes 5-9",
+ inventory: 120, price: 30.99, size: '5pk', category_ids:[5])
+relief.items.create(title: "Underarmor Wear", description: "All types & sizes",
+ inventory: 120, price: 30.99, size: '50pk', category_ids:[5])
+relief.items.create(title: "Samsung Generator", description: "Outputs 100v",
+ inventory: 120, price: 300.00, size: '1', category_ids:[3, 6])
+relief.items.create(title: "Beanies", description: "Cotton/polyester blend, one size fits all.",
+  inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
-disaster.items.create(title: "Water3", description: "bottled drinking water",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[3], picture: water)
-disaster.items.create(title: "Van Rental3", description: "8 person van per day",
+disaster.items.create(title: "Kroger Water", description: "bottled drinking water",
+ inventory: 120, price: 30.99, size: '200', category_ids:[3], picture: water)
+disaster.items.create(title: "White Van", description: "8 person van per day",
  inventory: 15, price: 100.99, size: '1 day', category_ids: [4], picture: van)
-disaster.items.create(title: "Truck Rental3", description: "Standard sized pickup truck per day",
+disaster.items.create(title: "Dodge Truck", description: "Standard sized pickup truck per day",
  inventory: 15, price: 200.99, size: '1 day', category_ids:[4], picture: truck)
-disaster.items.create(title: "Helicopter Pickup3", description: "One location",
- inventory: 12000000, price: 600.99, size: '1 day', category_ids:[4])
-disaster.items.create(title: "Hats3", description: "One Size, Varied Colors",
- inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5])
-disaster.items.create(title: "Work Boots3", description: "Specify Size",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
-disaster.items.create(title: "Long Sleeved Shirts3", description: "Varied Colors, Sizes XS-XL",
+disaster.items.create(title: "Presidential Helicopter", description: "One location",
+ inventory: 120, price: 600.99, size: '1 day', category_ids:[4])
+disaster.items.create(title: "Van's Hats", description: "One Size, Varied Colors",
+ inventory: 120, price: 30.99, size: '5pk', category_ids:[5])
+disaster.items.create(title: "Boots For Working", description: "Specify Size",
+ inventory: 120, price: 30.99, size: '1', category_ids:[5])
+disaster.items.create(title: "Gloves", description: "Varied Colors, Sizes XS-XL",
  inventory: 15, price: 30.99, size: '10pk', category_ids: [5])
-disaster.items.create(title: "Winter Coats3", description: "One Size",
+disaster.items.create(title: "Silk Coat", description: "One Size",
  inventory: 15, price: 30.99, size: '1', category_ids:[5])
-disaster.items.create(title: "Wool Socks3", description: "Wool, all sizes",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-disaster.items.create(title: "Rain Coat3", description: "One Size",
- inventory: 12000000, price: 30.99, size: '2pk', category_ids:[5])
-disaster.items.create(title: "Rain Boots3", description: "Specify Size",
- inventory: 12000000, price: 30.99, size: '1', category_ids:[5])
-disaster.items.create(title: "Power Cord3", description: "15ft, US",
- inventory: 12000000, price: 30.99, size: '3pk', category_ids:[6, 8])
-disaster.items.create(title: "Pants3", description: "Sizes XS-XXL",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-disaster.items.create(title: "Sweaters3", description: "Sizes XS-XXL",
- inventory: 12000000, price: 30.99, size: '10pk', category_ids:[5])
-disaster.items.create(title: "T-Shirts3", description: "Sizes XS-XXL",
+disaster.items.create(title: "Silks Socks", description: "Wool, all sizes",
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+disaster.items.create(title: "Pink Rain Coat", description: "One Size",
+ inventory: 120, price: 30.99, size: '2pk', category_ids:[5])
+disaster.items.create(title: "Military Rain Boots", description: "Specify Size",
+ inventory: 120, price: 30.99, size: '1', category_ids:[5])
+disaster.items.create(title: "Sharp Generator", description: "15ft, US",
+ inventory: 120, price: 30.99, size: '3pk', category_ids:[6, 8])
+disaster.items.create(title: 'Workout Pants', description: "Sizes XS-XXL",
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+disaster.items.create(title: "Casimir Sweaters", description: "Sizes XS-XXL",
+ inventory: 120, price: 30.99, size: '10pk', category_ids:[5])
+disaster.items.create(title: "Casimir Shirt", description: "Sizes XS-XXL",
  inventory: 15, price: 30.99, size: '50pk', category_ids: [5])
-disaster.items.create(title: "Jackets3", description: "Size L",
+disaster.items.create(title: "Casimir Jacket", description: "Size L",
  inventory: 15, price: 30.99, size: '2pk', category_ids:[5])
-disaster.items.create(title: "Socks3", description: "Cotton, all sizes",
- inventory: 12000000, price: 30.99, size: '30pk', category_ids:[5])
-disaster.items.create(title: "Shoes3", description: "Sneakers, sizes 5-9",
- inventory: 12000000, price: 30.99, size: '5pk', category_ids:[5])
-disaster.items.create(title: "Undergarments3", description: "All types & sizes",
- inventory: 12000000, price: 30.99, size: '50pk', category_ids:[5])
-disaster.items.create(title: "Generator3", description: "Outputs 100v",
- inventory: 12000000, price: 300.00, size: '1', category_ids:[3, 6])
-disaster.items.create(title: "Kids Socks12", description: "Cotton/polyester blend, sizes range 1-9",
-   inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
+disaster.items.create(title: "Casimir Socks", description: "Cotton, all sizes",
+ inventory: 120, price: 30.99, size: '30pk', category_ids:[5])
+disaster.items.create(title: "Casimir Shoes", description: "Sneakers, sizes 5-9",
+ inventory: 120, price: 30.99, size: '5pk', category_ids:[5])
+disaster.items.create(title: "Casimir Underwear", description: "All types & sizes",
+ inventory: 120, price: 30.99, size: '50pk', category_ids:[5])
+disaster.items.create(title: "Casimir Generator", description: "Outputs 100v",
+ inventory: 120, price: 300.00, size: '1', category_ids:[3, 6])
+disaster.items.create(title: "Turing Shirts", description: "Cotton/polyester blend, sizes range 1-9",
+   inventory: 150, price: 30.99, size: '32pk', category_ids:[3, 5])
 
 #Make Customers, Address, and UserAddresses
 100.times do
