@@ -18,6 +18,7 @@ group :test do
 end
 
 gem 'stripe'
+gem "faker"
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'twilio-ruby'
 gem "paperclip", "~> 4.1"
