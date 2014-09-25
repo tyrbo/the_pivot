@@ -3,8 +3,10 @@ require 'capybara/rails'
 require 'capybara/rspec'
 describe 'a supplier viewing the order page', type: :feature do
   let!(:supplier) { FactoryGirl.create(:supplier, users: [user]) }
-  let(:supplier2) { FactoryGirl.create(:supplier, name: 'Different', url: 'Different') }
+  let(:supplier2) { FactoryGirl.create(:supplier, name: 'Different', url: 'Different', users: [user2]) }
   let!(:user) { FactoryGirl.create(:user, role:'supplier', addresses: [address]) }
+  let!(:user2) { FactoryGirl.create(:user,email:'example2@example.com', role:'supplier', addresses: [address]) }
+
   let(:order) { FactoryGirl.create(:order, user: user, items: [item, item2], delivery_address_id: address.id)}
   let(:address) { FactoryGirl.create(:address, shipping: true)}
   let(:item) { FactoryGirl.create(:item, supplier: supplier)}
