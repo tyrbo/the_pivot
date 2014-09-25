@@ -4,7 +4,8 @@ class Item < ActiveRecord::Base
 
   validates :title,       presence: true, uniqueness: true
   validates :description, presence: true
-
+  validates :description, length: { in: 2..500 }
+  
   has_many  :categorizations
   has_many  :categories, through: :categorizations
 
@@ -64,5 +65,9 @@ class Item < ActiveRecord::Base
 
   def update_retired_attribute
     retire ? update_column(:retire, false) : update_column(:retire, true)
+  end
+
+  def out_of_stock?
+    inventory <= 0
   end
 end

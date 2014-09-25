@@ -5,6 +5,8 @@
 //=require_tree .
 
 $(document).ready(function() {
+  // debugger;
+  $('.added_dropdown_container').delay(100).addClass('hidden');
 
   $('.admin-request-dropdown-link').click(function() {
     $('.admin-request-dropdown').toggleClass('hidden');
@@ -28,8 +30,8 @@ $(document).ready(function() {
 
   $(".qty-box").focus(function() {
 
-    var nextCartButton = $(this).closest('td').find('.cart-btn');
-    var allCartButton = $(this).closest('div.align-to-sidebar').find(".cart-btn");
+    var nextCartButton = $(this).closest('td').next().find('.cart-btn');
+    var allCartButton = $(this).closest('div.custom-box').find(".cart-btn");
 
     allCartButton.removeClass('btn-primary');
     nextCartButton.addClass('btn-primary');
@@ -39,6 +41,23 @@ $(document).ready(function() {
 
     $(this).val('')
   })
+
+  $(".add-cart-btn").bind('click', false);
+
+  $(".add-cart-qty-box").focus(function() {
+
+    var nextCartButton = $(this).closest('td').find('.add-cart-btn');
+    var allCartButton = $(this).closest('div.align-to-sidebar').find(".add-cart-btn");
+
+    allCartButton.removeClass('btn-primary');
+    nextCartButton.addClass('btn-primary');
+
+    allCartButton.bind('click', false)
+    nextCartButton.unbind('click', false);
+
+    $(this).val('')
+  })
+
 
   $(".cart-link").click(function(){
     var nextCartInfo = $(this).closest('tr').next().next();
@@ -87,6 +106,10 @@ $(document).ready(function() {
 
     $(this).closest('tr').find('.update-order-item-btn').unbind('click', false);
     $(this).closest('tr').find('.update-order-item-btn').addClass('btn-primary');
+  })
+
+  $('.add-cart-btn').click(function() {
+    $('.item-added').removeClass('hidden').delay(1000).addClass('hidden')
   })
 });
 

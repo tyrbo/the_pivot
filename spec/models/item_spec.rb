@@ -14,8 +14,9 @@ RSpec.describe Item, :type => :model do
 
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:description) }
-
+  it { should ensure_length_of(:description) }
   xit { should validate_uniqueness_of(:title) }
+
 
   #it { should_have_attached_file(:picture) }
 
@@ -49,5 +50,13 @@ RSpec.describe Item, :type => :model do
 
     expect(inactive).not_to include(item1)
     expect(inactive).to include(item2)
+  end
+
+  it 'determines whether an item is out of stock' do
+    item = FactoryGirl.create(:item)
+    item1 = FactoryGirl.create(:item, title: 'second', inventory: 0)
+
+    expect(item.out_of_stock?).to eq(false)
+    expect(item1.out_of_stock?).to eq(true)
   end
 end

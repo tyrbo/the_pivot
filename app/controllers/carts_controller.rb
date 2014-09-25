@@ -14,7 +14,13 @@ class CartsController < ApplicationController
 		else
 			cart.cart_items.create(item_id: item.id, quantity: qty )
 		end
-		redirect_to items_path
+
+		if params[:supplier_id]
+			supplier = Supplier.find(params[:supplier_id])
+			redirect_to supplier_path(supplier, item_name: item.title, item_picture: item.picture)
+		else
+			redirect_to items_path(item_name: item.title, item_picture: item.picture)
+		end
 	end
 
 	def update

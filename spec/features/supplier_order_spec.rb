@@ -19,14 +19,14 @@ describe 'a supplier viewing the order page', type: :feature do
 
   it 'can see the sub-orders associated with them' do
     visit dashboard_supplier_sub_orders_path(supplier)
-    click_on('Show')
+    first(:link,'Show').click
     expect(page).to have_content(item.title)
     expect(page).to_not have_content(item2.title)
   end
 
   it 'can edit the sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
-    click_on('Show')
+    first(:link,'Show').click
     click_on('Edit')
     fill_in('sub_order[provider_name]', with: 'Allie')
     fill_in('sub_order[provider_email]', with: 'allie@example.com')
@@ -39,7 +39,7 @@ describe 'a supplier viewing the order page', type: :feature do
 
   it 'can delete items from a sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
-    click_on('Show')
+    first(:link,'Show').click
     click_on('Edit')
     click_on('Delete')
     expect(page).to_not have_content(item.title)
@@ -47,7 +47,7 @@ describe 'a supplier viewing the order page', type: :feature do
 
   it 'can edit items on a sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
-    click_on('Show')
+    first(:link,'Show').click
     click_on('Edit')
     click_on('Edit Item')
     fill_in('order_item[price]', with: 30.99)
@@ -62,15 +62,14 @@ describe 'a supplier viewing the order page', type: :feature do
   it 'can delete a sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
     expect(order.sub_orders.count).to eq(2)
-    click_on('Delete')
-    expect(page).to_not have_content(user.full_name)
+    first(:link, 'Delete').click
     expect(order.sub_orders.count).to eq(1)
     expect(order.order_items.count).to eq(1)
   end
 
   it 'can change the status of a sub-order' do
     visit dashboard_supplier_sub_orders_path(supplier)
-    click_on('Show')
+    first(:link,'Show').click
     click_on('Edit')
   end
 
