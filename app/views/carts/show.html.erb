@@ -35,11 +35,16 @@
   Total: <%= @cart.get_total %>
 </div><br>
 <div>
-  <% if current_user %>
-    <%= link_to 'Enter Your Billing Info', new_order_path, class: "btn btn-primary"%>
+  <% if !@cart.empty? %>
+    <% if current_user %>
+      <%= link_to 'Enter Your Billing Info', new_order_path, class: "btn btn-primary"%>
+    <% else %>
+      Please sign in or register to checkout.</br></br>
+      <%= link_to 'Register', signup_path,  class: "btn btn-primary" %> <%= link_to 'Sign in', signin_path, class: "btn btn-primary"  %>
+    <% end %>
   <% else %>
-    Please sign in or register to checkout.</br></br>
-    <%= link_to 'Register', signup_path,  class: "btn btn-primary" %> <%= link_to 'Sign in', signin_path, class: "btn btn-primary"  %>
+      You don't have anything in your cart!
   <% end %>
+
 </div>
 </div>
