@@ -6,6 +6,41 @@
 
 $(document).ready(function() {
 
+  function stripeResponseHandler(status, response) {
+    var $form = $('#new_order');
+
+    if (response.error) {
+      // Show the errors on the form
+      //$form.find('.payment-errors').text(response.error.message);
+      alert(response.error.message);
+      $form.find('button').prop('disabled', false);
+    } else {
+      // response contains id and card, which contains additional card details
+      var token = response.id;
+      // Insert the token into the form so it gets submitted to the server
+      $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+      // and submit
+      $form.get(0).submit();
+    }
+  };
+
+  Stripe.setPublishableKey('pk_test_jx6ScMJZ77A8MeDxmDiwbuFM');
+
+  $('#new_order').submit(function(event) {
+    var $form = $(this);
+
+    // Disable the submit button to prevent repeated clicks
+    $form.find('button').prop('disabled', true);
+
+    Stripe.card.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
+
+  // debugger;
+  $('.added_dropdown_container').delay(100).addClass('hidden');
+
   $('.admin-request-dropdown-link').click(function() {
     $('.admin-request-dropdown').toggleClass('hidden');
   })
@@ -28,8 +63,8 @@ $(document).ready(function() {
 
   $(".qty-box").focus(function() {
 
-    var nextCartButton = $(this).closest('td').find('.cart-btn');
-    var allCartButton = $(this).closest('div.align-to-sidebar').find(".cart-btn");
+    var nextCartButton = $(this).closest('td').next().find('.cart-btn');
+    var allCartButton = $(this).closest('div.custom-box').find(".cart-btn");
 
     allCartButton.removeClass('btn-primary');
     nextCartButton.addClass('btn-primary');
@@ -37,8 +72,25 @@ $(document).ready(function() {
     allCartButton.bind('click', false)
     nextCartButton.unbind('click', false);
 
-    $(this).val('')
+  $(this).val('')
   })
+
+  $(".add-cart-btn").bind('click', false);
+
+  $(".add-cart-qty-box").focus(function() {
+
+    var nextCartButton = $(this).closest('td').find('.add-cart-btn');
+    var allCartButton = $(this).closest('div.align-to-sidebar').find(".add-cart-btn");
+
+    allCartButton.removeClass('btn-primary');
+    nextCartButton.addClass('btn-primary');
+
+    allCartButton.bind('click', false)
+    nextCartButton.unbind('click', false);
+
+  $(this).val('')
+  })
+
 
   $(".cart-link").click(function(){
     var nextCartInfo = $(this).closest('tr').next().next();
@@ -72,12 +124,12 @@ $(document).ready(function() {
       $(this).closest('div.edit-page').find('.edit-dropdown').addClass('hidden');
     }
 
-    if (nextAddressInfo.hasClass('hidden')) {
-      allAddressInfo.addClass('hidden');
-      nextAddressInfo.toggleClass('hidden');
-    } else {
-      allAddressInfo.addClass('hidden');
-    }
+  if (nextAddressInfo.hasClass('hidden')) {
+    allAddressInfo.addClass('hidden');
+    nextAddressInfo.toggleClass('hidden');
+  } else {
+    allAddressInfo.addClass('hidden');
+  }
 
   })
 
@@ -87,6 +139,10 @@ $(document).ready(function() {
 
     $(this).closest('tr').find('.update-order-item-btn').unbind('click', false);
     $(this).closest('tr').find('.update-order-item-btn').addClass('btn-primary');
+  })
+
+  $('.add-cart-btn').click(function() {
+    $('.item-added').removeClass('hidden').delay(1000).addClass('hidden')
   })
 });
 

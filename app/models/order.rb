@@ -68,14 +68,16 @@ class Order < ActiveRecord::Base
 
     suppliers.each do |supplier_id, items|
       sub =  SubOrder.create(supplier_id: supplier_id,
-                                order_id: self.id,
-                           provider_name: self.user.full_name,
-                          provider_email: self.user.email,
-                              order_type: self.order_type,
-                                  status: self.order_status,
-                        delivery_address_id: self.delivery_address_id,
-                         billing_address_id: self.billing_address_id)
+                             order_id: self.id,
+                             provider_name: self.user.full_name,
+                             provider_email: self.user.email,
+                             order_type: self.order_type,
+                             status: self.order_status,
+                             delivery_address_id: self.delivery_address_id,
+                             billing_address_id: self.billing_address_id)
       sub.save
+      supplier = Supplier.find(supplier_id)
+      # SupplierRequestMailer.request_email(supplier).deliver if sub.save && supplier != nil
       update_order_items(sub, items)
     end
   end
@@ -92,4 +94,20 @@ class Order < ActiveRecord::Base
     '$' + sprintf("%.2f", order_total / 100.00)
   end
 
+  def charge(token)
+    begin
+      charge = Stripe::Charge.create(
+        :amount => order_total, # amount in cents, again
+        :currency => "usd",
+        :card => token,
+        :description => user.email
+      )
+      update_attribute(:order_status, 'paid')
+    rescue Stripe::CardError => e
+      errors.add :base, "There was a problem with your credit card."
+      return false
+    end
+
+    true
+  end
 end

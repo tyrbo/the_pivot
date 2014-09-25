@@ -31,6 +31,7 @@ class SuppliersController < ApplicationController
   def show
     @supplier = Supplier.approved.find(params[:id])
     @categories = Category.eager_load(:items).where('items.supplier_id = ?', @supplier.id)
+    @added = { item_name: params[:item_name], item_picture: params[:item_picture] }
   end
 
   private

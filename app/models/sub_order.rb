@@ -54,10 +54,15 @@ class SubOrder < ActiveRecord::Base
     order_status == 'completed'
   end
 
+  scope :ordered, -> {where(status: "ordered")}
+  scope :cancelled, -> {where(status: "cancelled")}
+  scope :paid, -> {where(status: "paid")}
+  scope :completed, -> {where(status: "completed")}
+
 
   def total
     self.order_items.reduce(0) do |sum, order_item|
-      sum += (order_item.quantity * order_item.price)
+      sum += (order_item.quantity * order_item.item.price)
     end
   end
 

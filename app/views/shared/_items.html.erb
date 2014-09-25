@@ -1,6 +1,15 @@
 <%= render partial: 'shared/category_sidebar', locals: { categories: @categories} %>
 
-<div class='align-to-sidebar'>
+<% if @added[:item_name] != nil %>
+  <div class='added-custom-box col-md-2'>
+    <div class='added-caption'>Added To Cart:</br>
+      <img src="/assets/<%= @added[:item_picture] %>" height='32' width='32' class='img-rounded'>
+      <%= @added[:item_name] %>
+    </div>
+  </div></br>
+<% end %>
+<br/>
+<div class='align-to-sidebar'><br/>
   <% categories.each do |category| %>
     <div id="<%= category.name %>">
       <div class='col-md-10 custom-box category-items'>
@@ -25,19 +34,26 @@
                 <td><%= item.size %></td>
                 <td><%= item.inventory %></td>
                 <td><%= item.format_price %></td>
-                <td><a class='details-link'>Details</a></td>
-                <td>
-                  <%= form_tag(add_to_cart_path) do %>
-                    <input type="hidden" name="item_id" value="<%= item.id %>">
-                    <div class="col-md-7">
-                      <div class="input-group">
-                        <span class="input-group-addon">Qty</span>
-                        <input type="text" class="form-control qty-box" name="quantity" value="">
+                <td><a class='details-link'>See More Details</a></td>
+                <td style='text-align:center'>
+                  <% if item.out_of_stock? %>
+                    <strong>Out of Stock</strong>
+                  <% else %>
+                    <%= form_tag(add_to_cart_path) do %>
+                      <input type="hidden" name="item_id" value="<%= item.id %>">
+                      <% if @supplier %>
+                        <input type='hidden' name='supplier_id' value="<%= @supplier.id %>">
+                      <% end %>
+                      <div class="col-md-7">
+                        <div class="input-group">
+                          <span class="input-group-addon">Qty</span>
+                          <input type="text" class="form-control add-cart-qty-box" name="quantity" value="">
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-md-5">
-                      <%= button_tag 'Add To Cart', class: 'btn cart-btn' %>
-                    </div>
+                      <div class="col-md-5">
+                        <%= button_tag 'Add To Cart', class: 'btn add-cart-btn' %>
+                      </div>
+                    <% end %>
                   <% end %>
                 </td>
               </tr>

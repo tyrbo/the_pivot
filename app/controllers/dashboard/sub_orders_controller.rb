@@ -1,4 +1,5 @@
 class Dashboard::SubOrdersController < Dashboard::SupplierController
+  before_action :set_orders
 
   def index
     if params[:filter]
@@ -45,5 +46,12 @@ class Dashboard::SubOrdersController < Dashboard::SupplierController
 
   def sub_order_params
     params.require(:sub_order).permit(:provider_name, :provider_email, :status)
+  end
+
+  def set_orders
+      @ordered = SubOrder.ordered
+      @cancelled = SubOrder.cancelled
+      @paid     = SubOrder.paid
+      @completed = SubOrder.completed    
   end
 end

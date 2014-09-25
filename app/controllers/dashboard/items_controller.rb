@@ -1,7 +1,6 @@
 class Dashboard::ItemsController < Dashboard::SupplierController
   def index
-    @items = current_supplier.items.order(:title)
-    @categories = current_supplier.categories
+    @categories = Category.eager_load(:items).where('items.supplier_id = ?', current_supplier.id)
   end
 
   def show
