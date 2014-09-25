@@ -79,6 +79,10 @@
   padding: 0px;
 }
 
+a img#feature-thumb {
+display: inline-block;
+}
+
 #supplier-title {
   font-size: 15px;
   font-weight: bold;
@@ -195,3 +199,13 @@ margin: 0px auto 15px;
 }
 .video-section .buttonBar{display:none;}
 .player {font-size: 1px;}
+
+
+.contact-us {
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.contact-title {
+  margin-left: 20px;
+  margin-top: 40px;
+}
