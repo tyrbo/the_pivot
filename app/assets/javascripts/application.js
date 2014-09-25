@@ -75,9 +75,19 @@ $(document).ready(function() {
     nextCartButton.removeClass('invisible');
     nextCartButton.addClass('btn-primary');
 
-    allCartButton.bind('click', false)
+    allCartButton.bind('click', false);
     nextCartButton.unbind('click', false);
 
+  })
+
+  $(".qty-box").blur(function(){
+    var nextCartButton = $(this).closest('td').next().find('.cart-btn');
+    this.value = this.value.replace(/[^0-9]/g, '');
+
+    if($(this).val().length == 0){
+      nextCartButton.removeClass('btn-primary');
+      nextCartButton.bind('click', false);
+      }
   })
 
   $(".add-cart-btn").bind('click', false);
