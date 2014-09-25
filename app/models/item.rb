@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   validates :title,       presence: true, uniqueness: true
   validates :description, presence: true
   validates :description, length: { in: 2..500 }
-  
+
   has_many  :categorizations
   has_many  :categories, through: :categorizations
 
@@ -55,12 +55,12 @@ class Item < ActiveRecord::Base
     format_price.gsub('$', '')
   end
 
-  def self.active
-    all.select { |item| !item.retire }
+  def self.active(supplier)
+    where(retire: false, supplier: supplier)
   end
 
-  def self.inactive
-    all.select { |item| item.retire }
+  def self.inactive(supplier)
+    where(retire: true, supplier: supplier)
   end
 
   def update_retired_attribute

@@ -17,7 +17,7 @@
         </thead>
 
         <tbody>
-          <% category.items.active.sort_by { |i| i.title }.each do |item| %>
+          <% category.items.active(current_supplier).sort_by { |i| i.title }.each do |item| %>
             <tr>
               <td class='item_title'><%= item.title %></td>
               <td class='item_description'><%= item.description %></td>
@@ -55,7 +55,7 @@
         </thead>
 
         <tbody>
-          <% category.items.inactive.sort_by { |i| i.title }.each do |item| %>
+          <% category.items.inactive(current_supplier).sort_by { |i| i.title }.each do |item| %>
             <tr>
               <td class='item_title'><%= item.title %></td>
               <td class='item_description'><%= item.description %></td>
