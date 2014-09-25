@@ -17,6 +17,7 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
+gem 'stripe'
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'twilio-ruby'
 gem "paperclip", "~> 4.1"
