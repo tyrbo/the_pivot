@@ -17,6 +17,10 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
+group :development do
+  gem 'bullet'
+end
+
 gem 'stripe'
 gem "faker"
 gem "codeclimate-test-reporter", group: :test, require: nil
