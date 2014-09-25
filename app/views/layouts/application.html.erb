@@ -24,7 +24,6 @@
     <div id="wrap">
       <div class="container-fluid">
         <nav class="navbar navbar-default navbar-fixed-top navbar-theme" role="navigation">
-          <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
@@ -36,13 +35,11 @@
           <div class='navbar-top-group'>
             <div class="airlift-logo"><%= link_to image_tag("airlift_small.png"), root_path, class: 'navbar-brand' %></div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class='navbar-top-link'><%= link_to 'Items', items_path %></li>
                 <li class='navbar-top-link'><%= link_to 'Suppliers', suppliers_path %></li>
 
-                <!--  end  -->
               </ul>
 
               <%= form_tag(search_items_path, :method => "get", class: "navbar-form navbar-left", id: "search-form") do %>
@@ -74,7 +71,7 @@
                   <% end %>
                 </li>
               </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
           </div>
         </nav>
         <% flash.each do |name, msg| -%>
@@ -100,8 +97,8 @@
               <ul class="ul-footer-links">
                 <li><h5>Get to Know Us</h5></li>
                 <li><%= link_to 'About', about_path %></li>
-                <li><%= link_to 'Careers', "#employme" %></li>
-                <li>Contact Us</li>
+                <li><%= link_to 'Careers', "http://obscure-tundra-4984.herokuapp.com/listings#Technology" %></li>
+                <li><%= link_to 'Contact Us', '#contact' %></li>
               </ul>
             </div>
             <div class='col-md-3'>
