@@ -80,11 +80,37 @@ a {
   padding-bottom:5px;
   text-align:center;
   background-color:#113672;
+  margin-right:190px;
 }
 
 .added-caption {
   color:white;
 }
+
+.about-intro {
+  padding:100px;
+  padding-bottom:500px;
+  font-size:medium;
+  background-color:#113672;
+  color:white;
+  margin-left:-15px;
+  margin-right:-15px;
+}
+
+.airlift-history-title {
+  font-size:xx-large;
+  float:center;
+}
+
+.airlift-history {
+  font-size:large;
+}
+
+.airlift-anecdote {
+  // padding-left:60px;
+  font-size:large;
+}
+
 
 /*.category-header {
   border-bottom-style:solid;
