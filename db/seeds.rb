@@ -25,11 +25,11 @@ first_suppliers = 1
                           role: "supplier",
                   display_name: Faker::Name.first_name)
 
-  SuppliersUser.create(supplier_id: suppliers, user_id: user.id)
+  SuppliersUser.create(supplier_id: first_suppliers, user_id: user.id)
   first_suppliers += 1
 end
 
-second_supplier = 1
+second_suppliers = 1
 10.times do
   user = User.create(full_name: Faker::Name.name,
                          email: Faker::Internet.email,
@@ -38,7 +38,7 @@ second_supplier = 1
                           role: "supplier",
                   display_name: Faker::Name.first_name)
 
-  SuppliersUser.create(supplier_id: suppliers, user_id: user.id)
+  SuppliersUser.create(supplier_id: second_suppliers, user_id: user.id)
   second_suppliers += 1
 end
 
