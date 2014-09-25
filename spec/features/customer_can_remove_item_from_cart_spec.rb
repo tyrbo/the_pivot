@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 describe 'a user view the cart', type: :feature do
-  let(:keylime)  { Item.create! title: 'Key Lime', description: "yum", price: 34 }
-  let(:apple)    { Item.create! title: 'Apple', description: "delicious",  price: 29 }
+  let!(:category) { FactoryGirl.create(:category) }
+  let!(:supplier) { FactoryGirl.create(:supplier) }
+  let(:keylime)  { Item.create! title: 'Key Lime', description: "yum", price: 34, category_ids: [category.id], supplier_id: supplier.id, size: '1', inventory: 1000 }
+  let(:apple)    { Item.create! title: 'Apple', description: "delicious",  price: 29, category_ids: [category.id], supplier_id: supplier.id, size: '1', inventory: 1000 }
 
   context 'user' do
     it 'adds item to cart' do

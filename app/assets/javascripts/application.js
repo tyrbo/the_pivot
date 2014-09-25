@@ -6,6 +6,10 @@
 
 $(document).ready(function() {
 
+  $('.expiration-date-info').focus(function() {
+    $(this).val('');
+  })
+
   function stripeResponseHandler(status, response) {
     var $form = $('#new_order');
 
