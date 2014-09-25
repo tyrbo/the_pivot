@@ -31,10 +31,11 @@ RSpec.describe Item, :type => :model do
   it 'returns active items' do
     item1 = FactoryGirl.create(:item, title: 'item1')
     item2 = FactoryGirl.create(:item, title: 'item2')
+    supplier = FactoryGirl.create(:supplier, items: [item1, item2])
     item2.retire = true
     item2.save
 
-    active = Item.active
+    active = Item.active(supplier)
 
     expect(active).to include(item1)
     expect(active).not_to include(item2)
@@ -43,10 +44,11 @@ RSpec.describe Item, :type => :model do
   it 'returns active items' do
     item1 = FactoryGirl.create(:item, title: 'item1')
     item2 = FactoryGirl.create(:item, title: 'item2')
+    supplier = FactoryGirl.create(:supplier, items: [item1, item2])
     item2.retire = true
     item2.save
 
-    inactive = Item.inactive
+    inactive = Item.inactive(supplier)
 
     expect(inactive).not_to include(item1)
     expect(inactive).to include(item2)
