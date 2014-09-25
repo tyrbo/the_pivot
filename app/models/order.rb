@@ -67,7 +67,7 @@ class Order < ActiveRecord::Base
   def create_sub_orders
 
     suppliers.each do |supplier_id, items|
-      sub =  SubOrder.create(supplier_id: supplier_id,
+      sub =  SubOrder.create!(supplier_id: supplier_id,
                              order_id: self.id,
                              provider_name: self.user.full_name,
                              provider_email: self.user.email,
@@ -75,7 +75,6 @@ class Order < ActiveRecord::Base
                              status: self.order_status,
                              delivery_address_id: self.delivery_address_id,
                              billing_address_id: self.billing_address_id)
-      sub.save
       supplier = Supplier.find(supplier_id)
       # SupplierRequestMailer.request_email(supplier).deliver if sub.save && supplier != nil
       update_order_items(sub, items)

@@ -1,7 +1,7 @@
 Category.create(name: "Medicine")
 Category.create(name: "Food")
 Category.create(name: "Survival")
-Category.create(name: "Rope, Tarps, Tiedowns")
+Category.create(name: "Mounting")
 Category.create(name: "Clothing")
 Category.create(name: "Batteries & Power")
 Category.create(name: "Cleaning")
@@ -60,6 +60,8 @@ sweaters = File.new("#{Rails.root}/app/assets/images/sweaters.jpg")
 socks = File.new("#{Rails.root}/app/assets/images/socks.jpg")
 rope = File.new("#{Rails.root}/app/assets/images/rope.jpg")
 pants = File.new("#{Rails.root}/app/assets/images/pants.jpg")
+soup = File.new("#{Rails.root}/app/assets/images/soup.jpg")
+apples = File.new("#{Rails.root}/app/assets/images/apples.jpg")
 
 
 
@@ -75,13 +77,13 @@ disaster_picture = File.new("#{Rails.root}/app/assets/images/disaster.jpeg")
 kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time. One kid at a time. One kid at a time. One kid at a time. One kid at a time.', enabled: true, picture: kids_picture)
 tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs. Preventing wipe outs. Preventing wipe outs. Preventing wipe outs. Preventing wipe outs.', enabled: true, picture: tsunami_picture)
 wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes.', enabled: true, picture: wildfire_picture)
-hunger = Supplier.create(name: 'HungerRelief', url: 'hungerrelief', description: 'Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry.', enabled: true, picture: kids_picture)
-medical = Supplier.create(name: 'Medical Supply Fund', url: 'medical-supply-fund', description: 'Medical Fund for relief. Medical Fund for relief. Medical Fund for relief. Medical Fund for relief. Medical Fund for relief.', enabled: true, picture: kids_picture)
-medic = Supplier.create(name: 'MedicSupply', url: 'medicsupply', description: 'Medical Supplies for the masses. Medical Supplies for the masses. Medical Supplies for the masses. Medical Supplies for the masses. ', enabled: true, picture: kids_picture)
-safe = Supplier.create(name: 'SafeStart', url: 'safestart', description: 'Ensuring every child is cared for. Ensuring every child is cared for. Ensuring every child is cared for. Ensuring every child is cared for.', enabled: true, picture: kids_picture)
-hurricane = Supplier.create(name: 'Hurricane Recovery', url: 'hurricanerecovery', description: 'Recovery from the unexpected. Recovery from the unexpected. Recovery from the unexpected. Recovery from the unexpected. ', enabled: true, picture: kids_picture)
-relief = Supplier.create(name: 'Relief Without Borders', url: 'relief-without-borders', description: 'Relieve the World. Relieve the World. Relieve the World. Relieve the World.', enabled: true, picture: kids_picture)
-disaster = Supplier.create(name: 'Disaster Relief', url: 'disaster-relief', description: 'Disaster Relief for Everyone. Disaster Relief for Everyone. Disaster Relief for Everyone. Disaster Relief for Everyone.', enabled: true, picture: kids_picture)
+hunger = Supplier.create(name: 'HungerRelief', url: 'hungerrelief', description: 'Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry.', enabled: true, picture: hunger_picture)
+medical = Supplier.create(name: 'Medical Supply Fund', url: 'medical-supply-fund', description: 'Medical Fund for relief. Medical Fund for relief. Medical Fund for relief. Medical Fund for relief. Medical Fund for relief.', enabled: true, picture: medical_picture)
+medic = Supplier.create(name: 'MedicSupply', url: 'medicsupply', description: 'Medical Supplies for the masses. Medical Supplies for the masses. Medical Supplies for the masses. Medical Supplies for the masses. ', enabled: true, picture: medic_picture)
+safe = Supplier.create(name: 'SafeStart', url: 'safestart', description: 'Ensuring every child is cared for. Ensuring every child is cared for. Ensuring every child is cared for. Ensuring every child is cared for.', enabled: true, picture: safe_picture)
+hurricane = Supplier.create(name: 'Hurricane Recovery', url: 'hurricanerecovery', description: 'Recovery from the unexpected. Recovery from the unexpected. Recovery from the unexpected. Recovery from the unexpected. ', enabled: true, picture: hurricane_picture)
+relief = Supplier.create(name: 'Relief Without Borders', url: 'relief-without-borders', description: 'Relieve the World. Relieve the World. Relieve the World. Relieve the World.', enabled: true, picture: relief_picture)
+disaster = Supplier.create(name: 'Disaster Relief', url: 'disaster-relief', description: 'Disaster Relief for Everyone. Disaster Relief for Everyone. Disaster Relief for Everyone. Disaster Relief for Everyone.', enabled: true, picture: disaster_picture)
 
 SuppliersUser.create(supplier_id: kids.id, user_id: josh.id)
 SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)
@@ -99,17 +101,17 @@ kids.items.create(title: "Antacids", description: "200ml, 200 per bottle",
 kids.items.create(title: "Water Bottles", description: "Fresh Water in individual bottles",
  inventory: 5000000, price: 35.99, size: '32pk', category_ids:[2, 3])
 kids.items.create(title: "Chicken Noodle Soup", description: "Generic Chicken Soup",
- inventory: 10000000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3])
+ inventory: 10000000, price: 33.99, size: '10pk, 16oz cans', category_ids: [2, 3], picture: soup)
 kids.items.create(title: "White Rice", description: "White rice, burlap sack",
- inventory: 10000000, price: 33.99, size: '50 lbs', category_ids:[2, 3])
+ inventory: 10000000, price: 33.99, size: '50 lbs', category_ids:[2, 3], picture: rice)
 kids.items.create(title: "Protien Bars", description: "Chocolate & Peanutbutter Varieties",
  inventory: 12000000, price: 31.15, size: '30pk, 12 bars/pk', category_ids:[2, 3])
 kids.items.create(title: "Apples", description: "Red & Green",
- inventory: 12000000, price: 36.99, size: '50 lbs', category_ids:[2, 3])
+ inventory: 12000000, price: 36.99, size: '50 lbs', category_ids:[2, 3], picture: apples)
 kids.items.create(title: "Rope", description: "Tie to things",
- inventory: 15000000, price: 30.99, size: '50ft', category_ids: [3, 4])
+ inventory: 15000000, price: 30.99, size: '50ft', category_ids: [3, 4], picture: rope)
 kids.items.create(title: "Blankets", description: "Keeps warms, 5x5",
- inventory: 15000000, price: 30.99, size: '5pk', category_ids:[3, 5])
+ inventory: 15000000, price: 30.99, size: '5pk', category_ids:[3, 5], picture: blankets)
 kids.items.create(title: "Brown Rice", description: "Brown Rice, burlap sack",
   inventory: 4000000, price: 16.99, size: '50lb', category_ids: [2, 3])
 kids.items.create(title: "Black Beans", description: "Generic Black Beans",
@@ -144,13 +146,13 @@ tsunami.items.create(title: "Power Cord", description: "15ft, US",
 tsunami.items.create(title: "Pants", description: "All sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Sweaters", description: "All Sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5], picture: sweaters)
 tsunami.items.create(title: "T-Shirts", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids: [5])
 tsunami.items.create(title: "Jackets", description: "All Sizes",
  inventory: 15, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Socks", description: "Wool, all sizes",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[5], picture: socks)
 tsunami.items.create(title: "Shoes9", description: "Sneakers, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 tsunami.items.create(title: "Undergarments", description: "All types & sizes",
