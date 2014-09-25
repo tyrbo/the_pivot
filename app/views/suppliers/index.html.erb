@@ -2,7 +2,7 @@
 <table>
 <% @suppliers.each do |supplier| %>
       <tr class='col-md-9 custom-box'>
-        <td class='col-md-2'><%= image_tag supplier.picture.url(:smaller), :class => "img-rounded" %></td>
+        <td class='col-md-2'><%= image_tag supplier.picture.url(:thumb), :size => "128x128", :class => "img-rounded" %></td>
         <td class='col-md-2'><h3><a href='<%= supplier_path(supplier)%>' class='supplier-link'><%= supplier.name %></a></h3></td>
         <td class='col-md-2'><%= supplier.description %></td>
         <td class='col-md-4'>
