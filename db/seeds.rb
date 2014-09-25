@@ -74,7 +74,7 @@ relief_picture = File.new("#{Rails.root}/app/assets/images/relief.jpeg")
 disaster_picture = File.new("#{Rails.root}/app/assets/images/disaster.jpeg")
 
 
-kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time. One kid at a time. One kid at a time. One kid at a time. One kid at a time.', enabled: true, picture: kids_picture)
+kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time.', enabled: true, picture: kids_picture)
 tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs. Preventing wipe outs. Preventing wipe outs. Preventing wipe outs. Preventing wipe outs.', enabled: true, picture: tsunami_picture)
 wildfire = Supplier.create(name: 'Wildfire Recovery Team', url: 'wildfire-relief', description: 'Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes. Rebuilding the ashes.', enabled: true, picture: wildfire_picture)
 hunger = Supplier.create(name: 'HungerRelief', url: 'hungerrelief', description: 'Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry. Feeding the hungry.', enabled: true, picture: hunger_picture)
