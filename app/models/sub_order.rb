@@ -59,12 +59,11 @@ class SubOrder < ActiveRecord::Base
   scope :paid, -> { where(status: "paid").with_association }
   scope :completed, -> { where(status: "completed").with_association }
   scope :with_association, -> {
-    includes(order_items: :item).includes(order: :user)
+    includes(order_items: :item).includes(order: { user: :addresses })
   }
 
-
   def total
-    order_items.includes(:item).reduce(0) do |sum, order_item|
+    order_items.reduce(0) do |sum, order_item|
       sum += (order_item.quantity * order_item.item.price)
     end
   end

@@ -61,7 +61,7 @@ class Order < ActiveRecord::Base
   end
 
   def suppliers
-    suppliers = self.items.group_by(&:supplier_id)
+    @suppliers ||= self.items.group_by(&:supplier_id)
   end
 
   def create_sub_orders
