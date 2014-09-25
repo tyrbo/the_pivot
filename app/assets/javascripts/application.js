@@ -71,6 +71,7 @@ $(document).ready(function() {
     var allCartButton = $(this).closest('div.custom-box').find(".cart-btn");
 
     allCartButton.removeClass('btn-primary');
+    nextCartButton.removeClass('hidden');
     nextCartButton.addClass('btn-primary');
 
     allCartButton.bind('click', false)
