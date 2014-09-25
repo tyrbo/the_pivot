@@ -109,6 +109,9 @@ $(document).ready(function() {
 
   $(".details-link").click(function(){
     $(this).closest("tr").next().toggleClass('hidden');
+
+    $(this).find('.fa').toggleClass('fa-angle-down');
+    $(this).find('.fa').toggleClass('fa-angle-up')
   })
 
   $(".edit-link").click(function() {
