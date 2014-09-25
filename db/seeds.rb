@@ -14,6 +14,15 @@ tan = User.create(full_name: "Tan Doan", email: "tandoan@example.com", password:
 kids_picture = File.new("#{Rails.root}/app/assets/images/help_the_kids.jpg")
 wildfire_picture = File.new("#{Rails.root}/app/assets/images/wildfire.jpg")
 tsunami_picture = File.new("#{Rails.root}/app/assets/images/tsunami.jpg")
+bandages = File.new("#{Rails.root}/app/assets/images/Bandages.jpg")
+gauze = File.new("#{Rails.root}/app/assets/images/gauze.jpg")
+ibuprofen = File.new("#{Rails.root}/app/assets/images/ibuprofen.jpg")
+tent = File.new("#{Rails.root}/app/assets/images/tent.jpg")
+sleepingbag = File.new("#{Rails.root}/app/assets/images/sleepingbag.jpg")
+cot = File.new("#{Rails.root}/app/assets/images/cot.jpg")
+water = File.new("#{Rails.root}/app/assets/images/water.jpg")
+van = File.new("#{Rails.root}/app/assets/images/van.jpg")
+truck = File.new("#{Rails.root}/app/assets/images/truck.jpg")
 
 kids = Supplier.create(name: 'Help the Kids', url: 'savethechildren', description: 'One kid at a time', enabled: true, picture: kids_picture)
 tsunami = Supplier.create(name: 'Tsunami Relief', url: "tsunami-relief", description: 'Preventing wipe outs', enabled: true, picture: tsunami_picture)
@@ -25,11 +34,11 @@ SuppliersUser.create(supplier_id: tsunami.id, user_id: tan.id)
 
 
 item1 = kids.items.create(title: "Bandage", description: "Waterproof Standard Size",
- inventory: 10000000, price: 12.99, size: '400', category_ids: [1])
-item2 = kids.items.create(title: "Ibuprofin", description: "200ml, 200 per bottle",
- inventory:12000000, price: 17.99, size: '200', category_ids:[1])
+ inventory: 10000000, price: 12.99, size: '400', category_ids: [1], picture: bandages)
+item2 = kids.items.create(title: "Ibuprofen", description: "200ml, 200 per bottle",
+ inventory:12000000, price: 17.99, size: '200', category_ids:[1], picture: ibuprofen)
 item3 = kids.items.create(title: "Gauze", description: "Cloth",
- inventory:3000000, price: 23.99, size: '200', category_ids:[1])
+ inventory:3000000, price: 23.99, size: '200', category_ids:[1], picture: gauze)
 item4 = kids.items.create(title: "Neosporin", description: "Fix your cuts",
  inventory:5000000, price: 23.99, size: '200', category_ids:[1])
 item5 = kids.items.create(title: "Antacids", description: "Fix your stomach",
@@ -49,14 +58,14 @@ item11 = kids.items.create(title: "Rope", description: "Tie to things",
 item12 = kids.items.create(title: "Blankets", description: "Keeps warms",
  inventory: 15000000, price: 30.99, size: '200', category_ids:[3])
 item13 = tsunami.items.create(title: "Tents", description: "Easy to set up",
- inventory: 5000000, price: 30.99, size: '200', category_ids:[3])
+ inventory: 5000000, price: 30.99, size: '200', category_ids:[3], picture: tent)
 item14 = tsunami.items.create(title: "Sleeping Bag", description: "Adult sized",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
-item15 = tsunami.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
-item16 = tsunami.items.create(title: "Van Rental", description: "8 person van per day",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[3], picture: sleepingbag)
+item15 = tsunami.items.create(title: "Cot", description: "Twin sized sleeping cot",
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[3], picture: cot)
+item16 = tsunami.items.create(title: "Big Van Rental", description: "12 person van per day",
  inventory: 15, price: 30.99, size: '200', category_ids: [4])
-item17 = tsunami.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
+item17 = tsunami.items.create(title: "Large Truck Rental", description: "Heavy duty truck per day",
  inventory: 15, price: 30.99, size: '200', category_ids:[4])
 item18 = tsunami.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
@@ -76,11 +85,11 @@ item25 = tsunami.items.create(title: "Undergarments", description: "All types & 
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 
 item26 = wildfire.items.create(title: "Water", description: "bottled drinking water",
- inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
+ inventory: 12000000, price: 30.99, size: '200', category_ids:[3], picture: water)
 item27 = wildfire.items.create(title: "Van Rental", description: "8 person van per day",
- inventory: 15, price: 30.99, size: '200', category_ids: [4])
+ inventory: 15, price: 30.99, size: '200', category_ids: [4], picture: van)
 item28 = wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
- inventory: 15, price: 30.99, size: '200', category_ids:[4])
+ inventory: 15, price: 30.99, size: '200', category_ids:[4], picture: truck)
 item29 = wildfire.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
 item30 = wildfire.items.create(title: "Pants", description: "All sizes",

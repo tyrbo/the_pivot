@@ -24,11 +24,18 @@
   <% @featured.each do |supplier| %>
     <div class="col-md-4">
       <div class="thumbnail">
-        <%= image_tag supplier.supplier.picture.url(:medium), :class => "img-rounded" %>
+        <%= link_to supplier_path(supplier.supplier) do %><%= image_tag supplier.supplier.picture.url(:medium), :class => "img-rounded" %><% end %>
         <div class="caption text-center">
           <h3><%= link_to supplier.supplier.name, supplier.supplier %></h3>
           <p><%= supplier.supplier.description %></p>
+          <div class='row'>
+            <% supplier.supplier.items[0..2].each do |item| %>
+              <%= link_to item_path(item) do %><%= image_tag item.picture.url(:thumb), :class => "img-rounded-thumb", id: "feature-thumb" %><% end %>
+            <% end %>
+          </div>
+
         </div>
+
       </div>
     </div>
   <% end %>
