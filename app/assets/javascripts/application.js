@@ -70,8 +70,9 @@ $(document).ready(function() {
     var nextCartButton = $(this).closest('td').next().find('.cart-btn');
     var allCartButton = $(this).closest('div.custom-box').find(".cart-btn");
 
-    allCartButton.removeClass('btn-primary');
-    nextCartButton.removeClass('hidden');
+
+    allCartButton.addClass('invisible');
+    nextCartButton.removeClass('invisible');
     nextCartButton.addClass('btn-primary');
 
     allCartButton.bind('click', false)
