@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924220252) do
+ActiveRecord::Schema.define(version: 20140925224302) do
 
   create_table "addresses", force: true do |t|
     t.string  "city"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 20140924220252) do
     t.datetime "updated_at"
     t.integer  "quantity"
   end
+
+  add_index "cart_items", ["cart_id"], name: "index_cart_items_on_cart_id"
+  add_index "cart_items", ["item_id"], name: "index_cart_items_on_item_id"
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -55,6 +58,8 @@ ActiveRecord::Schema.define(version: 20140924220252) do
     t.integer "supplier_id"
   end
 
+  add_index "featured_suppliers", ["supplier_id"], name: "index_featured_suppliers_on_supplier_id"
+
   create_table "items", force: true do |t|
     t.string   "title"
     t.string   "description"
@@ -71,6 +76,8 @@ ActiveRecord::Schema.define(version: 20140924220252) do
     t.integer  "price"
   end
 
+  add_index "items", ["supplier_id"], name: "index_items_on_supplier_id"
+
   create_table "order_items", force: true do |t|
     t.integer  "order_id"
     t.integer  "item_id"
@@ -80,6 +87,10 @@ ActiveRecord::Schema.define(version: 20140924220252) do
     t.integer  "quantity"
     t.integer  "price"
   end
+
+  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id"
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+  add_index "order_items", ["sub_order_id"], name: "index_order_items_on_sub_order_id"
 
   create_table "orders", force: true do |t|
     t.integer  "user_id"
@@ -92,10 +103,17 @@ ActiveRecord::Schema.define(version: 20140924220252) do
     t.integer  "billing_address_id"
   end
 
+  add_index "orders", ["billing_address_id"], name: "index_orders_on_billing_address_id"
+  add_index "orders", ["delivery_address_id"], name: "index_orders_on_delivery_address_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
   create_table "pending_admins", force: true do |t|
     t.integer "supplier_id"
     t.integer "user_id"
   end
+
+  add_index "pending_admins", ["supplier_id"], name: "index_pending_admins_on_supplier_id"
+  add_index "pending_admins", ["user_id"], name: "index_pending_admins_on_user_id"
 
   create_table "sub_orders", force: true do |t|
     t.integer  "order_id"
@@ -109,6 +127,11 @@ ActiveRecord::Schema.define(version: 20140924220252) do
     t.integer  "delivery_address_id"
     t.integer  "billing_address_id"
   end
+
+  add_index "sub_orders", ["billing_address_id"], name: "index_sub_orders_on_billing_address_id"
+  add_index "sub_orders", ["delivery_address_id"], name: "index_sub_orders_on_delivery_address_id"
+  add_index "sub_orders", ["order_id"], name: "index_sub_orders_on_order_id"
+  add_index "sub_orders", ["supplier_id"], name: "index_sub_orders_on_supplier_id"
 
   create_table "suppliers", force: true do |t|
     t.string   "name"
@@ -130,10 +153,16 @@ ActiveRecord::Schema.define(version: 20140924220252) do
     t.string  "role"
   end
 
+  add_index "suppliers_users", ["supplier_id"], name: "index_suppliers_users_on_supplier_id"
+  add_index "suppliers_users", ["user_id"], name: "index_suppliers_users_on_user_id"
+
   create_table "user_addresses", force: true do |t|
     t.integer "user_id"
     t.integer "address_id"
   end
+
+  add_index "user_addresses", ["address_id"], name: "index_user_addresses_on_address_id"
+  add_index "user_addresses", ["user_id"], name: "index_user_addresses_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "full_name"
