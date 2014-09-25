@@ -167,7 +167,7 @@ wildfire.items.create(title: "Water", description: "bottled drinking water",
 wildfire.items.create(title: "Van Rental", description: "8 person van per day",
  inventory: 15, price: 100.99, size: '1 day', category_ids: [4], picture: van)
 wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
- inventory: 15, price: 200.99, size: '1 day', category_ids:[4], truck)
+ inventory: 15, price: 200.99, size: '1 day', category_ids:[4], picture: truck)
 wildfire.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12000000, price: 600.99, size: '1 day', category_ids:[4, 11])
 wildfire.items.create(title: "Hats", description: "One Size, Varied Colors",
