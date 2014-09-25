@@ -4,8 +4,13 @@ class CartItem < ActiveRecord::Base
 
 	delegate :price, to: :item
 
+
 	def price
-		self.quantity * self.item.price
+		if self.quantity != nil
+			self.quantity * self.item.price
+		else
+			0
+		end
 	end
 
 	def total_price
