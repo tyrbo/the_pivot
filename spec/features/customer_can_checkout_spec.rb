@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'A user with a cart & items', type: :feature do
   let!(:supplier) { FactoryGirl.create(:supplier)}
-  let!(:keylime)  { supplier.items.create! title: 'key lime', description: "yum", price: 34 }
+  let!(:keylime)  { supplier.items.create! title: 'key lime', description: "yum", price: 34, inventory: 300, size: '20' }
   let(:user) {FactoryGirl.create(:user, addresses: [address1, address2])}
   let(:address1) { FactoryGirl.create(:address, shipping: true, billing: false)}
   let(:address2) { FactoryGirl.create(:address, shipping: false, billing: true)}
@@ -45,6 +45,22 @@ describe 'A user with a cart & items', type: :feature do
     click_on('Place Order')
     expect(page).to have_content('order was successfully created')
     expect(page).to have_content('123 Main Denver CO')
+  end
+
+  it 'can not place order for more items than are in stock' do
+    add_to_cart(keylime)
+    find('#cart-button').click
+
+    keylime.size = '1'
+    keylime.inventory = 1
+    keylime.save
+
+    click_on('Enter Your Billing Info')
+    choose "order[order_type]", :option  =>"Delivery"
+    choose "order[delivery_address_id]", :option => 1
+    choose "order[billing_address_id]", :option => 2
+    click_on('Place Order')
+    expect(page).to have_content('There are not enough key lime in stock to fulfill your order.')
   end
 
 end

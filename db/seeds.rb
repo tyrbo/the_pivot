@@ -55,9 +55,9 @@ item14 = tsunami.items.create(title: "Sleeping Bag", description: "Adult sized",
 item15 = tsunami.items.create(title: "Cot", description: "Twin Sized Sleeping Cot",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
 item16 = tsunami.items.create(title: "Van Rental", description: "8 person van per day",
- inventory: 15, price: 30.99, size: '200', category_ids: [4])
+ inventory: 15000000, price: 30.99, size: '200', category_ids: [4])
 item17 = tsunami.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
- inventory: 15, price: 30.99, size: '200', category_ids:[4])
+ inventory: 15000000, price: 30.99, size: '200', category_ids:[4])
 item18 = tsunami.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
 item19 = tsunami.items.create(title: "Pants", description: "All sizes",
@@ -65,9 +65,9 @@ item19 = tsunami.items.create(title: "Pants", description: "All sizes",
 item20 = tsunami.items.create(title: "Sweaters", description: "All Sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 item21 = tsunami.items.create(title: "T-Shirts", description: "All Sizes",
- inventory: 15, price: 30.99, size: '200', category_ids: [5])
+ inventory: 15000000, price: 30.99, size: '200', category_ids: [5])
 item22 = tsunami.items.create(title: "Jackets", description: "All Sizes",
- inventory: 15, price: 30.99, size: '200', category_ids:[5])
+ inventory: 15000000, price: 30.99, size: '200', category_ids:[5])
 item23 = tsunami.items.create(title: "Socks", description: "Wool, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 item24 = tsunami.items.create(title: "Shoes", description: "Sneakers, all sizes",
@@ -78,9 +78,9 @@ item25 = tsunami.items.create(title: "Undergarments", description: "All types & 
 item26 = wildfire.items.create(title: "Water", description: "bottled drinking water",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[3])
 item27 = wildfire.items.create(title: "Van Rental", description: "8 person van per day",
- inventory: 15, price: 30.99, size: '200', category_ids: [4])
+ inventory: 15000000, price: 30.99, size: '200', category_ids: [4])
 item28 = wildfire.items.create(title: "Truck Rental", description: "Standard sized pickup truck per day",
- inventory: 15, price: 30.99, size: '200', category_ids:[4])
+ inventory: 15000000, price: 30.99, size: '200', category_ids:[4])
 item29 = wildfire.items.create(title: "Helicopter Pickup", description: "One location",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[4])
 item30 = wildfire.items.create(title: "Pants", description: "All sizes",
@@ -88,9 +88,9 @@ item30 = wildfire.items.create(title: "Pants", description: "All sizes",
 item31 = wildfire.items.create(title: "Sweaters", description: "All Sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 item32 = wildfire.items.create(title: "T-Shirts", description: "All Sizes",
- inventory: 15, price: 30.99, size: '200', category_ids: [5])
+ inventory: 15000000, price: 30.99, size: '200', category_ids: [5])
 item33 = wildfire.items.create(title: "Jackets", description: "All Sizes",
- inventory: 15, price: 30.99, size: '200', category_ids:[5])
+ inventory: 15000000, price: 30.99, size: '200', category_ids:[5])
 item34 = wildfire.items.create(title: "Socks", description: "Wool, all sizes",
  inventory: 12000000, price: 30.99, size: '200', category_ids:[5])
 item35 = wildfire.items.create(title: "Shoes", description: "Sneakers, all sizes",

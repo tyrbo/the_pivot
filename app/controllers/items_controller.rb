@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
 	def index
     @categories = Category.eager_load(:items).order(:name)
+		@added = {item_name: params[:item_name], item_picture: params[:item_picture]}
 	end
 
   def show
