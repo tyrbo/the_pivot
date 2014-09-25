@@ -388,7 +388,7 @@ safe.items.create(title: "Kids Socks9", description: "Cotton/polyester blend, si
   inventory: 15000000, price: 30.99, size: '32pk', category_ids:[3, 5])
 
 hurricane.items.create(title: "Tents2", description: "Easy to set up, 8x8",
- inventory: 5000000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent
+ inventory: 5000000, price: 30.99, size: '1', category_ids:[3, 4], picture: tent)
 hurricane.items.create(title: "Sleeping Bag2", description: "Adult sized",
  inventory: 12000000, price: 30.99, size: '1', category_ids:[3], picture: sleepingbag)
 hurricane.items.create(title: "Cot2", description: "Twin Sized Sleeping Cot",
