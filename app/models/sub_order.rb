@@ -57,7 +57,7 @@ class SubOrder < ActiveRecord::Base
 
   def total
     self.order_items.reduce(0) do |sum, order_item|
-      sum += (order_item.quantity * order_item.price)
+      sum += (order_item.quantity * order_item.item.price)
     end
   end
 
