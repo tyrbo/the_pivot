@@ -55,7 +55,7 @@ describe 'a supplier viewing the order page', type: :feature do
     click_on('Save Changes')
     click_on('Back to Edit Order')
     expect(page).to have_content(99)
-    expect(page).to have_content(29.70)
+    expect(page).to have_content(29)
     expect(page).to_not have_content(371.88)
   end
 
