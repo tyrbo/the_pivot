@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
   validates :password,
             presence:     true,
             length:       { in: 6..40 },
-            confirmation: true
+            confirmation: true,
+            if: :validate_password?
 
   has_secure_password
   has_many :orders
@@ -28,6 +29,10 @@ class User < ActiveRecord::Base
 
   has_many :user_addresses
   has_many :addresses, through: :user_addresses
+
+  def validate_password?
+    password.present? || password_confirmation.present?
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
