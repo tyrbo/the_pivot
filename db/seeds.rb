@@ -16,9 +16,8 @@ User.create(full_name: "Jeff Casimir", email: "demo+jeff@jumpstartlab.com", pass
 User.create(full_name: "Jorge Tellez", email: "demo+jorge@jumpstartlab.com", password: "password", role: :admin, display_name: "novohispano")
 josh = User.create(full_name: "Josh Cheek", email: "demo+josh@jumpstartlab.com", password: "password", password_confirmation: "password", display_name: "Josh", role: 'supplier')
 tan =  User.create(full_name: "Tan Doan", email: "tandoan@example.com", password: "password", password_confirmation: "password", display_name: "Tan", role: 'supplier')
-
+first_suppliers = 1
 10.times do
-  suppliers = 1
   user = User.create(full_name: Faker::Name.name,
                          email: Faker::Internet.email,
                       password: "password",
@@ -27,11 +26,11 @@ tan =  User.create(full_name: "Tan Doan", email: "tandoan@example.com", password
                   display_name: Faker::Name.first_name)
 
   SuppliersUser.create(supplier_id: suppliers, user_id: user.id)
-  suppliers += 1
+  first_suppliers += 1
 end
 
+second_supplier = 1
 10.times do
-  suppliers = 1
   user = User.create(full_name: Faker::Name.name,
                          email: Faker::Internet.email,
                       password: "password",
@@ -40,7 +39,7 @@ end
                   display_name: Faker::Name.first_name)
 
   SuppliersUser.create(supplier_id: suppliers, user_id: user.id)
-  suppliers += 1
+  second_suppliers += 1
 end
 
 kids_picture = File.new("#{Rails.root}/app/assets/images/help_the_kids.jpg")
