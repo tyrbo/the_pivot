@@ -3,9 +3,9 @@
 <br/>
 <div class='align-to-sidebar'><br/>
   <% categories.each do |category| %>
-    <div id="<%= category.id %>">
+    <span id="<%= category.id %>">
       <div class='col-md-10 custom-box category-items'>
-        <h2 class='category-header'><%= category.name %></h2>
+        <br/><h2 class='category-header'><%= category.name %></h2>
         <table class="table">
           <thead>
             <tr>
@@ -60,9 +60,9 @@
                 </td>
               </tr>
             <% end %>
-          </tbody>  
+          </tbody>
         </table>
       </div>
-    </div>
+    </span>
   <% end %>
 </div>
